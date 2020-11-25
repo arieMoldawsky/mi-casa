@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     p() {
-      this.$router.push(`/house/5c09`);
+      this.$router.push(`/house/5fbe242e3a0f7d27b2f9e20c`);
     },
     houseList() {
       this.$router.push(`/house`);

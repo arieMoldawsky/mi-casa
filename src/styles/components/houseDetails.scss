@@ -1,0 +1,47 @@
+.house-details-section {
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+    .imgs-container {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        border-radius: 10px;
+
+        img {
+            object-fit: cover;
+        }
+        .secondary-imgs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            img {
+                // width: 200px;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .house-desc {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 9fr 1fr;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+}
+
+.house-reviews-section {
+    
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+}
