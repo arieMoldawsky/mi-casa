@@ -47,8 +47,8 @@
       label="In Stock"
       border
     /> -->
-    <pre>{{ clonedFilterBy }}</pre>
-    <pre>{{ houses }}</pre>
+    <!-- <pre>{{ clonedFilterBy }}</pre>
+    <pre>{{ houses }}</pre> -->
   </section>
 </template>
 

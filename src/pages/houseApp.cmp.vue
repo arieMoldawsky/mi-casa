@@ -4,9 +4,9 @@
 	<section class="house-app main-layout">
 		<h1>houses</h1>
 		<houseFilter @updateFilter="updateFilter" />
-        <pre>{{houses}}</pre>
+        <!-- <pre>{{houses}}</pre> -->
 		<houseList
-			
+			v-if="houses"
 			:houses="houses"
 		/>
 	</section>
