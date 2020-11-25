@@ -1,0 +1,17 @@
+// setup
+@import './setup/variables';
+@import './setup/mixins';
+@import './setup/functions';
+@import './setup/typography';
+
+// basic
+@import './basics/base';
+@import './basics/helpers';
+
+// components
+@import './components/toy-list';
+@import './components/user-profile';
+@import './components/toy-filter';
+@import './components/popup';
+@import './components/gender-picker';
+@import './components/navbar';
