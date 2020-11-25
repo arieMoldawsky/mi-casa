@@ -1,15 +1,14 @@
 <template>
     <section class="house-details-section">
         <h2>House Details:</h2>
-        <!-- <div>{{ house.name }}</div>
-        <div>(claculate rating) - {{house.location.city}}, {{house.location.country}}</div>
+        <div>{{ house.name }}</div>
+        <div>(claculate rating) - {{house.location}}</div>
         <div class="imgs-container">
             <div class="main-img">
-                <img :src="house.imgs[0]" alt="">
+                <img :src="mainImg" alt="">
             </div>
             <img v-for="(img, idx) in house.imgs" :key="img" :src="house.imgs[idx + 1]" alt="">
-        </div> -->
-        {{house}}
+        </div>
     </section>
 </template>
 
@@ -22,6 +21,7 @@ export default {
     data() {
         return {
             house: {},
+            mainImg: ''
         };
     },
     methods: {
@@ -43,7 +43,7 @@ export default {
                 houseId
             })
             this.house = house;
-            console.log(house);
+            this.mainImg = house.imgs[0];
         }
     },
     computed: {
@@ -54,6 +54,7 @@ export default {
             if (this.house.inStock) return "Yes!";
             return "No..";
         },
+
     },
     created() {
         const houseId = this.$route.params.id;
