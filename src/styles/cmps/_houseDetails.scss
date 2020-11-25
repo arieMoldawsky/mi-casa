@@ -4,6 +4,10 @@
     margin-left: auto;
     text-align: left;
 
+    .house-location{
+        text-decoration: underline;
+    }
+
     .imgs-container {
         margin-top: 10px;
         max-width: 100%;
@@ -68,6 +72,7 @@
     .amenities-section {
         text-align: left;
         border-bottom: 1px solid lightgray;
+        padding-bottom: 1rem;
         margin-bottom: 20px;
 
         ul {
@@ -95,6 +100,10 @@
     ul {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 10px;
     }
 }
 
+// .googleMap-section .theMap {
+//     width: 100%;
+// }

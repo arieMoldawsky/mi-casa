@@ -4,8 +4,17 @@ import router from './router'
 import store from './store'
 import element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
+import * as VueGoogleMaps from 'vue2-google-maps';
 
 import '@/styles/styles.scss'
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyB0b3on9pGxutkQG8-bRNmspW4imoC7_OI',
+    libraries: 'places',
+    
+  },
+});
 
 Vue.use(element, {locale})
 Vue.config.productionTip = false
