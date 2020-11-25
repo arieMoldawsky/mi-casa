@@ -3,16 +3,19 @@
     <div class="health-link-container">
      <a class="health-link" href="https://www.gov.il/he/departments/topics/corona-main-sub?gclid=CjwKCAiAnvj9BRA4EiwAuUMDfwqvMW-aXce0UhFerpxXrTDXyF83RoPmpQ9wdyf64GjhtbFrLMShKhoCjW8QAvD_BwE"  target="_blank">Get the latest on our COVID-19 response</a>
     </div>
+    <!-- <button @click="p">p</button>
+    <button @click="houseList">houseList</button> -->
+    <div class="hero-container">
     <appHeader />
     <houseFilter />
-    <button @click="p">p</button>
-    <button @click="houseList">houseList</button>
-    <div class="hero-img">
-      <img src="../assets/homePageBg.jpg"
-      <h1 class="hero-title">Mi Casa Su Casa</h1>
+      
+      <pre class="hero-title flex">
+Mi Casa
+Su Casa
+</pre>
     </div>
       <div class="trending-head block">
-      <h3>Live anywhere</h3>
+      <h2>Live anywhere</h2>
       </div>
     <div class="trending-house-container flex">
       <div class="trending-house-1 trending flex" @click="houseList">
