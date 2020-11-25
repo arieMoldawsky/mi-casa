@@ -60,7 +60,7 @@ export default {
       clonedFilterBy: null,
       deBounce: {
         txt: '',
-        timer: null,
+        timer: null,    
       },
       filterOptions: {
         page: [5, 10, 15, 20],
@@ -75,7 +75,7 @@ export default {
     },
     housesCount() {
       return this.$store.getters.gethousesCount
-    }
+    },
   },
   methods: {
     updatePage(newPage) {
@@ -100,7 +100,7 @@ export default {
     },
   },
   created() {
-    this.clonedFilterBy = JSON.parse(JSON.stringify(this.$store.getters.getFilterBy))
+    this.clonedFilterBy = this.$store.getters.getFilterBy
   },
   watch: {
     clonedFilterBy: {

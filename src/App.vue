@@ -15,7 +15,10 @@ import houseFilter from '@/cmps/houseFilter.cmp'
 export default {
   components: {
     houseFilter,
-  }
+  },
+  // created: {
+
+  // }
   
 }
 </script>

@@ -14,12 +14,12 @@ export const houseService = {
 }
 
 function query(query) {
-    // var queryURL = `?`
-    // for (const key in query) {
-    //   if (query[key]) queryURL += `${key}=${query[key]}&`
-    // }
-    // return httpService.get(`house/${queryURL}`)
-  return houses
+    var queryURL = `?`
+    for (const key in query) {
+      if (query[key]) queryURL += `${key}=${query[key]}&`
+    }
+    return httpService.get(`house/${queryURL}`)
+  // return houses
 }
 
 function findById(houseId) {

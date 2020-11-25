@@ -17,7 +17,7 @@ export default {
   },
   getters: {
     getFilterBy({ filterBy }) {
-      return filterBy
+      return JSON.parse(JSON.stringify(filterBy))
     },
     getHouses({ houses }) {
       return houses
