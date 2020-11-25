@@ -29,11 +29,14 @@
           range-separator="To"
           start-placeholder="Check In"
           end-placeholder="Check Out"
-          :clearable="false"
           :picker-options="datePickerOptions"
         />
       </label>
     </el-form-item>
+    <el-form-item>
+      <el-button type="success" native-type="submit">Search</el-button>
+    </el-form-item>
+
     <!-- <pre>{{ clonedFilterBy }}</pre> -->
     <!-- <label>
       Houses Per Page
@@ -117,7 +120,6 @@ export default {
     datesFromPicker(ev) {
       this.clonedFilterBy.checkIn = ev[0]
       this.clonedFilterBy.checkOut = ev[1]
-      console.log(ev)
     },
     updatePage(newPage) {
       const isLastPage =
@@ -139,21 +141,16 @@ export default {
         this.clonedFilterBy.txt = this.deBounce.txt
       }, 300)
     },
+    updateFilter() {
+      this.$store.dispatch({
+        type: 'updateFilter',
+        clonedFilterBy: this.clonedFilterBy,
+      })
+      this.$store.dispatch({ type: 'loadHouses' })
+    },
   },
   created() {
     this.clonedFilterBy = JSON.parse(JSON.stringify(this.filterBy))
   },
-  // watch: {
-  //   clonedFilterBy: {
-  //     deep: true,
-  //     handler() {
-  //       this.$store.dispatch({
-  //         type: 'updateFilter',
-  //         clonedFilterBy: this.clonedFilterBy,
-  //       })
-  //       this.$store.dispatch({ type: 'loadHouses' })
-  //     },
-  //   },
-  // },
 }
 </script>
