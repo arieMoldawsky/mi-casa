@@ -12,3 +12,13 @@
 .ratio-card { @include aspect-ratio(100, 80); }
 
 .ratio-poster { @include aspect-ratio(100, 150); }
+
+// Flex Helpers 
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}

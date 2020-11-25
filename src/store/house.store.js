@@ -9,6 +9,8 @@ export default {
       limit: 10,
       txt: '',
       sortBy: 'name',
+      checkIn: new Date(Date.now()).toISOString().slice(0,10),
+      checkOut: new Date(Date.now()).toISOString().slice(0,10),
       // tags: 'all',
     },
     houses: [],
