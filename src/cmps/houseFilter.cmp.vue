@@ -2,38 +2,50 @@
   <!-- <section class="house-filter-container flex"> -->
   <el-form
     @submit.native.prevent="updateFilter"
-    class="house-filter-container flex"
+    class="house-filter-container flex-centered"
     ref="form"
     :model="clonedFilterBy"
     size="medium"
   >
-    <el-form-item>
-      <label class="title flex column">
+    <div class="form-item flex-start">
+      <label>
         Location
-        <el-input
-          placeholder="Where are you going?"
-          v-model="deBounce.txt"
-          @input="updateTxt"
-        />
       </label>
-    </el-form-item>
-    <el-form-item>
-      <label class="title flex column">
+      <el-input
+        placeholder="Where are you going?"
+        v-model="deBounce.txt"
+        @input="updateTxt"
+      />
+    </div>
+    <div class="form-item date-picker flex-start">
+      <label>
         Dates
+      </label>
         <el-date-picker
+          class="date-picker"
+          popper-class="date-picker-popper"
           :value="datesToPicker"
           @input="datesFromPicker"
-          format="d MMMM"
+          format="MMM d"
           value-format="yyyy-MM-dd"
           type="daterange"
-          range-separator="To"
+          range-separator=""
           start-placeholder="Check In"
           end-placeholder="Check Out"
           :clearable="false"
           :picker-options="datePickerOptions"
         />
+    </div>
+    <div class="form-item flex-start">
+      <label>
+        Guests
       </label>
-    </el-form-item>
+        <el-input-number v-model="clonedFilterBy.capacity" :min="1" :max="16" />
+    </div>
+    <div class="form-item flex-start">
+      <el-button type="success" native-type="submit">Search</el-button>
+    </div>
+
     <!-- <pre>{{ clonedFilterBy }}</pre> -->
     <!-- <label>
       Houses Per Page
@@ -117,7 +129,6 @@ export default {
     datesFromPicker(ev) {
       this.clonedFilterBy.checkIn = ev[0]
       this.clonedFilterBy.checkOut = ev[1]
-      console.log(ev)
     },
     updatePage(newPage) {
       const isLastPage =
@@ -139,21 +150,16 @@ export default {
         this.clonedFilterBy.txt = this.deBounce.txt
       }, 300)
     },
+    updateFilter() {
+      this.$store.dispatch({
+        type: 'updateFilter',
+        clonedFilterBy: this.clonedFilterBy,
+      })
+      this.$store.dispatch({ type: 'loadHouses' })
+    },
   },
   created() {
     this.clonedFilterBy = JSON.parse(JSON.stringify(this.filterBy))
   },
-  // watch: {
-  //   clonedFilterBy: {
-  //     deep: true,
-  //     handler() {
-  //       this.$store.dispatch({
-  //         type: 'updateFilter',
-  //         clonedFilterBy: this.clonedFilterBy,
-  //       })
-  //       this.$store.dispatch({ type: 'loadHouses' })
-  //     },
-  //   },
-  // },
 }
 </script>

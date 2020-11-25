@@ -1,14 +1,17 @@
 <template>
-  <section class="house-app main-layout">
+  <main class="house-app main-layout">
     <appHeader />
-    <h1>houses</h1>
     <houseFilter
       :filterBy="filterBy"
       :housesLength="housesLength"
       @updateFilter="updateFilter"
     />
+    <div class="head-title flex">
+    <small class="head-title-visits">300+ stays</small>
+    <h1 class="head-title-txt">Entire homes</h1>
+    </div>
     <houseList :houses="houses" />
-  </section>
+  </main>
 </template>
 
 <script>

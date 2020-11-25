@@ -7,17 +7,21 @@
 // basic
 @import './basics/base';
 @import './basics/helpers';
+@import './basics/layout';
 
 //plugins 
 
 @import '../../node_modules/element-ui/lib/theme-chalk/index.css';
+// @import '../../node_modules/vue-airbnb-style-datepicker/dist/vue-airbnb-style-datepicker.min.css';
 
 // components
 @import './cmps/houseFilter';
 @import './cmps/houseDetails';
 @import './cmps/home';
 @import './cmps/appHeader';
-@import './cmps/header';
+@import './cmps/houseApp';
+
+// @import './cmps/header';
 
 //fonts
 
