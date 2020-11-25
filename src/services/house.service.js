@@ -1,6 +1,5 @@
-import { utilService } from './util.service.js'
+// import { utilService } from './util.service.js'
 import httpService from './http.service'
-import axios from 'axios'
 
 const baseUrl =
   process.env.NODE_ENV !== 'development'
@@ -9,33 +8,23 @@ const baseUrl =
 
 export const houseService = {
   query,
-  getEmptyHouse,
   findById,
   save,
   remove,
 }
 
 function query(query) {
-  //   var queryURL = `?`
-  //   for (const key in query) {
-  //     if (query[key]) queryURL += `${key}=${query[key]}&`
-  //   }
+    // var queryURL = `?`
+    // for (const key in query) {
+    //   if (query[key]) queryURL += `${key}=${query[key]}&`
+    // }
+    // return httpService.get(`house/${queryURL}`)
   return houses
-  //   return httpService.get(`house/${queryURL}`)
-}
-
-
-function getEmptyHouse() {
-  return {
-    _id: '',
-    title: '',
-    isDone: false,
-  }
 }
 
 function findById(houseId) {
-  return houses.find(house => house._id === houseId)
-  //   return httpService.get(`house/${houseId}`)
+    //   return httpService.get(`house/${houseId}`)
+    return houses.find(house => house._id === houseId)
 }
 
 function remove(house) {
@@ -54,7 +43,7 @@ function _add(house) {
   // house._id = utilService.makeId();
   // house.type = 'Funny';
   // house.createdAt = Date.now();
-  return axios.post(`${baseUrl}`, house).then(res => res.data)
+  // return axios.post(`${baseUrl}`, house).then(res => res.data)
 }
 
 const houses = [

@@ -1,6 +1,6 @@
 import { houseService } from '@/services/house.service.js'
-import { imgUploadService } from '@/services/img.upload.service.js'
-import { eventBus, SHOW_MSG } from '@/services/eventBus.service.js'
+// import { imgUploadService } from '@/services/img.upload.service.js'
+// import { eventBus, SHOW_MSG } from '@/services/eventBus.service.js'
 
 export default {
   state: {
@@ -9,7 +9,7 @@ export default {
       limit: 10,
       txt: '',
       sortBy: 'name',
-      tags: 'all',
+      // tags: 'all',
     },
     houses: [],
     housesCount: null,
@@ -99,8 +99,8 @@ export default {
     // loadHouse(state, { house }) {
     //   state.house = house
     // },
-    updateFilter(state, { filterBy }) {
-      state.filterBy = { ...filterBy }
+    updateFilter(state, { clonedFilterBy }) {
+      state.filterBy = { ...clonedFilterBy }
     },
     setIsLoading(state, { isLoading }) {
       state.isLoading = isLoading
