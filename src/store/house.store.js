@@ -40,9 +40,10 @@ export default {
         console.log('ERROR: could not load houses')
       }
     },
-    async loadHouse(context, { type, houseId }) {
+    async loadHouse(context, { houseId }) {
       try {
-        const house = await houseService.getById(houseId)
+        const house = await houseService.findById(houseId)
+        console.log(house);
         return house
       } catch (error) {
         console.log('ERROR: could not load house: ', houseId)

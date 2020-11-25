@@ -52,9 +52,11 @@ const houses = [
     name: 'Funky Monks',
     price: 50,
     imgs: [
-      'http://someimg1.jpeg',
-      'http://someimg2.jpeg',
-      'http://someimg3.jpeg',
+      'https://a0.muscache.com/im/pictures/068b7fb9-faee-43fb-a9ef-9ab238739302.jpg?im_w=960',
+      'https://a0.muscache.com/im/pictures/b1588cb7-0fb7-4350-8edd-bad74a39f0d5.jpg?im_w=1200',
+      'https://a0.muscache.com/im/pictures/55262589-8f4c-4de2-84e3-8a1e95b5e8b8.jpg?im_w=1200',
+      'https://a0.muscache.com/im/pictures/de095368-e7ec-43e4-927c-acf0bf157b5c.jpg?im_w=1200',
+      'https://a0.muscache.com/im/pictures/d0126998-ec32-477f-aa42-325f268ff181.jpg?im_w=1200'
     ],
     'maxGuests/ capacity': 4,
     bedRooms: 3,
