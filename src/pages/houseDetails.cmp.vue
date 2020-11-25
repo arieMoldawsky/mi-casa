@@ -18,10 +18,12 @@
                 />
             </div>
         </div>
-        <section class="house-desc">
-            <div>{{ house.type }} hosted by {{ host.fullName }}</div>
+        <section class="house-desc-section">
+            <div class="house-main-desc">
+                <div>{{ house.type }} hosted by {{ host.fullName }}</div>
+                <div>Up to {{ house.capacity }} guests</div>
+            </div>
             <img :src="host.imgUrl" />
-            <div>Up to {{ house.capacity }} guests</div>
             <p>{{ house.description }}</p>
         </section>
         <div>----------------------</div>
