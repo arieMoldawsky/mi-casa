@@ -1,7 +1,6 @@
 <template>
     <section class="house-details-section">
-        <h2>House Details:</h2>
-        <div>{{ house.name }}</div>
+        <h3>{{ house.name }}</h3>
         <div>
             {{ houseRating }}⭐ - {{ location.city }}, {{ location.country }}
         </div>
@@ -11,29 +10,28 @@
             </div>
             <div class="secondary-imgs">
                 <img
-                    v-for="(img, idx) in house.imgs"
+                    v-for="(img, idx) in secondryImgs"
                     :key="img"
-                    :src="house.imgs[idx + 1]"
-                    alt=""
+                    :src="secondryImgs[idx]"
                 />
             </div>
         </div>
         <section class="house-desc-section">
             <div class="house-main-desc">
-                <div>{{ house.type }} hosted by {{ host.fullName }}</div>
-                <div>Up to {{ house.capacity }} guests</div>
+                <h3>{{ house.type }} hosted by {{ host.fullName }}</h3>
+                <div class="house-capacity">Up to {{ house.capacity }} guests</div>
             </div>
             <img :src="host.imgUrl" />
             <p>{{ house.description }}</p>
         </section>
-        <div>----------------------</div>
-        Amenities
-        <ul>
-            <li v-for="amenity in house.amenities" :key="amenity">
-                {{ amenity }}
-            </li>
-        </ul>
-        <div>-----------------</div>
+        <section class="amenities-section">
+            <h3>Amenities</h3>
+            <ul>
+                <li v-for="amenity in house.amenities" :key="amenity">
+                    {{ amenity }}
+                </li>
+            </ul>
+        </section>
         <house-reviews :reviews="reviews"></house-reviews>
     </section>
 </template>
@@ -109,6 +107,13 @@ export default {
                 return format(ratingSum / reviews.length);
             }
             return 0;
+        },
+        secondryImgs() {
+            var imgs = this.house.imgs;
+            if (imgs) {
+                imgs.splice(0, 1);
+                return imgs;
+            }
         },
     },
     created() {

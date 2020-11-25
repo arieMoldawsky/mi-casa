@@ -1,7 +1,7 @@
 <template>
     <section class="house-reviews-section">
-        <div>{{ houseRating }} ({{ reviewsLength }} reviews)</div>
-        <div>
+        <h3>{{ houseRating }}⭐ ({{ reviewsLength }} reviews)</h3>
+        <div class="reviews-rate-list">
             <p>Cleanliness -------------- 4.9</p>
             <p>Communication -------------- 4.9</p>
             <p>Check-in -------------- 4.9</p>
@@ -11,10 +11,10 @@
         </div>
         <ul>
             <li v-for="review in reviews" :key="review.id">
-                <img :src="review.user.imgUrl">
-                <div>{{review.user.fullName}}</div>
-                <div>{{review.createdAt}}</div>
-                <p>{{review.text}}</p>
+                <img :src="review.user.imgUrl" />
+                <div>{{ review.user.fullName }}</div>
+                <div>{{ review.createdAt }}</div>
+                <p>{{ review.text }}</p>
             </li>
         </ul>
     </section>
@@ -47,6 +47,9 @@ export default {
                 return format(ratingSum / this.reviews.length);
             }
             return 0;
+        },
+        convertTimeStamp(time) {
+            return new Date(time).toLocaleDateString("he");
         },
     },
 };

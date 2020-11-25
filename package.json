@@ -12,6 +12,8 @@
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "element-ui": "^2.14.1",
+    "node": "^15.2.1",
+    "sass": "^1.29.0",
     "vue": "^2.6.11",
     "vue-airbnb-style-datepicker": "^2.7.1",
     "vue-router": "^3.2.0",
