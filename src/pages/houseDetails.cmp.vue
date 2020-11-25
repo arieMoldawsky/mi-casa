@@ -2,21 +2,28 @@
     <section class="house-details-section">
         <h2>House Details:</h2>
         <div>{{ house.name }}</div>
-        <div>{{ houseRating }} - {{ house.location }}</div>
+        <div>
+            {{ houseRating }}⭐ - {{ location.city }}, {{ location.country }}
+        </div>
         <div class="imgs-container">
             <div class="main-img">
                 <img :src="mainImg" alt="" />
             </div>
-            <img
-                v-for="(img, idx) in house.imgs"
-                :key="img"
-                :src="house.imgs[idx + 1]"
-                alt=""
-            />
+            <div class="secondary-imgs">
+                <img
+                    v-for="(img, idx) in house.imgs"
+                    :key="img"
+                    :src="house.imgs[idx + 1]"
+                    alt=""
+                />
+            </div>
         </div>
-        <div>{{ house.type }} hosted by {{ host.fullName }}</div>
-        <div>Up to {{ house.capacity }} guests</div>
-        <p>{{ house.description }}</p>
+        <section class="house-desc">
+            <div>{{ house.type }} hosted by {{ host.fullName }}</div>
+            <img :src="host.imgUrl" />
+            <div>Up to {{ house.capacity }} guests</div>
+            <p>{{ house.description }}</p>
+        </section>
         <div>----------------------</div>
         Amenities
         <ul>
@@ -26,7 +33,6 @@
         </ul>
         <div>-----------------</div>
         <house-reviews :reviews="reviews"></house-reviews>
-        <!-- <div>{{ houseRating }}({{ reviewsLength }} reviews)</div> -->
     </section>
 </template>
 
@@ -42,6 +48,7 @@ export default {
             house: {},
             mainImg: "",
             host: {},
+            location: {},
         };
     },
     methods: {
@@ -65,6 +72,7 @@ export default {
             this.house = house;
             this.mainImg = house.imgs[0];
             this.host = house.host;
+            this.location = house.location;
         },
     },
     computed: {
@@ -82,7 +90,7 @@ export default {
             if (this.house.reviews) {
                 return this.house.reviews.length;
             }
-            return 0
+            return 0;
         },
         houseRating() {
             const format = (num, decimals) =>
@@ -96,7 +104,7 @@ export default {
                 reviews.forEach((review) => {
                     ratingSum += +review.rating;
                 });
-            return format(ratingSum / reviews.length);
+                return format(ratingSum / reviews.length);
             }
             return 0;
         },
