@@ -17,7 +17,7 @@ export default {
   },
   getters: {
     getFilterBy({ filterBy }) {
-      return filterBy
+      return JSON.parse(JSON.stringify(filterBy))
     },
     getHouses({ houses }) {
       return houses
@@ -42,7 +42,7 @@ export default {
     },
     async loadHouse(context, { houseId }) {
       try {
-        const house = await houseService.getById(houseId)
+        const house = await houseService.findById(houseId)
         console.log(house);
         return house
       } catch (error) {
