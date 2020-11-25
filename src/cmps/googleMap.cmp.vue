@@ -31,7 +31,7 @@ export default {
     data() {
         return {
             markers: [
-                { lat: +this.location.lat, lng: +this.location.lng },
+               { position: { lat: +this.location.lat, lng: +this.location.lng }},
                 ],
             mapPos: { lat: +this.location.lat, lng: +this.location.lng }
         };
@@ -41,6 +41,12 @@ export default {
             if(branch === 'haifa') this.mapPos = { lat: 32.817280, lng: 34.988762 };
             else if(branch === 'ramat-gan') this.mapPos = { lat: 32.083550, lng: 34.815500 };
             else this.mapPos = { lat: 32.049230, lng: 34.874960 };
+        }
+    },
+    computed: {
+        defaultLocation() {
+            if(!this.location.lat) return { lat: 32.083550, lng: 34.815500 }
+            return { lat: +this.location.lat, lng: +this.location.lng }
         }
     },
     created() {
