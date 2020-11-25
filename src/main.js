@@ -2,9 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import element from 'element-ui'
 
 import '@/styles/styles.scss'
 
+Vue.use(element)
 Vue.config.productionTip = false
 
 new Vue({
