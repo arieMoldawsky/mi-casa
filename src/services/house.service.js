@@ -16,12 +16,12 @@ export const houseService = {
 }
 
 function query(query) {
-//   var queryURL = `?`
-//   for (const key in query) {
-//     if (query[key]) queryURL += `${key}=${query[key]}&`
-//   }
+  //   var queryURL = `?`
+  //   for (const key in query) {
+  //     if (query[key]) queryURL += `${key}=${query[key]}&`
+  //   }
   return houses
-//   return httpService.get(`house/${queryURL}`)
+  //   return httpService.get(`house/${queryURL}`)
 }
 
 function query(q = {}) {
@@ -37,7 +37,8 @@ function getEmptyHouse() {
 }
 
 function findById(houseId) {
-  return httpService.get(`house/${houseId}`)
+  return houses.find(house => house._id === houseId)
+  //   return httpService.get(`house/${houseId}`)
 }
 
 function remove(house) {
