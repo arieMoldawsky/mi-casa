@@ -11,10 +11,9 @@
             </div>
             <div class="secondary-imgs">
                 <img
-                    v-for="(img, idx) in house.imgs"
+                    v-for="(img, idx) in secondryImgs"
                     :key="img"
-                    :src="house.imgs[idx + 1]"
-                    alt=""
+                    :src="secondryImgs[idx]"
                 />
             </div>
         </div>
@@ -26,14 +25,14 @@
             <img :src="host.imgUrl" />
             <p>{{ house.description }}</p>
         </section>
-        <div>----------------------</div>
-        Amenities
-        <ul>
-            <li v-for="amenity in house.amenities" :key="amenity">
-                {{ amenity }}
-            </li>
-        </ul>
-        <div>-----------------</div>
+        <section class="amenities-section">
+            <h3>Amenities</h3>
+            <ul>
+                <li v-for="amenity in house.amenities" :key="amenity">
+                    {{ amenity }}
+                </li>
+            </ul>
+        </section>
         <house-reviews :reviews="reviews"></house-reviews>
     </section>
 </template>
@@ -109,6 +108,13 @@ export default {
                 return format(ratingSum / reviews.length);
             }
             return 0;
+        },
+        secondryImgs() {
+            var imgs = this.house.imgs;
+            if (imgs) {
+                imgs.splice(0, 1);
+                return imgs;
+            }
         },
     },
     created() {
