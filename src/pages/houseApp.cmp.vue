@@ -1,5 +1,6 @@
 <template>
   <section class="house-app main-layout">
+    <appHeader />
     <h1>houses</h1>
     <houseFilter
       :filterBy="filterBy"
@@ -12,6 +13,7 @@
 
 <script>
 import houseList from '@/cmps/houseList.cmp.vue'
+import appHeader from '@/cmps/appHeader.cmp.vue'
 import houseFilter from '@/cmps/houseFilter.cmp.vue'
 
 export default {
@@ -34,6 +36,7 @@ export default {
   components: {
     houseList,
     houseFilter,
+    appHeader
   },
   created() {
     this.$store.dispatch({ type: 'loadHouses' })
