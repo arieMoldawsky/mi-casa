@@ -1,15 +1,41 @@
 <template>
-  <section class="house-filter-container">
-    <button @click="updatePage(clonedFilterBy.page - 1)">previous Page</button>
-    <button @click="updatePage(clonedFilterBy.page + 1)">Next Page</button>
-    <el-input
-      class="house-search"
-      size="small"
-      placeholder="Search Houses"
-      v-model="deBounce.txt"
-      @input="updateTxt"
-    />
-    <label>
+  <!-- <section class="house-filter-container flex"> -->
+  <el-form
+    @submit.native.prevent="updateFilter"
+    class="house-filter-container flex"
+    ref="form"
+    :model="clonedFilterBy"
+    size="medium"
+  >
+    <el-form-item>
+      <label class="title flex column">
+        Location
+        <el-input
+          placeholder="Where are you going?"
+          v-model="deBounce.txt"
+          @input="updateTxt"
+        />
+      </label>
+    </el-form-item>
+    <el-form-item>
+      <label class="title flex column">
+        Dates
+        <el-date-picker
+          :value="datesToPicker"
+          @input="datesFromPicker"
+          format="d MMMM"
+          value-format="yyyy-MM-dd"
+          type="daterange"
+          range-separator="To"
+          start-placeholder="Check In"
+          end-placeholder="Check Out"
+          :clearable="false"
+          :picker-options="datePickerOptions"
+        />
+      </label>
+    </el-form-item>
+    <!-- <pre>{{ clonedFilterBy }}</pre> -->
+    <!-- <label>
       Houses Per Page
       <el-select
         size="small"
@@ -22,7 +48,10 @@
           :value="item"
         />
       </el-select>
-    </label>
+    </label> -->
+
+    <!-- <el-button @click="updatePage(clonedFilterBy.page - 1)">previous Page</el-button>
+    <el-button @click="updatePage(clonedFilterBy.page + 1)">Next Page</el-button> -->
 
     <!-- <el-select size="small" v-model="clonedFilterBy.category">
       <el-option
@@ -32,13 +61,16 @@
       />
     </el-select> -->
 
-    <el-select size="small" v-model="clonedFilterBy.sortBy">
-      <el-option
-        v-for="item in filterOptions.sortBy"
-        :key="item"
-        :value="item"
-      />
-    </el-select>
+    <!-- <label>
+      Sort By
+      <el-select size="small" v-model="clonedFilterBy.sortBy">
+        <el-option
+          v-for="item in filterOptions.sortBy"
+          :key="item"
+          :value="item"
+        />
+      </el-select>
+    </label> -->
 
     <!-- <el-checkbox
       size="small"
@@ -47,9 +79,9 @@
       label="In Stock"
       border
     /> -->
-    <!-- <pre>{{ clonedFilterBy }}</pre>
-    <pre>{{ houses }}</pre> -->
-  </section>
+  </el-form>
+
+  <!-- </section> -->
 </template>
 
 <script>
@@ -67,12 +99,26 @@ export default {
       },
       filterOptions: {
         page: [5, 10, 15, 20],
-        category: ['all', 'funny', 'educational', 'adult'],
         sortBy: ['name', 'price'],
+      },
+      datePickerOptions: {
+        disabledDate(date) {
+          return date < new Date()
+        },
       },
     }
   },
+  computed: {
+    datesToPicker() {
+      return [this.clonedFilterBy.checkIn, this.clonedFilterBy.checkOut]
+    },
+  },
   methods: {
+    datesFromPicker(ev) {
+      this.clonedFilterBy.checkIn = ev[0]
+      this.clonedFilterBy.checkOut = ev[1]
+      console.log(ev)
+    },
     updatePage(newPage) {
       const isLastPage =
         newPage * this.clonedFilterBy.limit >=
@@ -97,17 +143,17 @@ export default {
   created() {
     this.clonedFilterBy = JSON.parse(JSON.stringify(this.filterBy))
   },
-  watch: {
-    clonedFilterBy: {
-      deep: true,
-      handler() {
-        this.$store.dispatch({
-          type: 'updateFilter',
-          clonedFilterBy: this.clonedFilterBy,
-        })
-        this.$store.dispatch({ type: 'loadHouses' })
-      },
-    },
-  },
+  // watch: {
+  //   clonedFilterBy: {
+  //     deep: true,
+  //     handler() {
+  //       this.$store.dispatch({
+  //         type: 'updateFilter',
+  //         clonedFilterBy: this.clonedFilterBy,
+  //       })
+  //       this.$store.dispatch({ type: 'loadHouses' })
+  //     },
+  //   },
+  // },
 }
 </script>

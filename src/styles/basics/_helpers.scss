@@ -21,6 +21,9 @@
     display: flex;
 }
 
+.column {
+    flex-direction: column;
+}
 .flex-centered {
     display: flex;
     justify-content: center;
