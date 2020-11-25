@@ -9,6 +9,7 @@
             </div>
             <img v-for="(img, idx) in house.imgs" :key="img" :src="house.imgs[idx + 1]" alt="">
         </div>
+        <div>{{house.type}} hosted by {{house.host["fullName"]}}</div>
     </section>
 </template>
 

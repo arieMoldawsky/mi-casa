@@ -62,6 +62,7 @@ const houses = [
     bedRooms: 3,
     tags: ['Funk', 'Happy'],
     amenities: ['Wifi', 'Washer'],
+    type: 'Apartment',
     description: 'lorem',
     location: {
       lat: 32.21,
