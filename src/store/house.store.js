@@ -12,12 +12,21 @@ export default {
       tags: 'all',
     },
     houses: [],
-    housesTotalCount: null,
+    housesCount: null,
     isLoading: false,
   },
   getters: {
-    filterBy({ filterBy }) {
+    getFilterBy({ filterBy }) {
       return filterBy
+    },
+    getHouses({ houses }) {
+      return houses
+    },
+    getHousesCount({ housesCount }) {
+      return housesCount
+    },
+    getIsLoading({ isLoading }) {
+      return isLoading
     },
   },
   actions: {
@@ -40,40 +49,40 @@ export default {
       }
     },
     async removeHouse({ dispatch }, payload) {
-      houseService
-        .remove(payload._id)
-        .then(() => dispatch({ type: 'loadHouses' }))
-        .then(() =>
-          eventBus.$emit(SHOW_MSG, {
-            txt: `${payload._id} Removed Succefully`,
-            type: 'success',
-          })
-        )
+      try {
+        await houseService.remove(payload._id)
+        // eventBus.$emit(SHOW_MSG, {
+        //   txt: `${payload._id} Removed Succefully`,
+        //   type: 'success',
+        // })
+      } catch (error) {
+        console.log('ERROR: could not remove house: ', houseId)
+      }
     },
     async addHouse(context, { house, img }) {
       try {
         const { url } = await imgUploadService.uploadImg(img)
         house.img = url
         const houseRes = await houseService.add(house)
-        eventBus.$emit(SHOW_MSG, {
-          txt: `${houseRes._id} Added Succefully`,
-          type: 'success',
-        })
+        // eventBus.$emit(SHOW_MSG, {
+        //   txt: `${houseRes._id} Added Succefully`,
+        //   type: 'success',
+        // })
       } catch (error) {
         console.log(error)
       }
     },
-    async updateHouse({ dispatch }, payload) {
-      houseService
-        .update(payload.house)
-        .then(() => dispatch({ type: 'loadHouses' }))
-        .then(() =>
-          eventBus.$emit(SHOW_MSG, {
-            txt: `${payload.house._id} Updated Succefully`,
-            type: 'success',
-          })
-        )
-    },
+    // async updateHouse({ dispatch }, payload) {
+    //   houseService
+    //     .update(payload.house)
+    //     .then(() => dispatch({ type: 'loadHouses' }))
+    //     .then(() =>
+    //       eventBus.$emit(SHOW_MSG, {
+    //         txt: `${payload.house._id} Updated Succefully`,
+    //         type: 'success',
+    //       })
+    //     )
+    // },
     updateFilter({ commit }, payload) {
       commit(payload)
     },
