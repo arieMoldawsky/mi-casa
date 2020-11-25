@@ -2,7 +2,10 @@
     <section class="house-details-section">
         <h3>{{ house.name }}</h3>
         <div>
-            {{ houseRating }}⭐ - {{ location.city }}, {{ location.country }}
+            {{ houseRating }}⭐ -
+            <span class="house-location"
+                >{{ location.city }}, {{ location.country }}</span
+            >
         </div>
         <div class="imgs-container">
             <div class="main-img">
@@ -13,13 +16,16 @@
                     v-for="(img, idx) in secondryImgs"
                     :key="img"
                     :src="secondryImgs[idx]"
+                    :class="`secondary-img${idx}`"
                 />
             </div>
         </div>
         <section class="house-desc-section">
             <div class="house-main-desc">
                 <h3>{{ house.type }} hosted by {{ host.fullName }}</h3>
-                <div class="house-capacity">Up to {{ house.capacity }} guests</div>
+                <div class="house-capacity">
+                    Up to {{ house.capacity }} guests
+                </div>
             </div>
             <img :src="host.imgUrl" />
             <p>{{ house.description }}</p>
@@ -33,6 +39,8 @@
             </ul>
         </section>
         <house-reviews :reviews="reviews"></house-reviews>
+        <googleMap :location="location"></googleMap>
+        <!-- <googleMap :location="{lat: location.lat, lng: location.lng}"></googleMap> -->
     </section>
 </template>
 
@@ -41,6 +49,7 @@
 <script>
 // import chatApp from "@/cmps/chat-app"
 import houseReviews from "../cmps/houseReviews.cmp.vue";
+import googleMap from "../cmps/googleMap.cmp.vue";
 
 export default {
     data() {
@@ -95,8 +104,8 @@ export default {
         houseRating() {
             const format = (num, decimals) =>
                 num.toLocaleString("en-US", {
-                    minimumFractionDigits: 1,
-                    maximumFractionDigits: 1,
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
                 });
             const reviews = this.house.reviews;
             var ratingSum = 0;
@@ -115,15 +124,20 @@ export default {
                 return imgs;
             }
         },
+        latLng() {
+            if (this.location) {
+                return { lat: +this.location.lat, lng: +this.location.lng };
+            }
+        },
     },
     created() {
         const houseId = this.$route.params.id;
-        console.log(houseId);
         this.loadHouse(houseId);
     },
     components: {
         // chatApp,
         houseReviews,
+        googleMap,
     },
 };
 </script>
