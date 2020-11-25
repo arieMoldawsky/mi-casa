@@ -1,0 +1,32 @@
+
+.header-nav {
+    height: 3rem;
+    display: flex;
+    // justify-content: start;
+    align-items: center;
+    padding-bottom: 1rem;
+    font-family: Hotel;
+    font-size: 1.5rem !important;
+}
+
+.logo-img {
+ height: 30px;
+ width: 30px;
+}
+
+.logo-navbar {
+    flex-direction: column; 
+}
+
+.nav-routes {
+    justify-content: flex-end;
+    align-self: center;
+}
+
+.houses-navbar {
+
+    padding: 10px;
+}
+.host-navbar {
+    padding: 10px;
+}

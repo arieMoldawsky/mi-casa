@@ -45,7 +45,6 @@ export default {
     async loadHouse(context, { houseId }) {
       try {
         const house = await houseService.findById(houseId)
-        console.log(house);
         return house
       } catch (error) {
         console.log('ERROR: could not load house: ', houseId)
