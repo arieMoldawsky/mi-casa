@@ -1,5 +1,5 @@
 <template>
-  <section class="house-app main-layout">
+  <main class="house-app main-layout">
     <appHeader />
     <h1>houses</h1>
     <houseFilter
@@ -8,7 +8,7 @@
       @updateFilter="updateFilter"
     />
     <houseList :houses="houses" />
-  </section>
+  </main>
 </template>
 
 <script>
