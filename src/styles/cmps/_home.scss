@@ -1,3 +1,29 @@
-// .hero-img {
-//     background-image: url('../../assets/home-page-bg.jpg');
-// }
+
+
+.trending-head {
+    margin-left: 0;
+}
+.trending-house-img {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+}
+.health-link-container {
+    background-color: rgb(27, 27, 27);
+    color: white;
+    /* height: 50px; */
+}
+.health-link {
+    padding: 5px;
+}
+
+.trending-house-container {
+    cursor: pointer;
+    gap: 20px;
+    justify-content: center;
+   }
+
+.trending {
+    flex-direction: column;
+    gap: 10px;
+}

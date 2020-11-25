@@ -1,29 +1,34 @@
 <template>
   <section class="homepage-section">
+    <div class="health-link-container">
+     <a class="health-link" href="https://www.gov.il/he/departments/topics/corona-main-sub?gclid=CjwKCAiAnvj9BRA4EiwAuUMDfwqvMW-aXce0UhFerpxXrTDXyF83RoPmpQ9wdyf64GjhtbFrLMShKhoCjW8QAvD_BwE"  target="_blank">Get the latest on our COVID-19 response</a>
+    </div>
     <appHeader />
+    <houseFilter />
     <button @click="p">p</button>
     <button @click="houseList">houseList</button>
     <div class="hero-img">
-      <h1 class="hero-title">Me Casa Su Casa</h1>
+      <img src="../assets/homePageBg.jpg"
+      <h1 class="hero-title">Mi Casa Su Casa</h1>
     </div>
-      <div class="trending-h2 block">
-      <h2>Live anywhere</h2>
+      <div class="trending-head block">
+      <h3>Live anywhere</h3>
       </div>
     <div class="trending-house-container flex">
-      <div class="trending-house-1 flex" @click="houseList">
-        <img src="../assets/trending1.jpg" />
+      <div class="trending-house-1 trending flex" @click="houseList">
+        <img class="trending-house-img" src="../assets/trending1.jpg" />
         <h4>Entire homes</h4>
       </div>
-      <div class="trending-house-2 flex" @click="houseList">
-        <img src="../assets/trending2.jpg" />
+      <div class="trending-house-2 trending flex" @click="houseList">
+        <img class="trending-house-img" src="../assets/trending2.jpg" />
         <h4>Cabins and cottages</h4>
       </div>
-       <div class="trending-house-3 flex" @click="houseList">
-        <img src="../assets/trending3.jpg" />
+       <div class="trending-house-3 trending flex" @click="houseList">
+        <img class="trending-house-img" src="../assets/trending3.jpg" />
         <h4>Unique stays</h4>
       </div>
-       <div class="trending-house-4 flex" @click="houseList">
-        <img src="../assets/trending4.jpg" />
+       <div class="trending-house-4 trending flex" @click="houseList">
+        <img class="trending-house-img" src="../assets/trending4.jpg" />
         <h4>Pets welcome</h4>
       </div>
     </div>
@@ -32,10 +37,12 @@
 
 <script>
 import appHeader from "@/cmps/appHeader.cmp.vue";
+import houseFilter from "@/cmps/houseFilter.cmp.vue";
 
 export default {
   components: {
     appHeader,
+    houseFilter
   },
   methods: {
     p() {
@@ -52,12 +59,10 @@ export default {
 </script>
 
 <style>
-.trending-h2 {
- margin-left: 0;
-}
-img {
-  height: 200px;
-  width: 200px;
+
+
+.hero-img {
+  /* background-image: url('@/assets/homePageBg.jpg'); */
 }
 </style>
 
