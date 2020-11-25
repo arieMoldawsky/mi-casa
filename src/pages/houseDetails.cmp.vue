@@ -1,7 +1,6 @@
 <template>
     <section class="house-details-section">
-        <h2>House Details:</h2>
-        <div>{{ house.name }}</div>
+        <h3>{{ house.name }}</h3>
         <div>
             {{ houseRating }}⭐ - {{ location.city }}, {{ location.country }}
         </div>
@@ -19,8 +18,8 @@
         </div>
         <section class="house-desc-section">
             <div class="house-main-desc">
-                <div>{{ house.type }} hosted by {{ host.fullName }}</div>
-                <div>Up to {{ house.capacity }} guests</div>
+                <h3>{{ house.type }} hosted by {{ host.fullName }}</h3>
+                <div class="house-capacity">Up to {{ house.capacity }} guests</div>
             </div>
             <img :src="host.imgUrl" />
             <p>{{ house.description }}</p>
