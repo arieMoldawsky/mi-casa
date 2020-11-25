@@ -12,18 +12,18 @@ export default {
       // tags: 'all',
     },
     houses: [],
-    housesCount: null,
+    housesLength: null,
     isLoading: false,
   },
   getters: {
     getFilterBy({ filterBy }) {
-      return JSON.parse(JSON.stringify(filterBy))
+      return filterBy
     },
     getHouses({ houses }) {
       return houses
     },
-    getHousesCount({ housesCount }) {
-      return housesCount
+    getHousesLength({ housesLength }) {
+      return housesLength
     },
     getIsLoading({ isLoading }) {
       return isLoading
@@ -94,7 +94,7 @@ export default {
   mutations: {
     loadHouses(state, { res }) {
       state.houses = res.houses
-      state.housesTotalCount = res.housesLength
+      state.housesLength = res.housesLength
     },
     // loadHouse(state, { house }) {
     //   state.house = house

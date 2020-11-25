@@ -55,8 +55,8 @@
 <script>
 export default {
   props: {
-    // filterBy: Array,
-    // housesCount: Number,
+    filterBy: Object,
+    housesLength: Number,
   },
   data() {
     return {
@@ -72,25 +72,17 @@ export default {
       },
     }
   },
-  computed: {
-    houses() {
-      return this.$store.getters.getHouses
-    },
-    housesCount() {
-      return this.$store.getters.gethousesCount
-    },
-  },
   methods: {
     updatePage(newPage) {
       const isLastPage =
         newPage * this.clonedFilterBy.limit >=
-        this.housesCount + this.clonedFilterBy.limit
+        this.housesLength + this.clonedFilterBy.limit
       if (newPage === 0 || isLastPage) return
       this.clonedFilterBy.page = newPage
     },
     updateLimit(newLimit) {
       const isBeyondLastPage =
-        newLimit * this.clonedFilterBy.page >= this.housesCount + newLimit
+        newLimit * this.clonedFilterBy.page >= this.housesLength + newLimit
       if (isBeyondLastPage) this.data.clonedFilterBy.page = 1
       this.clonedFilterBy.limit = newLimit
     },
@@ -103,7 +95,7 @@ export default {
     },
   },
   created() {
-    this.clonedFilterBy = this.$store.getters.getFilterBy
+    this.clonedFilterBy = JSON.parse(JSON.stringify(this.filterBy))
   },
   watch: {
     clonedFilterBy: {
