@@ -13,6 +13,7 @@
                     v-for="(img, idx) in secondryImgs"
                     :key="img"
                     :src="secondryImgs[idx]"
+                    :class="`secondary-img${idx}`"
                 />
             </div>
         </div>
@@ -118,7 +119,6 @@ export default {
     },
     created() {
         const houseId = this.$route.params.id;
-        console.log(houseId);
         this.loadHouse(houseId);
     },
     components: {
