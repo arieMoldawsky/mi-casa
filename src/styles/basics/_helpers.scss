@@ -12,3 +12,66 @@
 .ratio-card { @include aspect-ratio(100, 80); }
 
 .ratio-poster { @include aspect-ratio(100, 150); }
+
+
+
+/* general helpers */
+
+.flex {
+    display: flex;
+}
+
+.flex-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.button-reset {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: inline;
+    padding: 0;
+}
+
+.icon {
+    font-size: 1.3rem;
+    color: rgb(70, 70, 70);
+    cursor: pointer;
+}
+
+/* restarters */
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    padding: 0;
+}
+
+input {
+    font-family: Roboto;
+    width: 15rem;
+    border: 1px solid rgb(164, 164, 164);
+    padding: 0.2rem;
+}
