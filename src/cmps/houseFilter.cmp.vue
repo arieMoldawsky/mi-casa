@@ -9,11 +9,13 @@
       v-model="deBounce.txt"
       @input="updateTxt"
     />
-    <pre>{{clonedFilterBy}}</pre>
-    <pre>{{houses}}</pre>
-    <!-- <label>
+    <label>
       Houses Per Page
-      <el-select size="small" :value="clonedFilterBy.limit" @input="updateLimit">
+      <el-select
+        size="small"
+        :value="clonedFilterBy.limit"
+        @input="updateLimit"
+      >
         <el-option
           v-for="item in filterOptions.page"
           :key="item"
@@ -22,13 +24,13 @@
       </el-select>
     </label>
 
-    <el-select size="small" v-model="clonedFilterBy.category">
+    <!-- <el-select size="small" v-model="clonedFilterBy.category">
       <el-option
         v-for="item in filterOptions.category"
         :key="item"
         :value="item"
       />
-    </el-select>
+    </el-select> -->
 
     <el-select size="small" v-model="clonedFilterBy.sortBy">
       <el-option
@@ -38,18 +40,19 @@
       />
     </el-select>
 
-    <el-checkbox
+    <!-- <el-checkbox
       size="small"
       :value="clonedFilterBy.inStock"
       @change="clonedFilterBy.inStock = !clonedFilterBy.inStock"
       label="In Stock"
       border
     /> -->
+    <pre>{{ clonedFilterBy }}</pre>
+    <pre>{{ houses }}</pre>
   </section>
 </template>
 
 <script>
-
 export default {
   props: {
     // filterBy: Array,
@@ -75,7 +78,7 @@ export default {
     },
     housesCount() {
       return this.$store.getters.gethousesCount
-    }
+    },
   },
   methods: {
     updatePage(newPage) {
@@ -100,13 +103,16 @@ export default {
     },
   },
   created() {
-    this.clonedFilterBy = JSON.parse(JSON.stringify(this.$store.getters.getFilterBy))
+    this.clonedFilterBy = this.$store.getters.getFilterBy
   },
   watch: {
     clonedFilterBy: {
       deep: true,
       handler() {
-        this.$store.dispatch({ type: 'updateFilter', clonedFilterBy: this.clonedFilterBy })
+        this.$store.dispatch({
+          type: 'updateFilter',
+          clonedFilterBy: this.clonedFilterBy,
+        })
         this.$store.dispatch({ type: 'loadHouses' })
       },
     },

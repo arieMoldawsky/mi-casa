@@ -5,18 +5,14 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/house">House</router-link>
     </div>
-    <!-- <houseFilter/> -->
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import houseFilter from '@/cmps/houseFilter.cmp'
 export default {
   components: {
-    houseFilter,
-  }
-  
+  },
 }
 </script>
 
