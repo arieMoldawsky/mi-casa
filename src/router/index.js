@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import home from '../pages/home.cmp.vue';
 import houseFilter from '../cmps/houseFilter.cmp.vue';
+import houseApp from '../pages/houseApp.cmp.vue';
 import about from '../pages/about.cmp.vue';
 import houseDetails from '../pages/houseDetails.cmp.vue';
 
@@ -19,6 +20,10 @@ const routes = [
   {
     path: '/house/:id',
     component: houseDetails
+  },
+  {
+    path: '/house',
+    component: houseApp
   },
   {
     path: '/house',
