@@ -39,7 +39,7 @@
                 />
             </div>
             <!-- <div class="form-item submit flex-start"> -->
-                <button native-type="submit">Check availability</button>
+                <button native-type="submit" @click.prevent="addBooking">Check availability</button>
             <!-- </div> -->
         </el-form>
     </section>
@@ -47,7 +47,6 @@
 
 
 <script>
-import { log } from "util";
 export default {
     props: {
         capacity: Number,
@@ -119,6 +118,9 @@ export default {
         totalPrice() {
             this.booking.totalPrice = this.pricePN * this.numOfNights;
         },
+        addBooking() {
+          this.$emit("addBooking", this.booking);
+        }
     },
     created() {},
 };

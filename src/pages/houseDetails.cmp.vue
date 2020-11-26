@@ -20,7 +20,7 @@
                 />
             </div>
         </div>
-        <booking-modal v-if="house.capacity" :reviews="reviews" :capacity="house.capacity" :pricePN="house.price"></booking-modal>
+        <booking-modal v-if="house.capacity" @addBooking="addBooking" :reviews="reviews" :capacity="house.capacity" :pricePN="house.price"></booking-modal>
         <section class="house-desc-section">
             <div class="house-main-desc">
                 <h3>{{ house.type }} hosted by {{ host.fullName }}</h3>
@@ -90,6 +90,13 @@ export default {
             this.location = house.location;
             this.host = house.host;
         },
+        addBooking(booking) {
+            booking.houseId = this.house._id;
+            this.$store.dispatch({
+                type: "addBooking",
+                booking
+            })
+        }
     },
     computed: {
         // convertTime() {
