@@ -39,7 +39,7 @@
                 </li>
             </ul>
         </section>
-        <house-chat></house-chat>
+        <house-chat :id="house._id"></house-chat>
         <house-reviews :reviews="reviews"></house-reviews>
         <googleMap v-if="location.city" :location="location"></googleMap>
     </section>
