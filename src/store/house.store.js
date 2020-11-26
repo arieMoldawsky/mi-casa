@@ -10,10 +10,11 @@ export default {
       txt: '',
       sortBy: 'name',
       capacity: null,
-      checkIn: Date.now(),
-      checkOut: Date.now(),
+      checkIn: 'Check In',
+      checkOut: 'Check Out',
     },
     houses: [],
+    house: null,
     housesLength: null,
     isLoading: false,
   },
@@ -23,6 +24,9 @@ export default {
     },
     getHouses({ houses }) {
       return houses
+    },
+    getHouse({ house }) {
+      return house
     },
     getHousesLength({ housesLength }) {
       return housesLength
@@ -35,17 +39,18 @@ export default {
     async loadHouses(context, { type }) {
       context.commit({ type: 'setIsLoading', isLoading: true })
       try {
-        const res = await houseService.query(context.state.filterBy);
-        context.commit({ type, res });
-        context.commit({ type: 'setIsLoading', isLoading: false });
+        const res = await houseService.query(context.state.filterBy)
+        context.commit({ type, res })
+        context.commit({ type: 'setIsLoading', isLoading: false })
       } catch (error) {
         console.log('ERROR: could not load houses')
       }
     },
-    async loadHouse(context, { houseId }) {
+    async loadHouse({ commit }, { type, houseId }) {
       try {
-        const house = await houseService.findById(houseId);
-        return house;
+        const house = await houseService.findById(houseId)
+        commit({ type, house })
+        return house
       } catch (error) {
         console.log('ERROR: could not load house: ', houseId)
       }
@@ -63,9 +68,9 @@ export default {
     },
     async addHouse(context, { house, img }) {
       try {
-        const { url } = await imgUploadService.uploadImg(img);
-        house.img = url;
-        const houseRes = await houseService.add(house);
+        const { url } = await imgUploadService.uploadImg(img)
+        house.img = url
+        const houseRes = await houseService.add(house)
         // eventBus.$emit(SHOW_MSG, {
         //   txt: `${houseRes._id} Added Succefully`,
         //   type: 'success',
@@ -74,17 +79,23 @@ export default {
         console.log(error)
       }
     },
-    // async updateHouse({ dispatch }, payload) {
-    //   houseService
-    //     .update(payload.house)
-    //     .then(() => dispatch({ type: 'loadHouses' }))
-    //     .then(() =>
-    //       eventBus.$emit(SHOW_MSG, {
-    //         txt: `${payload.house._id} Updated Succefully`,
-    //         type: 'success',
-    //       })
-    //     )
-    // },
+    async updateHouse({ commit }, { house }) {
+      try {
+        const houseRes = await houseService.save(house)
+        commit({ type: 'loadHouse', house: houseRes })
+        // eventBus.$emit(SHOW_MSG, {
+        //   txt: `${houseRes._id} Added Succefully`,
+        //   type: 'success',
+        // })
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    addReview(context, payload) {
+      context.commit(payload)
+      context.dispatch({ type: 'updateHouse', house: context.state.house })
+    },
     updateFilter({ commit }, payload) {
       commit(payload)
     },
@@ -94,17 +105,20 @@ export default {
   },
   mutations: {
     loadHouses(state, { res }) {
-      state.houses = res.houses;
-      state.housesLength = res.housesLength;
+      state.houses = res.houses
+      state.housesLength = res.housesLength
     },
-    // loadHouse(state, { house }) {
-    //   state.house = house
-    // },
+    loadHouse(state, { house }) {
+      state.house = house
+    },
     updateFilter(state, { filterBy }) {
       state.filterBy = { ...filterBy }
     },
     setIsLoading(state, { isLoading }) {
       state.isLoading = isLoading
+    },
+    addReview(state, { review }) {
+      state.house.reviews.push(review)
     },
   },
 }

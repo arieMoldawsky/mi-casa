@@ -2,26 +2,25 @@
   <section class="add-review">
     <el-form
       @submit.native.prevent="updateFilter"
-      class="house-filter-container flex-centered"
+      class="add-review"
       ref="form"
       :model="review"
       size="medium"
     >
-      <div class="form-item field flex-start">
-        <label>
-          Location
-        </label>
-        <el-input
-          placeholder="Where are you going?"
-          v-model="deBounce.txt"
-          @input="updateTxt"
-        />
+      <el-input placeholder="How was your stay?" v-model="review.txt" />
+      <el-rate v-model="review.rating"></el-rate>
+      <div>
+        <el-button native-type="submit" @click="addReview">
+          Add Review
+        </el-button>
+        <slot />
       </div>
     </el-form>
   </section>
 </template>
 
 <script>
+import { type } from 'os'
 export default {
   data() {
     return {
@@ -29,7 +28,7 @@ export default {
         id: null,
         txt: null,
         rating: null,
-        createdAt: new Date(Date.now()).toISOString().slice(0, 10),
+        createdAt: Date.now(),
         user: {
           _id: null,
           fullName: null,
@@ -38,5 +37,12 @@ export default {
       },
     }
   },
+  methods: {
+    addReview() {
+      this.$store.dispatch({ type: 'addReview', review: this.review })
+      this.$emit('closeModal')
+    },
+  },
+  computed: {},
 }
 </script>
