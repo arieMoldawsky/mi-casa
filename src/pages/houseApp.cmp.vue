@@ -1,6 +1,6 @@
 <template>
     <main class="house-app main-layout">
-        <appHeader />
+        <appHeader /> 
         <houseFilter />
         <div class="head-title flex">
             <small class="head-title-visits">300+ stays</small>

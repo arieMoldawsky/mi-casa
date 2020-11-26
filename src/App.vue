@@ -7,16 +7,22 @@
       <router-link to="/house">House</router-link> -->
     <!-- </div> -->
     <router-view />
+    <appFooter />
   </div>
 </template>
 
 <script>
 import modal from '@/cmps/modal.cmp'
+import appFooter from '../src/cmps/appFooter.cmp'
+
 
 export default {
   components: {
     modal,
+    appFooter,
   },
+  created() {
+  }
 }
 </script>
 

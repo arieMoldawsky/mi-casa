@@ -1,7 +1,6 @@
-// import { storageService } from './storage.service.js';
 import httpService from './http.service'
 
-export const userService = {
+export default {
     login,
     logout,
     signup,
