@@ -38,6 +38,10 @@
 .trending-house-container {
   gap: 20px;
   justify-content: center;
+
+  h4 {
+    padding: 5px;
+  }
 }
 
 .trending {
@@ -63,4 +67,7 @@
     gap: 20px;
     justify-content: center;
     margin-bottom: 50px;
+    h4 {
+      padding: 5px;
+    }
    }

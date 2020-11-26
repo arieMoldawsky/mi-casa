@@ -2,7 +2,7 @@
   <section class="house-card flex f-col">
     <div class="house-card-container">
       <div class="el-carousel-img block">
-        <el-carousel :autoplay="false" trigger="click" height="150px">
+        <el-carousel :autoplay="false" trigger="click" height="200px">
           <el-carousel-item v-for="(img, idx) in slideImgs" :key="img" autoplay="false">
                 <img :src="slideImgs[idx]"
                 :class="`slide-imgs${idx}`"
@@ -48,8 +48,8 @@ export default {
       return Math.floor(Math.random() * 100) + 1;
     },
     houseDescription() {
-      if (this.house.description.length > 40) {
-        return this.house.description.substr(0, 40) + "...";
+      if (this.house.description.length > 30) {
+        return this.house.description.substr(0, 30) + "...";
       } else return this.house.description;
     },
     slideImgs() {
