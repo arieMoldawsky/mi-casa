@@ -2,8 +2,27 @@
   <section class="house-card flex f-col">
     <!-- <div class="house-card-container"> -->
       <!-- Slideshow container -->
-      <div class="slideshow-container">
-        <div class="mySlides fade">
+
+  <div class="block">
+    <span class="demonstration">Switch when indicator is clicked</span>
+    <el-carousel trigger="click" height="150px">
+      <el-carousel-item>
+          <img
+            v-for="(img, idx) in slideImgs"
+            :key="img"
+            :src="slideImgs[idx]"
+            :class="`slide-imgs${idx}`"
+            style="width: 100%"
+          />
+      </el-carousel-item>
+    </el-carousel>
+  </div>
+
+
+
+
+      <!-- <div class="slideshow-container"> -->
+        <!-- <div class="mySlides fade">
           <img
             v-for="(img, idx) in slideImgs"
             :key="img"
@@ -14,7 +33,7 @@
         </div>
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
+      </div> -->
       <br />
       <div style="text-align: center">
         <span class="dot"></span>
@@ -23,29 +42,20 @@
         <span class="dot"></span>
         <span class="dot"></span>
       </div>
-      <div>{{house.imgs[0]}}</div>
+      <!-- <div>{{house.imgs[0]}}</div> -->
       <h3>⭐{{ houseRating }} ({{ ratingCount }})</h3>
       <h3>{{ house.location.city }} - {{ house.type }}</h3>
       <h4>{{ houseDescription }}</h4>
       <h4>${{ house.price }} / night</h4>
-    <!-- </div> -->
-    <!-- <section class="house-card flex-start column"> -->
-    <!-- <div class="house-card-container"> -->
-    <!-- <img :src="house.imgs[0]" alt="" /> -->
-    <!-- <div>{{ house.imgs }}</div> -->
-    <!-- <span>{{ house.reviews.rating }}</span> -->
-    <!-- <span>{{ house.type }} · {{ house.location.city }}</span> -->
-    <!-- <h4>{{ house.description }}</h4> -->
-    <!-- <h4>${{ house.price }}</h4> -->
-    <!-- </div> -->
   </section>
 </template>
 
 <script>
+  
+
 export default {
   props: {
-    house: Object,
-    slideIndex: 1,
+    house: Object
   },
  
   computed: {
@@ -80,8 +90,8 @@ export default {
         return imgs;
       }
     },
+   
   },
-  methods: {},
 };
 
 </script>

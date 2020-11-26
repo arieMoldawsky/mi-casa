@@ -5,6 +5,7 @@ import store from './store'
 import element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
 import * as VueGoogleMaps from 'vue2-google-maps';
+import VueSplide from '@splidejs/vue-splide';
 
 import '@/styles/styles.scss'
 
@@ -18,6 +19,7 @@ Vue.use(VueGoogleMaps, {
 
 Vue.use(element, {locale})
 Vue.config.productionTip = false
+Vue.use( VueSplide );
 
 new Vue({
   router,
