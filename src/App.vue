@@ -17,6 +17,8 @@ export default {
   components: {
     appFooter
   },
+  created() {
+  }
 }
 </script>
 
