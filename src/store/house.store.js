@@ -100,8 +100,8 @@ export default {
     // loadHouse(state, { house }) {
     //   state.house = house
     // },
-    updateFilter(state, { clonedFilterBy }) {
-      state.filterBy = { ...clonedFilterBy }
+    updateFilter(state, { filterBy }) {
+      state.filterBy = { ...filterBy }
     },
     setIsLoading(state, { isLoading }) {
       state.isLoading = isLoading
