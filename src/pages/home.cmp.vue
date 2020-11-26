@@ -35,6 +35,27 @@ Su Casa
         <h4>Pets welcome</h4>
       </div>
     </div>
+     <div class="trending-bottom block">
+      <h2>Destinations</h2>
+      </div>
+    <div class="trending-cities-container flex">
+      <div class="trending-city-1 trending flex" @click="houseList">
+        <img class="trending-city-img" src="../assets/newYork.jpg" />
+        <h4>New York</h4>
+      </div>
+      <div class="trending-city-2 trending flex" @click="houseList">
+        <img class="trending-city-img" src="../assets/tokyo.jpg" />
+        <h4>Tokyo</h4>
+      </div>
+       <div class="trending-city-3 trending flex" @click="houseList">
+        <img class="trending-city-img" src="../assets/telAviv.jpg" />
+        <h4>Tel Aviv</h4>
+      </div>
+       <div class="trending-city-4 trending flex" @click="houseList">
+        <img class="trending-city-img" src="../assets/paris.jpg" />
+        <h4>Paris</h4>
+      </div>
+    </div>
   </section>
 </template>
 

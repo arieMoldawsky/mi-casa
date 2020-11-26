@@ -20,6 +20,7 @@ import appHeader from '@/cmps/appHeader.cmp.vue'
 import houseFilter from '@/cmps/houseFilter.cmp.vue'
 
 export default {
+  name: 'houseApp',
   computed: {
     houses() {
       return this.$store.getters.getHouses
