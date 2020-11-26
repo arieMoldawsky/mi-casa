@@ -6,12 +6,15 @@
       <router-link to="/house">House</router-link> -->
     <!-- </div> -->
     <router-view />
+    <appFooter />
   </div>
 </template>
 
 <script>
+  import appFooter from '../src/cmps/appFooter.cmp'
 export default {
   components: {
+    appFooter
   },
 }
 </script>
