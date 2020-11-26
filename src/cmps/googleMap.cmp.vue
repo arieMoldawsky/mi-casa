@@ -1,12 +1,12 @@
 
 <template>
     <section v-if="location.lat" class="googleMap-section">
-        <h2>The Map:</h2>
+        <h2>location</h2>
         <GmapMap
             :center="mapPos"
             :zoom="12"
             map-type-id="terrain"
-            style="width: 500px; height: 300px"
+            style="width: 100%; height: 300px"
         >
             <GmapMarker
                 :key="index"
@@ -31,7 +31,7 @@ export default {
     data() {
         return {
             markers: [
-                { lat: +this.location.lat, lng: +this.location.lng },
+               { position: { lat: +this.location.lat, lng: +this.location.lng }},
                 ],
             mapPos: { lat: +this.location.lat, lng: +this.location.lng }
         };
@@ -42,6 +42,8 @@ export default {
             else if(branch === 'ramat-gan') this.mapPos = { lat: 32.083550, lng: 34.815500 };
             else this.mapPos = { lat: 32.049230, lng: 34.874960 };
         }
+    },
+    computed: {
     },
     created() {
         console.log(this.location);
