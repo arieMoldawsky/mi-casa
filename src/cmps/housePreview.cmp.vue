@@ -4,7 +4,6 @@
       <!-- Slideshow container -->
 
   <div class="block">
-    <span class="demonstration">Switch when indicator is clicked</span>
     <el-carousel trigger="click" height="150px">
       <el-carousel-item>
           <img
@@ -17,31 +16,6 @@
       </el-carousel-item>
     </el-carousel>
   </div>
-
-
-
-
-      <!-- <div class="slideshow-container"> -->
-        <!-- <div class="mySlides fade">
-          <img
-            v-for="(img, idx) in slideImgs"
-            :key="img"
-            :src="slideImgs[idx]"
-            :class="`slide-imgs${idx}`"
-            style="width: 100%"
-          />
-        </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div> -->
-      <br />
-      <div style="text-align: center">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
       <!-- <div>{{house.imgs[0]}}</div> -->
       <h3>⭐{{ houseRating }} ({{ ratingCount }})</h3>
       <h3>{{ house.location.city }} - {{ house.type }}</h3>
