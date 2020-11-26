@@ -4,9 +4,9 @@
         <h2>location</h2>
         <GmapMap
             :center="mapPos"
-            :zoom="12"
+            :zoom="14"
             map-type-id="terrain"
-            style="width: 100%; height: 300px"
+            style="width: 100%; height: 500px"
         >
             <GmapMarker
                 :key="index"

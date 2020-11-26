@@ -3,7 +3,10 @@
 }
 
 html {
-    font-family: Circular;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    // font-family: Circular, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     // line-height: 1.8;
     color: $clr3;
 }
