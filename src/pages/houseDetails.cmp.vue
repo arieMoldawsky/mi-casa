@@ -40,6 +40,7 @@
             </ul>
         </section>
         <house-chat :id="house._id"></house-chat>
+        <el-button @click="addReview">Add Review</el-button>
         <house-reviews :reviews="reviews"></house-reviews>
         <googleMap v-if="location.city" :location="location"></googleMap>
     </section>
@@ -96,6 +97,9 @@ export default {
                 type: "addBooking",
                 booking
             })
+        },
+        addReview() {
+            this.$store.dispatch({type: 'modalMode', modalMode: 'addReview'})
         }
     },
     computed: {

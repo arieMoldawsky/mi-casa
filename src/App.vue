@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    
+    <modal/>
     <!-- <div id="nav"> -->
       <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
@@ -12,10 +12,14 @@
 </template>
 
 <script>
-  import appFooter from '../src/cmps/appFooter.cmp'
+import modal from '@/cmps/modal.cmp'
+import appFooter from '../src/cmps/appFooter.cmp'
+
+
 export default {
   components: {
-    appFooter
+    modal,
+    appFooter,
   },
   created() {
   }
