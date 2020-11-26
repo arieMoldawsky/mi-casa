@@ -20,6 +20,7 @@
                 />
             </div>
         </div>
+        <booking-modal v-if="house.capacity" :capacity="house.capacity" :pricePN="house.price"></booking-modal>
         <section class="house-desc-section">
             <div class="house-main-desc">
                 <h3>{{ house.type }} hosted by {{ host.fullName }}</h3>
@@ -40,7 +41,6 @@
         </section>
         <house-reviews :reviews="reviews"></house-reviews>
         <googleMap v-if="location.city" :location="location"></googleMap>
-        <!-- <googleMap :location="{lat: location.lat, lng: location.lng}"></googleMap> -->
     </section>
 </template>
 
@@ -49,6 +49,7 @@
 <script>
 // import chatApp from "@/cmps/chat-app"
 import houseReviews from "../cmps/houseReviews.cmp.vue";
+import bookingModal from "../cmps/bookingModal.cmp.vue";
 import googleMap from "../cmps/googleMap.cmp.vue";
 
 export default {
@@ -132,11 +133,6 @@ export default {
                 return imgs;
             }
         },
-        // latLng() {
-        //     if (this.location) {
-        //         return { lat: +this.location.lat, lng: +this.location.lng };
-        //     }
-        // },
     },
     created() {
         const houseId = this.$route.params.id;
@@ -146,6 +142,7 @@ export default {
         // chatApp,
         houseReviews,
         googleMap,
+        bookingModal
     },
 };
 </script>
