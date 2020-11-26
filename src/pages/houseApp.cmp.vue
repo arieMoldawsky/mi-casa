@@ -2,8 +2,6 @@
   <main class="house-app main-layout">
     <appHeader />
     <houseFilter
-      :filterBy="filterBy"
-      :housesLength="housesLength"
       @updateFilter="updateFilter"
     />
     <div class="head-title flex">

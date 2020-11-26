@@ -1,46 +1,46 @@
-
 .hero-container {
-    background-image: url('../assets/homePageBg.jpg');
-    background-size:cover;
-    color: rgb(212, 236, 255);
-    font-size: 3rem;
-    height: 500px;
+  background-image: url('../assets/homePageBg.jpg');
+  background-size: cover;
+  color: $clr1;
+  font-size: 3rem;
+  height: 500px;
 }
 .hero-title {
-   font-weight: bolder;
-   font-size: 8rem;
-   justify-content: flex-start;
+  text-align: left;
+  font-weight: bolder;
+  font-size: 6rem;
+  justify-content: flex-start;
 }
 
 .trending-head {
-    margin-top: 50px;
-    margin-right: 740px;
+  margin-top: 50px;
+  margin-right: 740px;
 }
 
 // .trending-head {
 //     margin-left: 0;
 // }
 .trending-house-img {
-    height: 200px;
-    width: 200px;
-    border-radius: 10px;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
 }
 .health-link-container {
-    background-color: rgb(27, 27, 27);
-    color: white;
-    height: 50px;
+  background-color: rgb(27, 27, 27);
+  color: white;
+  height: 50px;
 }
 .health-link {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .trending-house-container {
-    gap: 20px;
-    justify-content: center;
-   }
+  gap: 20px;
+  justify-content: center;
+}
 
 .trending {
-    cursor: pointer;
-    flex-direction: column;
-    gap: 10px;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 10px;
 }

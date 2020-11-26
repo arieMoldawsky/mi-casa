@@ -3,9 +3,10 @@
 }
 
 html {
-    font-family: Circular;
+    // font-family: Circular;
     // line-height: 1.8;
     color: $clr3;
+
 }
 
 body {
@@ -15,7 +16,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 0.5em;
+    margin: 0;
     // font-family: monospace;
     line-height: 1.3;
 }
@@ -37,6 +38,10 @@ ul {
 
 img {
     width: 100%;
+}
+
+a {
+    color: $clr1;
 }
 
 button {

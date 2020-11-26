@@ -7,7 +7,7 @@
     :model="clonedFilterBy"
     size="medium"
   >
-    <div class="form-item flex-start">
+    <div class="form-item field flex-start">
       <label>
         Location
       </label>
@@ -17,7 +17,7 @@
         @input="updateTxt"
       />
     </div>
-    <div class="form-item date-picker flex-start">
+    <div class="form-item field date-picker flex-start">
       <label>
         Dates
       </label>
@@ -36,14 +36,16 @@
           :picker-options="datePickerOptions"
         />
     </div>
-    <div class="form-item flex-start">
+    <div class="form-item field flex-start">
       <label>
         Guests
       </label>
         <el-input-number v-model="clonedFilterBy.capacity" :min="1" :max="16" />
     </div>
-    <div class="form-item flex-start">
-      <el-button type="success" native-type="submit">Search</el-button>
+    <div class="form-item submit flex-start">
+      <button native-type="submit">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg>
+      </button>
     </div>
 
     <!-- <pre>{{ clonedFilterBy }}</pre> -->
@@ -98,10 +100,6 @@
 
 <script>
 export default {
-  props: {
-    filterBy: Object,
-    housesLength: Number,
-  },
   data() {
     return {
       clonedFilterBy: null,
@@ -121,6 +119,12 @@ export default {
     }
   },
   computed: {
+    filterBy() {
+      return this.$store.getters.getFilterBy
+    },
+    housesLength() {
+      return this.$store.getters.getHousesLength
+    },
     datesToPicker() {
       return [this.clonedFilterBy.checkIn, this.clonedFilterBy.checkOut]
     },
