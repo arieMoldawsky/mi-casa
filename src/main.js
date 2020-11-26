@@ -5,6 +5,8 @@ import store from './store'
 import element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
 import * as VueGoogleMaps from 'vue2-google-maps';
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 
 import '@/styles/styles.scss'
 

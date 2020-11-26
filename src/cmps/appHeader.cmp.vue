@@ -2,7 +2,7 @@
 <header class="main-header flex">
   <!-- <nav class="header-nav flex"> -->
     <!-- <div class="logo-navbar flex"> -->
-      <router-link to="/" exact class="logo flex">MiCasa</router-link>
+      <router-link to="/" exact class="logo flex"><i class="fas fa-house-user"></i>MiCasa</router-link>
     <!-- </div> -->
   <nav class="navbar-container flex">
     <div class="nav-routes flex">

@@ -11,7 +11,7 @@
           </el-carousel-item>
         </el-carousel>
       </div>
-      <h3>⭐{{ houseRating }} ({{ ratingCount }})</h3>
+      <h3><i class="fas fa-star"></i>{{ houseRating }} ({{ ratingCount }})</h3>
       <h3>{{ house.location.city }} - {{ house.type }}</h3>
       <h4>{{ houseDescription }}</h4>
       <h4><span class="house-price">${{ house.price }} AUD </span>/ night</h4>
