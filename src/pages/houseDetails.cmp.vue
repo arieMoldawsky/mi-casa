@@ -39,6 +39,7 @@
                 </li>
             </ul>
         </section>
+        <house-chat :id="house._id"></house-chat>
         <house-reviews :reviews="reviews"></house-reviews>
         <googleMap v-if="location.city" :location="location"></googleMap>
     </section>
@@ -47,7 +48,7 @@
 
 
 <script>
-// import chatApp from "@/cmps/chat-app"
+import houseChat from "@/cmps/houseChat.cmp.vue"
 import houseReviews from "../cmps/houseReviews.cmp.vue";
 import bookingModal from "../cmps/bookingModal.cmp.vue";
 import googleMap from "../cmps/googleMap.cmp.vue";
@@ -139,7 +140,7 @@ export default {
         this.loadHouse(houseId);
     },
     components: {
-        // chatApp,
+        houseChat,
         houseReviews,
         googleMap,
         bookingModal
