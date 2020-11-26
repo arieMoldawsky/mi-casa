@@ -13,6 +13,21 @@
 export default {
   components: {
   },
+  created() {
+    //////////////delete later!!!/////////////////////////////////////////////////////////////////
+    // const user = {
+    //         fullName: "Orly Amdadi",
+    //         email: "orly@amdadi.com",
+    //         password: "123",
+    //         imgUrl: "https://randomuser.me/api/portraits/women/90.jpg",
+    //         langs: "Hebrew, English",
+    //         description: "lorem"
+    //     };
+    // this.$store.dispatch({
+    //   type: "login",
+    //   userCred: user
+    // })
+  }
 }
 </script>
 
