@@ -1,12 +1,12 @@
 
 <template>
     <section v-if="location.lat" class="googleMap-section">
-        <h2>The Map:</h2>
+        <h2>location</h2>
         <GmapMap
             :center="mapPos"
             :zoom="12"
             map-type-id="terrain"
-            style="width: 500px; height: 300px"
+            style="width: 100%; height: 300px"
         >
             <GmapMarker
                 :key="index"
@@ -44,10 +44,6 @@ export default {
         }
     },
     computed: {
-        defaultLocation() {
-            if(!this.location.lat) return { lat: 32.083550, lng: 34.815500 }
-            return { lat: +this.location.lat, lng: +this.location.lng }
-        }
     },
     created() {
         console.log(this.location);

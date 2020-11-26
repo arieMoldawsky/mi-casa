@@ -39,7 +39,7 @@
             </ul>
         </section>
         <house-reviews :reviews="reviews"></house-reviews>
-        <googleMap :location="location"></googleMap>
+        <googleMap v-if="location.city" :location="location"></googleMap>
         <!-- <googleMap :location="{lat: location.lat, lng: location.lng}"></googleMap> -->
     </section>
 </template>
@@ -58,8 +58,8 @@ export default {
             mainImg: "",
             host: {},
             location: {
-                lat: 30,
-                lng: 30,
+                lat: 0,
+                lng: 0,
                 city: '',
                 country: ''
             },
