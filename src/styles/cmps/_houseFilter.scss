@@ -29,7 +29,6 @@
         color: $clr5;
         font-size: 0.75rem;
         font-weight: bold;
-        
       }
       input {
         color: $clr3;
@@ -43,6 +42,10 @@
       }
       .el-range-editor {
         width: 100%;
+
+        .el-range-input {
+          width: 50%;
+        }
       }
       .date-picker {
         * {

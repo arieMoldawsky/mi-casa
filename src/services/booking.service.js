@@ -11,6 +11,7 @@ export const bookingService = {
   findById,
   add,
   remove,
+  check
 }
 
 function query(query) {
@@ -20,6 +21,10 @@ function query(query) {
   // }
   // return httpService.get(`booking/${queryURL}`)
   return httpService.get(`booking/`)
+}
+
+function check(booking) {
+  return httpService.post(`booking/check`, booking)
 }
 
 function findById(bookingId) {

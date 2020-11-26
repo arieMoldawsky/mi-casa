@@ -5,7 +5,9 @@
                 <span class="pricePN">${{ pricePN }}</span
                 >/night
             </div>
-            <div>{{ houseRating }}⭐ <span>({{ reviewsLength }})</span></div>
+            <div>
+                {{ houseRating }}⭐ <span>({{ reviewsLength }})</span>
+            </div>
         </div>
         <el-form
             @submit.native.prevent="updateFilter"
@@ -38,10 +40,18 @@
                     :max="capacity"
                 />
             </div>
-            <!-- <div class="form-item submit flex-start"> -->
-                <button native-type="submit" @click.prevent="addBooking">Check availability</button>
-            <!-- </div> -->
+            <button v-if="!available" native-type="submit" @click.prevent="checkAvailability">Check availability</button>
+            <button v-else native-type="submit" @click.prevent="addBooking">Reserve</button>
         </el-form>
+        <div class="total-section" v-if="available">
+            You won't be charged yet
+            <ul class="flex">
+                <li><div class="total-first-col">${{pricePN}} X {{numOfNights}} nights</div><div class="total-second-col">${{totalPrice()}}</div></li>
+                <li><div class="total-first-col">Service fee</div><div class="total-second-col">$0</div></li>
+                <li><div class="total-first-col">Occupancy taxes and fees</div><div class="total-second-col">$10</div></li>
+            </ul>
+            <section class="total-last-row flex"><div class="total-second-col">Total</div><div class="total-second-col">${{booking.totalPrice}}</div></section>
+        </div>
     </section>
 </template>
 
@@ -56,8 +66,8 @@ export default {
     data() {
         return {
             booking: {
-                checkIn: 'check in',
-                checkOut: 'check out',
+                checkIn: 'Check In',
+                checkOut: 'Check Out',
                 guestsNum: 0,
                 totalPrice: 0,
             },
@@ -71,6 +81,7 @@ export default {
                     return date < new Date();
                 },
             },
+            available: false,
         };
     },
     computed: {
@@ -116,11 +127,20 @@ export default {
             this.numOfNights = diffDays;
         },
         totalPrice() {
-            this.booking.totalPrice = this.pricePN * this.numOfNights;
+            const total = this.pricePN * this.numOfNights;
+            this.booking.totalPrice = total + 10;
+            return total;
+        },
+        async checkAvailability() {
+            const isAvailable = await this.$store.dispatch({
+                type: "checkAvailability",
+                booking: this.booking
+            })
+            if(Number.isInteger(this.booking.checkOut) && isAvailable) this.available = true;
         },
         addBooking() {
-          this.$emit("addBooking", this.booking);
-        }
+            this.$emit("addBooking", this.booking);
+        },
     },
     created() {},
 };

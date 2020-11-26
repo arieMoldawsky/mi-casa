@@ -1,73 +1,80 @@
 <template>
-    <section class="house-details-section">
-        <h3>{{ house.name }}</h3>
-        <div>
-            {{ houseRating }}⭐ ·
-            <span class="house-location"
-                >{{ location.city }}, {{ location.country }}</span
-            >
+    <section>
+        <div class="sk-chase" v-if="isLoading">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
         </div>
-        <div class="imgs-container">
-            <div class="main-img">
-                <img :src="mainImg" alt="" />
+        <section v-if="!isLoading" class="house-details-section">
+            <h3>{{ house.name }}</h3>
+            <div>
+                {{ houseRating }}⭐ ·
+                <span class="house-location"
+                    >{{ house.location.city }},
+                    {{ house.location.country }}</span
+                >
             </div>
-            <div class="secondary-imgs">
-                <img
-                    v-for="(img, idx) in secondryImgs"
-                    :key="img"
-                    :src="secondryImgs[idx]"
-                    :class="`secondary-img${idx}`"
-                />
-            </div>
-        </div>
-        <booking-modal v-if="house.capacity" @addBooking="addBooking" :reviews="reviews" :capacity="house.capacity" :pricePN="house.price"></booking-modal>
-        <section class="house-desc-section">
-            <div class="house-main-desc">
-                <h3>{{ house.type }} hosted by {{ host.fullName }}</h3>
-                <div class="house-capacity">
-                    Up to {{ house.capacity }} guests
+            <div class="imgs-container">
+                <div class="main-img">
+                    <img :src="house.imgs[0]" alt="" />
+                </div>
+                <div class="secondary-imgs">
+                    <img
+                        v-for="(img, idx) in secondryImgs"
+                        :key="img"
+                        :src="secondryImgs[idx]"
+                        :class="`secondary-img${idx}`"
+                    />
                 </div>
             </div>
-            <img :src="host.imgUrl" />
-            <p>{{ house.description }}</p>
+            <booking-modal
+                v-if="house.capacity"
+                @addBooking="addBooking"
+                :reviews="house.reviews"
+                :capacity="house.capacity"
+                :pricePN="house.price"
+            ></booking-modal>
+            <section class="house-desc-section">
+                <div class="house-main-desc">
+                    <h3>
+                        {{ house.type }} hosted by {{ house.host.fullName }}
+                    </h3>
+                    <div class="house-capacity">
+                        Up to {{ house.capacity }} guests
+                    </div>
+                </div>
+                <img :src="house.host.imgUrl" />
+                <p>{{ house.description }}</p>
+            </section>
+            <section class="amenities-section">
+                <h3>Amenities</h3>
+                <ul>
+                    <li v-for="amenity in house.amenities" :key="amenity">
+                        {{ amenity }}
+                    </li>
+                </ul>
+            </section>
+            <house-chat :id="house._id"></house-chat>
+            <el-button @click="addReview">Add Review</el-button>
+            <house-reviews :reviews="house.reviews"></house-reviews>
+            <googleMap
+                v-if="house.location.city"
+                :location="house.location"
+            ></googleMap>
         </section>
-        <section class="amenities-section">
-            <h3>Amenities</h3>
-            <ul>
-                <li v-for="amenity in house.amenities" :key="amenity">
-                    {{ amenity }}
-                </li>
-            </ul>
-        </section>
-        <house-chat :id="house._id"></house-chat>
-        <el-button @click="addReview">Add Review</el-button>
-        <house-reviews :reviews="reviews"></house-reviews>
-        <googleMap v-if="location.city" :location="location"></googleMap>
     </section>
 </template>
 
-
-
 <script>
-import houseChat from "@/cmps/houseChat.cmp.vue"
+import houseChat from "@/cmps/houseChat.cmp.vue";
 import houseReviews from "../cmps/houseReviews.cmp.vue";
 import bookingModal from "../cmps/bookingModal.cmp.vue";
 import googleMap from "../cmps/googleMap.cmp.vue";
 
 export default {
-    data() {
-        return {
-            house: {},
-            mainImg: "",
-            host: {},
-            location: {
-                lat: 0,
-                lng: 0,
-                city: '',
-                country: ''
-            },
-        };
-    },
     methods: {
         backToList() {
             this.$router.push(`/`);
@@ -81,40 +88,27 @@ export default {
                 house: this.house,
             });
         },
-        async loadHouse(houseId) {
-            const house = await this.$store.dispatch({
-                type: "loadHouse",
-                houseId,
-            });
-            this.house = house;
-            this.mainImg = house.imgs[0];
-            this.location = house.location;
-            this.host = house.host;
-        },
         addBooking(booking) {
             booking.houseId = this.house._id;
             this.$store.dispatch({
                 type: "addBooking",
-                booking
-            })
+                booking,
+            });
         },
         addReview() {
-            this.$store.dispatch({type: 'modalMode', modalMode: 'addReview'})
-        }
+            this.$store.dispatch({ type: "modalMode", modalMode: "addReview" });
+        },
     },
     computed: {
-        // convertTime() {
-        //     return new Date(this.house.createdAt).toLocaleDateString("he");
-        // },
+        house() {
+            return this.$store.getters.getHouse;
+        },
+        isLoading() {
+            return this.$store.getters.getIsLoading;
+        },
         convertBoolean() {
             if (this.location === {}) return false;
             return true;
-        },
-        reviews() {
-            return this.house.reviews;
-        },
-        theLocation() {
-            return this.house.location;
         },
         reviewsLength() {
             if (this.house.reviews) {
@@ -139,7 +133,7 @@ export default {
             return 0;
         },
         secondryImgs() {
-            var imgs = this.house.imgs;
+            var imgs = JSON.parse(JSON.stringify(this.house.imgs));
             if (imgs) {
                 imgs.splice(0, 1);
                 return imgs;
@@ -147,14 +141,16 @@ export default {
         },
     },
     created() {
-        const houseId = this.$route.params.id;
-        this.loadHouse(houseId);
+        this.$store.dispatch({
+            type: "loadHouse",
+            houseId: this.$route.params.id,
+        });
     },
     components: {
         houseChat,
         houseReviews,
         googleMap,
-        bookingModal
+        bookingModal,
     },
 };
 </script>

@@ -40,6 +40,18 @@ export default {
         console.log(error)
       }
     },
+    async checkAvailability(context, { booking }) {
+      try {
+        const bookingRes = await bookingService.check(booking);
+        return bookingRes;
+        // eventBus.$emit(SHOW_MSG, {
+        //   txt: `${bookingRes._id} Added Succefully`,
+        //   type: 'success',
+        // })
+      } catch (error) {
+        console.log(error)
+      }
+    }
   },
   mutations: {
     loadBookings(state, { res }) {
