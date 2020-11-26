@@ -117,7 +117,6 @@ export default {
     },
     setIsLoading(state, { isLoading }) {
       state.isLoading = isLoading
-      console.log(state.isLoading);
     },
     addReview(state, { review }) {
       state.house.reviews.push(review)
