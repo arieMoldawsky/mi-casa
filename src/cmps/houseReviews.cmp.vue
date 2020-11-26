@@ -14,7 +14,7 @@
                 <img :src="review.user.imgUrl" />
                 <div>{{ review.user.fullName }}</div>
                 <div>{{ review.createdAt }}</div>
-                <p>{{ review.text }}</p>
+                <p>{{ review.txt }}</p>
             </li>
         </ul>
     </section>

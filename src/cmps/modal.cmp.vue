@@ -1,8 +1,12 @@
 <template>
-  <section v-if="modalMode" class="modal-container">
-    <component :is="modalMode">
+  <section :class="{ hidden: !modalMode }" class="modal-container">
+    <component
+      :is="modalMode"
+      :class="{ hidden: !modalMode }"
+      @closeModal="closeModal"
+    >
       <slot>
-        <el-button @click="closeModal"/>
+        <el-button @click="closeModal">Cancel</el-button>
       </slot>
     </component>
   </section>
@@ -12,11 +16,6 @@
 import addReview from '@/cmps/addReview.cmp'
 
 export default {
-  data() {
-    return {
-    //   isModalOpen: false,
-    }
-  },
   components: {
     addReview,
   },
@@ -24,11 +23,12 @@ export default {
     modalMode() {
       return this.$store.getters.getModalMode
     },
+    scrollFreeze() {},
   },
   methods: {
-      closeModal() {
-          this.$store.dispatch({type: 'modalMode', modalMode: null})
-      }
-  }
+    closeModal() {
+      this.$store.dispatch({ type: 'modalMode', modalMode: null })
+    },
+  },
 }
 </script>

@@ -56,8 +56,8 @@ export default {
     data() {
         return {
             booking: {
-                checkIn: "",
-                checkOut: "",
+                checkIn: 'Check In',
+                checkOut: 'Check Out',
                 guestsNum: 0,
                 totalPrice: 0,
             },
