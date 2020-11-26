@@ -20,7 +20,7 @@
                 />
             </div>
         </div>
-        <booking-modal v-if="house.capacity" :capacity="house.capacity" :pricePN="house.price"></booking-modal>
+        <booking-modal v-if="house.capacity" :reviews="reviews" :capacity="house.capacity" :pricePN="house.price"></booking-modal>
         <section class="house-desc-section">
             <div class="house-main-desc">
                 <h3>{{ house.type }} hosted by {{ host.fullName }}</h3>

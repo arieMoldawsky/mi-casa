@@ -1,0 +1,33 @@
+.booking-modal-section {
+    position: absolute;
+    z-index: 10;
+    top: 21%;
+    right: 0;
+    max-width: 300px;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid lightgray;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+
+    .booking-modal-container {
+        flex-direction: column;
+
+        button {
+            background-color: rgb(70, 198, 202);
+            color: snow;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        div:last-of-type {
+            margin-bottom: 15px;
+        }
+    }
+    .booking-modal-header {
+        justify-content: space-between;
+        .pricePN {
+            font-weight: bold;
+        }
+    }
+}

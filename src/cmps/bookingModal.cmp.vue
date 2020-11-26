@@ -1,8 +1,15 @@
 <template>
     <section class="booking-modal-section flex">
+        <div class="booking-modal-header flex">
+            <div>
+                <span class="pricePN">${{ pricePN }}</span
+                >/night
+            </div>
+            <div>{{ houseRating }}⭐ <span>({{ reviewsLength }})</span></div>
+        </div>
         <el-form
             @submit.native.prevent="updateFilter"
-            class="booking-modal-container flex-centered"
+            class="booking-modal-container flex"
             ref="form"
             size="medium"
         >
@@ -31,11 +38,10 @@
                     :max="capacity"
                 />
             </div>
-            <div class="form-item submit flex-start">
+            <!-- <div class="form-item submit flex-start"> -->
                 <button native-type="submit">Check availability</button>
-            </div>
+            <!-- </div> -->
         </el-form>
-        <pre>{{booking}}</pre>
     </section>
 </template>
 
@@ -46,6 +52,7 @@ export default {
     props: {
         capacity: Number,
         pricePN: Number,
+        reviews: Array,
     },
     data() {
         return {
@@ -71,6 +78,27 @@ export default {
         datesToPicker() {
             return [this.booking.checkIn, this.booking.checkOut];
         },
+        reviewsLength() {
+            if (this.reviews) {
+                return this.reviews.length;
+            }
+            return 0;
+        },
+        houseRating() {
+            const format = (num, decimals) =>
+                num.toLocaleString("en-US", {
+                    minimumFractionDigits: 1,
+                    maximumFractionDigits: 1,
+                });
+            var ratingSum = 0;
+            if (this.reviews) {
+                this.reviews.forEach((review) => {
+                    ratingSum += +review.rating;
+                });
+                return format(ratingSum / this.reviews.length);
+            }
+            return 0;
+        },
     },
     methods: {
         datesFromPicker(ev) {
@@ -83,7 +111,9 @@ export default {
             const oneDay = 24 * 60 * 60 * 1000;
             const firstDate = new Date(this.booking.checkIn);
             const secondDate = new Date(this.booking.checkOut);
-            const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+            const diffDays = Math.round(
+                Math.abs((firstDate - secondDate) / oneDay)
+            );
             this.numOfNights = diffDays;
         },
         totalPrice() {
