@@ -14,7 +14,7 @@
       <h3>⭐{{ houseRating }} ({{ ratingCount }})</h3>
       <h3>{{ house.location.city }} - {{ house.type }}</h3>
       <h4>{{ houseDescription }}</h4>
-      <h4>${{ house.price }} / night</h4>
+      <h4><span class="house-price">${{ house.price }} AUD </span>/ night</h4>
   </div>
   </section>
 </template>
