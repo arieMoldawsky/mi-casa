@@ -21,6 +21,10 @@
     justify-content: center;
 }
 
+.house-card {
+  flex-direction: column;
+}
+
 * {box-sizing:border-box}
 
 /* Slideshow container */
@@ -59,7 +63,6 @@
 }
 
 .dot {
-  cursor: pointer;
   height: 10px;
   width: 10px;
   margin: 0 2px;
