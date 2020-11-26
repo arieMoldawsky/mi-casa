@@ -1,26 +1,21 @@
 <template>
   <section class="house-card flex f-col">
-    <!-- <div class="house-card-container"> -->
-      <!-- Slideshow container -->
-
+    <div class="house-card-container">
   <div class="block">
     <el-carousel trigger="click" height="150px">
-      <el-carousel-item>
-          <img
-            v-for="(img, idx) in slideImgs"
-            :key="img"
-            :src="slideImgs[idx]"
+      <el-carousel-item v-for="(img, idx) in slideImgs" :key="img">
+            <img :src="slideImgs[idx]"
             :class="`slide-imgs${idx}`"
-            style="width: 100%"
-          />
+            style="width: 100%" />
+          
       </el-carousel-item>
     </el-carousel>
   </div>
-      <!-- <div>{{house.imgs[0]}}</div> -->
       <h3>⭐{{ houseRating }} ({{ ratingCount }})</h3>
       <h3>{{ house.location.city }} - {{ house.type }}</h3>
       <h4>{{ houseDescription }}</h4>
       <h4>${{ house.price }} / night</h4>
+  </div>
   </section>
 </template>
 
