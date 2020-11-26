@@ -27,7 +27,7 @@
         :value="datesToPicker"
         @input="datesFromPicker"
         format="MMM d"
-        value-format="yyyy-MM-dd"
+        value-format="timestamp"
         type="daterange"
         range-separator=""
         start-placeholder="Check In"
