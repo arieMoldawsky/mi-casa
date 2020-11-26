@@ -131,8 +131,12 @@ export default {
             this.booking.totalPrice = total + 10;
             return total;
         },
-        checkAvailability() {
-            if(Number.isInteger(this.booking.checkOut)) this.available = true;
+        async checkAvailability() {
+            const isAvailable = await this.$store.dispatch({
+                type: "checkAvailability",
+                booking: this.booking
+            })
+            if(Number.isInteger(this.booking.checkOut) && isAvailable) this.available = true;
         },
         addBooking() {
             this.$emit("addBooking", this.booking);
