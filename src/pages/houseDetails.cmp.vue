@@ -2,7 +2,7 @@
     <section class="house-details-section">
         <h3>{{ house.name }}</h3>
         <div>
-            {{ houseRating }}⭐ -
+            {{ houseRating }}⭐ ·
             <span class="house-location"
                 >{{ location.city }}, {{ location.country }}</span
             >
