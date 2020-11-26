@@ -2,7 +2,7 @@
     <section class="house-details-section">
         <h3>{{ house.name }}</h3>
         <div>
-            {{ houseRating }}⭐ -
+            {{ houseRating }}⭐ ·
             <span class="house-location"
                 >{{ location.city }}, {{ location.country }}</span
             >
@@ -39,7 +39,7 @@
             </ul>
         </section>
         <house-reviews :reviews="reviews"></house-reviews>
-        <googleMap :location="location"></googleMap>
+        <googleMap v-if="location.city" :location="location"></googleMap>
         <!-- <googleMap :location="{lat: location.lat, lng: location.lng}"></googleMap> -->
     </section>
 </template>
@@ -57,7 +57,12 @@ export default {
             house: {},
             mainImg: "",
             host: {},
-            location: {},
+            location: {
+                lat: 0,
+                lng: 0,
+                city: '',
+                country: ''
+            },
         };
     },
     methods: {
@@ -80,8 +85,8 @@ export default {
             });
             this.house = house;
             this.mainImg = house.imgs[0];
-            this.host = house.host;
             this.location = house.location;
+            this.host = house.host;
         },
     },
     computed: {
@@ -89,11 +94,14 @@ export default {
         //     return new Date(this.house.createdAt).toLocaleDateString("he");
         // },
         convertBoolean() {
-            if (this.house.inStock) return "Yes!";
-            return "No..";
+            if (this.location === {}) return false;
+            return true;
         },
         reviews() {
             return this.house.reviews;
+        },
+        theLocation() {
+            return this.house.location;
         },
         reviewsLength() {
             if (this.house.reviews) {
@@ -124,11 +132,11 @@ export default {
                 return imgs;
             }
         },
-        latLng() {
-            if (this.location) {
-                return { lat: +this.location.lat, lng: +this.location.lng };
-            }
-        },
+        // latLng() {
+        //     if (this.location) {
+        //         return { lat: +this.location.lat, lng: +this.location.lng };
+        //     }
+        // },
     },
     created() {
         const houseId = this.$route.params.id;

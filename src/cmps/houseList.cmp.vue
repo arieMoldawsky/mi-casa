@@ -1,5 +1,5 @@
 <template>
-    <section class="house-list flex f-center wrap">
+    <section class="house-list">
             <housePreview v-for="house in houses" :key="house.id" :house="house" @click.native="showDetails(house._id)"/>
     </section>
 </template>

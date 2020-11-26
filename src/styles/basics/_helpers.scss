@@ -29,14 +29,18 @@
     justify-content: center;
     align-items: center;
 }
+.flex-start {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
 
 .wrap {
     flex-wrap: wrap;
 }
 
-.flex-column {
-    display: flex;
-    flex-direction: column;
+.space-b {
+    justify-content: space-between;
 }
 
 .pointer {

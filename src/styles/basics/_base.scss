@@ -3,18 +3,20 @@
 }
 
 html {
-    font-family: Circular;
-    // line-height: 1.8;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     color: $clr3;
 }
 
 body {
     margin: 0;
     background-color: $clr1;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 0.5em;
+    margin: 0;
     // font-family: monospace;
     line-height: 1.3;
 }
@@ -36,6 +38,10 @@ ul {
 
 img {
     width: 100%;
+}
+
+a {
+    color: $clr1;
 }
 
 button {

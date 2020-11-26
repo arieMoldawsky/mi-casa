@@ -7,6 +7,8 @@
 // basic
 @import './basics/base';
 @import './basics/helpers';
+@import './basics/layout';
+@import './basics/buttons';
 
 //plugins 
 
@@ -19,6 +21,7 @@
 @import './cmps/home';
 @import './cmps/appHeader';
 @import './cmps/houseApp';
+@import './cmps/houseList';
 
 // @import './cmps/header';
 
