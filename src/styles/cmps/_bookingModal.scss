@@ -10,6 +10,7 @@
     border-radius: 12px;
     padding: 24px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    background-color: $clr1;
 
     .booking-modal-container {
         flex-direction: column;
@@ -20,13 +21,41 @@
             padding: 15px;
             border-radius: 8px;
         }
+
         div:last-of-type {
             margin-bottom: 15px;
         }
     }
+
     .booking-modal-header {
         justify-content: space-between;
+
         .pricePN {
+            font-weight: bold;
+        }
+    }
+
+    .total-section ul {
+        padding-bottom: 15px;
+        margin-top: 20px;
+        flex-direction: column;
+        gap: 10px;
+        border-bottom: 1px solid lightgray;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+
+            .total-first-col {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .total-section {
+        .total-last-row {
+            padding-top: 10px;
+            justify-content: space-between;
             font-weight: bold;
         }
     }
