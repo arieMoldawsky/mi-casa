@@ -2,8 +2,8 @@
   <section class="house-card flex f-col">
     <div class="house-card-container">
       <div class="el-carousel-img block">
-        <el-carousel trigger="click" height="150px">
-          <el-carousel-item v-for="(img, idx) in slideImgs" :key="img">
+        <el-carousel :autoplay="false" trigger="click" height="150px">
+          <el-carousel-item v-for="(img, idx) in slideImgs" :key="img" autoplay="false">
                 <img :src="slideImgs[idx]"
                 :class="`slide-imgs${idx}`"
                 style="width: 100%" />
