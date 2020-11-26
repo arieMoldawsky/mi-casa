@@ -47,10 +47,11 @@ export default {
       }
     },
     async loadHouse({ commit }, { type, houseId }) {
+      commit({ type: 'setIsLoading', isLoading: true })
       try {
         const house = await houseService.findById(houseId)
         commit({ type, house })
-        return house
+        commit({ type: 'setIsLoading', isLoading: false })
       } catch (error) {
         console.log('ERROR: could not load house: ', houseId)
       }
@@ -116,6 +117,7 @@ export default {
     },
     setIsLoading(state, { isLoading }) {
       state.isLoading = isLoading
+      console.log(state.isLoading);
     },
     addReview(state, { review }) {
       state.house.reviews.push(review)
