@@ -73,7 +73,6 @@ export default {
     },
   },
   created() {
-    console.log(this.id);
     socketService.setup()
     socketService.emit('chatTopic', this.id)
     socketService.on('chatAddMsg', msg => this.addMsg(msg))
