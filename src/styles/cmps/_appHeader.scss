@@ -1,8 +1,8 @@
-
- .main-header {
+.main-header {
     justify-content: space-between;
     color: rgb(70, 198, 202);
- }
+}
+
 .navbar-container {
     height: 3rem;
     justify-content: flex-end;
@@ -14,12 +14,13 @@
 }
 
 .logo {
- justify-content: left;
- font-size: 2rem;;
+    justify-content: left;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
 .logo-navbar {
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .nav-routes {
@@ -30,6 +31,7 @@
 .houses-navbar {
     padding: 10px;
 }
+
 .host-navbar {
     padding: 10px;
 }
