@@ -73,14 +73,16 @@ export default {
     },
   },
   created() {
-    socketService.setup()
     socketService.emit('chatTopic', this.id)
     socketService.on('chatAddMsg', msg => this.addMsg(msg))
     socketService.on('chatLoadHistory', msgs => this.loadHistory(msgs))
     socketService.on('isTyping', name => this.heIsTyping(name))
   },
   destroyed() {
-    socketService.terminate()
+    socketService.emit('chatTopic', null)
+    socketService.off('chatAddMsg')
+    socketService.off('chatLoadHistory')
+    socketService.off('isTyping')
   }
 }
 </script>

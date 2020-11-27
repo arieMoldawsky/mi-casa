@@ -1,5 +1,4 @@
 <template>
-  <!-- <section class="house-filter-container flex"> -->
   <el-form
     @submit.native.prevent="updateFilter"
     class="house-filter-container flex-centered"
@@ -108,7 +107,6 @@
     /> -->
   </el-form>
 
-  <!-- </section> -->
 </template>
 
 <script>

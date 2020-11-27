@@ -1,56 +1,56 @@
 <template>
-    <main class="house-app main-layout">
-        <appHeader /> 
-        <houseFilter />
-        <div class="head-title flex">
-            <small class="head-title-visits">300+ stays</small>
-            <h1 class="head-title-txt">Entire homes</h1>
-        </div>
-        <div class="sk-chase" v-if="isLoading">
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-        </div>
-        <houseList v-if="!isLoading" :houses="houses" />
-    </main>
+  <main class="house-app main-layout">
+    <appHeader />
+    <houseFilter />
+    <div class="head-title flex">
+      <small class="head-title-visits">300+ stays</small>
+      <h1 class="head-title-txt">Entire homes</h1>
+    </div>
+    <div class="sk-chase" v-if="isLoading">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>
+    <houseList v-if="!isLoading" :houses="houses" />
+  </main>
 </template>
 
 <script>
-import houseList from "@/cmps/houseList.cmp.vue";
-import appHeader from "@/cmps/appHeader.cmp.vue";
-import houseFilter from "@/cmps/houseFilter.cmp.vue";
+import houseList from '@/cmps/houseList.cmp.vue'
+import appHeader from '@/cmps/appHeader.cmp.vue'
+import houseFilter from '@/cmps/houseFilter.cmp.vue'
 
 export default {
   name: 'houseApp',
   computed: {
-        houses() {
-            return this.$store.getters.getHouses;
-        },
-        housesLength() {
-            return this.$store.getters.getHousesLength;
-        },
-        filterBy() {
-            return this.$store.getters.getFilterBy;
-        },
-        isLoading() {
-          return this.$store.getters.getIsLoading
-        }
+    houses() {
+      return this.$store.getters.getHouses
     },
-    methods: {
-        updateFilter(filter) {
-            this.$store.dispatch({ type: "updateFilter", filterBy });
-        },
+    housesLength() {
+      return this.$store.getters.getHousesLength
     },
-    components: {
-        houseList,
-        houseFilter,
-        appHeader,
+    filterBy() {
+      return this.$store.getters.getFilterBy
     },
-    created() {
-        this.$store.dispatch({ type: "loadHouses" });
+    isLoading() {
+      return this.$store.getters.getIsLoading
     },
-};
+  },
+  methods: {
+    updateFilter(filter) {
+      this.$store.dispatch({ type: 'updateFilter', filterBy })
+    },
+  },
+  components: {
+    houseList,
+    houseFilter,
+    appHeader,
+  },
+  created() {
+    this.$store.dispatch({ type: 'loadHouses' })
+  },
+}
 </script>
