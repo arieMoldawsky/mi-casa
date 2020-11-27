@@ -132,9 +132,12 @@ export default {
             return total;
         },
         async checkAvailability() {
+            const house = this.$store.getters.getHouse
+            var booking = JSON.parse(JSON.stringify(this.booking));
+            booking.houseId = house._id;
             const isAvailable = await this.$store.dispatch({
                 type: "checkAvailability",
-                booking: this.booking
+                booking
             })
             if(Number.isInteger(this.booking.checkOut) && isAvailable) this.available = true;
         },
