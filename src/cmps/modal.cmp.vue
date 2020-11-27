@@ -1,8 +1,13 @@
 <template>
-  <section :class="{ hidden: !modalMode }" class="modal-container">
+  <section
+    @click="closeModal"
+    :class="{ hidden: !modalMode }"
+    class="modal-container"
+  >
     <component
       :is="modalMode"
       :class="{ hidden: !modalMode }"
+      @click.native.stop
       @closeModal="closeModal"
     >
       <slot>

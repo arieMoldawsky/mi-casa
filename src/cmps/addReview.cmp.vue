@@ -1,13 +1,17 @@
 <template>
-  <section class="add-review">
+  <section class="add-review modal-content">
     <el-form
       @submit.native.prevent="updateFilter"
-      class="add-review"
-      ref="form"
       :model="review"
       size="medium"
     >
-      <el-input placeholder="How was your stay?" v-model="review.txt" />
+      <el-input
+        type="textarea"
+        :autosize="{ minRows: 8, maxRows: 10 }"
+        resize="none"
+        placeholder="How was your stay?"
+        v-model="review.txt"
+      />
       <el-rate v-model="review.rating"></el-rate>
       <div>
         <el-button native-type="submit" @click="addReview">
