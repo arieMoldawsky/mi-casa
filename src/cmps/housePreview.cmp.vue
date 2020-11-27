@@ -14,7 +14,7 @@
       <h3><i class="fas fa-star"></i>{{ houseRating }} ({{ ratingCount }})</h3>
       <h3>{{ house.location.city }} - {{ house.type }}</h3>
       <h4>{{ houseDescription }}</h4>
-      <h4><span class="house-price">${{ house.price }} AUD </span>/ night</h4>
+      <h4><span class="house-price">${{ house.price }}</span> / night</h4>
   </div>
   </section>
 </template>
@@ -48,8 +48,8 @@ export default {
       return Math.floor(Math.random() * 100) + 1;
     },
     houseDescription() {
-      if (this.house.description.length > 30) {
-        return this.house.description.substr(0, 30) + "...";
+      if (this.house.description.length > 26) {
+        return this.house.description.substr(0, 26) + "...";
       } else return this.house.description;
     },
     slideImgs() {
