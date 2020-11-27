@@ -55,7 +55,6 @@ export default {
     slideImgs() {
       var imgs = this.house.imgs;
       if (imgs) {
-        imgs.splice(0, 1);
         return imgs;
       }
     },
