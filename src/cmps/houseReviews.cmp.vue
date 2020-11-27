@@ -1,6 +1,6 @@
 <template>
     <section class="house-reviews-section">
-        <h3>{{ houseRating }}⭐ ({{ reviewsLength }} reviews)</h3>
+        <h3><i class="fas fa-star"></i>{{ houseRating }} ({{ reviewsLength }} reviews)</h3>
         <div class="reviews-rate-list">
             <p>Cleanliness -------------- 4.9</p>
             <p>Communication -------------- 4.9</p>
@@ -36,8 +36,8 @@ export default {
         houseRating() {
             const format = (num, decimals) =>
                 num.toLocaleString("en-US", {
-                    minimumFractionDigits: 1,
-                    maximumFractionDigits: 1,
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
                 });
             var ratingSum = 0;
             if (this.reviews) {

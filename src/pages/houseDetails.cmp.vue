@@ -11,7 +11,7 @@
         <section v-if="!isLoading" class="house-details-section">
             <h3>{{ house.name }}</h3>
             <div>
-                {{ houseRating }}⭐ ·
+                <i class="fas fa-star"></i>{{ houseRating }} ·
                 <span class="house-location"
                     >{{ house.location.city }},
                     {{ house.location.country }}</span
@@ -88,12 +88,13 @@ export default {
                 house: this.house,
             });
         },
-        addBooking(booking) {
+        async addBooking(booking) {
             booking.houseId = this.house._id;
-            this.$store.dispatch({
+            const addedBooking = await this.$store.dispatch({
                 type: "addBooking",
                 booking,
             });
+            if (addedBooking) this.$router.push(`/`);
         },
         addReview() {
             this.$store.dispatch({ type: "modalMode", modalMode: "addReview" });

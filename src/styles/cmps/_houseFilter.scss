@@ -8,6 +8,11 @@
     outline: none;
     border: none;
   }
+
+  span.el-range-separator {
+    width: 0;
+  }
+
   .form-item {
     flex-direction: column;
     // height: 100%;
@@ -31,14 +36,20 @@
         font-weight: bold;
       }
       input {
+        background-color: $clr1;
         color: $clr3;
         font-size: 1rem;
       }
+     
       .el-input-number {
+        background-color: $clr1;
         width: 50%;
+                
         span {
+          background-color: transparent;
           width: fit-content;
         }
+        
       }
       .el-range-editor {
         width: 100%;

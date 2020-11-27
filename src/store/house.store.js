@@ -6,7 +6,7 @@ export default {
   state: {
     filterBy: {
       page: 1,
-      limit: 10,
+      limit: 30,
       txt: '',
       sortBy: 'name',
       capacity: null,

@@ -3,10 +3,10 @@
         <div class="booking-modal-header flex">
             <div>
                 <span class="pricePN">${{ pricePN }}</span
-                >/night
+                > / night
             </div>
             <div>
-                {{ houseRating }}⭐ <span>({{ reviewsLength }})</span>
+                <i class="fas fa-star"></i>{{ houseRating }} <span>({{ reviewsLength }})</span>
             </div>
         </div>
         <el-form
@@ -97,8 +97,8 @@ export default {
         houseRating() {
             const format = (num, decimals) =>
                 num.toLocaleString("en-US", {
-                    minimumFractionDigits: 1,
-                    maximumFractionDigits: 1,
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
                 });
             var ratingSum = 0;
             if (this.reviews) {
