@@ -85,8 +85,7 @@ export default {
       })
     },
     async addBooking(booking) {
-      booking.house._id = this.house._id
-      booking.house.name = this.house.name
+      booking.house = { _id: this.house._id, name: this.house.name }
       const addedBooking = await this.$store.dispatch({
         type: 'addBooking',
         booking,
