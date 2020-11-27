@@ -126,36 +126,40 @@ export default {
       }
       return 0
     },
-  },
-  methods: {
-    datesFromPicker(ev) {
-      this.booking.checkIn = ev[0]
-      this.booking.checkOut = ev[1]
-      this.nightsCount()
-      this.totalPrice()
-    },
-    nightsCount() {
-      const oneDay = 24 * 60 * 60 * 1000
-      const firstDate = new Date(this.booking.checkIn)
-      const secondDate = new Date(this.booking.checkOut)
-      const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay))
-      this.numOfNights = diffDays
-    },
-    totalPrice() {
-      const total = this.pricePN * this.numOfNights
-      this.booking.totalPrice = total + 10
-      return total
-    },
-    async checkAvailability() {
-      const isAvailable = await this.$store.dispatch({
-        type: 'checkAvailability',
-        booking: this.booking,
-      })
-      if (Number.isInteger(this.booking.checkOut) && isAvailable)
-        this.available = true
-    },
-    addBooking() {
-      this.$emit('addBooking', this.booking)
+    methods: {
+        datesFromPicker(ev) {
+            this.booking.checkIn = ev[0];
+            this.booking.checkOut = ev[1];
+            this.nightsCount();
+            this.totalPrice();
+        },
+        nightsCount() {
+            const oneDay = 24 * 60 * 60 * 1000;
+            const firstDate = new Date(this.booking.checkIn);
+            const secondDate = new Date(this.booking.checkOut);
+            const diffDays = Math.round(
+                Math.abs((firstDate - secondDate) / oneDay)
+            );
+            this.numOfNights = diffDays;
+        },
+        totalPrice() {
+            const total = this.pricePN * this.numOfNights;
+            this.booking.totalPrice = total + 10;
+            return total;
+        },
+        async checkAvailability() {
+            const house = this.$store.getters.getHouse
+            var booking = JSON.parse(JSON.stringify(this.booking));
+            booking.house._id = house._id;
+            const isAvailable = await this.$store.dispatch({
+                type: "checkAvailability",
+                booking
+            })
+            if(Number.isInteger(this.booking.checkOut) && isAvailable) this.available = true;
+        },
+        addBooking() {
+            this.$emit("addBooking", this.booking);
+        },
     },
   },
 }
