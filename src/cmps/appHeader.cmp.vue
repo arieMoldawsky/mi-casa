@@ -28,16 +28,16 @@
               </div>
               </div>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item icon="el-icon-plus" command="loginModal"
+                <el-dropdown-item icon="el-icon-circle-plus" command="loginModal"
                   >Login</el-dropdown-item
                 >
-                <el-dropdown-item icon="el-icon-plus" command="signUpModal"
+                <el-dropdown-item icon="el-icon-circle-plus" command="signUpModal"
                   >Sign up</el-dropdown-item
                 >
-                <el-dropdown-item icon="el-icon-plus" command="logoutModal"
+                <el-dropdown-item icon="el-icon-circle-plus" command="logoutModal"
                   >Logout</el-dropdown-item
                 >
-                <el-dropdown-item icon="el-icon-plus" command="helpModal"
+                <el-dropdown-item icon="el-icon-circle-plus" command="helpModal"
                   >Help</el-dropdown-item
                 >
               </el-dropdown-menu>
