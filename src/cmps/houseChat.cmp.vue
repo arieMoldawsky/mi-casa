@@ -1,19 +1,28 @@
 <template>
-  <section class="house-chat">
-    <div class="chat-window">
+  <section class="house-chat flex column">
+    <div class="pointer full-width flex a-center j-space-b" @click="hideChat">
+      <span>{{house.name}}</span>
+      <el-button>X</el-button>
+    </div>
+    <div class="chat-window fill-parent">
       <div v-for="(msg, idx) in msgs" :key="idx">
         <h3 v-if="groupMsgsByName({ msgs, msg, idx })" v-text="msg.name" />
         <span v-text="msg.text" />
       </div>
       <span v-if="remoteTyper">{{ remoteTyper }} is Typing...</span>
     </div>
-    <el-form @submit.native.prevent="sendMsg">
-      <el-form-item>
-        <el-input v-model="newMsg.text" required @input="meIsTyping" />
-      </el-form-item>
-      <el-form-item>
-        <el-button type="success" native-type="submit">Send</el-button>
-      </el-form-item>
+    <el-form
+      class="full-width flex a-end"
+      @submit.native.prevent="sendMsg"
+    >
+      <el-input
+        class="full-width"
+        v-model="newMsg.text"
+        placeholder="Aa"
+        required
+        @input="meIsTyping"
+      />
+      <el-button native-type="submit">Send</el-button>
     </el-form>
   </section>
 </template>
@@ -23,7 +32,7 @@ import socketService from '@/services/socket.service.js'
 
 export default {
   props: {
-    id: String,
+    house: Object,
   },
   data() {
     return {
@@ -38,6 +47,9 @@ export default {
     }
   },
   methods: {
+    hideChat() {
+      this.$emit('toggleChat')
+    },
     addMsg(msg) {
       clearTimeout(this.heDeBounce)
       this.remoteTyper = null
@@ -73,7 +85,7 @@ export default {
     },
   },
   created() {
-    socketService.emit('onJoinHouseChat', this.id)
+    socketService.emit('onJoinHouseChat', this.house.id)
     socketService.on('chatMsg', msg => this.addMsg(msg))
     socketService.on('chatLoadHistory', msgs => this.loadHistory(msgs))
     socketService.on('isTyping', name => this.heIsTyping(name))
@@ -83,6 +95,6 @@ export default {
     socketService.off('chatMsg')
     socketService.off('chatLoadHistory')
     socketService.off('isTyping')
-  }
+  },
 }
 </script>

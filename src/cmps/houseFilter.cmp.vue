@@ -6,7 +6,7 @@
     :model="filterBy"
     size="medium"
   >
-    <div class="form-item field flex-start">
+    <div class="form-item field flex a-start">
       <label>
         Location
       </label>
@@ -16,7 +16,7 @@
         @input="updateTxt"
       />
     </div>
-    <div class="form-item field date-picker flex-start">
+    <div class="form-item field date-picker flex a-start">
       <label>
         Dates
       </label>
@@ -35,13 +35,68 @@
         :picker-options="datePickerOptions"
       />
     </div>
-    <div class="form-item field flex-start">
-      <label>
-        Guests
-      </label>
-      <el-input-number v-model="filterBy.capacity" :min="1" :max="16" />
+    <div class="form-item field flex a-start fill-parent">
+      <el-popover
+        class="fill-parent"
+        placement="bottom"
+        width="300"
+        v-model="isPopVisible"
+      >
+        <div class="fill-parent flex a-start column" slot="reference">
+          <label>
+            Guests
+          </label>
+          <div>
+            <br />
+            <span v-if="filterBy.capacity.adults">
+              {{ filterBy.capacity.adults }} Adults 
+            </span>
+            <span v-if="filterBy.capacity.kids">
+              {{ filterBy.capacity.kids }} Kids 
+            </span>
+            <span v-if="filterBy.capacity.infants">
+              {{ filterBy.capacity.infants }} Infants
+            </span>
+          </div>
+        </div>
+        <label class="flex a-center j-space-b">
+          Adults
+          <el-input-number
+            v-model="filterBy.capacity.adults"
+            :min="0"
+            :max="16"
+          />
+        </label>
+        <br />
+        <label class="flex a-center j-space-b">
+          Kids
+          <el-input-number
+            v-model="filterBy.capacity.kids"
+            :min="0"
+            :max="16"
+          />
+        </label>
+        <br />
+        <label class="flex a-center j-space-b">
+          Infants
+          <el-input-number
+            v-model="filterBy.capacity.infants"
+            :min="0"
+            :max="16"
+          />
+        </label>
+        <!-- <p>Are you sure to delete this?</p> -->
+        <!-- <div style="text-align: right; margin: 0"> -->
+        <!-- <el-button size="mini" type="text" @click="isPopVisible = false"> -->
+        <!-- cancel -->
+        <!-- </el-button> -->
+        <!-- <el-button type="primary" size="mini" @click="isPopVisible = false"> -->
+        <!-- confirm -->
+        <!-- </el-button> -->
+        <!-- </div> -->
+      </el-popover>
     </div>
-    <div class="form-item submit flex-start">
+    <div class="form-item submit flex a-start">
       <button native-type="submit">
         <svg
           viewBox="0 0 32 32"
@@ -106,13 +161,13 @@
       border
     /> -->
   </el-form>
-
 </template>
 
 <script>
 export default {
   data() {
     return {
+      isPopVisible: false,
       filterBy: null,
       deBounce: {
         txt: '',
@@ -160,8 +215,8 @@ export default {
     updateTxt() {
       // clearTimeout(this.deBounce.timer)
       // this.deBounce.timer = setTimeout(() => {
-        // this.filterBy.page = 1
-        this.filterBy.txt = this.deBounce.txt
+      // this.filterBy.page = 1
+      this.filterBy.txt = this.deBounce.txt
       // }, 300)
     },
     updateFilter() {
@@ -171,6 +226,9 @@ export default {
       })
       this.$store.dispatch({ type: 'loadHouses' })
       if (this.$route.path !== '/house') this.$router.push('/house')
+    },
+    togglePop() {
+      this.isPopVisible = !this.isPopVisible
     },
   },
   created() {

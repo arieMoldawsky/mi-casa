@@ -9,7 +9,7 @@
             >
         </div>
 
-        <div class="hero-container flex column space-b">
+        <div class="hero-container flex column j-space-b">
             <appHeader />
             <house-filter />
             <h1 class="hero-title flex">

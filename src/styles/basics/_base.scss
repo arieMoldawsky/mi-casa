@@ -43,11 +43,15 @@ a {
     color: $clr1;
 }
 
+.el-button {
+    color: $clr1;
+    background-color: $clr2;
+}
+
 button {
     border-radius: 2rem;
     padding: 5px;
     border: 1px solid gray;
-    background-color: rgb(241, 229, 60);
     color: $clr3;
     font-weight: bold;
     cursor: pointer;

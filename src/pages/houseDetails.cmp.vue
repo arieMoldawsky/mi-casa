@@ -52,8 +52,9 @@
           </li>
         </ul>
       </section>
-      <house-chat :id="house._id"></house-chat>
+      <el-button @click="toggleChat">Chat With the Owner</el-button>
       <el-button @click="addReview">Add Review</el-button>
+      <house-chat v-if="isChatShown" :house="house" @toggleChat="toggleChat"/>
       <house-reviews :reviews="house.reviews"></house-reviews>
       <googleMap
         v-if="house.location.city"
@@ -71,9 +72,17 @@ import googleMap from '../cmps/googleMap.cmp.vue'
 import socketService from '@/services/socket.service.js'
 
 export default {
+  data() {
+    return {
+      isChatShown: false,
+    }
+  },
   methods: {
     backToList() {
       this.$router.push(`/`)
+    },
+    toggleChat() {
+      this.isChatShown = !this.isChatShown
     },
     async onUploadImg(ev) {
       const res = await uploadImg(ev)
