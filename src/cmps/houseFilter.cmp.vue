@@ -46,9 +46,8 @@
           <label>
             Guests
           </label>
-          <div>
-            <br />
-            <span v-if="filterBy.adults"> {{ filterBy.adults }} Adults </span>
+          <div class="flex j-space-b full-height flex j-center">
+            <span class="flex a-center" v-if="filterBy.adults"> {{ filterBy.adults }} Adults </span>
             <span v-if="filterBy.kids"> {{ filterBy.kids }} Kids </span>
             <span v-if="filterBy.infants">
               {{ filterBy.infants }} Infants
