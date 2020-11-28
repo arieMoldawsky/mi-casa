@@ -1,8 +1,14 @@
 .main-header {
     justify-content: space-between;
-    color: rgb(70, 198, 202);
+    color:rgb(27, 27, 27);
     // border-bottom: 1px solid lightgray;
+    box-shadow: 0 8px 6px -6px black;
+    background-color: #fff;
+    border-radius: 5px;
     margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
 }
 
 .navbar-container {
@@ -28,30 +34,47 @@
 .nav-routes {
     justify-content: flex-end;
     align-self: center;
-    color: rgb(238, 231, 231);
+    color:rgb(15, 7, 7);
 }
 
 .houses-navbar {
     padding: 10px;
+    &:hover {
+        background-color: rgba(27, 27, 27, 0.3);
+        border-radius: 15px;
+    }
 }
 
 .host-navbar {
     padding: 10px;
+    &:hover {
+        background-color: rgba(27, 27, 27, 0.3);
+        border-radius: 15px;
+    }
 }
 
 .el-dropdown-link-container {
     border-radius: 50%;
     border-color: rgb(27, 27, 27);
+    &:hover {
+        background-color: rgba(27, 27, 27, 0.3);
+        border-radius: 15px;
+    }
 }
 
 .el-dropdown-link {
     padding: 10px;
     cursor: pointer;
-    color: rgb(238, 231, 231);
+    color:rgb(27, 27, 27);
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 1.2rem !important;
     width: max-content;
     
+}
+
+.el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
+    background-color:rgba(27, 27, 27, 0.3);
+    color:rgb(27, 27, 27);
 }
 
 .el-icon-arrow-down {

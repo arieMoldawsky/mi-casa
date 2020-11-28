@@ -18,7 +18,7 @@
                 Su Casa
             </h1>
         </div>
-        <button @click="login">login</button>
+        <!-- <button @click="login">login</button> -->
         <div class="trending-head block">
             <h2>Live anywhere</h2>
         </div>
@@ -80,16 +80,16 @@ export default {
         houseList() {
             this.$router.push(`/house`);
         },
-        login() {
-            const user = {
-                email: "orly@amdadi.com",
-                password: "123",
-            };
-            this.$store.dispatch({
-                type: "login",
-                userCred: user,
-            });
-        },
+        // login() {
+        //     const user = {
+        //         email: "orly@amdadi.com",
+        //         password: "123",
+        //     };
+        //     this.$store.dispatch({
+        //         type: "login",
+        //         userCred: user,
+        //     });
+        // },
     },
     created() {},
 };
