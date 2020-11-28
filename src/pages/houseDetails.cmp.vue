@@ -1,5 +1,6 @@
 <template>
   <section>
+    <appHeader />
     <div class="sk-chase" v-if="isLoading">
       <div class="sk-chase-dot"></div>
       <div class="sk-chase-dot"></div>
@@ -52,9 +53,11 @@
           </li>
         </ul>
       </section>
+      <el-button class="add-review-btn" @click="addReview">
+        Add Review
+      </el-button>
       <el-button @click="toggleChat">Chat With the Owner</el-button>
-      <el-button @click="addReview">Add Review</el-button>
-      <house-chat v-if="isChatShown" :house="house" @toggleChat="toggleChat"/>
+      <house-chat v-if="isChatShown" :house="house" @toggleChat="toggleChat" />
       <house-reviews :reviews="house.reviews"></house-reviews>
       <googleMap
         v-if="house.location.city"
@@ -67,6 +70,7 @@
 <script>
 import houseChat from '@/cmps/houseChat.cmp.vue'
 import houseReviews from '../cmps/houseReviews.cmp.vue'
+import appHeader from '../cmps/appHeader.cmp.vue'
 import bookingModal from '../cmps/bookingModal.cmp.vue'
 import googleMap from '../cmps/googleMap.cmp.vue'
 import socketService from '@/services/socket.service.js'
@@ -78,11 +82,11 @@ export default {
     }
   },
   methods: {
-    backToList() {
-      this.$router.push(`/`)
-    },
     toggleChat() {
       this.isChatShown = !this.isChatShown
+    },
+    backToList() {
+      this.$router.push(`/`)
     },
     async onUploadImg(ev) {
       const res = await uploadImg(ev)
@@ -103,12 +107,12 @@ export default {
         hostId: this.house.host._id,
         booking: addedBooking,
       })
-       this.$notify({
-          title: 'Order completed',
-          message: 'Your booking had been reserved successfully',
-          type: 'success',
-          position: 'bottom-right'
-        });
+      this.$notify({
+        title: 'Order completed',
+        message: 'Your booking had been reserved successfully',
+        type: 'success',
+        position: 'bottom-right',
+      })
       // if (addedBooking) this.$router.push(`/`)
     },
     addReview() {
@@ -161,10 +165,15 @@ export default {
       type: 'loadHouse',
       houseId: this.$route.params.id,
     })
+    this.$store.dispatch({
+      type: 'loadBookings',
+      houseId: { houseId: this.$route.params.id },
+    })
   },
   components: {
     houseChat,
     houseReviews,
+    appHeader,
     googleMap,
     bookingModal,
   },

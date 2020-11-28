@@ -15,12 +15,11 @@ export const bookingService = {
 }
 
 function query(query) {
-  // var queryURL = `?`;
-  // for (const key in query) {
-  //   if (query[key])  queryURL += `${key}=${query[key]}&`
-  // }
-  // return httpService.get(`booking/${queryURL}`)
-  return httpService.get(`booking/`)
+  var queryURL = `?`;
+  for (const key in query) {
+    if (query[key])  queryURL += `${key}=${query[key]}&`
+  }
+  return httpService.get(`booking/${queryURL}`)
 }
 
 function check(booking) {

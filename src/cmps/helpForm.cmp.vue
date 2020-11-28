@@ -1,8 +1,6 @@
 <template>
   <section class="login-btn modal-content">
-    <button @click="onLogin">Login</button>
-    <button @click="onSignup">Sign up</button>
-    <button @click="onLogout">Logout</button>
+    <p>Contact us at 1-800-800-micasa</p>
   </section>
 </template>
 
