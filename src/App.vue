@@ -23,13 +23,18 @@ export default {
   },
   created() {
     socketService.setup()
-      socketService.on('userMsg', msg => {
-        this.$message({
-          showClose: true,
-          message: msg.txt,
-          type: msg.type,
-        })
+    socketService.on('userMsg', msg => {
+      this.$notify({
+        showClose: true,
+        title: msg.title,
+        message: msg.txt,
+        type: msg.type,
+        duration: 5000,
+        dangerouslyUseHTMLString: true,
+        position: 'bottom-right',
+        onClick: this.$notify.closeAll
       })
+    })
     window.onbeforeunload = () => {
       this.$store.dispatch({ type: 'onAppDestroyed' })
     }

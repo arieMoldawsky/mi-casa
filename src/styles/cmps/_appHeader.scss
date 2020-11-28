@@ -28,6 +28,7 @@
 .nav-routes {
     justify-content: flex-end;
     align-self: center;
+    color: rgb(238, 231, 231);
 }
 
 .houses-navbar {
@@ -36,4 +37,9 @@
 
 .host-navbar {
     padding: 10px;
+}
+
+.login-btn {
+    padding: 10px;
+    cursor: pointer;
 }
