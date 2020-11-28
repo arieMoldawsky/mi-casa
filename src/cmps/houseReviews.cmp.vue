@@ -2,12 +2,18 @@
     <section class="house-reviews-section">
         <h3><i class="fas fa-star"></i>{{ houseRating }} ({{ reviewsLength }} reviews)</h3>
         <div class="reviews-rate-list">
-            <p>Cleanliness -------------- 4.9</p>
-            <p>Communication -------------- 4.9</p>
-            <p>Check-in -------------- 4.9</p>
-            <p>Accuracy -------------- 4.9</p>
-            <p>Location -------------- 4.9</p>
-            <p>Value -------------- 4.8</p>
+            <p>Cleanliness</p>
+            <el-progress class="progress-bar" :percentage="98" :format="format"></el-progress>
+            <p>Communication</p>
+            <el-progress class="progress-bar" :percentage="98" :format="format"></el-progress>
+            <p>Check-in</p>
+            <el-progress class="progress-bar" :percentage="100" :format="format"></el-progress>
+            <p>Accuracy</p>
+            <el-progress class="progress-bar" :percentage="90" :format="format"></el-progress>
+            <p>Location</p>
+            <el-progress class="progress-bar" :percentage="90" :format="format"></el-progress>
+            <p>Value</p>
+            <el-progress class="progress-bar" :percentage="50" :format="format"></el-progress>
         </div>
         <ul>
             <li v-for="review in reviews" :key="review.id">
@@ -25,7 +31,14 @@ export default {
     props: {
         reviews: Array,
     },
-    methods: {},
+    methods: {
+        format(percentage) {
+        if(percentage === 98) return '4.9';
+        else if (percentage === 100) return '5.0';
+        else if (percentage === 90) return '4.7'
+        else if (percentage === 50) return '2.5'
+      }
+    },
     computed: {
         reviewsLength() {
             if (this.reviews) {
