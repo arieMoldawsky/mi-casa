@@ -48,21 +48,21 @@
           </label>
           <div>
             <br />
-            <span v-if="filterBy.capacity.adults">
-              {{ filterBy.capacity.adults }} Adults 
+            <span v-if="filterBy.adults">
+              {{ filterBy.adults }} Adults 
             </span>
-            <span v-if="filterBy.capacity.kids">
-              {{ filterBy.capacity.kids }} Kids 
+            <span v-if="filterBy.kids">
+              {{ filterBy.kids }} Kids 
             </span>
-            <span v-if="filterBy.capacity.infants">
-              {{ filterBy.capacity.infants }} Infants
+            <span v-if="filterBy.infants">
+              {{ filterBy.infants }} Infants
             </span>
           </div>
         </div>
         <label class="flex a-center j-space-b">
           Adults
           <el-input-number
-            v-model="filterBy.capacity.adults"
+            v-model="filterBy.adults"
             :min="0"
             :max="16"
           />
@@ -71,7 +71,7 @@
         <label class="flex a-center j-space-b">
           Kids
           <el-input-number
-            v-model="filterBy.capacity.kids"
+            v-model="filterBy.kids"
             :min="0"
             :max="16"
           />
@@ -80,7 +80,7 @@
         <label class="flex a-center j-space-b">
           Infants
           <el-input-number
-            v-model="filterBy.capacity.infants"
+            v-model="filterBy.infants"
             :min="0"
             :max="16"
           />
