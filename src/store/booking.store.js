@@ -13,9 +13,9 @@ export default {
     },
   },
   actions: {
-    async loadBookings(context, { type }) {
+    async loadBookings(context, { type, houseId }) {
       try {
-        const res = await bookingService.query()
+        const res = await bookingService.query(houseId)
         context.commit({ type, res })
       } catch (error) {
         console.log('ERROR: could not load bookings')

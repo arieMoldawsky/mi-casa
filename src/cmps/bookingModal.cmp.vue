@@ -104,6 +104,13 @@ export default {
             },
             datePickerOptions: {
                 disabledDate(date) {
+                    // this.bookings.forEach((booking) => {
+                    //     return (
+                    //         (booking.checkIn < date &&
+                    //             booking.checkOut > date) ||
+                    //         date < new Date()
+                    //     );
+                    // });
                     return date < new Date();
                 },
             },
@@ -135,6 +142,9 @@ export default {
                 return format(ratingSum / this.reviews.length);
             }
             return 0;
+        },
+        bookings() {
+            return this.$store.getters.getBookings;
         },
     },
     methods: {
@@ -183,7 +193,7 @@ export default {
                     title: "Empty Dates",
                     message: "You have to insert dates to proceed",
                     type: "warning",
-                    position: "bottom-right"
+                    position: "bottom-right",
                 });
             }
         },
