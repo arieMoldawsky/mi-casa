@@ -11,6 +11,9 @@
     padding: 24px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
     background-color: $clr1;
+    position: sticky;
+    top: 92px;
+    margin-left: 485px;
 
     .booking-modal-container {
         flex-direction: column;
@@ -63,5 +66,12 @@
             justify-content: space-between;
             font-weight: bold;
         }
+    }
+}
+
+.form-item {
+    label {
+        margin-right: 6px;
+        margin-top: 8px;
     }
 }

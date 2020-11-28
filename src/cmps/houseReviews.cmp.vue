@@ -19,7 +19,7 @@
             <li v-for="review in reviews" :key="review.id">
                 <img :src="review.user.imgUrl" />
                 <div>{{ review.user.fullName }}</div>
-                <div>{{ review.createdAt }}</div>
+                <div>{{ convertTimeStamp(review.createdAt) }}</div>
                 <p>{{ review.txt }}</p>
             </li>
         </ul>
@@ -33,11 +33,14 @@ export default {
     },
     methods: {
         format(percentage) {
-        if(percentage === 98) return '4.9';
-        else if (percentage === 100) return '5.0';
-        else if (percentage === 90) return '4.7'
-        else if (percentage === 50) return '2.5'
-      }
+            if(percentage === 98) return '4.9';
+            else if (percentage === 100) return '5.0';
+            else if (percentage === 90) return '4.7'
+            else if (percentage === 50) return '2.5'
+      },
+        convertTimeStamp(time) {
+            return new Date(time).toLocaleDateString("he");
+        },
     },
     computed: {
         reviewsLength() {
@@ -61,9 +64,7 @@ export default {
             }
             return 0;
         },
-        convertTimeStamp(time) {
-            return new Date(time).toLocaleDateString("he");
-        },
+
     },
 };
 </script>
