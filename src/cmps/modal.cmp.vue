@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     closeModal() {
-      this.$router.push('/')
+      // this.$router.push('/')
       this.$store.dispatch({ type: "modalMode", modalMode: null });
     },
   },
