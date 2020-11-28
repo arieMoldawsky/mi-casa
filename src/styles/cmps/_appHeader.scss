@@ -39,7 +39,26 @@
     padding: 10px;
 }
 
-.login-btn {
+.el-dropdown-link-container {
+    border-radius: 50%;
+    border-color: rgb(27, 27, 27);
+}
+
+.el-dropdown-link {
     padding: 10px;
     cursor: pointer;
+    color: rgb(238, 231, 231);
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 1.2rem !important;
+    width: max-content;
+    
 }
+
+.el-icon-arrow-down {
+    display: none;
+}
+
+// .profile-pic {
+//     height: 50px;
+//     height: 50px;
+// }

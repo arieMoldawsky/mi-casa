@@ -18,23 +18,26 @@
 </template>
 
 <script>
-import addReview from '@/cmps/addReview.cmp'
-import appHeader from '@/cmps/appHeader.cmp'
+import addReview from "@/cmps/addReview.cmp";
+import userForm from "@/cmps/user.form";
+import helpForm from "@/cmps/helpForm.cmp";
 
 export default {
   components: {
     addReview,
+    userForm,
   },
   computed: {
     modalMode() {
-      return this.$store.getters.getModalMode
+      return this.$store.getters.getModalMode;
     },
     scrollFreeze() {},
   },
   methods: {
     closeModal() {
-      this.$store.dispatch({ type: 'modalMode', modalMode: null })
+      this.$router.push('/')
+      this.$store.dispatch({ type: "modalMode", modalMode: null });
     },
   },
-}
+};
 </script>

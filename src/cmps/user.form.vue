@@ -33,6 +33,7 @@
       >
       <el-button v-else type="success" native-type="submit">Log In</el-button>
     </el-form-item>
+  <slot />
   </el-form>
 </template>
 
@@ -54,7 +55,7 @@ export default {
           type: 'login',
           userCred: this.userCred,
         })
-        this.$router.push('/house')
+        this.$emit('closeModal')
       } catch (error) {
         console.log('Cannot Login', error)
       }
@@ -65,7 +66,7 @@ export default {
           type: 'signup',
           userCred: this.userCred,
         })
-        this.$router.push('/house')
+        this.$emit('closeModal')
       } catch (error) {
         console.log('Cannot Sign Up', error)
       }
@@ -73,7 +74,8 @@ export default {
   },
   computed: {
     isSignup() {
-      return this.$route.path === '/signup'
+      console.log(this.$route.query.q);
+      return this.$route.query.q === 'signup'
     },
     loggedInUser() {
       return this.$store.getters.loggedInUser
