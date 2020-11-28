@@ -51,11 +51,7 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      is
-    }
-  },
+ 
   methods: {
     handleCommand(command){
       console.log('command', command);
