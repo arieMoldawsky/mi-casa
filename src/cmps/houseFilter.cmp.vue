@@ -48,12 +48,8 @@
           </label>
           <div>
             <br />
-            <span v-if="filterBy.adults">
-              {{ filterBy.adults }} Adults 
-            </span>
-            <span v-if="filterBy.kids">
-              {{ filterBy.kids }} Kids 
-            </span>
+            <span v-if="filterBy.adults"> {{ filterBy.adults }} Adults </span>
+            <span v-if="filterBy.kids"> {{ filterBy.kids }} Kids </span>
             <span v-if="filterBy.infants">
               {{ filterBy.infants }} Infants
             </span>
@@ -62,8 +58,8 @@
         <label class="flex a-center j-space-b">
           Adults
           <el-input-number
-            v-model="filterBy.adults"
-            :min="0"
+            v-model="filterBy.adults" 
+            :min="0" 
             :max="16"
           />
         </label>
@@ -71,6 +67,7 @@
         <label class="flex a-center j-space-b">
           Kids
           <el-input-number
+            @change="checkAdults"
             v-model="filterBy.kids"
             :min="0"
             :max="16"
@@ -80,6 +77,7 @@
         <label class="flex a-center j-space-b">
           Infants
           <el-input-number
+            @change="checkAdults"
             v-model="filterBy.infants"
             :min="0"
             :max="16"
@@ -230,6 +228,9 @@ export default {
     togglePop() {
       this.isPopVisible = !this.isPopVisible
     },
+    checkAdults() {
+      if (!this.filterBy.adults) this.filterBy.adults = 1
+    }
   },
   created() {
     this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
