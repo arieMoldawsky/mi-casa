@@ -1,5 +1,5 @@
 <template>
-  <header class="main-header flex">
+  <header class="main-header flex" :class="homeHeader">
     <!-- <nav class="header-nav flex"> -->
     <!-- <div class="logo-navbar flex"> -->
     <router-link to="/" exact class="logo flex"
@@ -51,8 +51,10 @@
 </template>
 <script>
 export default {
- 
-  methods: {
+  prop: {
+    currCmp: String
+  },
+   methods: {
     handleCommand(command){
       console.log('command', command);
       if(command === 'loginModal') this.loginModal()
@@ -78,8 +80,13 @@ export default {
       this.$store.dispatch({ type: 'modalMode', modalMode: "helpForm" });
     }
   },
+  computed: {
+    homeHeader() {
+      return { 'home-header': this.currCmp === 'home' }
+    }
+  },
   created() {
-    // console.log('created', this.loginModal());
+    // console.log(this.currCmp);
   }
 };
 </script>

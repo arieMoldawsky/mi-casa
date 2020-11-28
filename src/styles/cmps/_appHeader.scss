@@ -1,7 +1,6 @@
 .main-header {
     justify-content: space-between;
     color:rgb(27, 27, 27);
-    // border-bottom: 1px solid lightgray;
     box-shadow: 0 8px 6px -6px black;
     background-color: #fff;
     border-radius: 3px;
@@ -9,6 +8,11 @@
     position: sticky;
     top: 0;
     width: 100%;
+}
+
+.home-header {
+    background-color: transparent !important;
+    color: rgb(230, 227, 227) !important;
 }
 
 .navbar-container {
@@ -80,6 +84,8 @@
 .el-icon-arrow-down {
     display: none;
 }
+
+
 
 // .profile-pic {
 //     height: 50px;
