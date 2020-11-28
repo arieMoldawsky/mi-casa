@@ -116,7 +116,7 @@ export default {
       filterBy: null,
       deBounce: {
         txt: '',
-        timer: null,
+        // timer: null,
       },
       filterOptions: {
         page: [5, 10, 15, 20],
@@ -158,11 +158,11 @@ export default {
       this.filterBy.limit = newLimit
     },
     updateTxt() {
-      clearTimeout(this.deBounce.timer)
-      this.deBounce.timer = setTimeout(() => {
-        this.filterBy.page = 1
+      // clearTimeout(this.deBounce.timer)
+      // this.deBounce.timer = setTimeout(() => {
+        // this.filterBy.page = 1
         this.filterBy.txt = this.deBounce.txt
-      }, 300)
+      // }, 300)
     },
     updateFilter() {
       this.$store.dispatch({
