@@ -52,7 +52,7 @@
             <button v-else native-type="submit" @click.prevent="addBooking">
                 Reserve
             </button>
-            <div v-if="!isAvailable" style="color: red">
+            <div class="dates-taken-msg" v-if="!isAvailable" style="color: red">
                 Dates are already taken
             </div>
         </el-form>
