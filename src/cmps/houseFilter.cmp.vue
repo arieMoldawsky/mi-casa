@@ -48,7 +48,7 @@
           </label>
           <div class="flex j-space-b full-height flex j-center">
             <span class="flex a-center" v-if="filterBy.adults"> {{ filterBy.adults }} Adults </span>
-            <span v-if="filterBy.kids"> {{ filterBy.kids }} Kids </span>
+            <span v-if="filterBy.kids"> {{ filterBy.kids }} Children </span>
             <span v-if="filterBy.infants">
               {{ filterBy.infants }} Infants
             </span>
@@ -58,7 +58,7 @@
           Adults
           <el-input-number
             v-model="filterBy.adults" 
-            :min="0" 
+            :min="1" 
             :max="16"
           />
         </label>
