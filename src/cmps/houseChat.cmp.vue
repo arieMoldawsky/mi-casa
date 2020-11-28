@@ -47,14 +47,14 @@ export default {
       this.msgs = msgs
     },
     sendMsg(ev) {
-      socketService.emit('chatAddMsg', this.newMsg)
+      socketService.emit('onChatMsg', this.newMsg)
       this.newMsg.text = null
       ev.target[0].focus()
     },
     meIsTyping() {
       if (this.meDeBounce) return
       else {
-        socketService.emit('isTyping', this.newMsg.name)
+        socketService.emit('onIsTyping', this.newMsg.name)
         this.meDeBounce = setTimeout(() => {
           this.meDeBounce = null
         }, 500)
@@ -73,14 +73,14 @@ export default {
     },
   },
   created() {
-    socketService.emit('chatTopic', this.id)
-    socketService.on('chatAddMsg', msg => this.addMsg(msg))
+    socketService.emit('onJoinHouseChat', this.id)
+    socketService.on('chatMsg', msg => this.addMsg(msg))
     socketService.on('chatLoadHistory', msgs => this.loadHistory(msgs))
     socketService.on('isTyping', name => this.heIsTyping(name))
   },
   destroyed() {
-    socketService.emit('chatTopic', null)
-    socketService.off('chatAddMsg')
+    socketService.emit('onLeaveHouseChat')
+    socketService.off('chatMsg')
     socketService.off('chatLoadHistory')
     socketService.off('isTyping')
   }
