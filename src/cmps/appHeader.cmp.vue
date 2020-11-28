@@ -8,6 +8,8 @@
     <div class="nav-routes flex">
       <router-link to="/house" exact class="houses-navbar">Places to stay</router-link>
       <router-link to="/login" exact class="host-navbar">Become a host</router-link>
+      <span @click="toggleLogin" class="login-btn">Login/Signup</span>
+
     </div>
   </nav>
   <!-- </nav> -->
@@ -15,6 +17,12 @@
 </template>
 <script>
 export default {
+  methods: {
+ toggleLogin() {
+console.log('login');
+ }
+  }
+
 
 }
 </script>

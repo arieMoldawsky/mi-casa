@@ -19,6 +19,7 @@
 
 <script>
 import addReview from '@/cmps/addReview.cmp'
+import appHeader from '@/cmps/appHeader.cmp'
 
 export default {
   components: {
