@@ -94,6 +94,12 @@ export default {
         hostId: this.house.host._id,
         booking: addedBooking,
       })
+       this.$notify({
+          title: 'Order completed',
+          message: 'Your booking had been reserved successfully',
+          type: 'success',
+          position: 'bottom-right'
+        });
       // if (addedBooking) this.$router.push(`/`)
     },
     addReview() {
