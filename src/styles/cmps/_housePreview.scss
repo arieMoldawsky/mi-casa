@@ -1,6 +1,6 @@
 .house-card {
   text-align: left;
-  height: 325px;
+  height: 280px;
   box-shadow: unset;
 
   .card-preview-container {
@@ -29,6 +29,10 @@
 
 .fa-star {
   color: rgb(70, 198, 202);
+}
+
+.el-carousel__container {
+  height: 165px;
 }
 
 .el-carousel-img {
