@@ -1,5 +1,5 @@
 <template>
-  <section class="house-card flex f-col">
+  <section class="house-card flex f-col pointer">
     <div class="house-card-container">
       <div class="el-carousel-img block">
         <el-carousel :autoplay="false" trigger="click" height="200px">

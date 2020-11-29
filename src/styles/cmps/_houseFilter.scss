@@ -11,17 +11,12 @@
     border: none;
   }
 
-  span.el-range-separator {
-    width: 0;
-  }
-
   .form-item {
     flex-direction: column;
-    // height: 100%;
     border-radius: 100px;
     transition: 200ms;
     &.field {
-      padding: 10px 35px;
+      padding: 10px 25px;
       width: 25%;
       flex-grow: 1;
       &:hover,
@@ -44,6 +39,12 @@
         font-size: 0.9rem;
       }
 
+      .guest-count {
+        > *{
+          margin-right: 5px;
+        }
+      }
+
       .el-input-number {
         background-color: $clr1;
         width: 50%;
@@ -62,9 +63,10 @@
       }
       .date-picker {
         * {
+          cursor: pointer;
           text-align: left;
         }
-        .el-input__icon {
+        .el-range__icon {
           display: none;
         }
       }

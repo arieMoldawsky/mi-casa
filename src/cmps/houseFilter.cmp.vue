@@ -6,21 +6,30 @@
     :model="filterBy"
     size="medium"
   >
-    <div class="form-item field flex a-start">
-      <label>
+    <div
+      class="form-item field flex a-start pointer"
+      @click="$refs.location.focus()"
+    >
+      <label class="pointer">
         Location
       </label>
       <el-input
+        ref="location"
         placeholder="Where are you going?"
+        :clearable="true"
         v-model="deBounce.txt"
         @input="updateTxt"
       />
     </div>
-    <div class="form-item field date-picker flex a-start">
-      <label>
+    <div
+      class="form-item field date-picker flex a-start pointer"
+      @click="$refs.datePicker.focus()"
+    >
+      <label class="pointer">
         Dates
       </label>
       <el-date-picker
+        ref="datePicker"
         class="date-picker"
         popper-class="date-picker-popper"
         :value="datesToPicker"
@@ -28,14 +37,14 @@
         format="MMM d"
         value-format="timestamp"
         type="daterange"
-        range-separator=""
+        align="center"
+        :range-separator="null"
         start-placeholder="Check In"
         end-placeholder="Check Out"
-        :clearable="false"
         :picker-options="datePickerOptions"
       />
     </div>
-    <div class="form-item field flex a-start fill-parent">
+    <div class="form-item field flex a-start fill-parent pointer">
       <el-popover
         class="fill-parent"
         placement="bottom"
@@ -46,51 +55,32 @@
           <label>
             Guests
           </label>
-          <div class="flex j-space-b full-height flex j-center">
-            <span class="flex a-center" v-if="filterBy.adults"> {{ filterBy.adults }} Adults </span>
-            <span v-if="filterBy.kids"> {{ filterBy.kids }} Kids </span>
-            <span v-if="filterBy.infants">
-              {{ filterBy.infants }} Infants
+          <div class="guest-count flex fill-parent">
+            <span class="flex a-center">
+              {{ toAdults }}
+            </span>
+            <span class="flex a-center" v-show="filterBy.kids">
+              {{ toKids }}
+            </span>
+            <span class="flex a-center" v-show="filterBy.infants">
+              {{ toInfants }}
             </span>
           </div>
         </div>
         <label class="flex a-center j-space-b">
           Adults
-          <el-input-number
-            v-model="filterBy.adults" 
-            :min="0" 
-            :max="16"
-          />
+          <el-input-number v-model="filterBy.adults" :min="1" :max="16" />
         </label>
         <br />
         <label class="flex a-center j-space-b">
           Kids
-          <el-input-number
-            @change="checkAdults"
-            v-model="filterBy.kids"
-            :min="0"
-            :max="16"
-          />
+          <el-input-number v-model="filterBy.kids" :min="0" :max="16" />
         </label>
         <br />
         <label class="flex a-center j-space-b">
           Infants
-          <el-input-number
-            @change="checkAdults"
-            v-model="filterBy.infants"
-            :min="0"
-            :max="16"
-          />
+          <el-input-number v-model="filterBy.infants" :min="0" :max="16" />
         </label>
-        <!-- <p>Are you sure to delete this?</p> -->
-        <!-- <div style="text-align: right; margin: 0"> -->
-        <!-- <el-button size="mini" type="text" @click="isPopVisible = false"> -->
-        <!-- cancel -->
-        <!-- </el-button> -->
-        <!-- <el-button type="primary" size="mini" @click="isPopVisible = false"> -->
-        <!-- confirm -->
-        <!-- </el-button> -->
-        <!-- </div> -->
       </el-popover>
     </div>
     <div class="form-item submit flex a-start">
@@ -189,13 +179,30 @@ export default {
       return this.$store.getters.getHousesLength
     },
     datesToPicker() {
-      return [this.filterBy.checkIn, this.filterBy.checkOut]
+      return this.filterBy.checkIn || this.filterBy.checkOut
+        ? [this.filterBy.checkIn, this.filterBy.checkOut]
+        : []
+    },
+    toAdults() {
+      var str = this.filterBy.adults > 1 ? 'Adults' : 'Adult '
+      str += this.filterBy.kids || this.filterBy.infants ? ',' : ''
+      return `${this.filterBy.adults} ${str}`
+    },
+    toKids() {
+      var str = this.filterBy.kids > 1 ? 'Kids' : 'Kid '
+      str += this.filterBy.infants ? ',' : ''
+      return `${this.filterBy.kids} ${str}`
+    },
+    toInfants() {
+      var str = this.filterBy.infants > 1 ? 'Infants' : 'Infant'
+      return `${this.filterBy.infants} ${str}`
     },
   },
   methods: {
     datesFromPicker(ev) {
-      this.filterBy.checkIn = ev[0]
-      this.filterBy.checkOut = ev[1]
+      ev
+        ? ([this.filterBy.checkIn, this.filterBy.checkOut] = ev)
+        : (this.filterBy.checkIn = this.filterBy.checkOut = null)
     },
     updatePage(newPage) {
       const isLastPage =
@@ -227,9 +234,6 @@ export default {
     togglePop() {
       this.isPopVisible = !this.isPopVisible
     },
-    checkAdults() {
-      if (!this.filterBy.adults) this.filterBy.adults = 1
-    }
   },
   created() {
     this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
