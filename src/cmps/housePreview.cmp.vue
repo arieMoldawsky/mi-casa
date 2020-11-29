@@ -31,7 +31,7 @@ export default {
     houseRating() {
       const format = (num, decimals) =>
         num.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
+          minimumFractionDigits: 1,
           maximumFractionDigits: 2,
         });
       const reviews = this.house.reviews;
