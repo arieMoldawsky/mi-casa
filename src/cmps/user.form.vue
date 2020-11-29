@@ -7,7 +7,7 @@
         size="medium"
     >
         <el-form-item v-if="isSignup">
-            <el-input placeholder="User Name" v-model="userCred.username" />
+            <el-input placeholder="User Name" v-model="userCred.fullName" />
         </el-form-item>
         <el-form-item>
             <el-input placeholder="Email" v-model="userCred.email" />
