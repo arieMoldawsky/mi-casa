@@ -1,4 +1,5 @@
 <template>
+  <!-- <section> -->
   <el-form
     @submit.native.prevent="updateFilter"
     class="house-filter-container flex-centered"
@@ -138,7 +139,9 @@
       label="In Stock"
       border
     /> -->
+    <!-- <span>ssss</span> -->
   </el-form>
+  <!-- </section> -->
 </template>
 
 <script>
@@ -230,6 +233,25 @@ export default {
   created() {
     this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
     this.filterBy.txt = this.deBounce.txt = this.$route.query.txt
+    console.log(this.$root.$el.classList.contains('anchor-in'))
+  },
+  mounted() {
+    ;(function scrollWatch() {
+      if (
+        'IntersectionObserver' in window &&
+        'IntersectionObserverEntry' in window &&
+        'intersectionRatio' in window.IntersectionObserverEntry.prototype
+      ) {
+        let observer = new IntersectionObserver(entries => {
+          if (entries[0].intersectionRatio) {
+            document.querySelector('#app').classList.remove('anchor-in')
+          } else {
+            document.querySelector('#app').classList.add('anchor-in')
+          }
+        })
+        observer.observe(document.querySelector('.header-scroll-pixel'))
+      }
+    })()
   },
 }
 </script>

@@ -1,4 +1,4 @@
-body {
+#app {
   .header-scroll-pixel {
     position: absolute;
     visibility:  hidden;
@@ -11,15 +11,16 @@ body {
   }
   &.anchor-in {
     .house-filter-container {
+      top: $headerHeight * 0.05;
       max-width: 400px;
-      height: $headerHeight;
+      height: $headerHeight * 0.9;
+      box-shadow: none;
     }
   }
 }
 
 .house-filter-container {
   border: 1px solid rgba($color: #b1b1b1, $alpha: 1);
-  box-shadow: 0 0 4px 1px rgba($color: #5c5c5c, $alpha: 0.3);
   transition: 100ms;
   z-index: 10;
   position: sticky;

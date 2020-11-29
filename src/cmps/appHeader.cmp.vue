@@ -112,23 +112,5 @@ export default {
       return this.$store.getters.loggedinUser
     },
   },
-  mounted() {
-    (function scrollWatch() {
-      if (
-        'IntersectionObserver' in window &&
-        'IntersectionObserverEntry' in window &&
-        'intersectionRatio' in window.IntersectionObserverEntry.prototype
-      ) {
-        let observer = new IntersectionObserver(entries => {
-            if (entries[0].intersectionRatio) {
-              document.body.classList.remove('anchor-in')
-            } else {
-              document.body.classList.add('anchor-in')
-            }
-        })
-        observer.observe(document.querySelector('.header-scroll-pixel'))
-      }
-    })()
-  },
 }
 </script>
