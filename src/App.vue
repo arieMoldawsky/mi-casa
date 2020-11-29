@@ -1,7 +1,8 @@
 <template>
   <div id="app">
+    <div class="header-scroll-pixel" />
     <appHeader />
-    <router-view class="main-layout"/>
+    <router-view class="main-layout" />
     <modal />
     <appFooter />
   </div>
@@ -30,7 +31,7 @@ export default {
         duration: 5000,
         dangerouslyUseHTMLString: true,
         position: 'bottom-right',
-        onClick: this.$notify.closeAll
+        onClick: this.$notify.closeAll,
       })
     })
     window.onbeforeunload = () => {

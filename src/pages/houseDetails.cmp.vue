@@ -67,7 +67,7 @@
         <el-button class="add-review-btn" @click="addReview">
           Add Review
         </el-button>
-        <el-button @click="toggleChat">Chat With the Owner</el-button>
+        <el-button class="open-chat-btn" @click="toggleChat">Chat With the Owner</el-button>
         <house-chat
           v-if="isChatShown"
           :house="house"
