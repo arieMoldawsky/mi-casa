@@ -50,7 +50,7 @@
         <h3>Amenities</h3>
         <ul>
           <li v-for="(amenity, idx) in house.amenities" :key="amenity">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 24px; width: 24px; fill: currentcolor;"><path :d="amenityIcons[idx]"></path></svg> 
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: unset; height: 24px; width: 24px; fill: currentcolor; margin-right: 3px"><path :d="amenityIcons[idx]"></path></svg> 
              {{ amenity }}
           </li>
         </ul>
