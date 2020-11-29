@@ -17,9 +17,13 @@
         </div>
         <ul>
             <li v-for="review in reviews" :key="review.id">
-                <img :src="review.user.imgUrl" />
-                <div>{{ review.user.fullName }}</div>
-                <div>{{ convertTimeStamp(review.createdAt) }}</div>
+                <div class="reviewer-container">
+                    <img :src="review.user.imgUrl" />
+                    <div>
+                        <div class="reviewer-name">{{ review.user.fullName }}</div>
+                        <div class="review-time">{{ convertTimeStamp(review.createdAt) }}</div>
+                    </div>
+                </div>
                 <p>{{ review.txt }}</p>
             </li>
         </ul>
