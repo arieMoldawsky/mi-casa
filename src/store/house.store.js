@@ -97,6 +97,7 @@ export default {
 
     addReview(context, payload) {
       context.commit(payload)
+      console.log(payload.review);
       context.dispatch({ type: 'updateHouse', house: context.state.house })
     },
     updateFilter({ commit }, payload) {

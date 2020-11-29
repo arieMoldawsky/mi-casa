@@ -74,10 +74,10 @@ export default {
     houseFilter,
   },
   methods: {
-    p() {
-      this.$router.push(`/house/5fbe242e3a0f7d27b2f9e20c`)
-    },
     houseList(val) {
+      const filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
+      filterBy.txt = val
+      this.$store.dispatch({type: 'updateFilter', filterBy})
       this.$router.push({ path: `/house`, query: { txt: val } })
     },
   },

@@ -109,7 +109,7 @@
                 Reserve
             </button>
             <div class="dates-taken-msg" v-if="!isAvailable" style="color: red">
-                Dates are already taken
+                Dates are unavailable for check-in.
             </div>
         </el-form>
         <div class="total-section" v-if="openTotal">
