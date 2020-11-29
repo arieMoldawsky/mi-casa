@@ -1,9 +1,28 @@
+body {
+  .header-scroll-pixel-anchor {
+    position: absolute;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+    top: $headerHeight*2;
+    left: 0;
+  }
+  &.header-not-at-top {
+    .house-filter-container {
+      max-width: 400px;
+      height: $headerHeight;
+    }
+  }
+}
+
 .house-filter-container {
+  transition: 120ms;
+  z-index: 10;
   position: sticky;
   top: 0;
   background-color: $clr1;
   border-radius: 200px;
-  min-width: 500px;
+  // min-width: 500px;
   max-width: 800px;
   align-self: center;
   * {
@@ -71,11 +90,11 @@
       width: fit-content;
       button {
         color: white;
-        background-color: rgb(70, 200, 200);
+        background-color: $clr2;
         padding: 20px;
         border-radius: 100rem;
         &:hover {
-          background-color: rgb(77, 220, 220);
+          background-color: $clr2;
         }
       }
     }

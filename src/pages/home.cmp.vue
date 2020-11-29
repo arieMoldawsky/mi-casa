@@ -1,6 +1,7 @@
 <template>
   <main class="homepage-section">
-    <!-- <div class="health-link-container flex-centered">
+    <div class="header-scroll-pixel-anchor" />
+      <!-- <div class="health-link-container flex-centered">
       <a
         class="health-link"
         href="https://www.gov.il/he/departments/topics/corona-main-sub?gclid=CjwKCAiAnvj9BRA4EiwAuUMDfwqvMW-aXce0UhFerpxXrTDXyF83RoPmpQ9wdyf64GjhtbFrLMShKhoCjW8QAvD_BwE"
