@@ -50,7 +50,7 @@
             </div>
             <div class="trending-city-2 trending flex" @click="houseList">
                 <img class="trending-city-img" src="../assets/tokyo.jpg" />
-                <h4>Tokyo</h4>
+                <h4>London</h4>
             </div>
             <div class="trending-city-3 trending flex" @click="houseList">
                 <img class="trending-city-img" src="../assets/telAviv.jpg" />
