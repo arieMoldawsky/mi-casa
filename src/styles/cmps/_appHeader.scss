@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
 .main-header {
     z-index: 10;
     justify-content: space-between;
     color: $clr2;
     box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.103);
     background-color: $clr1;
+    border-radius: 3px;
     position: sticky;
     top: 0;
     width: 100%;
@@ -22,7 +23,7 @@
     align-items: center;
     padding-bottom: 1rem;
     font-family: Avenir, Helvetica, Arial, sans-serif;
-    font-size: 1.2rem !important;
+    font-size: 1.2rem;
     color: $clr2;
 }
 
@@ -42,13 +43,14 @@
 .nav-routes {
     justify-content: flex-end;
     align-self: center;
-    color: $clr2;
+    color: $clr5;
+    font-size: 14px;
 }
 
 .houses-navbar {
     padding: 10px;
     &:hover {
-        background-color: rgba(27, 27, 27, 0.3);
+        background-color: $clr4;
         border-radius: 15px;
     }
 }
@@ -56,7 +58,7 @@
 .host-navbar {
     padding: 10px;
     &:hover {
-        background-color: rgba(27, 27, 27, 0.3);
+        background-color: $clr4;
         border-radius: 15px;
     }
 }
@@ -65,25 +67,26 @@
     border-radius: 50%;
     border-color: rgb(27, 27, 27);
     &:hover {
-        background-color: rgba(27, 27, 27, 0.3);
+        background-color: $clr4;
         border-radius: 15px;
     }
 }
 
 .el-dropdown-link {
-    padding: 10px;
+    padding: 9px;
     cursor: pointer;
-    color: $clr2;
+    color: $clr5;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 1.2rem !important;
     width: max-content;
     margin-top: 2px;
-    
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 40%;
 }
 
 .el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
     background-color:rgba(27, 27, 27, 0.3);
-    color: $clr2;
+    color: $clr5;
 }
 
 .el-icon-arrow-down {

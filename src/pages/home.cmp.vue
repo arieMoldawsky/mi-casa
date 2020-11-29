@@ -18,13 +18,13 @@
       </h1>
     </div>
     <div>
-      <div class="trending-head block">
+      <div class="trending-head flex">
         <h2>Live anywhere</h2>
       </div>
       <div class="trending-house-container flex">
         <div class="trending-house-1 trending flex" @click="houseList">
           <img class="trending-house-img" src="../assets/trending1.jpg" />
-          <h4>Entire homes</h4>
+          <h4 class="flex">Entire homes</h4>
         </div>
         <div class="trending-house-2 trending flex" @click="houseList">
           <img class="trending-house-img" src="../assets/trending2.jpg" />
@@ -39,7 +39,7 @@
           <h4>Pets welcome</h4>
         </div>
       </div>
-      <div class="trending-bottom block">
+      <div class="trending-bottom flex">
         <h2>Destinations</h2>
       </div>
       <div class="trending-cities-container flex">
