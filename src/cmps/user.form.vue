@@ -34,7 +34,7 @@
       />
     </el-form-item> -->
         <el-form-item>
-            <el-button v-if="isSignup" native-type="submit">Sign Up</el-button>
+            <el-button v-if="isSignup" native-type="submit" @click.prevent="onSignup">Sign Up</el-button>
             <el-button v-else native-type="submit">Log In</el-button>
             <slot />
         </el-form-item>
