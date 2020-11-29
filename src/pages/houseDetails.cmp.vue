@@ -27,6 +27,7 @@
             :key="img"
             :src="secondryImgs[idx]"
             :class="`secondary-img${idx}`"
+            class="ratio-square"
           />
         </div>
       </div>

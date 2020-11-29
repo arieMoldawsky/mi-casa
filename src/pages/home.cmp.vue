@@ -10,7 +10,7 @@
         </div>
 
         <div class="hero-container flex column j-space-b">
-            <appHeader />
+            <appHeader :currCmp="homeHeader" />
             <house-filter />
             <h1 class="hero-title flex">
                 Mi Casa
@@ -91,6 +91,12 @@ export default {
         //     });
         // },
     },
-    created() {},
+    computed: {
+        homeHeader() {
+            return 'home';
+        }
+    },
+    created() {
+    },
 };
 </script>

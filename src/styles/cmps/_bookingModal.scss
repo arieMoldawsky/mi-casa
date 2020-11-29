@@ -1,7 +1,7 @@
 .booking-modal-section {
-    position: absolute;
+    // position: absolute;
     z-index: 10;
-    top: 17%;
+    // top: 17%;
     right: 0;
     max-width: 300px;
     flex-direction: column;
@@ -12,8 +12,12 @@
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
     background-color: $clr1;
     position: sticky;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: 0;
+    margin-right: initial;
     top: 92px;
-    margin-left: 485px;
+    // margin-left: 485px;
 
     .booking-modal-container {
         flex-direction: column;
@@ -33,6 +37,7 @@
 
     .dates-taken-msg {
         margin-top: 8px;
+        text-align: center;
     }
 
     .booking-modal-header {
@@ -74,4 +79,17 @@
         margin-right: 6px;
         margin-top: 8px;
     }
+}
+
+.booking-modal-section .booking-modal-container div:last-of-type {
+    width: 255px;
+    margin-top: 5px;
+}
+
+.el-input-number__decrease.is-disabled, .el-input-number__increase.is-disabled {
+    margin-top: 5px;
+}
+
+.el-input-number__increase {
+    margin-top: 5px;
 }

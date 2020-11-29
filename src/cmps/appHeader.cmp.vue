@@ -1,5 +1,5 @@
 <template>
-  <header class="main-header flex">
+  <header class="main-header flex" :class="homeHeader">
     <!-- <nav class="header-nav flex"> -->
     <!-- <div class="logo-navbar flex"> -->
     <router-link to="/" exact class="logo flex"
@@ -28,16 +28,16 @@
               </div>
               </div>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item icon="el-icon-plus" command="loginModal"
+                <el-dropdown-item icon="el-icon-circle-plus" command="loginModal"
                   >Login</el-dropdown-item
                 >
-                <el-dropdown-item icon="el-icon-plus" command="signUpModal"
+                <el-dropdown-item icon="el-icon-circle-plus" command="signUpModal"
                   >Sign up</el-dropdown-item
                 >
-                <el-dropdown-item icon="el-icon-plus" command="logoutModal"
+                <el-dropdown-item icon="el-icon-circle-plus" command="logoutModal"
                   >Logout</el-dropdown-item
                 >
-                <el-dropdown-item icon="el-icon-plus" command="helpModal"
+                <el-dropdown-item icon="el-icon-circle-plus" command="helpModal"
                   >Help</el-dropdown-item
                 >
               </el-dropdown-menu>
@@ -51,8 +51,10 @@
 </template>
 <script>
 export default {
- 
-  methods: {
+  prop: {
+    currCmp: String
+  },
+   methods: {
     handleCommand(command){
       console.log('command', command);
       if(command === 'loginModal') this.loginModal()
@@ -78,8 +80,12 @@ export default {
       this.$store.dispatch({ type: 'modalMode', modalMode: "helpForm" });
     }
   },
+  computed: {
+    homeHeader() {
+      // return { 'home-header': this.$route.path === '/' }
+    }
+  },
   created() {
-    // console.log('created', this.loginModal());
   }
 };
 </script>
