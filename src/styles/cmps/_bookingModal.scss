@@ -19,6 +19,25 @@
     // top: 92px;
     // margin-left: 485px;
 
+    span.fill-parent{
+        border-radius: 4px;
+        background-color: #FFF;
+        padding: 3px 10px;
+        border: 1px solid #DCDFE6;
+        color: #b8b9bb;
+        outline: 0;
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        font-size: 0.9rem;
+        max-height: 40px;
+        
+        label {
+            color: $clr3;
+        }
+    }
+
     .booking-modal-container {
         flex-direction: column;
 
