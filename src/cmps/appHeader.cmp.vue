@@ -120,13 +120,13 @@ export default {
         'intersectionRatio' in window.IntersectionObserverEntry.prototype
       ) {
         let observer = new IntersectionObserver(entries => {
-          if (entries[0].boundingClientRect.y < 0) {
-            document.body.classList.add('header-not-at-top')
-          } else {
-            document.body.classList.remove('header-not-at-top')
-          }
+            if (entries[0].intersectionRatio) {
+              document.body.classList.remove('anchor-in')
+            } else {
+              document.body.classList.add('anchor-in')
+            }
         })
-        observer.observe(document.querySelector('.header-scroll-pixel-anchor'))
+        observer.observe(document.querySelector('.header-scroll-pixel'))
       }
     })()
   },
