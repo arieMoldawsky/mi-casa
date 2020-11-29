@@ -43,6 +43,10 @@
 
         button {
             padding: 15px;
+            color: $clr1;
+            background-color: $clr2;
+            border-radius: 8px;
+            transition: 0.3s;        
 
             &:hover {
                 background-color: white;
