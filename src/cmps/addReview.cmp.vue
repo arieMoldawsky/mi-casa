@@ -1,6 +1,6 @@
 <template>
-  <section class="add-review modal-content">
-    <el-form
+  <!-- <section class="modal-content"> -->
+    <el-form class="modal-content"
       @submit.native.prevent="updateFilter"
       :model="review"
       size="medium"
@@ -20,7 +20,7 @@
         <slot />
       </div>
     </el-form>
-  </section>
+  <!-- </section> -->
 </template>
 
 <script>
@@ -33,20 +33,20 @@ export default {
         txt: null,
         rating: null,
         createdAt: Date.now(),
-        user: {
-          _id: null,
-          fullName: null,
-          imgUrl: null,
-        },
       },
     }
   },
   methods: {
     addReview() {
-      this.$store.dispatch({ type: 'addReview', review: this.review })
+      this.$store.dispatch({ type: 'addReview', review: {...this.review, user: this.user} })
       this.$emit('closeModal')
     },
   },
-  computed: {},
+  computed: {
+    user() {
+      this.$store.getters.loggedinUser
+
+    }
+  },
 }
 </script>

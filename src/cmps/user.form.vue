@@ -1,7 +1,7 @@
 <template>
   <el-form
     @submit.native.prevent="isSignup ? onSignup() : onLogin()"
-    class="user-form"
+    class="modal-content"
     ref="form"
     :model="userCred"
     size="medium"
@@ -28,12 +28,10 @@
       />
     </el-form-item>
     <el-form-item>
-      <el-button v-if="isSignup" type="success" native-type="submit"
-        >Sign Up</el-button
-      >
-      <el-button v-else type="success" native-type="submit">Log In</el-button>
+      <el-button v-if="isSignup" native-type="submit">Sign Up</el-button>
+      <el-button v-else native-type="submit">Log In</el-button>
+      <slot />
     </el-form-item>
-  <slot />
   </el-form>
 </template>
 
@@ -74,7 +72,7 @@ export default {
   },
   computed: {
     isSignup() {
-      console.log(this.$route.query.q);
+      console.log(this.$route.query.q)
       return this.$route.query.q === 'signup'
     },
     loggedInUser() {

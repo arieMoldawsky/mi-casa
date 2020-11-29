@@ -55,17 +55,9 @@
           <label>
             Guests
           </label>
-          <div class="guest-count flex fill-parent">
-            <span class="flex a-center">
-              {{ toAdults }}
-            </span>
-            <span class="flex a-center" v-show="filterBy.kids">
-              {{ toKids }}
-            </span>
-            <span class="flex a-center" v-show="filterBy.infants">
-              {{ toInfants }}
-            </span>
-          </div>
+          <span class="flex a-center fill-parent">
+            {{ guestCount }}
+          </span>
         </div>
         <label class="flex a-center j-space-b">
           Adults
@@ -178,24 +170,21 @@ export default {
     housesLength() {
       return this.$store.getters.getHousesLength
     },
+    guestCount() {
+      var str = `${this.filterBy.adults} Adult`
+      str += this.filterBy.adults > 1 ? 's' : ''
+      str += this.filterBy.kids || this.filterBy.infants ? ', ' : ''
+      str += this.filterBy.kids ? `${this.filterBy.kids} Kid` : ''
+      str += this.filterBy.kids > 1 ? 's' : ''
+      str += this.filterBy.infants ? ', ' : ''
+      str += this.filterBy.infants ? `${this.filterBy.infants} Infant` : ''
+      str += this.filterBy.infants > 1 ? 's' : ''
+      return str
+    },
     datesToPicker() {
       return this.filterBy.checkIn || this.filterBy.checkOut
         ? [this.filterBy.checkIn, this.filterBy.checkOut]
         : []
-    },
-    toAdults() {
-      var str = this.filterBy.adults > 1 ? 'Adults' : 'Adult '
-      str += this.filterBy.kids || this.filterBy.infants ? ',' : ''
-      return `${this.filterBy.adults} ${str}`
-    },
-    toKids() {
-      var str = this.filterBy.kids > 1 ? 'Kids' : 'Kid '
-      str += this.filterBy.infants ? ',' : ''
-      return `${this.filterBy.kids} ${str}`
-    },
-    toInfants() {
-      var str = this.filterBy.infants > 1 ? 'Infants' : 'Infant'
-      return `${this.filterBy.infants} ${str}`
     },
   },
   methods: {
