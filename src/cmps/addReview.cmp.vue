@@ -24,12 +24,13 @@
 </template>
 
 <script>
-import { type } from 'os'
+import {utilService} from '@/services/util.service.js'
+
 export default {
   data() {
     return {
       review: {
-        id: null,
+        id: utilService.makeId(),
         txt: null,
         rating: null,
         createdAt: Date.now(),
@@ -38,13 +39,14 @@ export default {
   },
   methods: {
     addReview() {
+      console.log(this.user);
       this.$store.dispatch({ type: 'addReview', review: {...this.review, user: this.user} })
       this.$emit('closeModal')
     },
   },
   computed: {
     user() {
-      this.$store.getters.loggedinUser
+      return this.$store.getters.loggedinUser
 
     }
   },

@@ -1,19 +1,34 @@
 .house-card {
-    text-align: left;
+  text-align: left;
 }
 
 .house-price {
-    font: icon;
-    font-weight: bold;
+  font: icon;
+  font-weight: bold;
 }
 
 .fa-star {
-    color: rgb(70, 198, 202);
+  color: rgb(70, 198, 202);
 }
 
 .el-carousel__arrow {
-    background-color: rgba(236, 236, 236, 0.473);
+  background-color: rgba(236, 236, 236, 0.473);
 }
 .el-carousel__arrow:hover {
-    background-color: rgba(228, 228, 228, 0.829);
+  background-color: rgba(228, 228, 228, 0.829);
+}
+
+.el-carousel__indicator {
+  button {
+    width: 9px;
+    height: 9px;
+    border-radius: 100px;
+    padding: 0;
+  }
+  &:hover {
+    button {
+      transition: 70ms;
+      transform: scale(1.8);
+    }
+  }
 }

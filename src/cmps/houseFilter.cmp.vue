@@ -1,11 +1,9 @@
 <template>
   <el-form
-    v-if="filterBy"
     @submit.native.prevent="updateFilter"
     class="house-filter-container flex-centered"
-    ref="form"
-    :model="filterBy"
     size="medium"
+    :model="filterBy"
   >
     <div
       class="form-item field flex a-start pointer"
@@ -145,9 +143,6 @@
 
 <script>
 export default {
-  props: {
-    getFilterBy: Object,
-  },
   data() {
     return {
       isPopVisible: false,
@@ -186,6 +181,9 @@ export default {
       return this.filterBy.checkIn || this.filterBy.checkOut
         ? [this.filterBy.checkIn, this.filterBy.checkOut]
         : []
+    },
+    getFilterBy() {
+      return this.$store.getters.getFilterBy
     },
   },
   methods: {

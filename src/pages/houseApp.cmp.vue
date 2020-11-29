@@ -1,7 +1,7 @@
 <template>
   <main class="house-app main-layout">
     <appHeader />
-    <houseFilter :getFilterBy="filterBy"/>
+    <houseFilter/>
     <div class="head-title flex">
       <small class="head-title-visits">300+ stays</small>
       <h1 class="head-title-txt">Entire homes</h1>
@@ -31,9 +31,6 @@ export default {
     },
     housesLength() {
       return this.$store.getters.getHousesLength
-    },
-    filterBy() {
-      return this.$store.getters.getFilterBy
     },
     isLoading() {
       return this.$store.getters.getIsLoading
