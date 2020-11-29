@@ -19,8 +19,6 @@
 
 .navbar-container {
     height: 3rem;
-    justify-content: flex-end;
-    align-items: center;
     padding-bottom: 1rem;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 1.2rem;
@@ -41,10 +39,9 @@
 }
 
 .nav-routes {
-    justify-content: flex-end;
-    align-self: center;
     color: $clr5;
     font-size: 14px;
+    align-items: center;
 }
 
 .houses-navbar {
@@ -64,12 +61,7 @@
 }
 
 .el-dropdown-link-container {
-    border-radius: 50%;
-    border-color: rgb(27, 27, 27);
-    &:hover {
-        background-color: $clr4;
-        border-radius: 15px;
-    }
+    margin-left: 5px;
 }
 
 .el-dropdown-link {
@@ -83,6 +75,12 @@
     margin-top: 2px;
     border: 1px solid rgba(190, 190, 190, 0.836);
     border-radius: 21px;
+    align-items: center;
+
+    &:hover {
+        box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.103);
+        border-radius: 21px;
+}
 }
 
 .el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
@@ -106,11 +104,10 @@
     -ms-flex: 0 0 30px !important;
     flex: 0 0 30px !important;
     height: 30px !important;
-    margin-left: 12px !important;
-    overflow: hidden !important;
+    margin-left: 8px !important;
     position: relative !important;
-    // width: 30px !important;
     z-index: 1 !important;
+    align-self: center;
 }
 
 .hamburgar {
