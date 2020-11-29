@@ -43,7 +43,7 @@
 .nav-routes {
     justify-content: flex-end;
     align-self: center;
-    color: $clr2;
+    color: $clr5;
     font-size: 14px;
 }
 
@@ -75,7 +75,7 @@
 .el-dropdown-link {
     padding: 9px;
     cursor: pointer;
-    color: $clr2;
+    color: $clr5;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 1.2rem !important;
     width: max-content;
@@ -86,7 +86,7 @@
 
 .el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
     background-color:rgba(27, 27, 27, 0.3);
-    color: $clr2;
+    color: $clr5;
 }
 
 .el-icon-arrow-down {
