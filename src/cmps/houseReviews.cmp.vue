@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
     props: {
         reviews: Array,
@@ -39,7 +41,8 @@ export default {
             else if (percentage === 50) return '2.5'
       },
         convertTimeStamp(time) {
-            return new Date(time).toLocaleDateString("he");
+            return moment(time).fromNow()
+            // return new Date(time).toLocaleDateString("he");
         },
     },
     computed: {
