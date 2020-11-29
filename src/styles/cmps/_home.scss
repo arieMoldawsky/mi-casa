@@ -12,6 +12,8 @@
   font-weight: bolder;
   font-size: 6rem;
   justify-content: flex-start;
+  margin-left: 10px;
+  color: #ffffffad;
 }
 
 .health-link-container {
@@ -32,17 +34,23 @@
 //     margin-left: 0;
 // }
 .trending-house-img {
-  // height: 200px;
+  height: 150px;
   width: 200px;
   border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .trending-house-container {
   gap: 20px;
   justify-content: center;
+  height: 210px;
+  
 
   h4 {
-    padding: 5px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -50,8 +58,9 @@
     cursor: pointer;
     flex-direction: column;
     gap: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(122, 122, 122, 0.2), 0 6px 20px 0 rgba(177, 177, 177, 0.19);
     border-radius: 10px;
+    
 }
 
 .trending-bottom {
@@ -60,16 +69,22 @@
 }
 
 .trending-city-img {
-    // height: 200px;
+    height: 150px;
     width: 200px;
     border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .trending-cities-container {
     gap: 20px;
     justify-content: center;
     margin-bottom: 50px;
+    height: 210px;
+
     h4 {
-      padding: 5px;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
     }
    }
