@@ -51,7 +51,7 @@
         v-model="isPopVisible"
       >
         <div class="fill-parent flex a-start column" slot="reference">
-          <label>
+          <label class="guests-label">
             Guests
           </label>
           <span class="flex a-center fill-parent">
