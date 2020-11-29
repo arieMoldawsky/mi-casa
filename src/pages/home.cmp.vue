@@ -9,7 +9,7 @@
       >
     </div> -->
 
-    <div class="hero-container flex column">
+    <div class="hero-container flex column j-space-e">
       <house-filter :getFilterBy="getFilterBy" />
       <h1 class="hero-title flex">
         Mi Casa
