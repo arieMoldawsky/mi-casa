@@ -1,13 +1,13 @@
 <template>
   <section class="house-chat flex column">
-    <div class="pointer full-width flex a-center j-space-b" @click="hideChat">
-      <span>{{house.name}}</span>
+    <div class="chat-header pointer full-width flex a-center j-space-b" @click="hideChat">
+      <h3>{{house.name}}</h3>
       <el-button>X</el-button>
     </div>
     <div class="chat-window fill-parent">
       <div v-for="(msg, idx) in msgs" :key="idx">
         <h3 v-if="groupMsgsByName({ msgs, msg, idx })" v-text="msg.name" />
-        <span v-text="msg.text" />
+        <span v-text="msg.txt" />
       </div>
       <span v-if="remoteTyper">{{ remoteTyper }} is Typing...</span>
     </div>
@@ -17,9 +17,8 @@
     >
       <el-input
         class="full-width"
-        v-model="newMsg.text"
+        v-model="newMsg.txt"
         placeholder="Aa"
-        required
         @input="meIsTyping"
       />
       <el-button native-type="submit">Send</el-button>
@@ -38,7 +37,7 @@ export default {
     return {
       newMsg: {
         name: `User ${Math.random()}`,
-        text: null,
+        txt: null,
       },
       meDeBounce: null,
       heDeBounce: null,
@@ -59,8 +58,9 @@ export default {
       this.msgs = msgs
     },
     sendMsg(ev) {
+      if (!this.newMsg.txt) return
       socketService.emit('onChatMsg', this.newMsg)
-      this.newMsg.text = null
+      this.newMsg.txt = null
       ev.target[0].focus()
     },
     meIsTyping() {
