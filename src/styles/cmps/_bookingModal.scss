@@ -1,7 +1,7 @@
 .booking-modal-section {
     position: absolute;
     z-index: 5;
-    top: 17%;
+    top: 21%;
     right: 0;
     max-width: 300px;
     flex-direction: column;
@@ -42,7 +42,7 @@
         flex-direction: column;
 
         button {
-            background-color: rgb(70, 198, 202);
+            background-color: $clr2;
             color: snow;
             padding: 15px;
             border-radius: 8px;
