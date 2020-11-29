@@ -18,7 +18,7 @@
                 v-model="userCred.password"
                 show-password
             />
-            <form @submit.prevent>
+            <form v-if="isSignup" @submit.prevent>
                 <label>
                     Upload a Profile Picture:
                     <input @change="onUploadImg" type="file" name="" id="" />
