@@ -2,10 +2,11 @@
 .main-header {
     z-index: 10;
     justify-content: space-between;
-    color: $clr7;
-    box-shadow: 0 8px 6px -6px black;
+    color: $clr2;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.103);
     background-color: $clr1;
-    border-radius: 3px;
+    // border-radius: 3px;
+    // margin-bottom: 10px;
     position: sticky;
     top: 0;
     width: 100%;
@@ -24,7 +25,7 @@
     padding-bottom: 1rem;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 1.2rem !important;
-    color: $clr7;
+    color: $clr2;
 }
 
 .head-logo-txt {
@@ -43,7 +44,7 @@
 .nav-routes {
     justify-content: flex-end;
     align-self: center;
-    color: $clr7;
+    color: $clr2;
 }
 
 .houses-navbar {
@@ -74,7 +75,7 @@
 .el-dropdown-link {
     padding: 10px;
     cursor: pointer;
-    color: $clr7;
+    color: $clr2;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 1.2rem !important;
     width: max-content;
@@ -84,7 +85,7 @@
 
 .el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
     background-color:rgba(27, 27, 27, 0.3);
-    color: $clr7;
+    color: $clr2;
 }
 
 .el-icon-arrow-down {
