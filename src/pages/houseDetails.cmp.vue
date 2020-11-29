@@ -10,8 +10,8 @@
       <div class="sk-chase-dot"></div>
     </div>
     <section v-if="!isLoading" class="house-details-section">
-      <h3>{{ house.name }}</h3>
-      <div>
+      <h3 class="house-name">{{ house.name }}</h3>
+      <div class="details-title">
         <i class="fas fa-star"></i>{{ houseRating }} ·
         <span class="house-location"
           >{{ house.location.city }}, {{ house.location.country }}</span
