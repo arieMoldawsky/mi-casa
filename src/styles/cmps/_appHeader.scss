@@ -73,6 +73,7 @@
 }
 
 .el-dropdown-link {
+    height: 42px !important;
     padding: 9px;
     cursor: pointer;
     color: $clr5;
@@ -80,8 +81,8 @@
     font-size: 1.2rem !important;
     width: max-content;
     margin-top: 2px;
-    border: 1px solid rgb(173, 173, 173);
-    border-radius: 40%;
+    border: 1px solid rgba(190, 190, 190, 0.836);
+    border-radius: 21px;
 }
 
 .el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
@@ -99,7 +100,25 @@
 
 
 
-// .profile-pic {
-//     height: 50px;
-//     height: 50px;
-// }
+.profile-pic {
+    color: #717171 !important;
+    -webkit-flex: 0 0 30px !important;
+    -ms-flex: 0 0 30px !important;
+    flex: 0 0 30px !important;
+    height: 30px !important;
+    margin-left: 12px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    // width: 30px !important;
+    z-index: 1 !important;
+}
+
+.hamburgar {
+    display: block;
+    fill: none;
+    height: 16px;
+    width: 16px;
+    stroke: currentcolor;
+    stroke-width: 3;
+    overflow: visible;
+}
