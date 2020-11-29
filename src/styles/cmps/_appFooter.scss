@@ -13,12 +13,20 @@
     padding-bottom: 24px !important;
     }
 
-    .social {
-        width: 100px;
-    justify-content: space-evenly;
+.footer-lang {
+        font-weight: 550 !important;
+        text-decoration: underline !important;
+        color: $clr7;
     }
 
-    .footer-money {
+.social {
+        width: 100px;
+        justify-content: space-evenly;
+        fill: currentcolor;
+        color: $clr7;
+    }
+
+.footer-money {
         margin-left: 10px;
     }
 
