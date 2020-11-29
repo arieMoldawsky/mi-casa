@@ -1,5 +1,6 @@
 <template>
   <el-form
+    v-if="filterBy"
     @submit.native.prevent="updateFilter"
     class="house-filter-container flex-centered"
     ref="form"
@@ -144,6 +145,9 @@
 
 <script>
 export default {
+  props: {
+    getFilterBy: Object,
+  },
   data() {
     return {
       isPopVisible: false,
@@ -164,9 +168,6 @@ export default {
     }
   },
   computed: {
-    getFilterBy() {
-      return this.$store.getters.getFilterBy
-    },
     housesLength() {
       return this.$store.getters.getHousesLength
     },
@@ -218,7 +219,11 @@ export default {
         filterBy: this.filterBy,
       })
       this.$store.dispatch({ type: 'loadHouses' })
-      if (this.$route.path !== '/house') this.$router.push('/house')
+      if (this.$route.path !== '/house')
+        this.$router.push({
+          path: `/house`,
+          query: { txt: this.filterBy.txt },
+        })
     },
     togglePop() {
       this.isPopVisible = !this.isPopVisible
@@ -226,6 +231,7 @@ export default {
   },
   created() {
     this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
+    this.filterBy.txt = this.deBounce.txt = this.$route.query.txt
   },
 }
 </script>
