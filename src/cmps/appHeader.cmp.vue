@@ -82,11 +82,10 @@ export default {
   },
   computed: {
     homeHeader() {
-      return { 'home-header': this.currCmp === 'home' }
+      // return { 'home-header': this.$route.path === '/' }
     }
   },
   created() {
-    // console.log(this.currCmp);
   }
 };
 </script>
