@@ -38,12 +38,6 @@ export default {
         login(state, { user }) {
             state.users.push(user)
           },
-        // signUpUser(state, { user }) {
-        //     state.users.push(user)
-        //   },
-        // logoutUser(state, { user }) {
-        //     state.users.push(user)
-        //   },
     },
     actions: {
         async login(context, { userCred }) {

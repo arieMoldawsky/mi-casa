@@ -28,13 +28,13 @@
               </div>
               </div>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item icon="el-icon-circle-plus" command="loginModal"
+                <el-dropdown-item v-if="!isLogedIn" icon="el-icon-circle-plus" command="loginModal"
                   >Login</el-dropdown-item
                 >
-                <el-dropdown-item icon="el-icon-circle-plus" command="signUpModal"
+                <el-dropdown-item v-if="!isLogedIn" icon="el-icon-circle-plus" command="signUpModal"
                   >Sign up</el-dropdown-item
                 >
-                <el-dropdown-item icon="el-icon-circle-plus" command="logoutModal"
+                <el-dropdown-item v-if="isLogedIn" icon="el-icon-circle-plus" command="logoutModal"
                   >Logout</el-dropdown-item
                 >
                 <el-dropdown-item icon="el-icon-circle-plus" command="helpModal"
@@ -83,6 +83,9 @@ export default {
   computed: {
     homeHeader() {
       // return { 'home-header': this.$route.path === '/' }
+    },
+    isLogedIn() {
+        return this.$store.getters.loggedinUser
     }
   },
   created() {
