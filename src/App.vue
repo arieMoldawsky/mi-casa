@@ -1,21 +1,23 @@
 <template>
   <div id="app">
-    <!-- <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon.png"> -->
+    <appHeader />
+    <router-view class="main-layout"/>
     <modal />
-    <router-view />
     <appFooter />
   </div>
 </template>
 
 <script>
-import modal from '@/cmps/modal.cmp'
+import appHeader from '../src/cmps/appHeader.cmp'
 import appFooter from '../src/cmps/appFooter.cmp'
+import modal from '@/cmps/modal.cmp'
 import socketService from '@/services/socket.service.js'
 
 export default {
   components: {
-    modal,
+    appHeader,
     appFooter,
+    modal,
   },
   created() {
     socketService.setup()

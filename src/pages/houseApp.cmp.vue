@@ -1,20 +1,21 @@
 <template>
-  <main class="house-app main-layout">
-    <appHeader />
-    <houseFilter/>
-    <div class="head-title flex">
-      <small class="head-title-visits">300+ stays</small>
-      <h1 class="head-title-txt">Entire homes</h1>
-    </div>
-    <div class="sk-chase" v-if="isLoading">
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-    </div>
-    <houseList v-if="!isLoading" :houses="houses" />
+  <main class="house-app">
+    <section>
+      <houseFilter />
+      <div class="head-title flex">
+        <small class="head-title-visits">300+ stays</small>
+        <h1 class="head-title-txt">Entire homes</h1>
+      </div>
+      <div class="sk-chase" v-if="isLoading">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+      </div>
+      <houseList v-if="!isLoading" :houses="houses" />
+    </section>
   </main>
 </template>
 
@@ -34,7 +35,7 @@ export default {
     },
     isLoading() {
       return this.$store.getters.getIsLoading
-    }
+    },
   },
   methods: {
     updateFilter(filter) {
