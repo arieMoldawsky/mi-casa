@@ -1,29 +1,37 @@
 
 .main-footer {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important;
+    // padding-top: 24px !important;
+    // padding-bottom: 24px !important;
     border-top: 1px solid #DDDDDD !important; 
     justify-content: space-evenly;
     background-color: rgb(236, 236, 236);
-    padding-left: 10px;
-    height: 3rem;
-    position: static;
-    bottom: 0;
+    // padding-left: 10px;
+    // height: 3rem;
+    // position: static;
     align-items: center;
-    padding-bottom: 24px !important;
+    position: absolute;
+    // bottom: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+    font-size: 0.875rem;
     }
 
 .footer-lang {
-        font-weight: 550 !important;
+        // font-weight: 550 !important;
         text-decoration: underline !important;
         color: $clr7;
     }
 
 .social {
-        width: 100px;
+        width: 140px;
         justify-content: space-evenly;
         fill: currentcolor;
         color: $clr7;
+        font-size: 1.2rem;
+        svg {
+            cursor: pointer;
+        }
     }
 
 .footer-money {

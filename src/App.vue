@@ -1,8 +1,11 @@
 <template>
   <div id="app">
+    <div class="content-wrap">
+    <div class="header-scroll-pixel" />
     <appHeader />
     <router-view class="main-layout" />
     <modal />
+  </div>
     <appFooter />
   </div>
 </template>
@@ -41,8 +44,20 @@ export default {
 </script>
 
 <style lang="scss">
+
+html {
+  min-height: 100vh;
+  overflow: auto;
+}
+
 #app {
   text-align: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
 }
 
 // #nav {
