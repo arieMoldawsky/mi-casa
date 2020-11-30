@@ -61,7 +61,6 @@ html {
 .page-container {
   position: relative;
   min-height: 100vh;
-  overflow: auto;
 }
 
 .content-wrap {
