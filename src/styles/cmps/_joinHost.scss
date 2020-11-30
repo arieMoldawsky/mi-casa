@@ -3,8 +3,9 @@
     margin: 0 auto;
     margin-bottom: 70px;
     margin-top: 70px;
-    background-color: $clr5;
-    color: $clr1; 
+    background-color: #1e1e1e3d;
+    color: $clr1;
+     border-radius: 10px;
 }
 
 .main-wrapper {
@@ -12,7 +13,6 @@
     flex-direction: row;
     height: 660px;
     justify-content: space-between;
-    
     
     .first-panel {
         width: 300px;
@@ -26,16 +26,20 @@
             cursor: pointer;
              align-self: center;
              justify-content: center;
-             background-color: $clr5;
+             background-color: #5050503d;
              color: $clr1;
              border-color: $clr1;
+             font-weight: bolder;
          }
+         .first-panel-btn:hover {
+            background-color: $clr2;
+        }
          p {
             line-height: 20px !important;
             font-size: 16px !important;
          }
      }
-.second-panel {
+  .second-panel {
     width: 620px;
     height: 100%;
     

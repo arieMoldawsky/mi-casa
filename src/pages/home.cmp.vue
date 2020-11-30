@@ -68,7 +68,7 @@
       </div>
       <join-host />
       <div class="trending-bottom flex">
-        <h2>Destinations</h2>
+        <h2>Inspiration destinations</h2>
       </div>
       <div class="trending-cities-container flex">
         <div
