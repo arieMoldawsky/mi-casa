@@ -1,7 +1,7 @@
 <template>
   <section class="house-chat flex column">
     <div class="chat-header pointer full-width flex a-center j-space-b" @click="hideChat">
-      <h3>{{house.name}}</h3>
+      <h3>{{house.name}} - Chat</h3>
       <el-button>X</el-button>
     </div>
     <div class="chat-window fill-parent">

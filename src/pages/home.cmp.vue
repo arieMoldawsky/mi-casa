@@ -14,9 +14,8 @@
     <div class="hero-container flex a-center">
       <house-filter />
       <h1 class="hero-title flex">
-        Mi Casa
-        <br />
-        Su Casa
+        <span>Mi Casa</span>
+        <span class="title-second-row">Su Casa</span>
       </h1>
     </div>
     <div>
