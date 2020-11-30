@@ -5,6 +5,7 @@ import houseFilter from '../cmps/houseFilter.cmp.vue';
 import houseApp from '../pages/houseApp.cmp.vue';
 import about from '../pages/about.cmp.vue';
 import houseDetails from '../pages/houseDetails.cmp.vue';
+import userProfile from '../pages/userProfile.cmp.vue';
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,10 @@ const routes = [
   {
     path: '/house',
     component: houseFilter
+  },
+  {
+    path: '/profile',
+    component: userProfile
   }
 ]
 

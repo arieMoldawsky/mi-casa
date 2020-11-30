@@ -3,12 +3,13 @@
     margin: 0 auto;
     margin-bottom: 70px;
     margin-top: 70px;
-    background-color: #1e1e1e3d;
-    color: $clr1;
-     border-radius: 10px;
+    color: $clr5;
+    border-radius: 10px;
+    background-color: #ececec;
 }
 
 .main-wrapper {
+    grid-column: 1/span 3 !important;
     width: 100%;
     flex-direction: row;
     height: 660px;
@@ -26,13 +27,13 @@
             cursor: pointer;
              align-self: center;
              justify-content: center;
-             background-color: #5050503d;
-             color: $clr1;
-             border-color: $clr1;
+             background-color: #ececec;
+             color: $clr5;
+             border-color: $clr5;
              font-weight: bolder;
          }
          .first-panel-btn:hover {
-            background-color: $clr2;
+            background-color: #5050503d;
         }
          p {
             line-height: 20px !important;
@@ -88,7 +89,7 @@
                 width: 100%;
                 padding: 15px;
                 span {
-                    color: #FDB32B;
+                    color: #ffa500;
                 }
             }
        }

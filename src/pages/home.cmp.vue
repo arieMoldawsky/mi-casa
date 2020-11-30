@@ -66,7 +66,7 @@
             <p>Your host is only a message away if you have any questions. They can also offer local tips and advice.</p>
         </div>
       </div>
-      <join-host />
+      <!-- <join-host /> -->
       <div class="trending-bottom flex">
         <h2>Inspiration destinations</h2>
       </div>
@@ -94,6 +94,7 @@
           <h4>Paris</h4>
         </div>
       </div>
+      <join-host />
     </div>
   </main>
 </template>
