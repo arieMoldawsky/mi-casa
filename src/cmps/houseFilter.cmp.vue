@@ -1,101 +1,102 @@
 <template>
   <!-- <section> -->
-  <el-form
-    @submit.native.prevent="updateFilterAndRoute"
-    class="house-filter-container flex-centered"
-    size="medium"
-    :model="filterBy"
-  >
-    <div
-      class="form-item field fill-parent j-space-e flex a-start pointer"
-      @click="$refs.location.focus()"
+  <section @click="$refs.location.focus()">
+    <el-form
+      @submit.native.prevent="updateFilterAndRoute"
+      class="house-filter-container flex-centered"
+      size="medium"
+      :model="filterBy"
     >
-      <label class="pointer">
-        Location
-      </label>
-      <el-input
-        ref="location"
-        placeholder="Where are you going?"
-        :clearable="true"
-        v-model="deBounce.txt"
-        @input="updateTxt"
-      />
-    </div>
-    <div
-      class="form-item field fill-parent j-space-e date-picker flex a-start pointer"
-      @click="$refs.datePicker.focus()"
-    >
-      <label class="pointer">
-        Dates
-      </label>
-      <el-date-picker
-        ref="datePicker"
-        class="date-picker"
-        popper-class="date-picker-popper"
-        :value="datesToPicker"
-        @input="datesFromPicker"
-        format="MMM d"
-        value-format="timestamp"
-        type="daterange"
-        align="center"
-        :range-separator="null"
-        start-placeholder="Check In"
-        end-placeholder="Check Out"
-        :picker-options="datePickerOptions"
-      />
-    </div>
-    <div class="form-item field flex a-start fill-parent j-space-e pointer">
-      <label class="guests-label">
-        Guests
-      </label>
-      <el-popover
-        class="fill-parent"
-        placement="bottom"
-        width="300"
-        v-model="isPopVisible"
+      <div
+        class="form-item field fill-parent j-space-e flex a-start pointer"
+        @click="$refs.location.focus()"
       >
-        <div class="fill-parent flex a-start column" slot="reference">
-          <span class="flex a-center fill-parent">
-            {{ guestCount }}
-          </span>
-        </div>
-        <label class="flex a-center j-space-b">
-          Adults
-          <el-input-number v-model="filterBy.adults" :min="1" :max="16" />
+        <label class="pointer">
+          Location
         </label>
-        <br />
-        <label class="flex a-center j-space-b">
-          Kids
-          <el-input-number v-model="filterBy.kids" :min="0" :max="16" />
+        <el-input
+          ref="location"
+          placeholder="Where are you going?"
+          :clearable="true"
+          v-model="deBounce.txt"
+          @input="updateTxt"
+        />
+      </div>
+      <div
+        class="form-item field fill-parent j-space-e date-picker flex a-start pointer"
+        @click="$refs.datePicker.focus()"
+      >
+        <label class="pointer">
+          Dates
         </label>
-        <br />
-        <label class="flex a-center j-space-b">
-          Infants
-          <el-input-number v-model="filterBy.infants" :min="0" :max="16" />
+        <el-date-picker
+          ref="datePicker"
+          class="date-picker"
+          popper-class="date-picker-popper"
+          :value="datesToPicker"
+          @input="datesFromPicker"
+          format="MMM d"
+          value-format="timestamp"
+          type="daterange"
+          align="center"
+          :range-separator="null"
+          start-placeholder="Check In"
+          end-placeholder="Check Out"
+          :picker-options="datePickerOptions"
+        />
+      </div>
+      <div class="form-item field flex a-start fill-parent j-space-e pointer">
+        <label class="guests-label">
+          Guests
         </label>
-      </el-popover>
-    </div>
-    <div class="form-item submit flex a-start">
-      <button native-type="submit">
-        <svg
-          viewBox="0 0 32 32"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          role="presentation"
-          focusable="false"
-          style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;"
+        <el-popover
+          class="fill-parent"
+          placement="bottom"
+          width="300"
+          v-model="isPopVisible"
         >
-          <g fill="none">
-            <path
-              d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"
-            ></path>
-          </g>
-        </svg>
-      </button>
-    </div>
+          <div class="fill-parent flex a-start column" slot="reference">
+            <span class="flex a-center fill-parent">
+              {{ guestCount }}
+            </span>
+          </div>
+          <label class="flex a-center j-space-b">
+            Adults
+            <el-input-number v-model="filterBy.adults" :min="1" :max="16" />
+          </label>
+          <br />
+          <label class="flex a-center j-space-b">
+            Kids
+            <el-input-number v-model="filterBy.kids" :min="0" :max="16" />
+          </label>
+          <br />
+          <label class="flex a-center j-space-b">
+            Infants
+            <el-input-number v-model="filterBy.infants" :min="0" :max="16" />
+          </label>
+        </el-popover>
+      </div>
+      <div class="form-item submit flex a-start">
+        <button native-type="submit">
+          <svg
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            role="presentation"
+            focusable="false"
+            style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;"
+          >
+            <g fill="none">
+              <path
+                d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"
+              ></path>
+            </g>
+          </svg>
+        </button>
+      </div>
 
-    <!-- <pre>{{ filterBy }}</pre> -->
-    <!-- <label>
+      <!-- <pre>{{ filterBy }}</pre> -->
+      <!-- <label>
       Houses Per Page
       <el-select
         size="small"
@@ -110,10 +111,10 @@
       </el-select>
     </label> -->
 
-    <!-- <el-button @click="updatePage(filterBy.page - 1)">previous Page</el-button>
+      <!-- <el-button @click="updatePage(filterBy.page - 1)">previous Page</el-button>
     <el-button @click="updatePage(filterBy.page + 1)">Next Page</el-button> -->
 
-    <!-- <el-select size="small" v-model="filterBy.category">
+      <!-- <el-select size="small" v-model="filterBy.category">
       <el-option
         v-for="item in filterOptions.category"
         :key="item"
@@ -121,7 +122,7 @@
       />
     </el-select> -->
 
-    <!-- <label>
+      <!-- <label>
       Sort By
       <el-select size="small" v-model="filterBy.sortBy">
         <el-option
@@ -132,20 +133,21 @@
       </el-select>
     </label> -->
 
-    <!-- <el-checkbox
+      <!-- <el-checkbox
       size="small"
       :value="filterBy.inStock"
       @change="filterBy.inStock = !filterBy.inStock"
       label="In Stock"
       border
     /> -->
-    <!-- <span>ssss</span> -->
-  </el-form>
+      <!-- <span>ssss</span> -->
+    </el-form>
+  </section>
   <!-- </section> -->
 </template>
 
 <script>
-import {utilService} from '@/services/util.service.js'
+import { utilService } from '@/services/util.service.js'
 
 export default {
   data() {
@@ -225,7 +227,6 @@ export default {
         type: 'updateFilter',
         filterBy: this.filterBy,
       })
-      // if ('activeElement' in document) document.activeElement.blur()
       this.loadHouses()
     },
     loadHouses() {
@@ -235,24 +236,31 @@ export default {
   created() {
     this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
     if (this.$route.query.txt) {
-      this.deBounce.txt = this.filterBy.txt = utilService.capitalize(this.$route.query.txt)
+      this.deBounce.txt = this.filterBy.txt = utilService.capitalize(
+        this.$route.query.txt
+      )
       this.updateFilter()
     } else {
-      this.deBounce.txt = utilService.capitalize(this.filterBy.txt) 
+      this.deBounce.txt = utilService.capitalize(this.filterBy.txt)
     }
     this.loadHouses()
   },
   mounted() {
     if (document.querySelector('.header-scroll-pixel')) {
       let observer = new IntersectionObserver(entries => {
-        entries[0].intersectionRatio
-          ? document.body.classList.remove('anchor-in')
-          : document.body.classList.add('anchor-in')
+        if (entries[0].intersectionRatio) {
+          document.body.classList.remove('anchor-in')
+        } else {
+          document.body.classList.add('anchor-in')
+        }
       })
       observer.observe(document.querySelector('.header-scroll-pixel'))
     } else {
       document.body.classList.add('anchor-in')
     }
+    document.addEventListener('scroll', ev => {
+      utilService.blurAll()
+    })
   },
 }
 </script>

@@ -21,8 +21,13 @@ function capitalize(string) {
     .join(' ')
 }
 
+function blurAll() {
+  if ('activeElement' in document) document.activeElement.blur()
+}
+
 export const utilService = {
   makeId,
   getRandomInt,
   capitalize,
+  blurAll,
 }
