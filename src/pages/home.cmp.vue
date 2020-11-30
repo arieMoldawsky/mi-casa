@@ -1,5 +1,7 @@
 <template>
   <main class="homepage-section">
+    <div class="header-scroll-pixel" />
+
     <!-- <div class="health-link-container flex-centered">
       <a
         class="health-link"
@@ -9,8 +11,8 @@
       >
     </div> -->
 
-    <div class="hero-container flex column j-space-e">
-      <house-filter :getFilterBy="getFilterBy" />
+    <div class="hero-container flex a-center">
+      <house-filter />
       <h1 class="hero-title flex">
         Mi Casa
         <br />
@@ -109,7 +111,7 @@ export default {
     houseList(val) {
       const filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
       filterBy.txt = val
-      this.$store.dispatch({ type: 'updateFilter', filterBy })
+      // this.$store.dispatch({ type: 'updateFilter', filterBy })
       this.$router.push({ path: `/house`, query: { txt: val } })
     },
   },

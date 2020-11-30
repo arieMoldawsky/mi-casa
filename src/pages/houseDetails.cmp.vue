@@ -143,8 +143,21 @@ export default {
       // if (addedBooking) this.$router.push(`/`)
     },
     addReview() {
-      this.$store.dispatch({ type: 'modalMode', modalMode: 'addReview' })
+      if (this.$store.getters.loggedinUser) {
+        this.$store.dispatch({ type: 'modalMode', modalMode: 'addReview' })
+      } else {
+        this.open2()
+      }
     },
+    open2() {
+      this.$notify({
+          title: "User isn\'t logged in!",
+          message: "You have to login to add a review.",
+          type: "warning",
+          position: "bottom-right",
+      });
+      
+    }
   },
   computed: {
     house() {
