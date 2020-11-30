@@ -16,7 +16,7 @@ export default {
     async loadBookings(context, { type, houseId }) {
       try {
         const res = await bookingService.query(houseId)
-        context.commit({ type, res })
+        context.commit({ type: "loadBookings", res })
       } catch (error) {
         console.log('ERROR: could not load bookings')
       }
@@ -56,7 +56,7 @@ export default {
   },
   mutations: {
     loadBookings(state, { res }) {
-      state.bookings = res.bookings
+      state.bookings = res
     },
     // loadBooking(state, { booking }) {
     //   state.booking = booking
