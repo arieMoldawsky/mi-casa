@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="page-container">
+  <div id="app">
     <div class="content-wrap">
     <div class="header-scroll-pixel" />
     <appHeader />
@@ -45,7 +45,6 @@ export default {
 
 <style lang="scss">
 
-
 html {
   min-height: 100vh;
   overflow: auto;
@@ -53,12 +52,6 @@ html {
 
 #app {
   text-align: center;
-}
-
-
-
-
-.page-container {
   position: relative;
   min-height: 100vh;
 }
