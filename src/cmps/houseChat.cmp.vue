@@ -6,7 +6,7 @@
     </div>
     <div class="chat-window fill-parent">
       <div v-for="(msg, idx) in msgs" :key="idx">
-        <h3 v-if="groupMsgsByName({ msgs, msg, idx })" v-text="msg.name" />
+        <h3 v-if="groupMsgsByName({ msgs, msg, idx })" v-text="userName" />
         <span v-text="msg.txt" />
       </div>
       <span v-if="remoteTyper">{{ remoteTyper }} is Typing...</span>
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       newMsg: {
-        name: `User ${Math.random()}`,
+        name: `User ${Math.random()}:`,
         txt: null,
       },
       meDeBounce: null,
@@ -83,6 +83,12 @@ export default {
     groupMsgsByName({ msgs, msg, idx }) {
       return !idx || msgs[idx - 1].name !== msg.name ? msg.name : null
     },
+  },
+  computed: {
+    userName() {
+      const user = this.$store.getters.loggedinUser
+      return `${user.fullName}:`;
+    }
   },
   created() {
     socketService.emit('onJoinHouseChat', this.house.id)
