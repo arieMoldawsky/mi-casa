@@ -80,7 +80,7 @@
           Add Review
         </el-button>
         <el-button class="open-chat-btn" @click="toggleChat"
-          >Chat With the Owner</el-button
+          >Chat With the Host</el-button
         >
         <house-chat
           v-if="isChatShown"
