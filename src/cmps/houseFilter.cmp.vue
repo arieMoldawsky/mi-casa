@@ -224,8 +224,11 @@ export default {
         type: 'updateFilter',
         filterBy: this.filterBy,
       })
-      this.$store.dispatch({ type: 'loadHouses' })
+      this.loadHouses()
     },
+    loadHouses() {
+      this.$store.dispatch({ type: 'loadHouses' })
+    }
   },
   created() {
     this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
@@ -233,6 +236,7 @@ export default {
       this.filterBy.txt = this.deBounce.txt = this.$route.query.txt
       this.updateFilter()
     }
+    this.loadHouses()
   },
   mounted() {
     if (document.querySelector('.header-scroll-pixel')) {
