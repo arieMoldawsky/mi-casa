@@ -1,5 +1,4 @@
 <template>
-  <!-- <section> -->
   <section @click="$refs.location.focus()">
     <el-form
       @submit.native.prevent="updateFilterAndRoute"
@@ -143,7 +142,6 @@
       <!-- <span>ssss</span> -->
     </el-form>
   </section>
-  <!-- </section> -->
 </template>
 
 <script>

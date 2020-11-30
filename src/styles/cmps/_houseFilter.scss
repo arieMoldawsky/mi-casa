@@ -65,22 +65,20 @@ body {
         font-size: 0.75rem;
         font-weight: bold;
       }
-      span,
-      .el-input__inner {
+      :not(label):not(.el-input__icon):not(.el-range-separator):not(.el-input__suffix) {
+        height: 1.2rem;
         color: $clr3;
-        font-size: 0.9rem;
+        font-size: 1rem;
         background-color: $clr1;
       }
-      .el-range-editor {
-        width: 100%;
-
-        .el-range-input {
-          display: block;
-          max-width: 100%;
-        }
+      i {
+        display: flex;
+        align-items: center;
       }
       .date-picker {
-        * {
+        width: 100%;
+        .el-range-input {
+          width: 50%;
           cursor: pointer;
           text-align: left;
         }

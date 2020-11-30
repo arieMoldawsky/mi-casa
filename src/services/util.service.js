@@ -16,7 +16,7 @@ function getRandomInt(min, max) {
 function capitalize(string) {
   return string
     .toLowerCase()
-    .split(' ')
+    .split(/,|-| /)
     .map(s => s.charAt(0).toUpperCase() + s.substring(1))
     .join(' ')
 }
