@@ -47,8 +47,5 @@ export default {
     houseFilter,
     appHeader,
   },
-  created() {
-    this.$store.dispatch({ type: 'loadHouses' })
-  },
 }
 </script>
