@@ -50,5 +50,25 @@
   }
       .user-main-container {
         text-align: left;
+
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          border-bottom: 1px solid lightgray;
+          padding: 10px 0;
+
+          &:first-child {
+            border-top: 1px solid lightgray;
+          }
+
+          img {
+            height: 90px;
+            width: 180px;
+            border-radius: 10px;
+          }
+        }
       }
 }
