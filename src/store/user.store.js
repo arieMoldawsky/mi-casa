@@ -1,5 +1,6 @@
 import userService from '../services/user.service.js'
 import { houseService } from '@/services/house.service.js'
+import { bookingService } from '@/services/booking.service.js'
 import socketService from '../services/socket.service.js'
 
 var localLoggedinUser = null
@@ -35,38 +36,68 @@ export default {
   },
   actions: {
     async login(context, { userCred }) {
-      const user = await userService.login(userCred)
-      context.commit({ type: 'setUser', user })
-      context.dispatch({ type: 'loadUserHouses', hostId: user._id })
-      socketService.emit('onUserLogin', user._id)
-      return user
+      try {
+        const user = await userService.login(userCred)
+        context.commit({ type: 'setUser', user })
+        context.dispatch({ type: 'loadUserHouses', hostId: user._id })
+        socketService.emit('onUserLogin', user._id)
+        return user
+      } catch (err) {
+        console.error('Could not log In user: ', userCred.email, err)
+      }
     },
     async signup(context, { userCred }) {
-      const user = await userService.signup(userCred)
-      context.commit({ type: 'setUser', user })
-      return user
+      try {
+        const user = await userService.signup(userCred)
+        context.commit({ type: 'setUser', user })
+        return user
+      } catch (err) {
+        console.error('Could not sign Up: ', err)
+      }
     },
     async logout(context) {
-      await userService.logout()
-      context.commit({ type: 'setUsers', users: [] })
-      context.commit({ type: 'setUser', user: null })
+      try {
+        await userService.logout()
+        context.commit({ type: 'setUsers', users: [] })
+        context.commit({ type: 'setUser', user: null })
+      } catch (err) {
+        console.error('Could not log Out: ', err)
+      }
     },
     async loadUsers(context) {
-      const users = await userService.getUsers()
-      context.commit({ type: 'setUsers', users })
+      try {
+        const users = await userService.getUsers()
+        context.commit({ type: 'setUsers', users })
+      } catch (err) {
+        console.error('Could not load users: ', err)
+      }
     },
     async removeUser(context, { userId }) {
-      await userService.remove(userId)
-      context.commit({ type: 'removeUser', userId })
+      try {
+        await userService.remove(userId)
+        context.commit({ type: 'removeUser', userId })
+      } catch (err) {
+        console.error('Could not remove user: ', err)
+      }
     },
     async updateUser(context, { user }) {
-      const resUser = await userService.update(user)
-      context.commit({ type: 'setUser', user: resUser })
+      try {
+        const resUser = await userService.update(user)
+        context.commit({ type: 'setUser', user: resUser })
+      } catch (err) {
+        console.error('Could not update user: ', err)
+      }
     },
-    async loadUserHouses({commit}, {type, hostId}) {
-        const userHouses = await houseService.query({hostId})
-        return userHouses
-        // commit({type, userHouses})
+    async loadUserData(context, { hostId }) {
+      try {
+        const { houses } = await houseService.query({ hostId })
+        const userBookings = await Promise.all(
+          houses.map(house => bookingService.query({ houseId: house._id }))
+        )
+        return { userHouses: houses, userBookings }
+      } catch (err) {
+        console.error('Could not load user data: ', err)
+      }
     },
   },
 }

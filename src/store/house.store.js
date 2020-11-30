@@ -39,7 +39,6 @@ export default {
   },
   actions: {
     async loadHouses(context, { type }) {
-      console.log(context);
       context.commit({ type: 'setIsLoading', isLoading: true })
       try {
         const res = await houseService.query(context.state.filterBy)
@@ -62,10 +61,6 @@ export default {
     async removeHouse({ dispatch }, payload) {
       try {
         await houseService.remove(payload._id)
-        // eventBus.$emit(SHOW_MSG, {
-        //   txt: `${payload._id} Removed Succefully`,
-        //   type: 'success',
-        // })
       } catch (error) {
         console.log('ERROR: could not remove house: ', houseId)
       }
@@ -75,10 +70,6 @@ export default {
         const { url } = await imgUploadService.uploadImg(img)
         house.img = url
         const houseRes = await houseService.add(house)
-        // eventBus.$emit(SHOW_MSG, {
-        //   txt: `${houseRes._id} Added Succefully`,
-        //   type: 'success',
-        // })
       } catch (error) {
         console.log(error)
       }
@@ -87,10 +78,6 @@ export default {
       try {
         const houseRes = await houseService.save(house)
         commit({ type: 'loadHouse', house: houseRes })
-        // eventBus.$emit(SHOW_MSG, {
-        //   txt: `${houseRes._id} Added Succefully`,
-        //   type: 'success',
-        // })
       } catch (error) {
         console.log(error)
       }
