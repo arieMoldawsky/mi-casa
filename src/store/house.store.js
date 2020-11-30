@@ -39,6 +39,7 @@ export default {
   },
   actions: {
     async loadHouses(context, { type }) {
+      console.log(context);
       context.commit({ type: 'setIsLoading', isLoading: true })
       try {
         const res = await houseService.query(context.state.filterBy)

@@ -8,15 +8,8 @@ if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user)
 export default {
   state: {
     loggedinUser: localLoggedinUser,
-    // loggedinUser: {
-    //     fullName: "Orly Amdadi",
-    //     email: "orly@amdadi.com",
-    //     password: "123",
-    //     imgUrl: "https://randomuser.me/api/portraits/women/90.jpg",
-    //     langs: "Hebrew, English",
-    //     description: "lorem"
-    // },
-    users: [],
+    // userHouses: null
+    // users: [],
   },
   getters: {
     users(state) {
@@ -44,6 +37,7 @@ export default {
     async login(context, { userCred }) {
       const user = await userService.login(userCred)
       context.commit({ type: 'setUser', user })
+      context.dispatch({ type: 'loadUserHouses', hostId: user._id })
       socketService.emit('onUserLogin', user._id)
       return user
     },
@@ -66,13 +60,13 @@ export default {
       context.commit({ type: 'removeUser', userId })
     },
     async updateUser(context, { user }) {
-      const user = await userService.update(user)
-      context.commit({ type: 'setUser', user })
+      const resUser = await userService.update(user)
+      context.commit({ type: 'setUser', user: resUser })
     },
-    async loadUserHouses(context, {type, userId}) {
-        const userHouses = await houseService.query(userId)
-        console.log(userHouses);
-        // context.commit({type, userHouses})
-    }
+    async loadUserHouses({commit}, {type, hostId}) {
+        const userHouses = await houseService.query({hostId})
+        return userHouses
+        // commit({type, userHouses})
+    },
   },
 }
