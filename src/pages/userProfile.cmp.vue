@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!userHouses" class="sk-chase">
+  <div v-if="isLoading" class="sk-chase">
     <div class="sk-chase-dot"></div>
     <div class="sk-chase-dot"></div>
     <div class="sk-chase-dot"></div>
@@ -129,49 +129,70 @@
 </template>
 
 <script>
-import { log } from 'util'
 export default {
   data() {
     return {
+      isLoading: true,
       userHouses: null,
+      userBookings: null,
       house: {
-          name: '',
-          price: 0,
-          type: '',
-          capacity: 0,
-          badRooms: 0,
-          tags: [],
-          amenities: ['Wifi', 'Self check-in', 'Kitchen', 'Air conditioning', 'Elevator', 'TV', 'Hair dryer', 'Hangers', 'Iron', 'Essentials'],
-          location: {
-            lat: 48.8665169951605,
-            lng: 2.31821807029879,
-            country: '',
-            city: ''
-          },
-          description: '',
-          reviews:[],
-          chat: [],
-          imgs: []
-        }
-      }
+        name: '',
+        price: 0,
+        type: '',
+        capacity: 0,
+        badRooms: 0,
+        tags: [],
+        amenities: [
+          'Wifi',
+          'Self check-in',
+          'Kitchen',
+          'Air conditioning',
+          'Elevator',
+          'TV',
+          'Hair dryer',
+          'Hangers',
+          'Iron',
+          'Essentials',
+        ],
+        location: {
+          lat: 48.8665169951605,
+          lng: 2.31821807029879,
+          country: '',
+          city: '',
+        },
+        description: '',
+        reviews: [],
+        chat: [],
+        imgs: [],
+      },
+    }
   },
-  methods: {},
   computed: {
-    isLoading() {
-      return this.$store.getters.getIsLoading
-    },
     user() {
       return this.$store.getters.loggedinUser
     },
     onSubmit() {
-        console.log('submit!');
+      console.log('submit!')
+    },
+  },
+  methods: {
+    async loadUserData() {
+      this.isLoading = true
+      try {
+        const res = await this.$store.dispatch({
+          type: 'loadUserData',
+          hostId: this.user._id,
+        })
+        this.userHouses = res.userHouses
+        this.userBookings = res.userBookings
+      } catch (err) {
+        console.log(err)
       }
+      this.isLoading = false
+    },
   },
   created() {
-    this.userHouses = this.$store.dispatch({
-      type: 'loadUserHouses',
-      hostId: this.user._id,
-    })
+    this.loadUserData()
   },
   components: {},
 }
