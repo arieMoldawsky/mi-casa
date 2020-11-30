@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div class="content-wrap">
-    <div class="header-scroll-pixel" />
     <appHeader />
     <router-view class="main-layout" />
     <modal />

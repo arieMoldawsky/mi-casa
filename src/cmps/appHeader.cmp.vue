@@ -1,5 +1,5 @@
 <template>
-  <header class="main-header flex" :class="homeHeader">
+  <header class="main-header flex j-space-b" :class="homeHeader">
     <!-- <nav class="header-nav flex"> -->
     <!-- <div class="logo-navbar flex"> -->
     <router-link to="/" exact class="logo flex">
@@ -80,7 +80,12 @@
   </header>
 </template>
 <script>
+import houseFilter from '@/cmps/houseFilter.cmp.vue'
+
 export default {
+  components: {
+    houseFilter,
+  },
   methods: {
     handleCommand(command) {
       console.log('command', command)
@@ -114,24 +119,6 @@ export default {
     isLogedIn() {
       return this.$store.getters.loggedinUser
     },
-  },
-  mounted() {
-    (function scrollWatch() {
-      if (
-        'IntersectionObserver' in window &&
-        'IntersectionObserverEntry' in window &&
-        'intersectionRatio' in window.IntersectionObserverEntry.prototype
-      ) {
-        let observer = new IntersectionObserver(entries => {
-            if (entries[0].intersectionRatio) {
-              document.body.classList.remove('anchor-in')
-            } else {
-              document.body.classList.add('anchor-in')
-            }
-        })
-        observer.observe(document.querySelector('.header-scroll-pixel'))
-      }
-    })()
   },
 }
 </script>

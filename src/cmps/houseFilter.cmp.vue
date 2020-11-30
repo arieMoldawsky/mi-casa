@@ -1,12 +1,13 @@
 <template>
+  <!-- <section> -->
   <el-form
-    @submit.native.prevent="updateFilter"
+    @submit.native.prevent="updateFilterAndRoute"
     class="house-filter-container flex-centered"
     size="medium"
     :model="filterBy"
   >
     <div
-      class="form-item field flex a-start pointer"
+      class="form-item field fill-parent j-space-e flex a-start pointer"
       @click="$refs.location.focus()"
     >
       <label class="pointer">
@@ -21,7 +22,7 @@
       />
     </div>
     <div
-      class="form-item field date-picker flex a-start pointer"
+      class="form-item field fill-parent j-space-e date-picker flex a-start pointer"
       @click="$refs.datePicker.focus()"
     >
       <label class="pointer">
@@ -43,7 +44,10 @@
         :picker-options="datePickerOptions"
       />
     </div>
-    <div class="form-item field flex a-start fill-parent pointer">
+    <div class="form-item field flex a-start fill-parent j-space-e pointer">
+      <label class="guests-label">
+        Guests
+      </label>
       <el-popover
         class="fill-parent"
         placement="bottom"
@@ -51,9 +55,6 @@
         v-model="isPopVisible"
       >
         <div class="fill-parent flex a-start column" slot="reference">
-          <label class="guests-label">
-            Guests
-          </label>
           <span class="flex a-center fill-parent">
             {{ guestCount }}
           </span>
@@ -138,7 +139,9 @@
       label="In Stock"
       border
     /> -->
+    <!-- <span>ssss</span> -->
   </el-form>
+  <!-- </section> -->
 </template>
 
 <script>
@@ -148,7 +151,7 @@ export default {
       isPopVisible: false,
       filterBy: null,
       deBounce: {
-        txt: '',
+        txt: null,
         // timer: null,
       },
       filterOptions: {
@@ -211,25 +214,37 @@ export default {
       this.filterBy.txt = this.deBounce.txt
       // }, 300)
     },
+    updateFilterAndRoute() {
+      this.updateFilter()
+      if (this.$route.path !== '/house')
+        this.$router.push({ path: `/house` })
+    },
     updateFilter() {
       this.$store.dispatch({
         type: 'updateFilter',
         filterBy: this.filterBy,
       })
       this.$store.dispatch({ type: 'loadHouses' })
-      if (this.$route.path !== '/house')
-        this.$router.push({
-          path: `/house`,
-          query: { txt: this.filterBy.txt },
-        })
-    },
-    togglePop() {
-      this.isPopVisible = !this.isPopVisible
     },
   },
   created() {
     this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
-    this.filterBy.txt = this.deBounce.txt = this.$route.query.txt
+    if (this.$route.query.txt) {
+      this.filterBy.txt = this.deBounce.txt = this.$route.query.txt
+      this.updateFilter()
+    }
+  },
+  mounted() {
+    if (document.querySelector('.header-scroll-pixel')) {
+      let observer = new IntersectionObserver(entries => {
+        entries[0].intersectionRatio
+          ? document.body.classList.remove('anchor-in')
+          : document.body.classList.add('anchor-in')
+      })
+      observer.observe(document.querySelector('.header-scroll-pixel'))
+    } else {
+      document.body.classList.add('anchor-in')
+    }
   },
 }
 </script>
