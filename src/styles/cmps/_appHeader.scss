@@ -10,6 +10,12 @@
     width: 100%;
     height: $headerHeight;
 
+    .head-logo-svg {
+        height: 30px;
+        width: 30px;
+        fill: $clr2;
+    }
+
     .profile-pic {
         color: #717171 !important;
         -webkit-flex: 0 0 30px !important;
