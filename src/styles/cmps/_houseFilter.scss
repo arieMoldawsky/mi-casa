@@ -12,10 +12,15 @@ body {
   &.anchor-in {
     .house-filter-container {
       position: fixed;
+      height: $headerHeight * 0.9;
       top: $headerHeight * 0.05;
       max-width: 400px;
-      height: $headerHeight * 0.9;
       box-shadow: none;
+      &:focus-within {
+        top: $headerHeight;
+        max-width: 800px;
+
+      }
     }
   }
 }
@@ -65,9 +70,7 @@ body {
       .el-input__inner {
         color: $clr3;
         font-size: 0.9rem;
-        text-transform: capitalize;
         background-color: $clr1;
-        height: 1rem;
       }
       .el-range-editor {
         width: 100%;

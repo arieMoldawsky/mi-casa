@@ -145,6 +145,8 @@
 </template>
 
 <script>
+import {utilService} from '@/services/util.service.js'
+
 export default {
   data() {
     return {
@@ -216,25 +218,27 @@ export default {
     },
     updateFilterAndRoute() {
       this.updateFilter()
-      if (this.$route.path !== '/house')
-        this.$router.push({ path: `/house` })
+      if (this.$route.path !== '/house') this.$router.push({ path: `/house` })
     },
     updateFilter() {
       this.$store.dispatch({
         type: 'updateFilter',
         filterBy: this.filterBy,
       })
+      // if ('activeElement' in document) document.activeElement.blur()
       this.loadHouses()
     },
     loadHouses() {
       this.$store.dispatch({ type: 'loadHouses' })
-    }
+    },
   },
   created() {
     this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
     if (this.$route.query.txt) {
-      this.filterBy.txt = this.deBounce.txt = this.$route.query.txt
+      this.deBounce.txt = this.filterBy.txt = utilService.capitalize(this.$route.query.txt)
       this.updateFilter()
+    } else {
+      this.deBounce.txt = utilService.capitalize(this.filterBy.txt) 
     }
     this.loadHouses()
   },
