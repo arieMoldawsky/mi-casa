@@ -4,12 +4,12 @@
 
                 <h2>Join millions of hosts on MiCasa</h2>
 
-                <p>No matter what kind of home or room you have to share, MiCasa makes it simple and secure to host travelers. You’re in full control of your availability, prices, house rules, and how you interact with guests.</p>
+                <p>No matter what kind of home or room you want to share, MiCasa makes it simple and secure to host travelers. You’re in full control of your availability, prices, house rules, and how you interact with guests.</p>
 
                 <p>There’s no cost to sign up. MiCasa generally charges hosts a flat 3% per reservation, among the lowest fees in the industry.</p>
 
                 <p>We have your back
-To keep you, your home, and your belongings safe, we cover every booking with $1M USD in property damage protection and another $1M USD in insurance against accidents.</p>
+to keep you, your home, and your belongings safe. We cover every booking with $1M USD in property damage protection and another $1M USD in insurance against accidents.</p>
             <button class="first-panel-btn flex">Join now!</button>
             </div>
             <div class="second-panel grid">
