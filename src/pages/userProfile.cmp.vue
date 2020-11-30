@@ -35,12 +35,11 @@
       <h1>Hi, I'm {{ user.fullName }}</h1>
       <div>Joined in ____</div>
       <h2>Houses I offer: (numOfHouses)</h2>
+      <div>{{userHouses}}</div>
       <ul>
-        <li>blabla</li>
-        <li>blabla</li>
-        <li>blabla</li>
+        <li v-for="house in userHouses" :key="house._id">.</li>
       </ul>
-      <el-form ref="form" :model="form" label-width="120px">
+      <el-form ref="form" :model="house" label-width="120px">
         <el-form-item label="House name">
           <el-input v-model="house.name"></el-input>
         </el-form-item>
@@ -48,7 +47,6 @@
           <el-input-number
             label="Price per night"
             v-model="house.price"
-            @change="handleChange"
             :min="1"
             :max="10000"
           ></el-input-number>
@@ -67,7 +65,6 @@
           <el-input-number
             label="House capacity"
             v-model="house.capacity"
-            @change="handleChange"
             :min="1"
             :max="20"
           ></el-input-number>
@@ -76,7 +73,6 @@
           <el-input-number
             label="Number of bedrooms"
             v-model="house.bedRooms"
-            @change="handleChange"
             :min="1"
             :max="10"
           ></el-input-number>
@@ -172,6 +168,7 @@ export default {
       type: 'loadUserHouses',
       hostId: this.user._id,
     })
+    console.log(this.userHouses);
   },
   components: {},
 }
