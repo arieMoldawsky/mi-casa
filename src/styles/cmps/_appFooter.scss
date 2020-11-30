@@ -1,16 +1,19 @@
 
 .main-footer {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important;
+    // padding-top: 24px !important;
+    // padding-bottom: 24px !important;
     border-top: 1px solid #DDDDDD !important; 
     justify-content: space-evenly;
     background-color: rgb(236, 236, 236);
-    padding-left: 10px;
-    height: 3rem;
-    position: static;
-    bottom: 0;
+    // padding-left: 10px;
+    // height: 3rem;
+    // position: static;
     align-items: center;
-    padding-bottom: 24px !important;
+    position: absolute;
+    // bottom: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
     }
 
 .footer-lang {
