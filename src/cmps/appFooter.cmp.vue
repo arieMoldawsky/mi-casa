@@ -4,7 +4,7 @@
       © 2020 MiCasa, Inc. All rights reserved
     </div>
     <div class="footer-lang flex">English (US)
-     <span class="footer-money flex">AUD $</span></div>
+     <span class="footer-money flex">USD $</span></div>
     <div class="social flex">
       <div class="facebook flex">
         <i class="fab fa-facebook-f flex"></i>
