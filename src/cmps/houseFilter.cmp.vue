@@ -151,7 +151,7 @@ export default {
       isPopVisible: false,
       filterBy: null,
       deBounce: {
-        txt: '',
+        txt: null,
         // timer: null,
       },
       filterOptions: {
@@ -216,7 +216,8 @@ export default {
     },
     updateFilterAndRoute() {
       this.updateFilter()
-      if (this.$route.path !== '/house') this.$router.push(`/house`)
+      if (this.$route.path !== '/house')
+        this.$router.push({ path: `/house` })
     },
     updateFilter() {
       this.$store.dispatch({
@@ -241,6 +242,8 @@ export default {
           : document.body.classList.add('anchor-in')
       })
       observer.observe(document.querySelector('.header-scroll-pixel'))
+    } else {
+      document.body.classList.add('anchor-in')
     }
   },
 }
