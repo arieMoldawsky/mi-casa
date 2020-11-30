@@ -142,20 +142,9 @@ export default {
         txt: "",
         timer: null,
       },
-    //   bookings: [],
       datePickerOptions: {
-        // disabledDate(date) {
-        //     // this.bookings.forEach((booking) => {
-        //     //     return (
-        //     //         (booking.checkIn < date &&
-        //     //             booking.checkOut > date) ||
-        //     //         date < new Date()
-        //     //     );
-        //     // });
-        //     return date < new Date();
-        // },
         disabledDate: (date) => {
-            return this.dealDisabledDate(date);
+          return this.dealDisabledDate(date);
         },
       },
       openTotal: false,
@@ -208,14 +197,12 @@ export default {
   },
   methods: {
     dealDisabledDate(date) {
-      this.bookings.forEach((booking) => {
-        return (
-          (booking.checkIn < date && booking.checkOut > date) ||
-          date < new Date()
-        );
-      });
-    //   var times = Date.now()
-    //   return time.getTime() < times;
+        var res = false
+        for (let i = 0; i < this.bookings.length; i++) {
+          res = ((date.getTime() > this.bookings[i].checkIn && date.getTime() < this.bookings[i].checkOut) || (date < new Date()));
+          if (res) break;
+        }
+      return res;
     },
     datesFromPicker(ev) {
       this.booking.checkIn = ev[0];
