@@ -1,6 +1,5 @@
 <template>
   <main>
-    <houseFilter />
     <section>
       <div class="sk-chase" v-if="isLoading">
         <div class="sk-chase-dot"></div>

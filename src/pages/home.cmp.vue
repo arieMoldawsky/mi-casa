@@ -1,8 +1,7 @@
 <template>
   <main class="homepage-section">
-    <div class="header-scroll-pixel" />
+    <div class="header-scroll-pixel" ref="header-scroll-pixel" />
     <div class="hero-container flex a-center">
-      <house-filter />
       <h1 class="hero-title flex">
         <span>Mi Casa</span>
         <span class="title-second-row">Su Casa</span>
@@ -31,7 +30,7 @@
       </div>
     </div>
     <div class="trending-middle flex">
-      <div class="trending-info-1 trending flex">
+      <div class="trending-info trending flex">
         <h2 class="flex">
           <svg
             viewBox="0 0 32 32"
@@ -54,7 +53,7 @@
           exactly what you want.
         </p>
       </div>
-      <div class="trending-info-2 trending flex">
+      <div class="trending-info trending flex">
         <h2 class="flex">
           <svg
             viewBox="0 0 32 32"
@@ -75,7 +74,7 @@
           to learn what it’s like in person.
         </p>
       </div>
-      <div class="trending-info-3 trending flex">
+      <div class="trending-info trending flex">
         <h2 class="flex">
           <svg
             viewBox="0 0 32 32"
@@ -96,7 +95,7 @@
           your payments.
         </p>
       </div>
-      <div class="trending-info-4 trending flex">
+      <div class="trending-info trending flex">
         <h2 class="flex">
           <svg
             viewBox="0 0 32 32"
@@ -122,20 +121,20 @@
       <h2>Inspiration destinations</h2>
     </div>
     <div class="trending-cities-container flex">
-      <div class="trending-city-1 trending flex" @click="houseList('new-york')">
-        <img class="trending-city-img" src="../assets/newYork.jpg" />
+      <div @click="houseList('new-york')">
+        <img src="../assets/newYork.jpg" />
         <h4>New York</h4>
       </div>
-      <div class="trending-city-2 trending flex" @click="houseList('tokyo')">
-        <img class="trending-city-img" src="../assets/tokyo.jpg" />
+      <div @click="houseList('tokyo')">
+        <img src="../assets/tokyo.jpg" />
         <h4>Tokyo</h4>
       </div>
-      <div class="trending-city-3 trending flex" @click="houseList('tel-aviv')">
-        <img class="trending-city-img" src="../assets/telAviv.jpg" />
+      <div @click="houseList('tel-aviv')">
+        <img src="../assets/telAviv.jpg" />
         <h4>Tel Aviv</h4>
       </div>
-      <div class="trending-city-4 trending flex" @click="houseList('paris')">
-        <img class="trending-city-img" src="../assets/paris.jpg" />
+      <div @click="houseList('paris')">
+        <img src="../assets/paris.jpg" />
         <h4>Paris</h4>
       </div>
     </div>

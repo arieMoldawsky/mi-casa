@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div class="content-wrap">
-    <appHeader />
-    <router-view class="main-layout" />
-    <modal />
-  </div>
+        <appHeader/>
+      <router-view class="main-layout" />
+      <modal />
+    </div>
     <appFooter />
   </div>
 </template>
@@ -43,32 +43,18 @@ export default {
 </script>
 
 <style lang="scss">
-
 html {
   min-height: 100vh;
   overflow: auto;
 }
 
 #app {
-  text-align: center;
+  // text-align: center;
   position: relative;
   min-height: 100vh;
 }
 
 .content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+  padding-bottom: 2.5rem; /* Footer height */
 }
-
-// #nav {
-//   padding: 30px;
-
-//   a {
-//     font-weight: bold;
-//     color: #2c3e50;
-
-//     &.router-link-exact-active {
-//       color: #42b983;
-//     }
-//   }
-// }
 </style>

@@ -1,7 +1,9 @@
 <template>
-  <section class="container main-wrapper flex main-layout">
-    <div class="inner-container flex-centered a-start j-space-b ">
-      <div class="first-panel text-wrapper full-height flex column a-start j-space-b">
+  <section class="join-host grid main-layout">
+    <div class="inner-container fill-parent flex a-start j-space-b ">
+      <div
+        class="first-panel text-wrapper full-height flex column a-start j-space-b"
+      >
         <h2>Join millions of hosts on MiCasa</h2>
 
         <p>
@@ -22,28 +24,23 @@
         </p>
         <button class="first-panel-btn flex">Join now!</button>
       </div>
-      <div class="second-panel grid">
-        <div class="images images-wrapper grid">
-          <div class="img-squre grid">
-            <img class="img-squre-001" src="@/assets/img-squre-001.jpg" />
-          </div>
-          <div class="img-rectangle-x grid">
-            <img
-              class="img-rectangle-x-002"
-              src="@/assets/img-rectangle-x-002.jpg"
-            />
-            <div class="img-rectangle-x-002-txt">
-              <span>“</span> Hosting has helped me pay for a new kitchen and
-              other upgrades. <span>“</span> <small>John</small>
-            </div>
-          </div>
-          <div class="img-rectangle-y grid">
-            <img
-              class="img-rectangle-y-003"
-              src="@/assets/img-rectangle-y-003.jpg"
-            />
-          </div>
-        </div>
+      <div class="second-panel full-height">
+        <img class="img-squre-001" src="@/assets/img-squre-001.jpg" />
+        <!-- <div class="img-rectangle-x flex column j-space-b"> -->
+          <img
+            class="img-rectangle-x-002"
+            src="@/assets/img-rectangle-x-002.jpg"
+          />
+          <!-- <div class="screen"/>
+          <span class="text-over-image"
+            >“ Hosting has helped me pay for a new kitchen and other upgrades.“
+            <small>John</small>
+          </span> -->
+        <!-- </div  > -->
+        <img
+          class="img-rectangle-y-003"
+          src="@/assets/img-rectangle-y-003.jpg"
+        />
       </div>
     </div>
   </section>

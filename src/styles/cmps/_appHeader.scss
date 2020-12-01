@@ -1,17 +1,16 @@
-body.anchor-in .main-header {
-  background-color: rgba($color: $clr1, $alpha: 1);
-  .head-logo-svg,
-  .head-logo-txt {
-    fill: $clr2;
-    color: $clr2;
-  }
-  a.host-navbar,
-  a.houses-navbar {
-    color: $clr5;
-  }
-}
-
 .main-header {
+  &.anchor-in    {
+    background-color: rgba($color: $clr1, $alpha: 1);
+    .head-logo-svg,
+    .head-logo-txt {
+      fill: $clr2;
+      color: $clr2;
+    }
+    a.host-navbar,
+    a.houses-navbar {
+      color: $clr5;
+    }
+  }
   background-color: rgba($color: $clr1, $alpha: 0);
   box-shadow: none;
   transition: 120ms;
@@ -82,8 +81,7 @@ body.anchor-in .main-header {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 1.2rem;
     color: $clr2;
-    
-    
+
     .nav-routes {
       color: $clr7;
       font-size: 14px;
@@ -91,7 +89,7 @@ body.anchor-in .main-header {
       align-items: center;
       color: $clr1;
     }
-    
+
     .houses-navbar,
     .host-navbar {
       transition: 120ms;

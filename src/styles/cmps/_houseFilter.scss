@@ -7,46 +7,51 @@
   opacity: 0;
   left: 0;
   top: 50px;
+  background-color: #000000;
 }
-body.anchor-in {
-  .house-filter-container {
-    height: $headerHeight * 0.7;
-    top: $headerHeight * 0.15;
-    position: fixed;
-    max-width: 400px;
-    box-shadow: none;
-    transition: 150ms ease-in-out;
-    .filter-screen {
-      text-align: left;
-      display: block;
-      padding: 0 0 0 1rem;
-      color: $clr5;
-      font-size: 0.9rem;
-      font-weight: bold;
-      background-color: $clr1;
-      position: absolute;
-      z-index: 101;
-      border-radius: 200px;
-      line-height: $headerHeight * 0.7;
-    }
-    .submit button {
+.main-header {
+  &.anchor-in {
+    .house-filter-container {
+      height: $headerHeight * 0.7;
+      top: $headerHeight * 0.15;
+      position: fixed;
+      max-width: 400px;
+      box-shadow: none;
       transition: 150ms ease-in-out;
-      width: $headerHeight * 0.5;
-      height: $headerHeight * 0.5;
-    }
-    &:hover {
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
-    }
-    &:focus-within {
-      height: $headerHeight;
-      top: $headerHeight;
-      max-width: 800px;
       .filter-screen {
-        display: none;
+        text-align: left;
+        display: block;
+        padding: 0 0 0 1rem;
+        color: $clr5;
+        font-size: 0.9rem;
+        font-weight: bold;
+        background-color: $clr1;
+        position: absolute;
+        z-index: 101;
+        border-radius: 200px;
+        line-height: $headerHeight * 0.7;
       }
       .submit button {
-        width: $headerHeight * 0.75;
-        height: $headerHeight * 0.75;
+        transition: 150ms ease-in-out;
+        width: $headerHeight * 0.5;
+        height: $headerHeight * 0.5;
+      }
+      &:hover {
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
+      }
+    }
+    &.filter-out {
+      .house-filter-container {
+        height: $headerHeight;
+        top: $headerHeight;
+        max-width: 800px;
+        .filter-screen {
+          display: none;
+        }
+        .submit button {
+          width: $headerHeight * 0.75;
+          height: $headerHeight * 0.75;
+        }
       }
     }
   }
@@ -91,6 +96,7 @@ body.anchor-in {
       * {
         font-family: Avenir, Helvetica, Arial, sans-serif;
         padding: 0;
+        cursor: pointer;
       }
       label {
         color: $clr5;
@@ -111,7 +117,6 @@ body.anchor-in {
         width: 100%;
         .el-range-input {
           width: 50%;
-          cursor: pointer;
           text-align: left;
         }
         .el-range__icon {

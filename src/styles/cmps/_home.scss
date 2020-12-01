@@ -1,12 +1,18 @@
 .homepage-section {
   .hero-container {
-    background-image: url('../assets/homePageBg.jpg'),
+    background: url('../assets/homePageBg.jpg'),
       linear-gradient(
-        rgba($color: #000, $alpha: 0.9),
-        rgba($color: #000, $alpha: 0.3),
-        rgba($color: #000, $alpha: 0.3),
-        rgba($color: #000, $alpha: 0.3),
-        rgba($color: #000, $alpha: 0.5)
+        rgba($color: #000, $alpha: 0.8),
+        rgba($color: #000, $alpha: 0.8),
+        rgba($color: #000, $alpha: 0.2),
+        rgba($color: #000, $alpha: 0.2),
+        rgba($color: #000, $alpha: 0.2),
+        rgba($color: #000, $alpha: 0.2),
+        rgba($color: #000, $alpha: 0.2),
+        rgba($color: #000, $alpha: 0.2),
+        rgba($color: #000, $alpha: 0.2),
+        rgba($color: #000, $alpha: 0.6),
+        rgba($color: #000, $alpha: 0.8)
       );
     background-blend-mode: hard-light;
     background-size: cover;
@@ -21,7 +27,7 @@
       font-size: 6rem;
       color: #ffffff;
       position: absolute;
-      top: 58%;
+      top: 60%;
       left: 10%;
       flex-direction: column;
       line-height: 1;
@@ -60,14 +66,12 @@
     cursor: pointer;
     gap: 20px;
     justify-content: space-between;
-    height: 220px;
   }
 
   .trending {
     flex-direction: column;
     gap: 10px;
     border-radius: 10px;
-    width: 300px;
     text-align: left;
     color: $clr5;
   }
@@ -78,18 +82,18 @@
     color: $clr5;
   }
 
-  .trending-city-img {
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-  }
-
   .trending-cities-container {
-    cursor: pointer;
     gap: 20px;
-    justify-content: space-between;
-    margin-bottom: 80px;
-    height: 220px;
+    margin-bottom: 90px;
+    height: 10rem;
+    > * {
+      flex : 1;
+      img {
+        height: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+    }
   }
   .trending-middle {
     cursor: text;
