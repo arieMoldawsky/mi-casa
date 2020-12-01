@@ -1,7 +1,7 @@
 
 <template>
     <section v-if="location.lat" class="googleMap-section">
-        <h2>location</h2>
+        <h2>Location</h2>
         <GmapMap
             :center="mapPos"
             :zoom="14"
