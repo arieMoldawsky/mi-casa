@@ -88,7 +88,6 @@ export default {
     },
     computed: {
         isSignup() {
-            console.log(this.$route.query.q);
             return this.$route.query.q === "signup";
         },
         loggedInUser() {
