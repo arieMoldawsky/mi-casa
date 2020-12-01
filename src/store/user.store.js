@@ -39,7 +39,6 @@ export default {
       try {
         const user = await userService.login(userCred)
         context.commit({ type: 'setUser', user })
-        context.dispatch({ type: 'loadUserHouses', hostId: user._id })
         socketService.emit('onUserLogin', user._id)
         return user
       } catch (err) {

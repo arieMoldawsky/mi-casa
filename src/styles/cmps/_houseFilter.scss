@@ -11,6 +11,12 @@ body {
   }
   &.anchor-in {
     .house-filter-container {
+      height: $headerHeight * 0.7;
+      top: $headerHeight * 0.15;
+      position: fixed;
+      max-width: 400px;
+      box-shadow: none;
+      transition: 150ms ease-in-out;
       .filter-screen {
         text-align: left;
         display: block;
@@ -24,20 +30,13 @@ body {
         border-radius: 200px;
         line-height: $headerHeight * 0.7;
       }
-      height: $headerHeight * 0.7;
-      top: $headerHeight * 0.15;
-      position: fixed;
-      max-width: 400px;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
       .submit button {
+        transition: 150ms ease-in-out;
         width: $headerHeight * 0.5;
         height: $headerHeight * 0.5;
-        .svg {
-          transform: scale(25%);
-        }
       }
       &:hover {
-        transition: box-shadow 200ms;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
       }
       &:focus-within {
         height: $headerHeight;
@@ -46,15 +45,19 @@ body {
         .filter-screen {
           display: none;
         }
+        .submit button {
+          width: $headerHeight * 0.75;
+          height: $headerHeight * 0.75;
+        }
       }
     }
   }
 }
 
 .house-filter-container {
-  border: 1px solid rgba($color: #e6e6e6, $alpha: 1);
+  border: 1px solid rgba($color: #dadada, $alpha: 1);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
-  transition: 120ms;
+  transition: 150ms ease-in-out;
   z-index: 100;
   position: absolute;
   height: $headerHeight;
