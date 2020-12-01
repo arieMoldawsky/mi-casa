@@ -36,9 +36,10 @@
       <div>Joined in ____</div>
       <h2>Houses I offer: ({{userHouses.length}})</h2>
       <ul>
-        <li v-for="house in userHouses" :key="house._id">
+        <li v-for="(house, idx) in userHouses" :key="house._id">
           <div>Name: {{ house.name }}</div>
           <div>Type: {{ house.type }}</div>
+          <!-- <div>{{userBookings[idx]}}</div> -->
           <img :src="house.imgs[0]" alt="" />
         </li>
       </ul>
