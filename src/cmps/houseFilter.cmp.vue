@@ -2,7 +2,7 @@
   <section>
     <el-form
       @submit.native.prevent="updateFilterAndRoute"
-      class="house-filter-container flex-centered"
+      class="house-filter-container flex-centered pointer"
       size="medium"
       :model="filterBy"
     >
