@@ -19,18 +19,12 @@
           >
         </div>
         <div v-if="isWideWindow" class="imgs-container">
-          <div class="main-img">
-            <img :src="house.imgs[0]" alt="" />
-          </div>
-          <div class="secondary-imgs">
             <img
-              v-for="(img, idx) in secondryImgs"
+              v-for="(img, idx) in house.imgs"
               :key="img"
-              :src="secondryImgs[idx]"
-              :class="`secondary-img${idx}`"
-              class="ratio-square"
+              :src="img"
+              :class="`img${idx}`"
             />
-          </div>
         </div>
         <div v-else class="el-carousel-img">
         <el-carousel :autoplay="true" interval="4000" trigger="click">
