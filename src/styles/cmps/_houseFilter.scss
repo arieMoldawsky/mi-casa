@@ -1,54 +1,52 @@
-body {
-  .header-scroll-pixel {
-    position: absolute;
-    visibility: hidden;
-    width: 20px;
-    height: 20px;
-    z-index: 100000000;
-    opacity: 0;
-    left: 0;
-    top: 50px;
-  }
-  &.anchor-in {
-    .house-filter-container {
-      height: $headerHeight * 0.7;
-      top: $headerHeight * 0.15;
-      position: fixed;
-      max-width: 400px;
-      box-shadow: none;
+.header-scroll-pixel {
+  position: absolute;
+  visibility: hidden;
+  width: 20px;
+  height: 20px;
+  z-index: 1000;
+  opacity: 0;
+  left: 0;
+  top: 50px;
+}
+body.anchor-in {
+  .house-filter-container {
+    height: $headerHeight * 0.7;
+    top: $headerHeight * 0.15;
+    position: fixed;
+    max-width: 400px;
+    box-shadow: none;
+    transition: 150ms ease-in-out;
+    .filter-screen {
+      text-align: left;
+      display: block;
+      padding: 0 0 0 1rem;
+      color: $clr5;
+      font-size: 0.9rem;
+      font-weight: bold;
+      background-color: $clr1;
+      position: absolute;
+      z-index: 101;
+      border-radius: 200px;
+      line-height: $headerHeight * 0.7;
+    }
+    .submit button {
       transition: 150ms ease-in-out;
+      width: $headerHeight * 0.5;
+      height: $headerHeight * 0.5;
+    }
+    &:hover {
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
+    }
+    &:focus-within {
+      height: $headerHeight;
+      top: $headerHeight;
+      max-width: 800px;
       .filter-screen {
-        text-align: left;
-        display: block;
-        padding: 0 0 0 1rem;
-        color: $clr5;
-        font-size: 0.9rem;
-        font-weight: bold;
-        background-color: $clr1;
-        position: absolute;
-        z-index: 101;
-        border-radius: 200px;
-        line-height: $headerHeight * 0.7;
+        display: none;
       }
       .submit button {
-        transition: 150ms ease-in-out;
-        width: $headerHeight * 0.5;
-        height: $headerHeight * 0.5;
-      }
-      &:hover {
-        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
-      }
-      &:focus-within {
-        height: $headerHeight;
-        top: $headerHeight;
-        max-width: 800px;
-        .filter-screen {
-          display: none;
-        }
-        .submit button {
-          width: $headerHeight * 0.75;
-          height: $headerHeight * 0.75;
-        }
+        width: $headerHeight * 0.75;
+        height: $headerHeight * 0.75;
       }
     }
   }
