@@ -1,11 +1,19 @@
 <template>
-  <section @click="$refs.location.focus()">
+  <section>
     <el-form
       @submit.native.prevent="updateFilterAndRoute"
       class="house-filter-container flex-centered"
       size="medium"
       :model="filterBy"
     >
+      <section
+        class="filter-screen fill-parent"
+        @click.stop="$refs.location.focus()"
+      >
+        <span>
+          Start Your Search
+        </span>
+      </section>
       <div
         class="form-item field fill-parent j-space-e flex a-start pointer"
         @click="$refs.location.focus()"
@@ -76,7 +84,7 @@
         </el-popover>
       </div>
       <div class="form-item submit flex a-start">
-        <button native-type="submit">
+        <button native-type="submit" class="flex-centered">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -246,11 +254,9 @@ export default {
   mounted() {
     if (document.querySelector('.header-scroll-pixel')) {
       let observer = new IntersectionObserver(entries => {
-        if (entries[0].intersectionRatio) {
-          document.body.classList.remove('anchor-in')
-        } else {
-          document.body.classList.add('anchor-in')
-        }
+        entries[0].intersectionRatio
+          ? document.body.classList.remove('anchor-in')
+          : document.body.classList.add('anchor-in')
       })
       observer.observe(document.querySelector('.header-scroll-pixel'))
     } else {
@@ -259,6 +265,9 @@ export default {
     document.addEventListener('scroll', ev => {
       utilService.blurAll()
     })
+  },
+  unmounted() {
+    document.removeEventListener('scroll')
   },
 }
 </script>

@@ -8,7 +8,7 @@ export default {
       page: 1,
       limit: 30,
       txt: '',
-      sortBy: 'name',
+      sortBy: 'rating',
       checkIn: null,
       checkOut: null,
       adults: null,
