@@ -58,99 +58,110 @@ body.anchor-in .main-header {
     stroke-width: 3;
     overflow: visible;
   }
-}
 
-.home-header {
-  background-color: transparent !important;
-  color: rgb(230, 227, 227) !important;
-}
-
-.navbar-container {
-  height: 3rem;
-  padding-bottom: 1rem;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  font-size: 1.2rem;
-  color: $clr2;
-}
-
-.head-logo-txt {
-  justify-content: left;
-  font-size: 1.5rem;
-  font-family: 'Karla', sans-serif;
-  font-stretch: extra-condensed;
-  margin-left: 8px;
-  font-weight: bolder;
-  color: $clr1;
-}
-
-.logo-navbar {
-  flex-direction: column;
-}
-
-.nav-routes {
-  color: $clr7;
-  font-size: 14px;
-  font-weight: 550 !important;
-  align-items: center;
-  color: $clr1;
-}
-
-.houses-navbar {
-  padding: 10px;
-
-  &:hover {
-    background-color: $clr4;
-    border-radius: 15px;
-  }
-}
-
-.host-navbar {
-  padding: 10px;
-
-  &:hover {
-    background-color: $clr4;
-    border-radius: 15px;
-  }
-}
-
-.el-dropdown-link-container {
-  margin-left: 5px;
-}
-
-.el-dropdown-link {
-  color: $clr5;
-  height: 42px !important;
-  padding: 9px;
-  cursor: pointer;
-  background-color: $clr1;
-
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  font-size: 1.2rem !important;
-  width: max-content;
-  margin-top: 2px;
-  border: 1px solid rgba(190, 190, 190, 0.836);
-  border-radius: 21px;
-  align-items: center;
-  svg {
-    fill: $clr5;
+  .home-header {
+    background-color: transparent !important;
+    color: rgb(230, 227, 227) !important;
   }
 
-  &:hover {
-    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.103);
+  .navbar-container {
+    height: 3rem;
+    padding-bottom: 1rem;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+    color: $clr2;
+  }
+
+  .head-logo-txt {
+    justify-content: left;
+    font-size: 1.5rem;
+    font-family: 'Karla', sans-serif;
+    font-stretch: extra-condensed;
+    margin-left: 8px;
+    font-weight: bolder;
+    color: $clr1;
+  }
+
+  .logo-navbar {
+    flex-direction: column;
+  }
+
+  .nav-routes {
+    color: $clr7;
+    font-size: 14px;
+    font-weight: 550 !important;
+    align-items: center;
+    color: $clr1;
+  }
+
+  .houses-navbar {
+    padding: 10px;
+
+    &:hover {
+      background-color: $clr4;
+      border-radius: 15px;
+    }
+  }
+
+  .host-navbar {
+    padding: 10px;
+
+    &:hover {
+      background-color: $clr4;
+      border-radius: 15px;
+    }
+  }
+
+  .el-dropdown-link-container {
+    margin-left: 5px;
+  }
+
+  .el-dropdown-link {
+    color: $clr5;
+    height: 42px !important;
+    padding: 9px;
+    cursor: pointer;
+    background-color: $clr1;
+
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 1.2rem !important;
+    width: max-content;
+    margin-top: 2px;
+    border: 1px solid rgba(190, 190, 190, 0.836);
     border-radius: 21px;
+    align-items: center;
+    svg {
+      fill: $clr5;
+      stroke: $clr5;
+    }
+
+    &:hover {
+      box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.103);
+      border-radius: 21px;
+    }
+  }
+
+  .el-dropdown-menu__item:focus,
+  .el-dropdown-menu__item:not(.is-disabled):hover {
+    background-color: rgba(27, 27, 27, 0.3);
+    color: $clr5;
+  }
+
+  .el-icon-arrow-down {
+    display: none;
+  }
+
+  .el-dropdown-menu {
+    background-color: snow;
   }
 }
 
-.el-dropdown-menu__item:focus,
-.el-dropdown-menu__item:not(.is-disabled):hover {
-  background-color: rgba(27, 27, 27, 0.3);
-  color: $clr5;
-}
-
-.el-icon-arrow-down {
-  display: none;
-}
-
-.el-dropdown-menu {
-  background-color: snow;
+.hamburger-dropdown {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  li {
+    color: $clr5;
+  }
 }

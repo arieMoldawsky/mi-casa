@@ -25,7 +25,7 @@
                       aria-hidden="true"
                       role="presentation"
                       focusable="false"
-                      style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3; overflow: visible;"
+                      style="display: block; height: 16px; width: 16px;  stroke-width: 3; overflow: visible;"
                     >
                       <g fill="none" fill-rule="nonzero">
                         <path d="m2 16h28"></path>
@@ -40,7 +40,7 @@
                     <img class="profile-img" v-else :src="isLogedIn.imgUrl" >
                 </div>
               </div>
-              <el-dropdown-menu slot="dropdown">
+              <el-dropdown-menu class="hamburger-dropdown" slot="dropdown">
                 <el-dropdown-item
                   v-if="!isLogedIn"
                   icon="el-icon-circle-plus"
