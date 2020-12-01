@@ -44,7 +44,7 @@
             <img :src="house.imgs[0]" alt="" />
           </div>
           <div class="user-houses-booking">
-              <h2>Booked Houses:</h2>
+              <h3>House Bookings:</h3>
             <li v-for="userBooking in userBookings[idx]" :key="userBooking._id">
              <table class="booking-info" style="width:100%">
                   <tr>
