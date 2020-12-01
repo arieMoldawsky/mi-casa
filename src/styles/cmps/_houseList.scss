@@ -1,6 +1,7 @@
 .house-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px 15px;
   img {
     border-radius: 10px;
     margin-bottom: 0.5rem;
