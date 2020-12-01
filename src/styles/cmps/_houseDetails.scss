@@ -1,8 +1,15 @@
 .house-details-section {
+    // display: flex;
+    // flex-direction: column;
     margin-top: 90px;
     margin-right: auto;
     margin-left: auto;
     text-align: left;
+    padding: 13px;
+
+    @include for-normal-layout {
+        padding: unset;
+    }
 
     h3.house-name {
         margin-bottom: 10px;
@@ -60,19 +67,28 @@
 
     .booking-modal-container {
         display: flex;
+        flex-direction: column;
         border-bottom: 1px solid lightgray;
         margin-bottom: 20px;
         padding-bottom: 10px;
+
+        @include for-normal-layout {
+            flex-direction: row;
+        }
     }
 
     .house-desc-section {
-        width: 90%;
+        width: 100%;
         display: grid;
         grid-template-columns: 9fr 1fr;
         text-align: left;
         border-bottom: 1px solid lightgray;
         padding-bottom: 5px;
         margin-bottom: 20px;
+
+        @include for-normal-layout {
+            width: 90%;
+        }
 
         .house-main-desc {
             display: grid;
@@ -94,9 +110,15 @@
 
     .amenities-section {
         text-align: left;
-        // border-bottom: 1px solid lightgray;
+        padding-bottom: 20px;
+        border-bottom: 1px solid lightgray;
         margin-bottom: 15px;
         color: $clr5;
+
+        @include for-normal-layout {
+            border-bottom: unset;
+            padding-bottom: unset;
+        }
 
 
         h3 {
@@ -104,10 +126,14 @@
         }
 
         ul {
-            width: 60%;
+            width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
             row-gap: 27px;
+
+            @include for-normal-layout {
+                width: 60%;
+            }
         }
     }
 
@@ -161,11 +187,14 @@
             margin-bottom: 20px;
             column-gap: 10px;
 
+
+
             .el-progress-bar__inner {
                 // max-width: 300px;
                 // display: inline;
                 background-color: $clr2;
             }
+
             .el-progress__text {
                 color: $clr5;
             }
@@ -173,9 +202,13 @@
 
         ul {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             row-gap: 20px;
-            column-gap: 90px;
+
+            @include for-normal-layout {
+                grid-template-columns: 1fr 1fr;
+                column-gap: 90px;
+            }
 
             li {
                 display: flex;
