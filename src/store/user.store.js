@@ -57,7 +57,7 @@ export default {
     async logout(context) {
       try {
         await userService.logout()
-        context.commit({ type: 'setUsers', users: [] })
+        // context.commit({ type: 'setUsers', users: [] })
         context.commit({ type: 'setUser', user: null })
       } catch (err) {
         console.error('Could not log Out: ', err)
