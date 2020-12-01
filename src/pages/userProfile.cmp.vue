@@ -37,7 +37,7 @@
       <div>Joined in June 2010</div>
       <h2>Houses I offer: ({{ userHouses.length }})</h2>
       <ul>
-        <li v-for="(house, idx) in userHouses" :key="house._id">
+         <li v-for="(house, idx) in userHouses" :key="house._id">
           <div class="user-houses-container">
             <div>Name: {{ house.name }}</div>
             <div>Type: {{ house.type }}</div>
@@ -46,7 +46,7 @@
           <div class="user-houses-booking">
               <h2>Booked Houses:</h2>
             <li v-for="userBooking in userBookings[idx]" :key="userBooking._id">
-              <table class="booking-info" style="width:100%">
+             <table class="booking-info" style="width:100%">
                   <tr>
                     <th>Guest Name:</th>
                     <th>Amount:</th>
@@ -60,11 +60,11 @@
                     <td>{{convertTimeStamp (userBooking.checkOut)}}</td>
                   </tr>
               </table>
-            </li>
-            </div>
+             </li>
+             </div> 
         </li>
-      </ul>
-      <button @click="isAddHouse">Add House</button>
+      </ul> 
+       <button @click="isAddHouse">Add House</button>
       <house-add v-if="isAddHouseShow"></house-add>
     </div>
   </main>
@@ -118,9 +118,12 @@ export default {
     user() {
       return this.$store.getters.loggedinUser;
     },
-    onSubmit() {
-      console.log("submit!");
-    },
+    // onSubmit() {
+    //   console.log("submit!");
+    //   this.$store.dispatch({
+    //      type: 'addHouse',
+    //      house: house })
+    // },
   },
   methods: {
     async loadUserData() {

@@ -65,9 +65,15 @@
       &:last-child {
         margin-bottom: 20px;
       }
-
-
+      
+      
     }
+        button {
+         margin-bottom: 10px;
+         &:hover {
+           background-color: $clr1;
+         }
+        }
 
     .user-houses-container {
       display: flex;

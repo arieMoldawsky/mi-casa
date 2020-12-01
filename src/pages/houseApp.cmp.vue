@@ -15,9 +15,9 @@
         <div class="sk-chase-dot"></div>
       </div>
       <houseList v-if="!isLoading" :houses="houses" />
-        <div class="block">
+        <!-- <div class="block">
           <el-pagination
-              layout="prev, pager = 5, next"
+              layout="prev, pager, next"
               :total="150">
             </el-pagination>
         <div class="under-paging-txt-head flex">
@@ -26,7 +26,7 @@
         <div class="under-paging-txt-bottom flex">
 Enter dates to see full pricing. Additional fees apply. Taxes may be added.
         </div>
-        </div>
+        </div> -->
     </section>
   </main>
 </template>

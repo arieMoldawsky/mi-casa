@@ -65,10 +65,10 @@ export default {
         console.log('ERROR: could not remove house: ', houseId)
       }
     },
-    async addHouse(context, { house, img }) {
+    async addHouse(context, { house }) {
       try {
-        const { url } = await imgUploadService.uploadImg(img)
-        house.img = url
+        // const { url } = await imgUploadService.uploadImg(img)
+        // house.img = url
         const houseRes = await houseService.add(house)
       } catch (error) {
         console.log(error)
@@ -112,5 +112,8 @@ export default {
     addReview(state, { review }) {
       state.house.reviews.push(review)
     },
+    addHouse(state, { house }) {
+      state.houses.push(house)
+    }
   },
 }

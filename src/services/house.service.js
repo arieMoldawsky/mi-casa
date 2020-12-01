@@ -1,4 +1,4 @@
-// import { utilService } from './util.service.js'
+import { utilService } from './util.service.js'
 import httpService from './http.service'
 
 const baseUrl =
@@ -11,6 +11,7 @@ export const houseService = {
   findById,
   save,
   remove,
+  add
 }
 
 function query(query) {
@@ -37,9 +38,13 @@ function save(house) {
   }
 }
 
+function add(house) {
+  return httpService.post(`house`, house)
+}
+
 function _add(house) {
-  // house._id = utilService.makeId();
-  // house.type = 'Funny';
-  // house.createdAt = Date.now();
-  // return axios.post(`${baseUrl}`, house).then(res => res.data)
+  house._id = utilService.makeId();
+  house.type = 'Funny';
+  house.createdAt = Date.now();
+  return axios.post(`${baseUrl}`, house).then(res => res.data)
 }
