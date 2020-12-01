@@ -1,16 +1,6 @@
 <template>
   <main class="homepage-section">
     <div class="header-scroll-pixel" />
-
-    <!-- <div class="health-link-container flex-centered">
-      <a
-        class="health-link"
-        href="https://www.gov.il/he/departments/topics/corona-main-sub?gclid=CjwKCAiAnvj9BRA4EiwAuUMDfwqvMW-aXce0UhFerpxXrTDXyF83RoPmpQ9wdyf64GjhtbFrLMShKhoCjW8QAvD_BwE"
-        target="_blank"
-        >Get the latest on our COVID-19 response</a
-      >
-    </div> -->
-
     <div class="hero-container flex a-center">
       <house-filter />
       <h1 class="hero-title flex">
@@ -66,7 +56,6 @@
             <p>Your host is only a message away if you have any questions. They can also offer local tips and advice.</p>
         </div>
       </div>
-      <!-- <join-host /> -->
       <div class="trending-cities-head flex">
         <h2>Inspiration destinations</h2>
       </div>

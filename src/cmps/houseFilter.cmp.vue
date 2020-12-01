@@ -15,10 +15,10 @@
         </span>
       </section>
       <div
-        class="form-item field fill-parent j-space-e flex a-start pointer"
+        class="form-item field fill-parent j-space-e flex a-start"
         @click="$refs.location.focus()"
       >
-        <label class="pointer">
+        <label>
           Location
         </label>
         <el-input
@@ -30,10 +30,10 @@
         />
       </div>
       <div
-        class="form-item field fill-parent j-space-e date-picker flex a-start pointer"
+        class="form-item field fill-parent j-space-e date-picker flex a-start"
         @click="$refs.datePicker.focus()"
       >
-        <label class="pointer">
+        <label>
           Dates
         </label>
         <el-date-picker
@@ -52,7 +52,7 @@
           :picker-options="datePickerOptions"
         />
       </div>
-      <div class="form-item field flex a-start fill-parent j-space-e pointer">
+      <div class="form-item field flex a-start fill-parent j-space-e">
         <label class="guests-label">
           Guests
         </label>
