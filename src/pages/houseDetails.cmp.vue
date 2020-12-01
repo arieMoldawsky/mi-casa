@@ -26,15 +26,20 @@
             :class="`img${idx}`"
           />
         </div>
-        <el-carousel v-else :autoplay="true" interval="4000" trigger="click">
-          <el-carousel-item
-            v-for="(img, idx) in house.imgs"
-            :key="img"
-            autoplay="false"
-          >
-            <img :src="img" :class="`slide-imgs${idx}`" style="width: 100%" />
-          </el-carousel-item>
-        </el-carousel>
+          <el-carousel v-else :autoplay="true" :interval="4000" trigger="click">
+            <el-carousel-item
+              v-for="(img, idx) in house.imgs"
+              :key="img"
+              autoplay="false"
+            >
+              
+                <img
+                  :src="img"
+                  :class="`slide-imgs${idx}`"
+                  style="width: 100%"
+                />
+            </el-carousel-item>
+          </el-carousel>
         <div class="booking-modal-container">
           <div class="main-desc-amenities-container">
             <section class="house-desc-section">
@@ -242,7 +247,7 @@ export default {
     houseReviews,
     googleMap,
     bookingModal,
-    houseFilter,
+    houseFilter
   },
 };
 </script>
