@@ -10,7 +10,7 @@
         <router-link to="/house" exact class="houses-navbar"
           >Places to stay
         </router-link>
-        <router-link to="/login" exact class="host-navbar"
+        <router-link to="/profile" exact class="host-navbar"
           >Become a host
         </router-link>
         <el-row class="block-col-2">

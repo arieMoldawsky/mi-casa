@@ -34,7 +34,7 @@
     </div>
     <div class="user-main-container">
       <h1>Hi, I'm {{ user.fullName }}</h1>
-      <div>Joined in ____</div>
+      <div>Joined in June 2010</div>
       <h2>Houses I offer: ({{ userHouses.length }})</h2>
       <ul>
         <li v-for="(house, idx) in userHouses" :key="house._id">
@@ -43,10 +43,29 @@
             <div>Type: {{ house.type }}</div>
             <img :src="house.imgs[0]" alt="" />
           </div>
-          <div>{{userBookings[idx]}}</div>
+          <div class="user-houses-booking">
+              <h2>Booked Houses:</h2>
+            <li v-for="userBooking in userBookings[idx]" :key="userBooking._id">
+              <table class="booking-info" style="width:100%">
+                  <tr>
+                    <th>Guest Name:</th>
+                    <th>Amount:</th>
+                    <th>Check In:</th>
+                    <th>Check Out:</th>
+                  </tr>
+                  <tr>
+                    <td>{{userBooking.guestUser.fullName}}</td>
+                    <td>{{userBooking.guestsNum}}</td>
+                    <td>{{convertTimeStamp (userBooking.checkIn) }}</td>
+                    <td>{{convertTimeStamp (userBooking.checkOut)}}</td>
+                  </tr>
+              </table>
+            </li>
+            </div>
         </li>
       </ul>
-      <house-add></house-add>
+      <button @click="isAddHouse">Add House</button>
+      <house-add v-if="isAddHouseShow"></house-add>
     </div>
   </main>
 </template>
@@ -54,6 +73,7 @@
 <script>
 import houseAdd from "../cmps/houseAdd.cmp.vue";
 import houseFilter from "../cmps/houseFilter.cmp.vue";
+import moment from 'moment';
 
 export default {
   data() {
@@ -91,6 +111,7 @@ export default {
         chat: [],
         imgs: [],
       },
+      isAddHouseShow: false
     };
   },
   computed: {
@@ -116,6 +137,12 @@ export default {
       }
       this.isLoading = false;
     },
+      convertTimeStamp(string) {
+            return moment(string).format().slice(0, -15)
+        },
+        isAddHouse() {
+          this.isAddHouseShow = !this.isAddHouseShow;
+        }
   },
   created() {
     this.loadUserData();
