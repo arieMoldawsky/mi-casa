@@ -1,6 +1,5 @@
 body.anchor-in .main-header {
   background-color: rgba($color: $clr1, $alpha: 1);
-  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.103);
   .head-logo-svg,
   .head-logo-txt {
     fill: $clr2;
@@ -64,14 +63,6 @@ body.anchor-in .main-header {
     color: rgb(230, 227, 227) !important;
   }
 
-  .navbar-container {
-    height: 3rem;
-    padding-bottom: 1rem;
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    font-size: 1.2rem;
-    color: $clr2;
-  }
-
   .head-logo-txt {
     justify-content: left;
     font-size: 1.5rem;
@@ -85,82 +76,81 @@ body.anchor-in .main-header {
   .logo-navbar {
     flex-direction: column;
   }
-
-  .nav-routes {
-    color: $clr7;
-    font-size: 14px;
-    font-weight: 550 !important;
-    align-items: center;
-    color: $clr1;
-  }
-
-  .houses-navbar {
-    padding: 10px;
-
-    &:hover {
-      background-color: $clr4;
-      border-radius: 15px;
-    }
-  }
-
-  .host-navbar {
-    padding: 10px;
-
-    &:hover {
-      background-color: $clr4;
-      border-radius: 15px;
-    }
-  }
-
-  .el-dropdown-link-container {
-    margin-left: 5px;
-  }
-
-  .el-dropdown-link {
-    color: $clr5;
-    height: 42px !important;
-    padding: 9px;
-    cursor: pointer;
-    background-color: $clr1;
-
+  .navbar-container {
+    height: 3rem;
+    padding-bottom: 1rem;
     font-family: Avenir, Helvetica, Arial, sans-serif;
-    font-size: 1.2rem !important;
-    width: max-content;
-    margin-top: 2px;
-    border: 1px solid rgba(190, 190, 190, 0.836);
-    border-radius: 21px;
-    align-items: center;
-    svg {
-      fill: $clr5;
-      stroke: $clr5;
+    font-size: 1.2rem;
+    color: $clr2;
+    
+    
+    .nav-routes {
+      color: $clr7;
+      font-size: 14px;
+      font-weight: 550 !important;
+      align-items: center;
+      color: $clr1;
+    }
+    
+    .houses-navbar,
+    .host-navbar {
+      transition: 120ms;
+
+      padding: 10px;
+      border-radius: 15px;
+
+      &:hover {
+        background-color: $clr4;
+      }
     }
 
-    &:hover {
-      box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.103);
+    .el-dropdown-link-container {
+      margin-left: 5px;
+    }
+
+    .el-dropdown-link {
+      color: $clr5;
+      height: 42px !important;
+      padding: 9px;
+      cursor: pointer;
+      background-color: $clr1;
+
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+      font-size: 1.2rem !important;
+      width: max-content;
+      margin-top: 2px;
+      border: 1px solid rgba(190, 190, 190, 0.836);
       border-radius: 21px;
+      align-items: center;
+      svg {
+        fill: $clr5;
+        stroke: $clr5;
+      }
+
+      &:hover {
+        box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.103);
+        border-radius: 21px;
+      }
     }
-  }
 
-  .el-dropdown-menu__item:focus,
-  .el-dropdown-menu__item:not(.is-disabled):hover {
-    background-color: rgba(27, 27, 27, 0.3);
-    color: $clr5;
-  }
+    .el-dropdown-menu__item:focus,
+    .el-dropdown-menu__item:not(.is-disabled):hover {
+      background-color: rgba(27, 27, 27, 0.3);
+      color: $clr5;
+    }
 
-  .el-icon-arrow-down {
-    display: none;
-  }
+    .el-icon-arrow-down {
+      display: none;
+    }
 
-  .el-dropdown-menu {
-    background-color: snow;
+    .el-dropdown-menu {
+      background-color: $clr1;
+    }
   }
 }
 
 .hamburger-dropdown {
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  background-color: $clr1;
   li {
     color: $clr5;
   }
