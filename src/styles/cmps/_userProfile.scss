@@ -65,9 +65,15 @@
       &:last-child {
         margin-bottom: 20px;
       }
-
-
+      
+      
     }
+        button {
+         margin-bottom: 10px;
+         &:hover {
+           background-color: $clr1;
+         }
+        }
 
     .user-houses-container {
       display: flex;
@@ -83,4 +89,17 @@
       }
     }
   }
+}
+.user-houses-booking{
+  h2 {
+    margin-top: 10px;
+    padding-bottom: 25px;
+  }
+.booking-info, th, td {
+  border: 0.5px solid rgb(42, 42, 42);
+  border-collapse: collapse;
+  th, td {
+    padding: 5px;
+  }
+}
 }

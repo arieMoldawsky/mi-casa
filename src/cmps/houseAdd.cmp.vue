@@ -110,7 +110,10 @@ export default {
     },
     methods: {
             onSubmit() {
-        console.log('submit!');
+        console.log('submit!', this.house);
+         this.$store.dispatch({
+         type: 'addHouse',
+         house: this.house })
       }
     },
     computed: {

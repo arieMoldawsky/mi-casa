@@ -14,6 +14,18 @@
         <div class="sk-chase-dot"></div>
       </div>
       <houseList v-if="!isLoading" :houses="houses" />
+        <!-- <div class="block">
+          <el-pagination
+              layout="prev, pager, next"
+              :total="150">
+            </el-pagination>
+        <div class="under-paging-txt-head flex">
+          1 – 20 of 300+ places to stay
+        </div>
+        <div class="under-paging-txt-bottom flex">
+Enter dates to see full pricing. Additional fees apply. Taxes may be added.
+        </div>
+        </div> -->
     </section>
   </main>
 </template>

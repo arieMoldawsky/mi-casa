@@ -55,6 +55,6 @@ html {
 }
 
 .content-wrap {
-  padding-bottom: 2.5rem; /* Footer height */
+  padding-bottom: 2.5rem;
 }
 </style>

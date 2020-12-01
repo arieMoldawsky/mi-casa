@@ -6,6 +6,8 @@
         :model="userCred"
         size="medium"
     >
+            <h1 v-if="isSignup">Signup</h1>
+            <h1 v-else>Login</h1>
         <el-form-item v-if="isSignup">
             <el-input placeholder="User Name" v-model="userCred.fullName" />
         </el-form-item>
@@ -86,7 +88,6 @@ export default {
     },
     computed: {
         isSignup() {
-            console.log(this.$route.query.q);
             return this.$route.query.q === "signup";
         },
         loggedInUser() {

@@ -32,7 +32,7 @@
         <router-link to="/house" exact class="houses-navbar"
           >Places to stay
         </router-link>
-        <router-link to="/login" exact class="host-navbar"
+        <router-link to="/profile" exact class="host-navbar"
           >Become a host
         </router-link>
         <el-row class="block-col-2">
@@ -87,14 +87,14 @@
                   command="signUpModal"
                   >Sign up</el-dropdown-item
                 >
+                <el-dropdown-item v-if="isLogedIn" icon="el-icon-circle-plus" command="toProfile"
+                  >My Profile</el-dropdown-item
+                >
                 <el-dropdown-item
                   v-if="isLogedIn"
                   icon="el-icon-circle-plus"
-                  command="logoutModal"
+                  command="logout"
                   >Logout</el-dropdown-item
-                >
-                <el-dropdown-item icon="el-icon-circle-plus" command="helpModal"
-                  >Help</el-dropdown-item
                 >
               </el-dropdown-menu>
             </el-dropdown>
@@ -113,28 +113,24 @@ export default {
   },
   methods: {
     handleCommand(command) {
-      console.log('command', command)
-      if (command === 'loginModal') this.loginModal()
-      else if (command === 'signUpModal') this.signUpModal()
-      else this.logoutModal()
+      if (command === 'loginModal') this.loginModal();
+      else if (command === 'signUpModal') this.signUpModal();
+      else if (command === 'logout') this.logout();
+      else this.toProfile();
     },
     loginModal() {
-      console.log('login')
       this.$router.push({ query: { q: 'login' } })
       this.$store.dispatch({ type: 'modalMode', modalMode: 'userForm' })
     },
     signUpModal() {
-      console.log('signUp')
       this.$router.push({ query: { q: 'signup' } })
       this.$store.dispatch({ type: 'modalMode', modalMode: 'userForm' })
     },
-    logoutModal() {
-      console.log('logout')
-      this.$store.dispatch({ type: 'modalMode', modalMode: 'userForm' })
+    logout() {
+      this.$store.dispatch({ type: 'logout'})
     },
-    helpModal() {
-      console.log('helpModal')
-      this.$store.dispatch({ type: 'modalMode', modalMode: 'helpForm' })
+    toProfile() {
+      this.$router.push('profile')
     },
   },
   computed: {
