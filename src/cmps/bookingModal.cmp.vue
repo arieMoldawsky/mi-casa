@@ -41,43 +41,46 @@
                     :max="capacity"
                 />
             </div> -->
-      <div>Guests</div>
-      <div class="form-item field flex a-start fill-parent pointer">
-        <el-popover
-          class="fill-parent"
-          placement="bottom"
-          width="300"
-          v-model="isPopVisible"
-        >
-          <div class="fill-parent flex a-start column" slot="reference">
-            <!-- <label> Guests </label> -->
-            <div class="guest-count flex fill-parent">
-              <span class="flex a-center">
-                {{ toAdults }}
-              </span>
-              <span class="flex a-center" v-show="booking.kids">
-                {{ toKids }}
-              </span>
-              <span class="flex a-center" v-show="booking.infants">
-                {{ toInfants }}
-              </span>
+      <div class="guests-input-container">
+        <!-- <div class="guests-label">Guests</div> -->
+        <label>Guests</label>
+        <div class="form-item field flex a-start fill-parent pointer">
+          <el-popover
+            class="fill-parent"
+            placement="bottom"
+            width="300"
+            v-model="isPopVisible"
+          >
+            <div class="fill-parent flex a-start column" slot="reference">
+              <!-- <label> Guests </label> -->
+              <div class="guest-count flex fill-parent">
+                <span class="flex a-center">
+                  {{ toAdults }}
+                </span>
+                <span class="flex a-center" v-show="booking.kids">
+                  {{ toKids }}
+                </span>
+                <span class="flex a-center" v-show="booking.infants">
+                  {{ toInfants }}
+                </span>
+              </div>
             </div>
-          </div>
-          <label class="flex a-center j-space-b">
-            Adults
-            <el-input-number v-model="booking.adults" :min="1" :max="16" />
-          </label>
-          <br />
-          <label class="flex a-center j-space-b">
-            Kids
-            <el-input-number v-model="booking.kids" :min="0" :max="16" />
-          </label>
-          <br />
-          <label class="flex a-center j-space-b">
-            Infants
-            <el-input-number v-model="booking.infants" :min="0" :max="16" />
-          </label>
-        </el-popover>
+            <label class="flex a-center j-space-b">
+              Adults
+              <el-input-number v-model="booking.adults" :min="1" :max="16" />
+            </label>
+            <br />
+            <label class="flex a-center j-space-b">
+              Kids
+              <el-input-number v-model="booking.kids" :min="0" :max="16" />
+            </label>
+            <br />
+            <label class="flex a-center j-space-b">
+              Infants
+              <el-input-number v-model="booking.infants" :min="0" :max="16" />
+            </label>
+          </el-popover>
+        </div>
       </div>
       <el-button
         plain
@@ -197,11 +200,14 @@ export default {
   },
   methods: {
     dealDisabledDate(date) {
-        var res = false
-        for (let i = 0; i < this.bookings.length; i++) {
-          res = ((date.getTime() > this.bookings[i].checkIn && date.getTime() < this.bookings[i].checkOut) || (date < new Date()));
-          if (res) break;
-        }
+      var res = false;
+      for (let i = 0; i < this.bookings.length; i++) {
+        res =
+          (date.getTime() > this.bookings[i].checkIn &&
+            date.getTime() < this.bookings[i].checkOut) ||
+          date < new Date();
+        if (res) break;
+      }
       return res;
     },
     datesFromPicker(ev) {

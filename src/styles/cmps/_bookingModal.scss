@@ -1,10 +1,6 @@
 .booking-modal-section {
-  height: 50%;
-  position: sticky;
-  z-index: 5;
-  top: 70px;
-  right: 0;
-  max-width: 300px;
+ 
+  max-width: 100%;
   flex-direction: column;
   gap: 20px;
   border: 1px solid lightgray;
@@ -17,6 +13,18 @@
   // margin-bottom: 0;
   // margin-right: initial;
   color: $clr5;
+
+  @include for-normal-layout {
+    height: 50%;
+    position: sticky;
+    top: 70px;
+    right: 0;
+    z-index: 5;
+    width: 260px;
+  }
+  @include for-wide-layout {
+    width: 300px;
+  }
 
 
   span.fill-parent {
@@ -41,12 +49,33 @@
   .booking-modal-container {
     flex-direction: column;
 
+    .guests-input-container {
+      display: flex;
+      align-items: center;
+
+      label {
+        margin-right: 6px;
+        margin-bottom: 8px;
+      }
+
+      @include for-normal-layout {
+        display: block
+      }
+    }
+
+
     button {
-      padding: 15px;
+      padding: 15px 45px;
+      margin-right: auto;
+      margin-left: auto;
       color: $clr1;
       background-color: $clr2;
       border-radius: 8px;
       transition: 0.3s;
+
+      @include for-normal-layout {
+        padding: 15px;
+      }
 
       &:hover {
         background-color: white;
@@ -107,6 +136,14 @@
   .booking-modal-container div:last-of-type {
     width: 255px;
     margin-top: 5px;
+
+    @include for-normal-layout {
+      width: 210px;
+    }
+
+    @include for-wide-layout {
+      width: 255px;
+    }
   }
 
   .el-input-number__decrease.is-disabled,
