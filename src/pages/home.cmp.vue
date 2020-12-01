@@ -19,7 +19,7 @@
       </h1>
     </div>
     <div>
-      <div class="trending-head flex">
+      <div class="trending-house-head flex">
         <h2>Live anywhere</h2>
       </div>
       <div class="trending-house-container flex">
@@ -67,7 +67,7 @@
         </div>
       </div>
       <!-- <join-host /> -->
-      <div class="trending-bottom flex">
+      <div class="trending-cities-head flex">
         <h2>Inspiration destinations</h2>
       </div>
       <div class="trending-cities-container flex">

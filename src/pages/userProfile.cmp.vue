@@ -15,7 +15,7 @@
         <svg
           viewBox="0 0 32 32"
           xmlns="http://www.w3.org/2000/svg"
-          style="display:block;height:24px;width:24px;fill:currentColor"
+          style="display: block; height: 24px; width: 24px; fill: currentColor"
           aria-hidden="true"
           role="presentation"
           focusable="false"
@@ -34,10 +34,13 @@
     <div class="user-main-container">
       <h1>Hi, I'm {{ user.fullName }}</h1>
       <div>Joined in ____</div>
-      <h2>Houses I offer: (numOfHouses)</h2>
-      <div>{{ userHouses }}</div>
+      <h2>Houses I offer: ({{userHouses.length}})</h2>
       <ul>
-        <li v-for="house in userHouses" :key="house._id">.</li>
+        <li v-for="house in userHouses" :key="house._id">
+          <div>Name: {{ house.name }}</div>
+          <div>Type: {{ house.type }}</div>
+          <img :src="house.imgs[0]" alt="" />
+        </li>
       </ul>
       <house-add></house-add>
     </div>
@@ -45,7 +48,7 @@
 </template>
 
 <script>
-import houseAdd from '../cmps/houseAdd.cmp.vue'
+import houseAdd from "../cmps/houseAdd.cmp.vue";
 
 export default {
   data() {
@@ -54,66 +57,66 @@ export default {
       userHouses: null,
       userBookings: null,
       house: {
-        name: '',
+        name: "",
         price: 0,
-        type: '',
+        type: "",
         capacity: 0,
         badRooms: 0,
         tags: [],
         amenities: [
-          'Wifi',
-          'Self check-in',
-          'Kitchen',
-          'Air conditioning',
-          'Elevator',
-          'TV',
-          'Hair dryer',
-          'Hangers',
-          'Iron',
-          'Essentials',
+          "Wifi",
+          "Self check-in",
+          "Kitchen",
+          "Air conditioning",
+          "Elevator",
+          "TV",
+          "Hair dryer",
+          "Hangers",
+          "Iron",
+          "Essentials",
         ],
         location: {
           lat: 48.8665169951605,
           lng: 2.31821807029879,
-          country: '',
-          city: '',
+          country: "",
+          city: "",
         },
-        description: '',
+        description: "",
         reviews: [],
         chat: [],
         imgs: [],
       },
-    }
+    };
   },
   computed: {
     user() {
-      return this.$store.getters.loggedinUser
+      return this.$store.getters.loggedinUser;
     },
     onSubmit() {
-      console.log('submit!')
+      console.log("submit!");
     },
   },
   methods: {
     async loadUserData() {
-      this.isLoading = true
+      this.isLoading = true;
       try {
         const res = await this.$store.dispatch({
-          type: 'loadUserData',
+          type: "loadUserData",
           hostId: this.user._id,
-        })
-        this.userHouses = res.userHouses
-        this.userBookings = res.userBookings
+        });
+        this.userHouses = res.userHouses;
+        this.userBookings = res.userBookings;
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-      this.isLoading = false
+      this.isLoading = false;
     },
   },
   created() {
-    this.loadUserData()
+    this.loadUserData();
   },
   components: {
     houseAdd,
   },
-}
+};
 </script>
