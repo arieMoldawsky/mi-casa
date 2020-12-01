@@ -1,6 +1,6 @@
 .house-card {
   text-align: left;
-  height: 280px;
+  height: unset;
   box-shadow: unset;
 
   .card-preview-container {
@@ -33,6 +33,12 @@
 
 .el-carousel__container {
   height: 165px;
+  margin-bottom: 6px;
+
+
+  img {
+    object-fit: cover;
+  }
 }
 
 .el-carousel-img {

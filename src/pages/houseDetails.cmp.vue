@@ -19,22 +19,27 @@
           >
         </div>
         <div v-if="isWideWindow" class="imgs-container">
-            <img
+          <img
+            v-for="(img, idx) in house.imgs"
+            :key="img"
+            :src="img"
+            :class="`img${idx}`"
+          />
+        </div>
+          <el-carousel v-else :autoplay="true" :interval="4000" trigger="click">
+            <el-carousel-item
               v-for="(img, idx) in house.imgs"
               :key="img"
-              :src="img"
-              :class="`img${idx}`"
-            />
-        </div>
-        <div v-else class="el-carousel-img">
-        <el-carousel :autoplay="true" interval="4000" trigger="click">
-          <el-carousel-item v-for="(img, idx) in house.imgs" :key="img" autoplay="false">
-                <img :src="img"
-                :class="`slide-imgs${idx}`"
-                style="width: 100%;" />
-          </el-carousel-item>
-        </el-carousel>
-      </div>
+              autoplay="false"
+            >
+              
+                <img
+                  :src="img"
+                  :class="`slide-imgs${idx}`"
+                  style="width: 100%"
+                />
+            </el-carousel-item>
+          </el-carousel>
         <div class="booking-modal-container">
           <div class="main-desc-amenities-container">
             <section class="house-desc-section">
@@ -234,7 +239,7 @@ export default {
     });
     this.windowSize();
     window.addEventListener("resize", () => {
-      this.windowSize()
+      this.windowSize();
     });
   },
   components: {
@@ -242,7 +247,7 @@ export default {
     houseReviews,
     googleMap,
     bookingModal,
-    houseFilter,
+    houseFilter
   },
 };
 </script>

@@ -6,19 +6,18 @@
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     z-index: 1000;
-    background-color: rgba(255, 250, 250, 0.822);
-    // color: #222222;
+    background-color: rgba(255, 250, 250, 0.922);
     color: $clr3;
     height: 100vh;
     width: 100vw;
     box-shadow: 0 0 3px 3px rgba($color: #808080, $alpha: 0.4);
 
     @include for-normal-layout {
-        height: 55vh;
+        height: 60vh;
         width: 50vw;
       }
       @include for-wide-layout {
-        height: 50vh;
+        height: 60vh;
         width: 30vw;
       }
 

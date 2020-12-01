@@ -1,16 +1,14 @@
 <template>
   <section class="house-card flex f-col pointer">
     <div class="house-card-container">
-      <div class="el-carousel-img block">
         <el-carousel :autoplay="false" trigger="click">
           <el-carousel-item v-for="(img, idx) in slideImgs" :key="img" autoplay="false">
                 <img :src="slideImgs[idx]"
                 :class="`slide-imgs${idx}`"
-                style="width: 100%" />
+                style="width: 100%; height: 100%" />
               
           </el-carousel-item>
         </el-carousel>
-      </div>
       <div class="card-preview-container">
           <div class="list-rating"><i class="fas fa-star"></i>{{ houseRating }} <span>({{ ratingCount }})</span></div>
           <div>{{ house.location.city }} - {{ house.type }}</div>

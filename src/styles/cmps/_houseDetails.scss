@@ -60,14 +60,14 @@
         }
     }
 
-
-    .el-carousel-img {
+    .el-carousel {
         margin-bottom: 25px;
+        
+        .el-carousel__container {
+            height: 250px;
+        }
     }
 
-    .el-carousel__container {
-        height: 250px;
-    }
 
     .booking-modal-container {
         display: flex;
