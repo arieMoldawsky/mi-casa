@@ -8,7 +8,6 @@
     <div class="sk-chase-dot"></div>
   </div>
   <main v-else class="user-profile-section">
-    <houseFilter />
     <div class="user-card">
       <img :src="user.imgUrl" alt="" />
       <div class="update-img">Update Photo</div>

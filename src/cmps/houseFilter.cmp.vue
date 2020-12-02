@@ -1,109 +1,105 @@
 <template>
-  <section>
-    <el-form
-      @submit.native.prevent="updateFilterAndRoute"
-      class="house-filter-container flex-centered pointer"
-      size="medium"
-      :model="filterBy"
+  <el-form
+    @submit.native.prevent="updateFilterAndRoute"
+    class="house-filter-container flex-centered pointer"
+    size="medium"
+    :model="filterBy"
+  >
+    <section class="filter-screen fill-parent" @click.stop="focusFilter">
+      <span>
+        Start Your Search
+      </span>
+    </section>
+    <div
+      class="form-item field fill-parent j-space-e flex a-start"
+      @click="$refs.location.focus()"
     >
-      <section
-        class="filter-screen fill-parent"
-        @click.stop="$refs.location.focus()"
+      <label>
+        Location
+      </label>
+      <el-input
+        ref="location"
+        placeholder="Where are you going?"
+        :clearable="true"
+        v-model="deBounce.txt"
+        @input="updateTxt"
+      />
+    </div>
+    <div
+      class="form-item field fill-parent j-space-e date-picker flex a-start"
+      @click="$refs.datePicker.focus()"
+    >
+      <label>
+        Dates
+      </label>
+      <el-date-picker
+        ref="datePicker"
+        class="date-picker"
+        popper-class="date-picker-popper"
+        :value="datesToPicker"
+        @input="datesFromPicker"
+        format="MMM d"
+        value-format="timestamp"
+        type="daterange"
+        align="center"
+        :range-separator="null"
+        start-placeholder="Check In"
+        end-placeholder="Check Out"
+        :picker-options="datePickerOptions"
+      />
+    </div>
+    <div class="form-item field flex a-start fill-parent j-space-e">
+      <label class="guests-label">
+        Guests
+      </label>
+      <el-popover
+        class="fill-parent"
+        placement="bottom"
+        width="300"
+        v-model="isPopVisible"
       >
-        <span>
-          Start Your Search
-        </span>
-      </section>
-      <div
-        class="form-item field fill-parent j-space-e flex a-start pointer"
-        @click="$refs.location.focus()"
-      >
-        <label class="pointer">
-          Location
+        <div class="fill-parent flex a-start column" slot="reference">
+          <span class="flex a-center fill-parent">
+            {{ guestCount }}
+          </span>
+        </div>
+        <label class="flex a-center j-space-b">
+          Adults
+          <el-input-number v-model="filterBy.adults" :min="1" :max="16" />
         </label>
-        <el-input
-          ref="location"
-          placeholder="Where are you going?"
-          :clearable="true"
-          v-model="deBounce.txt"
-          @input="updateTxt"
-        />
-      </div>
-      <div
-        class="form-item field fill-parent j-space-e date-picker flex a-start pointer"
-        @click="$refs.datePicker.focus()"
-      >
-        <label class="pointer">
-          Dates
+        <br />
+        <label class="flex a-center j-space-b">
+          Kids
+          <el-input-number v-model="filterBy.kids" :min="0" :max="16" />
         </label>
-        <el-date-picker
-          ref="datePicker"
-          class="date-picker"
-          popper-class="date-picker-popper"
-          :value="datesToPicker"
-          @input="datesFromPicker"
-          format="MMM d"
-          value-format="timestamp"
-          type="daterange"
-          align="center"
-          :range-separator="null"
-          start-placeholder="Check In"
-          end-placeholder="Check Out"
-          :picker-options="datePickerOptions"
-        />
-      </div>
-      <div class="form-item field flex a-start fill-parent j-space-e pointer">
-        <label class="guests-label">
-          Guests
+        <br />
+        <label class="flex a-center j-space-b">
+          Infants
+          <el-input-number v-model="filterBy.infants" :min="0" :max="16" />
         </label>
-        <el-popover
-          class="fill-parent"
-          placement="bottom"
-          width="300"
-          v-model="isPopVisible"
+      </el-popover>
+    </div>
+    <div class="form-item submit flex a-start">
+      <button native-type="submit" class="flex-centered">
+        <svg
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          role="presentation"
+          focusable="false"
+          style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;"
         >
-          <div class="fill-parent flex a-start column" slot="reference">
-            <span class="flex a-center fill-parent">
-              {{ guestCount }}
-            </span>
-          </div>
-          <label class="flex a-center j-space-b">
-            Adults
-            <el-input-number v-model="filterBy.adults" :min="1" :max="16" />
-          </label>
-          <br />
-          <label class="flex a-center j-space-b">
-            Kids
-            <el-input-number v-model="filterBy.kids" :min="0" :max="16" />
-          </label>
-          <br />
-          <label class="flex a-center j-space-b">
-            Infants
-            <el-input-number v-model="filterBy.infants" :min="0" :max="16" />
-          </label>
-        </el-popover>
-      </div>
-      <div class="form-item submit flex a-start">
-        <button native-type="submit" class="flex-centered">
-          <svg
-            viewBox="0 0 32 32"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            role="presentation"
-            focusable="false"
-            style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;"
-          >
-            <g fill="none">
-              <path
-                d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"
-              ></path>
-            </g>
-          </svg>
-        </button>
-      </div>
+          <g fill="none">
+            <path
+              d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"
+            ></path>
+          </g>
+        </svg>
+      </button>
+    </div>
 
-      <!-- <pre>{{ filterBy }}</pre> -->
-      <!-- <label>
+    <!-- <pre>{{ filterBy }}</pre> -->
+    <!-- <label>
       Houses Per Page
       <el-select
         size="small"
@@ -118,10 +114,10 @@
       </el-select>
     </label> -->
 
-      <!-- <el-button @click="updatePage(filterBy.page - 1)">previous Page</el-button>
+    <!-- <el-button @click="updatePage(filterBy.page - 1)">previous Page</el-button>
     <el-button @click="updatePage(filterBy.page + 1)">Next Page</el-button> -->
 
-      <!-- <el-select size="small" v-model="filterBy.category">
+    <!-- <el-select size="small" v-model="filterBy.category">
       <el-option
         v-for="item in filterOptions.category"
         :key="item"
@@ -129,7 +125,7 @@
       />
     </el-select> -->
 
-      <!-- <label>
+    <!-- <label>
       Sort By
       <el-select size="small" v-model="filterBy.sortBy">
         <el-option
@@ -140,16 +136,15 @@
       </el-select>
     </label> -->
 
-      <!-- <el-checkbox
+    <!-- <el-checkbox
       size="small"
       :value="filterBy.inStock"
       @change="filterBy.inStock = !filterBy.inStock"
       label="In Stock"
       border
     /> -->
-      <!-- <span>ssss</span> -->
-    </el-form>
-  </section>
+    <!-- <span>ssss</span> -->
+  </el-form>
 </template>
 
 <script>
@@ -224,6 +219,9 @@ export default {
       this.filterBy.txt = this.deBounce.txt
       // }, 300)
     },
+    focusFilter() {
+      this.$parent.$el.classList.add('filter-out')
+    },
     updateFilterAndRoute() {
       this.updateFilter()
       if (this.$route.path !== '/house') this.$router.push({ path: `/house` })
@@ -255,19 +253,16 @@ export default {
     if (document.querySelector('.header-scroll-pixel')) {
       let observer = new IntersectionObserver(entries => {
         entries[0].intersectionRatio
-          ? document.body.classList.remove('anchor-in')
-          : document.body.classList.add('anchor-in')
+          ? this.$parent.$el.classList.remove('anchor-in')
+          : this.$parent.$el.classList.add('anchor-in')
       })
       observer.observe(document.querySelector('.header-scroll-pixel'))
     } else {
-      document.body.classList.add('anchor-in')
+      this.$parent.$el.classList.add('anchor-in')
     }
     document.addEventListener('scroll', ev => {
-      utilService.blurAll()
+      this.$parent.$el.classList.remove('filter-out')
     })
-  },
-  unmounted() {
-    document.removeEventListener('scroll')
-  },
+  }
 }
 </script>

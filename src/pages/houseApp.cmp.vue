@@ -1,7 +1,6 @@
 <template>
   <main class="house-app">
     <section>
-      <houseFilter />
       <div class="head-title flex">
         <small class="head-title-visits">300+ stays</small>
         <h1 class="head-title-txt">Entire homes</h1>
