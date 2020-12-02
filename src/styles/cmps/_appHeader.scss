@@ -1,16 +1,19 @@
 .main-header {
-  &.anchor-in    {
+  &.anchor-in {
     background-color: rgba($color: $clr1, $alpha: 1);
+
     .head-logo-svg,
     .head-logo-txt {
       fill: $clr2;
       color: $clr2;
     }
+
     a.host-navbar,
     a.houses-navbar {
       color: $clr5;
     }
   }
+
   background-color: rgba($color: $clr1, $alpha: 0);
   box-shadow: none;
   transition: 120ms;
@@ -47,7 +50,7 @@
     margin-left: 16px;
   }
 
-  .hamburgar {
+  .hamburger {
     display: block;
     fill: none;
     height: 16px;
@@ -55,6 +58,7 @@
     stroke: currentcolor;
     stroke-width: 3;
     overflow: visible;
+    transition: transform 0.3s;
   }
 
   .home-header {
@@ -75,6 +79,7 @@
   .logo-navbar {
     flex-direction: column;
   }
+
   .navbar-container {
     height: 3rem;
     padding-bottom: 1rem;
@@ -92,8 +97,13 @@
 
     .houses-navbar,
     .host-navbar {
-      transition: 120ms;
+      display: none;
 
+      @include for-normal-layout {
+        display: block;
+      }
+
+      transition: 120ms;
       padding: 10px;
       border-radius: 15px;
 
@@ -101,6 +111,8 @@
         background-color: $clr4;
       }
     }
+
+
 
     .el-dropdown-link-container {
       margin-left: 5px;
@@ -120,6 +132,7 @@
       border: 1px solid rgba(190, 190, 190, 0.836);
       border-radius: 21px;
       align-items: center;
+
       svg {
         fill: $clr5;
         stroke: $clr5;
@@ -131,11 +144,11 @@
       }
     }
 
-    .el-dropdown-menu__item:focus,
-    .el-dropdown-menu__item:not(.is-disabled):hover {
-      background-color: rgba(27, 27, 27, 0.3);
-      color: $clr5;
-    }
+    // .el-dropdown-menu__item:focus,
+    // .el-dropdown-menu__item:not(.is-disabled):hover {
+    //   background-color: rgba(27, 27, 27, 0.3);
+    //   color: $clr5;
+    // }
 
     .el-icon-arrow-down {
       display: none;
@@ -147,9 +160,28 @@
   }
 }
 
+.el-dropdown-menu__item:not(.is-disabled):hover {
+  background-color: $clr4;
+  color: $clr2;
+}
+
+.houses-nav-mobile,
+.host-nav-mobile {
+  display: block;
+  @include for-normal-layout {
+    display: none;
+  }
+}
+
 .hamburger-dropdown {
   background-color: $clr1;
+
   li {
     color: $clr5;
   }
+
+}
+
+.hamburger-logo-trans {
+  transform: rotate(90deg);
 }

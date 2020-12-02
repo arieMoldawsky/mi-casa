@@ -181,3 +181,19 @@ div.el-picker-panel__body {
     display: unset;
   }
 }
+
+.el-date-table td.today span {
+  color: $clr2;
+}
+
+.el-date-table td.available:hover {
+  color: $clr2;
+}
+
+.el-picker-panel__icon-btn:hover {
+  color: $clr2;
+}
+
+.el-date-table td.end-date span, .el-date-table td.start-date span {
+  background-color: rgba(156, 156, 156, 0.616);
+}
