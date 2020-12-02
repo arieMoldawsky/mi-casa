@@ -25,9 +25,9 @@
         <button class="first-panel-btn flex">Join now!</button>
       </div>
       <div class="second-panel full-height">
-        <img src="@/assets/img-squre-001.jpg" />
-        <img src="@/assets/img-rectangle-x-002.jpg" />
-        <img src="@/assets/img-rectangle-y-003.jpg" />
+          <img src="@/assets/img-squre-001.jpg" />
+          <img src="@/assets/img-rectangle-x-002.jpg" />
+          <img src="@/assets/img-rectangle-y-003.jpg" />
       </div>
     </div>
   </section>

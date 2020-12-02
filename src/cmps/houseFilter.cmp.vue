@@ -21,8 +21,7 @@
         ref="location"
         placeholder="Where are you going?"
         :clearable="true"
-        v-model="deBounce.txt"
-        @input="updateTxt"
+        v-model="filterBy.txt"
       />
     </div>
     <div
@@ -155,14 +154,6 @@ export default {
     return {
       isPopVisible: false,
       filterBy: null,
-      deBounce: {
-        txt: null,
-        // timer: null,
-      },
-      filterOptions: {
-        page: [5, 10, 15, 20],
-        sortBy: ['name', 'price'],
-      },
       datePickerOptions: {
         disabledDate(date) {
           return date < new Date()
@@ -200,25 +191,6 @@ export default {
         ? ([this.filterBy.checkIn, this.filterBy.checkOut] = ev)
         : (this.filterBy.checkIn = this.filterBy.checkOut = null)
     },
-    updatePage(newPage) {
-      const isLastPage =
-        newPage * this.filterBy.limit >= this.housesLength + this.filterBy.limit
-      if (newPage === 0 || isLastPage) return
-      this.filterBy.page = newPage
-    },
-    updateLimit(newLimit) {
-      const isBeyondLastPage =
-        newLimit * this.filterBy.page >= this.housesLength + newLimit
-      if (isBeyondLastPage) this.data.filterBy.page = 1
-      this.filterBy.limit = newLimit
-    },
-    updateTxt() {
-      // clearTimeout(this.deBounce.timer)
-      // this.deBounce.timer = setTimeout(() => {
-      // this.filterBy.page = 1
-      this.filterBy.txt = this.deBounce.txt
-      // }, 300)
-    },
     focusFilter() {
       this.$parent.$el.classList.add('filter-out')
     },
@@ -240,19 +212,17 @@ export default {
   created() {
     this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
     if (this.$route.query.txt) {
-      this.deBounce.txt = this.filterBy.txt = utilService.capitalize(
-        this.$route.query.txt
-      )
+      this.filterBy.txt = utilService.capitalize(this.$route.query.txt)
       this.updateFilter()
     } else {
-      this.deBounce.txt = utilService.capitalize(this.filterBy.txt)
+      utilService.capitalize(this.filterBy.txt)
     }
     this.loadHouses()
   },
   mounted() {
     if (document.querySelector('.header-scroll-pixel')) {
       let observer = new IntersectionObserver(entries => {
-        entries[0].intersectionRatio
+        entries[0].intersectionRatio && this.$route.path === '/'
           ? this.$parent.$el.classList.remove('anchor-in')
           : this.$parent.$el.classList.add('anchor-in')
       })
@@ -263,6 +233,6 @@ export default {
     document.addEventListener('scroll', ev => {
       this.$parent.$el.classList.remove('filter-out')
     })
-  }
+  },
 }
 </script>
