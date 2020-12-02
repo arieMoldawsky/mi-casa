@@ -41,10 +41,11 @@
       <ul>
          <li v-for="(house, idx) in userHouses" :key="house._id">
           <div class="user-houses-container flex">
-            <div class="user-houses-txt flex"><span class="house-txt">Name:</span> {{ house.name }} 
-                <span class="house-txt">Type:</span> {{ house.type }}
-            <img :src="house.imgs[0]" alt="" />
-            <button class="delete-house-btn"><i class="far fa-trash-alt"></i></button>
+            <div class="user-houses-txt flex">
+              <span class="house-txt">Name:</span> {{ house.name }} 
+              <span class="house-txt">Type:</span> {{ house.type }}
+              <img :src="house.imgs[0]" alt="" />
+              <button class="delete-house-btn"><i class="far fa-trash-alt"></i></button>
           </div>
           <div class="user-houses-booking">
             <h3>House Bookings:</h3>
