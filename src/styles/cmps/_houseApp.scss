@@ -1,7 +1,7 @@
 
 .house-app {
   margin-top: 70px;
-  padding: 0 24px;
+  padding: 0 $mobilePadding;
 
   @include for-narrow-layout {
     margin-top: 90px;
