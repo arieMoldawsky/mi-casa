@@ -50,7 +50,7 @@
               <button class="delete-house-btn"><i class="far fa-trash-alt"></i></button>
           </div>
           <div class="user-houses-booking">
-            <h3>House Bookings:</h3>
+            <h3>House Bookings: {{userBookings[idx].length}}</h3>
             <li v-for="userBooking in userBookings[idx]" :key="userBooking._id">
              <table class="booking-info" style="width:100%">
                   <tr>
@@ -58,12 +58,14 @@
                     <th>Amount:</th>
                     <th>Check In:</th>
                     <th>Check Out:</th>
+                    <th>Contact:</th>
                   </tr>
                   <tr>
                     <td>{{userBooking.guestUser.fullName}}</td>
                     <td>{{userBooking.guestsNum}}</td>
                     <td>{{convertTimeStamp (userBooking.checkIn) }}</td>
                     <td>{{convertTimeStamp (userBooking.checkOut)}}</td>
+                    <td class="contact flex"><i class="far fa-envelope flex"></i><i class="fas fa-phone flex"></i></td>
                   </tr>
               </table>
              </li>
