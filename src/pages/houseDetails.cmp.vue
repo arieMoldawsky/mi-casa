@@ -159,7 +159,7 @@ export default {
         type: 'success',
         position: 'bottom-right',
       })
-      // if (addedBooking) this.$router.push(`/`)
+      if (addedBooking) this.$router.push(`/`)
     },
     addReview() {
       if (this.$store.getters.loggedinUser) {
