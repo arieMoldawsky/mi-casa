@@ -1,11 +1,11 @@
 <template>
   <main class="homepage-container">
 
-    <section class="hero-container flex a-center">
-      <h1 class="hero-title flex">
+    <section class="hero-container flex-centered">
+      <div class="hero-title f-ac-jsb main-layout">
         <span>Mi Casa</span>
         <span class="title-second-row">Su Casa</span>
-      </h1>
+      </div>
     </section>
 
     <section class="homepage-section house f-ac-jsb column">
@@ -30,7 +30,7 @@
       </div>
     </section>
 
-    <section class="homepage-section info f-ac-jsb column">
+    <section class="homepage-section info main-layout">
       <div class="content f-ac-jsb">
         <div class="item f-ac-jsb column">
           <h2 class="f-ac-jsb">
