@@ -1,19 +1,22 @@
 <template>
-  <div class="main-footer flex">
-    <div class="footer-rights flex">
-      © 2020 MiCasa, Inc. All rights reserved
-    </div>
-    <div class="footer-lang flex">English (US)
-     <span class="footer-money flex">USD $</span></div>
-    <div class="social flex">
-      <div class="facebook flex">
-        <i class="fab fa-facebook-f flex"></i>
+  <div class="main-footer flex main-layout">
+    <div class="footer-container">
+      <div class="footer-lang flex">
+        English (US) <span class="footer-money flex">USD $</span>
       </div>
-      <div class="instagram flex">
-        <i class="fab fa-instagram flex"></i>
+      <div class="footer-rights flex">
+        © 2020 MiCasa, Inc. All rights reserved
       </div>
-      <div class="twitter flex">
-        <i class="fab fa-twitter flex"></i>
+      <div class="social flex">
+        <div class="facebook flex">
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class="instagram flex">
+          <i class="fab fa-instagram"></i>
+        </div>
+        <div class="twitter flex">
+          <i class="fab fa-twitter"></i>
+        </div>
       </div>
     </div>
   </div>

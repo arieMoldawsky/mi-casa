@@ -1,54 +1,63 @@
-
 .main-footer {
-    // padding-top: 24px !important;
-    // padding-bottom: 24px !important;
-    border-top: 1px solid #DDDDDD !important; 
-    justify-content: space-evenly;
+    grid-column: 1/span 3;
+    border-top: 1px solid #DDDDDD;
     background-color: rgb(236, 236, 236);
-    // padding-left: 10px;
-    // height: 3rem;
     // position: static;
     align-items: center;
     position: absolute;
-    // bottom: 0;
     bottom: 0;
     width: 100%;
-    height: 2.5rem; 
-    font-size: 0.875rem;
+    height: 2.5rem;
+    font-size: 0.7rem;
+    padding: 0 24px;
+
+    @include for-narrow-layout {
+        padding: unset;
+        font-size: 0.875rem;
     }
+
+}
+
+.footer-container {
+    grid-column: 2/span 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .footer-lang {
-        // font-weight: 550 !important;
-        text-decoration: underline !important;
-        color: $clr7;
-    }
+    text-decoration: underline;
+    color: $clr7;
+}
 
 .social {
-        width: 140px;
-        justify-content: space-evenly;
-        fill: currentcolor;
-        color: $clr7;
-        font-size: 1.2rem;
-        svg {
-            cursor: pointer;
+    width: fit-content;
+    justify-content: space-evenly;
+    fill: currentcolor;
+    color: $clr7;
+    font-size: 1rem;
+
+    svg {
+        cursor: pointer;
+        margin: 0 5px;
+
+        &.fa-twitter {
+            margin-inline-end: 0;
+        }
+        &.fa-facebook {
+            margin-inline-start: 0;
+        }
+        @include for-narrow-layout {
+            margin: 0 10px;
         }
     }
 
-.footer-money {
-        margin-left: 10px;
+    @include for-narrow-layout {
+        width: fit-content;
+        font-size: 1.2rem;
     }
+}
 
-    // .facebook {
-    //     margin-left: 10px;
-    // }
-
-    // .instagram {
-    //     margin-left: 5px;
-    //     margin-right: 5px;
-    //     padding-left: 10px;
-    // }
-
-    // .twitter {
-        
-    //     padding-right: 10px;
-    // }
+.footer-money {
+    margin: 0 5px;
+}
