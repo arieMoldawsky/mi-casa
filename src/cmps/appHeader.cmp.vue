@@ -35,10 +35,10 @@
         <router-link to="/profile" exact class="host-navbar"
           >Become a host
         </router-link>
-        <section @click="onDropdown">
+          <section>
           <el-row class="block-col-2">
             <el-col :span="12">
-              <el-dropdown trigger="click" @command="handleCommand">
+              <el-dropdown @visible-change="onDropdown" trigger="click" @command="handleCommand">
                 <div class="el-dropdown-link-container flex">
                   <div class="el-dropdown-link flex">
                     <div :class="rotateBurger" class="hamburger flex">
@@ -55,8 +55,7 @@
                           <path d="m2 16h28"></path>
                           <path d="m2 24h28"></path>
                           <path d="m2 8h28"></path>
-                        </g></svg
-                      ><i class="el-icon-arrow-down el-icon--right"></i>
+                        </g></svg><i class="el-icon-arrow-down el-icon--right"></i>
                     </div>
                     <div v-if="!isLogedIn" class="profile-pic flex">
                       <svg
@@ -77,27 +76,30 @@
                   </div>
                 </div>
                 <el-dropdown-menu class="hamburger-dropdown" slot="dropdown">
+                  <el-dropdown-item class="houses-nav-mobile">
+                    <router-link to="/house" exact >
+                    Places to stay
+                    </router-link>
+                  </el-dropdown-item>
+                  <el-dropdown-item class="host-nav-mobile">
+                    <router-link to="/profile" exact >
+                    Become a host
+                    </router-link>
+                  </el-dropdown-item>
                   <el-dropdown-item
                     v-if="!isLogedIn"
-                    icon="el-icon-circle-plus"
                     command="loginModal"
-                    >Login</el-dropdown-item
-                  >
+                    >Login</el-dropdown-item>
                   <el-dropdown-item
                     v-if="!isLogedIn"
-                    icon="el-icon-circle-plus"
                     command="signUpModal"
-                    >Sign up</el-dropdown-item
-                  >
-                  <el-dropdown-item v-if="isLogedIn" icon="el-icon-circle-plus" command="toProfile"
-                    >My Profile</el-dropdown-item
-                  >
+                    >Sign up</el-dropdown-item>
+                  <el-dropdown-item v-if="isLogedIn" command="toProfile"
+                    >My Profile</el-dropdown-item>
                   <el-dropdown-item
                     v-if="isLogedIn"
-                    icon="el-icon-circle-plus"
                     command="logout"
-                    >Logout</el-dropdown-item
-                  >
+                    >Logout</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </el-col>
@@ -124,7 +126,7 @@ export default {
       if (command === 'loginModal') this.loginModal();
       else if (command === 'signUpModal') this.signUpModal();
       else if (command === 'logout') this.logout();
-      else this.toProfile();
+      else if (command === 'toProfile') this.toProfile();
     },
     loginModal() {
       this.$router.push({ query: { q: 'login' } })
@@ -142,7 +144,6 @@ export default {
     },
     onDropdown() {
       this.isDropdown = !this.isDropdown;
-      console.log(this.isDropdown);
     }
   },
   computed: {
