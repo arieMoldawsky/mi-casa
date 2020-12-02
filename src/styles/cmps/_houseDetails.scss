@@ -1,13 +1,14 @@
 .house-details-section {
     // display: flex;
     // flex-direction: column;
-    margin-top: 90px;
+    margin-top: 70px;
     margin-right: auto;
     margin-left: auto;
     text-align: left;
     padding: 13px;
 
     @include for-normal-layout {
+        margin-top: 90px;
         padding: unset;
     }
 

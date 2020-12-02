@@ -32,8 +32,11 @@
 }
 
 .el-carousel__container {
-  height: 165px;
   margin-bottom: 6px;
+
+  @include for-narrow-layout {
+    height: 165px;
+}
 
 
   img {
