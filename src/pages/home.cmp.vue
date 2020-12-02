@@ -153,7 +153,7 @@ export default {
     appHeader,
     houseFilter,
     joinHost,
-  },
+  },  
   methods: {
     houseList(val) {
       const filterBy = JSON.parse(JSON.stringify(this.getFilterBy))

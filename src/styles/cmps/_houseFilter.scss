@@ -4,17 +4,15 @@
   width: 20px;
   height: 20px;
   z-index: 1000;
-  opacity: 0;
   left: 0;
   top: 50px;
-  background-color: #000000;
 }
 .main-header {
   &.anchor-in {
     .house-filter-container {
       height: $headerHeight * 0.7;
       top: $headerHeight * 0.15;
-      position: fixed;
+      position: absolute;
       max-width: 400px;
       box-shadow: none;
       transition: 150ms ease-in-out;

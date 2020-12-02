@@ -1,4 +1,8 @@
 .homepage-section {
+  > * {
+    padding: 0 $mobilePadding;
+  }
+
   .hero-container {
     background: url('../assets/homePageBg.jpg'),
       linear-gradient(
@@ -19,6 +23,7 @@
     color: $clr1;
     font-size: 3rem;
     height: 650px;
+
     grid-column: 1 / span 3 !important;
     position: relative;
     .hero-title {
@@ -63,9 +68,32 @@
   }
 
   .trending-house-container {
-    cursor: pointer;
+    display: flex;
     gap: 20px;
-    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    height: 350px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    > * {
+      flex: 0 0 auto;
+      img {
+        width: 80vw;
+        height: 90%;
+        object-fit: cover;
+      }
+    }
+    @include for-normal-layout {
+      height: auto;
+      > * {
+        flex: initial;
+        img {
+            width: 100%;
+        }
+      }
+    }
   }
 
   .trending {
@@ -83,15 +111,36 @@
   }
 
   .trending-cities-container {
+    display: flex;
     gap: 20px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    height: 350px;
     margin-bottom: 90px;
-    height: 10rem;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     > * {
-      flex : 1;
+      flex: 0 0 auto;
       img {
-        height: 100%;
+        width: 80vw;
+        height: 90%;
+        flex: 1;
         border-radius: 10px;
         object-fit: cover;
+      }
+    }
+    @include for-normal-layout {
+      flex-wrap: initial;
+      overflow-x: initial;
+      -webkit-overflow-scrolling: initial;
+      height: auto;
+      > * {
+        flex: 1;
+        img {
+          width: 100%;
+        }
       }
     }
   }
@@ -99,6 +148,7 @@
     cursor: text;
     margin-top: 90px;
     gap: 20px;
+    flex-direction: column;
 
     svg {
       margin-right: 8px;
@@ -112,6 +162,10 @@
     p {
       margin-block-start: 1em;
       margin-block-end: 1em;
+      display: none;
+      @include for-normal-layout {
+        display: block;
+      }
     }
   }
 }

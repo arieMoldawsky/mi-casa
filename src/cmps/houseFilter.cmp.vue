@@ -250,7 +250,6 @@ export default {
     this.loadHouses()
   },
   mounted() {
-    console.log(this.$root);
     if (document.querySelector('.header-scroll-pixel')) {
       let observer = new IntersectionObserver(entries => {
         entries[0].intersectionRatio

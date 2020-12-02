@@ -25,22 +25,9 @@
         <button class="first-panel-btn flex">Join now!</button>
       </div>
       <div class="second-panel full-height">
-        <img class="img-squre-001" src="@/assets/img-squre-001.jpg" />
-        <!-- <div class="img-rectangle-x flex column j-space-b"> -->
-          <img
-            class="img-rectangle-x-002"
-            src="@/assets/img-rectangle-x-002.jpg"
-          />
-          <!-- <div class="screen"/>
-          <span class="text-over-image"
-            >“ Hosting has helped me pay for a new kitchen and other upgrades.“
-            <small>John</small>
-          </span> -->
-        <!-- </div  > -->
-        <img
-          class="img-rectangle-y-003"
-          src="@/assets/img-rectangle-y-003.jpg"
-        />
+        <img src="@/assets/img-squre-001.jpg" />
+        <img src="@/assets/img-rectangle-x-002.jpg" />
+        <img src="@/assets/img-rectangle-y-003.jpg" />
       </div>
     </div>
   </section>
@@ -48,6 +35,8 @@
 
 <script>
 export default {
-  computed: {},
+  props: {
+    isWideWindow: Boolean,
+  },
 }
 </script>
