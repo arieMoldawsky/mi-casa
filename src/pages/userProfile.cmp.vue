@@ -36,6 +36,7 @@
       <div>Joined in June 2010</div>
       <button v-if="!toggleHouseForm" @click="openHouseForm" class="add-house-btn">Add House</button>
       <house-add v-if="toggleHouseForm" @closeHouseForm="closeHouseForm" @addHouse="addHouse"></house-add>
+      <chart />
       <h2>Houses you offer: ({{ userHouses.length }})</h2>
       <ul>
          <li v-for="(house, idx) in userHouses" :key="house._id">
@@ -81,6 +82,7 @@
 import houseAdd from "../cmps/houseAdd.cmp.vue";
 import houseFilter from "../cmps/houseFilter.cmp.vue";
 import moment from 'moment';
+import chart from '../cmps/chart.cmp.vue'
 
 export default {
   name: "userProfile",
@@ -132,6 +134,7 @@ export default {
   components: {
     houseAdd,
     houseFilter,
+    chart
   },
 };
 </script>

@@ -38,6 +38,11 @@
   align-items: center;
 }
 
+.f-ac-jsb {
+  display: flex;
+  justify-content: space-between;
+}
+
 .a-start {
   align-items: flex-start;
 }
@@ -111,6 +116,10 @@
   height: 100%;
 }
 
+.grid {
+  display: grid;
+}
+
 /* restarters */
 
 li {
@@ -131,8 +140,4 @@ input {
   width: 15rem;
   border: 1px solid rgb(164, 164, 164);
   padding: 0.2rem;
-}
-
-.grid {
-  display: grid;
 }

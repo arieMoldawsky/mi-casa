@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div class="content-wrap">
-        <appHeader/>
+      <div class="header-scroll-pixel" />
+      <appHeader />
       <router-view class="main-layout" />
       <modal />
     </div>
