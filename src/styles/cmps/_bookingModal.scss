@@ -159,13 +159,23 @@
 div.el-picker-panel.el-date-range-picker.el-popper.date-picker-popper {
   @include for-mobile-layout {
     left: 0 !important;
-    width: 200vw;
+    width: 100%;
+  }
+}
+
+.el-date-range-picker__content {
+  @include for-mobile-layout {
+  width: 100%;
   }
 }
 
 div.el-picker-panel__body {
   display: flex;
   flex-direction: column;
+
+  @include for-mobile-layout {
+    min-width: unset !important;
+  }
 
   @include for-normal-layout {
     display: unset;
