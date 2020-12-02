@@ -1,6 +1,12 @@
 
 .house-app {
-  margin-top: 90px;
+  margin-top: 70px;
+  padding: 0 $mobilePadding;
+
+  @include for-narrow-layout {
+    margin-top: 90px;
+    padding: unset;
+}
 }
 
 .main-header {

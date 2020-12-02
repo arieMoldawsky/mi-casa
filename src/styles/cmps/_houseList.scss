@@ -1,14 +1,20 @@
 .house-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
   gap: 30px 15px;
+
+  @include for-narrow-layout {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
   img {
     border-radius: 10px;
     margin-bottom: 0.5rem;
     // object-fit: cover;
     cursor: pointer;
   }
-  > * {
+
+  >* {
     grid-column: span 1;
   }
 }
