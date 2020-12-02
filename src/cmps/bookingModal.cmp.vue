@@ -33,16 +33,7 @@
           @change="checkAvailability"
         />
       </div>
-      <!-- <div class="form-item field flex-start">
-                <label> Guests </label>
-                <el-input-number
-                    v-model="booking.guestsNum"
-                    :min="1"
-                    :max="capacity"
-                />
-            </div> -->
       <div class="guests-input-container">
-        <!-- <div class="guests-label">Guests</div> -->
         <label>Guests</label> 
         <div class="form-item field flex a-start fill-parent pointer">
           <el-popover
@@ -52,7 +43,6 @@
             v-model="isPopVisible"
           >
             <div class="fill-parent flex a-start column" slot="reference">
-              <!-- <label> Guests </label> -->
               <div class="guest-count flex fill-parent">
                 <span class="flex a-center">
                   {{ toAdults }}
