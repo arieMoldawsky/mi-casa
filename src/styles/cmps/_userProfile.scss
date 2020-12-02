@@ -52,6 +52,9 @@
 
   .user-main-container {
     text-align: left;
+    color: $clr5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
 
     .add-house-btn {
       margin-top: 20px;
@@ -87,12 +90,21 @@
       border-bottom: 1px solid lightgray;
       padding: 15px 0;
       
-      .user-houses-txt{
-        display: flex;
+      .user-houses-txt-container{
         justify-content: space-between;
         align-items: center;
-      .house-txt {
-        font-weight: bolder;
+        .user-houses-txt {
+        justify-content: space-between;
+        align-items: center;
+        .house-txt {
+          font-weight:lighter;
+          color: $clr3;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+          margin-left: 0.2rem;
+        }
+        }
+      .house-txt-second {
+        margin-left: 1rem;
       }
       img {
         height: 90px;

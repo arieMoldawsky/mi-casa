@@ -33,17 +33,20 @@
       </div>
     </div>
     <div class="user-main-container">
-      <h1>Hello, {{ user.fullName }}</h1>
+      <h1>Hello, {{ user.fullName }}!</h1>
       <div>Joined in June 2010</div>
       <button v-if="!toggleHouseForm" @click="openHouseForm" class="add-house-btn">Add House</button>
       <house-add v-if="toggleHouseForm" @closeHouseForm="closeHouseForm" @addHouse="addHouse"></house-add>
-      <h2>Houses I offer: ({{ userHouses.length }})</h2>
+      <h2>Houses you offer: ({{ userHouses.length }})</h2>
       <ul>
          <li v-for="(house, idx) in userHouses" :key="house._id">
           <div class="user-houses-container flex">
-            <div class="user-houses-txt flex">
-              <span class="house-txt">Name:</span> {{ house.name }} 
-              <span class="house-txt">Type:</span> {{ house.type }}
+            <div class="user-houses-txt-container flex">
+              <h3 class="user-houses-txt flex"><span class="house-txt-first">
+                Name:</span> <span class="house-txt">{{ house.name }} </span>
+              <span class="house-txt-second">
+                Type:</span><span class="house-txt"> {{ house.type }}</span>
+              </h3>
               <img :src="house.imgs[0]" alt="" />
               <button class="delete-house-btn"><i class="far fa-trash-alt"></i></button>
           </div>
