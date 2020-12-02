@@ -1,31 +1,16 @@
-
 .house-app {
   margin-top: 70px;
   padding: 0 $mobilePadding;
 
   @include for-narrow-layout {
     margin-top: 90px;
-    padding: unset;
-}
-}
-
-.main-header {
-    padding: 20px;
-    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    // position: sticky;
-    // top: 0;
+    padding: initial;
+  }
 }
 
 .house-list {
   gap: 10px;
   margin-bottom: 20px;
-}
-
-.house-card {
-  flex-direction: column;
-  font-family: Montserrat;
-  box-shadow: 0 4px 8px 0 rgba(172, 172, 172, 0.2), 0 6px 20px 0 rgba(187, 187, 187, 0.19);
-  border-radius: 10px;
 }
 
 .house-card-container {
@@ -47,7 +32,7 @@
     position: absolute !important;
     top: 0px !important;
     left: 0px !important;
-    z-index: 1 !important
+    z-index: 1 !important;
   }
   button {
     width: 15px;
@@ -55,16 +40,16 @@
 }
 
 .head-title {
-    flex-direction: column;
-    padding: 20px 0;
+  flex-direction: column;
+  padding: 20px 0;
 }
 
 .head-title-visits {
-    align-self: start;
+  align-self: start;
 }
 .head-title-txt {
-    align-self: start;
-    color: #4d4d4d;
+  align-self: start;
+  color: #4d4d4d;
 }
 
 .el-pagination {
@@ -75,7 +60,7 @@
   button:disabled {
     background-color: #fffafa;
   }
-  
+
   .el-pager {
     display: flex;
   }
@@ -89,38 +74,36 @@
     margin-right: 8px;
     justify-content: center;
     align-items: center;
-      &:hover {
-        background-color: $clr4;
-        color: $clr5;
-        border-radius: 50%;
-        transition: -ms-transform 0.25s ease,-webkit-transform 0.25s ease,transform 0.25s ease;
-        color: #222222;
-      }
-      &.active {
-        border-radius: 50%;
-        background: #222222;
-        color: #FFFFFF;
-
-      }
-      
+    &:hover {
+      background-color: $clr4;
+      color: $clr5;
+      border-radius: 50%;
+      transition: -ms-transform 0.25s ease, -webkit-transform 0.25s ease,
+        transform 0.25s ease;
+      color: #222222;
     }
+    &.active {
+      border-radius: 50%;
+      background: #222222;
+      color: #ffffff;
+    }
+  }
 }
 .under-paging-txt-head {
   display: block;
   font-size: 1rem;
   line-height: 18px;
   font-weight: 400;
-  color: $clr5; 
+  color: $clr5;
   margin: 0 0 30px;
-  width: 50%;
-  margin-top: 10px;  
+  margin-top: 10px;
 }
 
 .under-paging-txt-bottom {
   font-size: 0.8rem;
-    line-height: 1rem;
-    font-weight: 400;
-    color: $clr3;  
-    text-align: center;
-    margin: 0 0 32px;
+  line-height: 1rem;
+  font-weight: 400;
+  color: $clr3;
+  text-align: center;
+  margin: 0 0 32px;
 }

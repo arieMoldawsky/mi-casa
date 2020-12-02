@@ -84,6 +84,9 @@
         &::-webkit-scrollbar {
           display: none;
         }
+        .item {
+          cursor: pointer;
+        }
       }
     }
     .item {

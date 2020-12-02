@@ -1,4 +1,7 @@
 .main-header {
+  .inner-container {
+    height: 100%;
+  }
   &.anchor-in {
     background-color: rgba($color: $clr1, $alpha: 1);
 
@@ -18,7 +21,7 @@
   box-shadow: none;
   transition: 120ms;
   z-index: 10;
-  color: $clr2;
+  // color: $clr2;
   position: fixed;
   top: 0;
   width: 100%;
@@ -67,6 +70,10 @@
   }
 
   .head-logo-txt {
+    display: none;
+    @include for-normal-layout {
+      display: block;
+    }
     justify-content: left;
     font-size: 1.5rem;
     font-family: 'Karla', sans-serif;
@@ -82,7 +89,6 @@
 
   .navbar-container {
     height: 3rem;
-    padding-bottom: 1rem;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 1.2rem;
     color: $clr2;
@@ -111,8 +117,6 @@
         background-color: $clr4;
       }
     }
-
-
 
     .el-dropdown-link-container {
       margin-left: 5px;
@@ -179,7 +183,6 @@
   li {
     color: $clr5;
   }
-
 }
 
 .hamburger-logo-trans {

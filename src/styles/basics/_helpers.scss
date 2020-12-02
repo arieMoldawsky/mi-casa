@@ -38,9 +38,41 @@
   align-items: center;
 }
 
-.f-ac-jsb {
+.f-as-jc {
+  display: flex;
+  justify-content: center;
+}
+.f-as-jsb {
   display: flex;
   justify-content: space-between;
+}
+.f-as-jsa {
+  display: flex;
+  justify-content: space-around;
+}
+.f-as-jse {
+  display: flex;
+  justify-content: space-evenly;
+}
+.f-ac-jc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.f-ac-jsb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.f-ac-jsa {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.f-ac-jse {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .a-start {

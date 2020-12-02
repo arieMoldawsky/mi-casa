@@ -4,7 +4,7 @@
     :class="homeHeader"
     ref="mainHeader"
   >
-    <div class="f-ac-jsb">
+    <div class="inner-container f-ac-jsb center-grid">
       <router-link to="/" exact class="logo flex">
         <svg
           class="head-logo-svg"

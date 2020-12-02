@@ -10,24 +10,14 @@
 .main-header {
   &.anchor-in {
     .house-filter-container {
-      height: $headerHeight * 0.7;
       top: $headerHeight * 0.15;
+      height: $headerHeight * 0.7;
       position: absolute;
-      max-width: 400px;
+      max-width: 315px;
       box-shadow: none;
       transition: 150ms ease-in-out;
       .filter-screen {
-        text-align: left;
-        display: block;
-        padding: 0 0 0 1rem;
-        color: $clr5;
-        font-size: 0.9rem;
-        font-weight: bold;
-        background-color: $clr1;
-        position: absolute;
-        z-index: 101;
-        border-radius: 200px;
-        line-height: $headerHeight * 0.7;
+        display: flex;
       }
       .submit button {
         transition: 150ms ease-in-out;
@@ -38,47 +28,66 @@
         box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
       }
     }
-    &.filter-out {
-      .house-filter-container {
-        height: $headerHeight;
-        top: $headerHeight;
-        max-width: 800px;
-        .filter-screen {
-          display: none;
-        }
-        .submit button {
-          width: $headerHeight * 0.75;
-          height: $headerHeight * 0.75;
-        }
+  }
+  &.filter-out {
+    .house-filter-container {
+      height: $headerHeight;
+      top: $headerHeight;
+      max-width: 800px;
+      .filter-screen {
+        display: none;
+      }
+      .submit button {
+        width: $headerHeight * 0.75;
+        height: $headerHeight * 0.75;
       }
     }
   }
 }
 
 .house-filter-container {
+  max-width: 90vw;
+  top: $headerHeight;
+  height: $headerHeight * 0.8;
+  .filter-screen {
+    display: flex;
+  }
+  @include for-normal-layout {
+    max-width: 800px;
+    top: 150px;
+    height: $headerHeight;
+    .filter-screen {
+      display: none;
+    }
+  }
   border: 1px solid rgba($color: #dadada, $alpha: 1);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
   transition: 150ms ease-in-out;
   z-index: 100;
   position: absolute;
-  height: $headerHeight;
-  top: 150px;
   left: 0;
   right: 0;
   background-color: $clr1;
   border-radius: 200px;
-  max-width: 800px;
   margin-right: auto;
   margin-left: auto;
-  .filter-screen {
-    display: none;
-  }
   * {
     outline: none;
     border: none;
     background-color: rgba($color: #000000, $alpha: 0);
   }
-
+  .filter-screen {
+    text-align: left;
+    padding: 0 0 0 3rem;
+    color: $clr5;
+    font-size: 0.9rem;
+    font-weight: bold;
+    background-color: $clr1;
+    position: absolute;
+    z-index: 101;
+    border-radius: 200px;
+    line-height: $headerHeight * 0.7;
+  }
   .form-item {
     flex-direction: column;
     border-radius: 100px;
@@ -126,7 +135,6 @@
       padding: 10px 10px;
       width: fit-content;
       z-index: 102;
-      // transform: scale(0.6);
       button {
         color: white;
         background-color: $clr2;

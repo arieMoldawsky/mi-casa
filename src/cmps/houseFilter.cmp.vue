@@ -5,7 +5,7 @@
     size="medium"
     :model="filterBy"
   >
-    <section class="filter-screen fill-parent" @click.stop="focusFilter">
+    <section class="filter-screen f-as-jc column fill-parent" @click.stop="focusFilter">
       <span>
         Start Your Search
       </span>

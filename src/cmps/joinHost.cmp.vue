@@ -1,5 +1,5 @@
 <template>
-  <section class="join-host grid main-layout">
+  <section class="join-host grid">
     <div class="inner-container fill-parent flex a-start j-space-b ">
       <div
         class="first-panel text-wrapper full-height flex column a-start j-space-b"

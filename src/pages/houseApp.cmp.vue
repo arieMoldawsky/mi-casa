@@ -1,6 +1,6 @@
 <template>
   <main class="house-app">
-    <section>
+    <section class="center-grid f-as-jsb column">
       <div class="head-title flex">
         <small class="head-title-visits">300+ stays</small>
         <h1 class="head-title-txt">Entire homes</h1>
@@ -14,18 +14,16 @@
         <div class="sk-chase-dot"></div>
       </div>
       <houseList v-if="!isLoading" :houses="houses" />
-        <div class="block" v-if="!isLoading">
-          <el-pagination
-              layout="prev, pager, next"
-              :total="150">
-            </el-pagination>
-        <div class="under-paging-txt-head flex">
+      <div class="block f-ac-jsb column" v-if="!isLoading">
+        <el-pagination layout="prev, pager, next" :total="150"> </el-pagination>
+        <div class="under-paging-txt-head">
           1 – 20 of 300+ places to stay
         </div>
-        <div class="under-paging-txt-bottom flex">
-Enter dates to see full pricing. Additional fees apply. Taxes may be added.
+        <div class="under-paging-txt-bottom">
+          Enter dates to see full pricing. Additional fees apply. Taxes may be
+          added.
         </div>
-        </div>
+      </div>
     </section>
   </main>
 </template>

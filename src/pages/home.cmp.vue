@@ -1,39 +1,39 @@
 <template>
   <main class="homepage-container">
 
-    <section class="hero-container flex-centered">
-      <div class="hero-title f-ac-jsb main-layout">
-        <span>Mi Casa</span>
-        <span class="title-second-row">Su Casa</span>
+    <section class="hero-container flex-centered full-grid">
+      <div class="hero-title f-as-jsb">
+        <!-- <span>Mi Casa</span>
+        <span class="title-second-row">Su Casa</span> -->
       </div>
     </section>
 
-    <section class="homepage-section house f-ac-jsb column">
+    <section class="homepage-section house f-as-jsb column center-grid">
       <h2 class="head">Live anywhere</h2>
-      <div class="content f-ac-jsb">
-        <div class="item f-ac-jsb column" @click="houseList">
+      <div class="content f-as-jsb">
+        <div class="item f-as-jsb column" @click="houseList">
           <img src="../assets/trending1.jpg" />
           <h4 class="flex">Entire homes</h4>
         </div>
-        <div class="item f-ac-jsb column" @click="houseList">
+        <div class="item f-as-jsb column" @click="houseList">
           <img src="../assets/trending2.jpg" />
           <h4>Cabins and huts</h4>
         </div>
-        <div class="item f-ac-jsb column" @click="houseList">
+        <div class="item f-as-jsb column" @click="houseList">
           <img src="../assets/trending3.jpg" />
           <h4>Unique stays</h4>
         </div>
-        <div class="item f-ac-jsb column" @click="houseList">
+        <div class="item f-as-jsb column" @click="houseList">
           <img src="../assets/trending4.jpg" />
           <h4>Pets welcome</h4>
         </div>
       </div>
     </section>
 
-    <section class="homepage-section info main-layout">
-      <div class="content f-ac-jsb">
-        <div class="item f-ac-jsb column">
-          <h2 class="f-ac-jsb">
+    <section class="homepage-section info">
+      <div class="content f-as-jsb">
+        <div class="item f-as-jsb column">
+          <h2 class="f-as-jsb">
             Filter down to your perfect fit
             <svg
               viewBox="0 0 32 32"
@@ -55,8 +55,8 @@
             get exactly what you want.
           </p>
         </div>
-        <div class="item f-ac-jsb column">
-          <h2 class="f-ac-jsb">
+        <div class="item f-as-jsb column">
+          <h2 class="f-as-jsb">
             Dig into the details
             <svg
               viewBox="0 0 32 32"
@@ -76,8 +76,8 @@
             reservations to learn what it’s like in person.
           </p>
         </div>
-        <div class="item f-ac-jsb column">
-          <h2 class="f-ac-jsb">
+        <div class="item f-as-jsb column">
+          <h2 class="f-as-jsb">
             Book with peace of mind
             <svg
               viewBox="0 0 32 32"
@@ -97,8 +97,8 @@
             process your payments.
           </p>
         </div>
-        <div class="item f-ac-jsb column">
-          <h2 class="f-ac-jsb">
+        <div class="item f-as-jsb column">
+          <h2 class="f-as-jsb">
             Arrive and enjoy!
             <svg
               viewBox="0 0 32 32"
@@ -121,29 +121,29 @@
       </div>
     </section>
 
-    <section class="homepage-section cities f-ac-jsb column">
+    <section class="homepage-section cities f-as-jsb column center-grid">
       <h2 class="head">Inspiration destinations</h2>
-      <div class="content f-ac-jsb">
-        <div class="item f-ac-jsb column" @click="houseList('new-york')">
+      <div class="content f-as-jsb">
+        <div class="item f-as-jsb column" @click="houseList('new-york')">
           <img src="../assets/newYork.jpg" />
           <h4>New York</h4>
         </div>
-        <div class="item f-ac-jsb column" @click="houseList('tokyo')">
+        <div class="item f-as-jsb column" @click="houseList('tokyo')">
           <img src="../assets/tokyo.jpg" />
           <h4>Tokyo</h4>
         </div>
-        <div class="item f-ac-jsb column" @click="houseList('tel-aviv')">
+        <div class="item f-as-jsb column" @click="houseList('tel-aviv')">
           <img src="../assets/telAviv.jpg" />
           <h4>Tel Aviv</h4>
         </div>
-        <div class="item f-ac-jsb column" @click="houseList('paris')">
+        <div class="item f-as-jsb column" @click="houseList('paris')">
           <img src="../assets/paris.jpg" />
           <h4>Paris</h4>
         </div>
       </div>
     </section>
              
-    <join-host />
+    <join-host class="full-grid"/>
 
   </main>
 </template>

@@ -1,36 +1,34 @@
 .main-footer {
-    grid-column: 1/span 3;
-    border-top: 1px solid #DDDDDD;
-    background-color: rgb(236, 236, 236);
-    // position: static;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-    font-size: 0.7rem;
-    padding: 0 $mobilePadding;
+  grid-column: 1 / span 3;
+  border-top: 1px solid #dddddd;
+  background-color: rgb(236, 236, 236);
+  // position: static;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  font-size: 0.7rem;
+  padding: 0 $mobilePadding;
 
-    @include for-narrow-layout {
-        padding: unset;
-        font-size: 0.875rem;
-    }
+  @include for-narrow-layout {
+    padding: unset;
+    font-size: 0.875rem;
+  }
 
-}
-
-.footer-container {
-    grid-column: 2/span 1;
+  .footer-container {
+    grid-column: 2 / span 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+  }
 
-.footer-lang {
+  .footer-lang {
     text-decoration: underline;
     color: $clr7;
-}
+  }
 
-.social {
+  .social {
     width: fit-content;
     justify-content: space-evenly;
     fill: currentcolor;
@@ -38,26 +36,27 @@
     font-size: 1rem;
 
     svg {
-        cursor: pointer;
-        margin: 0 5px;
+      cursor: pointer;
+      margin: 0 5px;
 
-        &.fa-twitter {
-            margin-inline-end: 0;
-        }
-        &.fa-facebook {
-            margin-inline-start: 0;
-        }
-        @include for-narrow-layout {
-            margin: 0 10px;
-        }
+      &.fa-twitter {
+        margin-inline-end: 0;
+      }
+      &.fa-facebook {
+        margin-inline-start: 0;
+      }
+      @include for-narrow-layout {
+        margin: 0 10px;
+      }
     }
 
     @include for-narrow-layout {
-        width: fit-content;
-        font-size: 1.2rem;
+      width: fit-content;
+      font-size: 1.2rem;
     }
-}
+  }
 
-.footer-money {
+  .footer-money {
     margin: 0 5px;
+  }
 }

@@ -1,22 +1,16 @@
-.main-layout {
-//   display: grid;
-//   grid-template-columns: 1fr;
-        > * {
-            grid-column: 2 / span 1;
-        }
-        &.homepage-section> :nth-child(1) {
-            grid-column: 1 / -1;
-        }
-        &.homepage-section> :not(:nth-child(1)) {
-            grid-column:  2 / span 1;
-        }
-
-        @include for-normal-layout {
-            display: grid;
-            grid-template-columns:
-            minmax(1rem, 1fr)
-            minmax(auto, 1100px)
-            minmax(1rem, 1fr);
-        }
-    
+.main-layout {  
+  @include for-normal-layout {
+    display: grid;
+    align-items: center;
+    grid-template-columns:
+      minmax(1rem, 1fr)
+      minmax(auto, 1100px)
+      minmax(1rem, 1fr);
+    .full-grid {
+      grid-column: 1 / -1;
+    }
+    .center-grid {
+      grid-column: 2 / span 1 !important;
+    }
+  }
 }
