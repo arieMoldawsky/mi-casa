@@ -126,17 +126,14 @@
   }
 }
 .user-houses-booking{
-  h2 {
+  h3 {
     margin-top: 10px;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
   }
 .booking-info, th, td {
-  border: 0.5px outset rgb(42, 42, 42);
   border-collapse: collapse;
   th, td {
     padding: 5px;
-    // border-bottom: 1px solid rgb(42, 42, 42);
-    // border-top: 1px solid rgb(42, 42, 42);
   }
   th {
     background-color: $clr4;
