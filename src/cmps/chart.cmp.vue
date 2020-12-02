@@ -10,7 +10,7 @@ export default {
       datasets: [
         {
           label: 'Total Bookings',
-          backgroundColor: '#A9A9A9',
+          backgroundColor: 'rgb(255, 56, 92)',
           data: [5, 20, 12, 19, 1, 4, 5, 30, 10, 20, 12, 11]
         }
       ]

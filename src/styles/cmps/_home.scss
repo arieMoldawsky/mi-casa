@@ -71,6 +71,7 @@
     &.house,
     &.cities {
       height: 370px;
+      
       .head {
         font-size: 2rem;
         margin-bottom: 1rem;
@@ -89,6 +90,7 @@
     .item {
       flex: 1 1 0;
       min-width: 300px;
+      cursor: pointer;
       @include for-normal-layout {
         min-width: auto;
       }
