@@ -15,6 +15,16 @@
   @include for-normal-layout {
     width: 500px;
   }
+
+  div.el-form-item.btns-container.el-form-item--medium {
+    display: flex;
+    justify-content: flex-end;
+
+    .cancel-btn {
+      background-color: white;
+      color: gray;
+    }
+  }
 }
 .modal-content.hidden {
   box-shadow: none;

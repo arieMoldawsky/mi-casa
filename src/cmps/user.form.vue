@@ -35,10 +35,10 @@
         border
       />
     </el-form-item> -->
-        <el-form-item>
+        <el-form-item class="btns-container">
+            <slot />
             <el-button v-if="isSignup" native-type="submit" @click.prevent="onSignup">Sign Up</el-button>
             <el-button v-else native-type="submit">Log In</el-button>
-            <slot />
         </el-form-item>
     </el-form>
 </template>

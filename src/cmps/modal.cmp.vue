@@ -11,7 +11,7 @@
       @closeModal="closeModal"
     >
       <slot>
-        <el-button @click="closeModal">Cancel</el-button>
+        <el-button class="cancel-btn" @click="closeModal">Cancel</el-button>
       </slot>
     </component>
   </section>

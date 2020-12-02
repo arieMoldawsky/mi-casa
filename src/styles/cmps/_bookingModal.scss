@@ -1,5 +1,4 @@
 .booking-modal-section {
-
   max-width: 100%;
   flex-direction: column;
   gap: 20px;
@@ -8,10 +7,6 @@
   padding: 24px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   background-color: $clr1;
-  // margin-left: auto;
-  // margin-top: auto;
-  // margin-bottom: 0;
-  // margin-right: initial;
   color: $clr5;
 
   @include for-normal-layout {
@@ -196,4 +191,42 @@ div.el-picker-panel__body {
 
 .el-date-table td.end-date span, .el-date-table td.start-date span {
   background-color: rgba(156, 156, 156, 0.616);
+}
+
+.el-popover {
+  background-color: $clr1;
+  width: 275px !important;
+  border-radius: 10px;
+}
+
+.el-input-number__decrease, .el-input-number__increase {
+  border-radius: 50%;
+  background-color: $clr1;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(161, 160, 160);
+  top: 4px;
+  &:hover {
+    color: black;
+  }
+}
+
+.el-input-number__decrease.is-disabled, .el-input-number__increase.is-disabled {
+  border: 1px solid lightgray;
+}
+
+.el-input-number__decrease:hover:not(.is-disabled) ~ .el-input .el-input__inner:not(.is-disabled), .el-input-number__increase:hover:not(.is-disabled) ~ .el-input .el-input__inner:not(.is-disabled) {
+  border-color: rgb(189, 189, 189);
+}
+
+.el-input-number {
+  width: 110px;
+}
+
+.el-input-number .el-input__inner {
+  background-color: $clr1;
+  border: 0;
 }
