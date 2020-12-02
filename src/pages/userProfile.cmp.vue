@@ -33,18 +33,21 @@
       </div>
     </div>
     <div class="user-main-container">
-      <h1>Hi, I'm {{ user.fullName }}</h1>
+      <h1>Hello, {{ user.fullName }}</h1>
       <div>Joined in June 2010</div>
+      <button v-if="!toggleHouseForm" @click="openHouseForm" class="add-house-btn">Add House</button>
+      <house-add v-if="toggleHouseForm" @closeHouseForm="closeHouseForm" @addHouse="addHouse"></house-add>
       <h2>Houses I offer: ({{ userHouses.length }})</h2>
       <ul>
          <li v-for="(house, idx) in userHouses" :key="house._id">
-          <div class="user-houses-container">
-            <div>Name: {{ house.name }}</div>
-            <div>Type: {{ house.type }}</div>
+          <div class="user-houses-container flex">
+            <div class="user-houses-txt flex"><span class="house-txt">Name:</span> {{ house.name }} 
+                <span class="house-txt">Type:</span> {{ house.type }}
             <img :src="house.imgs[0]" alt="" />
+            <button class="delete-house-btn"><i class="far fa-trash-alt"></i></button>
           </div>
           <div class="user-houses-booking">
-              <h3>House Bookings:</h3>
+            <h3>House Bookings:</h3>
             <li v-for="userBooking in userBookings[idx]" :key="userBooking._id">
              <table class="booking-info" style="width:100%">
                   <tr>
@@ -62,10 +65,9 @@
               </table>
              </li>
              </div> 
+             </div>
         </li>
       </ul> 
-       <button @click="isAddHouse">Add House</button>
-      <house-add v-if="isAddHouseShow"></house-add>
     </div>
   </main>
 </template>
@@ -76,54 +78,19 @@ import houseFilter from "../cmps/houseFilter.cmp.vue";
 import moment from 'moment';
 
 export default {
+  name: "userProfile",
   data() {
     return {
       isLoading: true,
       userHouses: null,
       userBookings: null,
-      house: {
-        name: "",
-        price: 0,
-        type: "",
-        capacity: 0,
-        badRooms: 0,
-        tags: [],
-        amenities: [
-          "Wifi",
-          "Self check-in",
-          "Kitchen",
-          "Air conditioning",
-          "Elevator",
-          "TV",
-          "Hair dryer",
-          "Hangers",
-          "Iron",
-          "Essentials",
-        ],
-        location: {
-          lat: 48.8665169951605,
-          lng: 2.31821807029879,
-          country: "",
-          city: "",
-        },
-        description: "",
-        reviews: [],
-        chat: [],
-        imgs: [],
-      },
-      isAddHouseShow: false
+      toggleHouseForm: false
     };
   },
   computed: {
     user() {
       return this.$store.getters.loggedinUser;
-    },
-    // onSubmit() {
-    //   console.log("submit!");
-    //   this.$store.dispatch({
-    //      type: 'addHouse',
-    //      house: house })
-    // },
+    }
   },
   methods: {
     async loadUserData() {
@@ -143,8 +110,15 @@ export default {
       convertTimeStamp(string) {
             return moment(string).format().slice(0, -15)
         },
-        isAddHouse() {
-          this.isAddHouseShow = !this.isAddHouseShow;
+        openHouseForm() {
+          this.toggleHouseForm = true;
+        },
+        closeHouseForm() {
+          this.toggleHouseForm = false;
+        },
+        addHouse() {
+          this.toggleHouseForm = false;
+           this.loadUserData();
         }
   },
   created() {
