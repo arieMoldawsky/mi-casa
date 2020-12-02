@@ -1,5 +1,5 @@
 .booking-modal-section {
- 
+
   max-width: 100%;
   flex-direction: column;
   gap: 20px;
@@ -22,6 +22,7 @@
     z-index: 5;
     width: 260px;
   }
+
   @include for-wide-layout {
     width: 300px;
   }
@@ -34,9 +35,6 @@
     border: 1px solid #dcdfe6;
     color: #a7a8a8;
     outline: 0;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 0.9rem;
     max-height: 40px;
@@ -73,9 +71,9 @@
       border-radius: 8px;
       transition: 0.3s;
 
-      @include for-normal-layout {
-        padding: 15px;
-      }
+      // @include for-normal-layout {
+      //   padding: 15px;
+      // }
 
       &:hover {
         background-color: white;
@@ -127,12 +125,14 @@
       font-weight: bold;
     }
   }
+
   .form-item {
     label {
       margin-right: 6px;
       margin-top: 8px;
     }
   }
+
   .booking-modal-container div:last-of-type {
     width: 255px;
     margin-top: 5px;
@@ -153,5 +153,31 @@
 
   .el-input-number__increase {
     margin-top: 5px;
+  }
+}
+
+div.el-picker-panel.el-date-range-picker.el-popper.date-picker-popper {
+  @include for-mobile-layout {
+    left: 0 !important;
+    width: 100%;
+  }
+}
+
+.el-date-range-picker__content {
+  @include for-mobile-layout {
+  width: 100%;
+  }
+}
+
+div.el-picker-panel__body {
+  display: flex;
+  flex-direction: column;
+
+  @include for-mobile-layout {
+    min-width: unset !important;
+  }
+
+  @include for-normal-layout {
+    display: unset;
   }
 }

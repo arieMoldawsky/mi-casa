@@ -93,7 +93,7 @@ export default {
     },
     setIsLoading({ commit }, payload) {
       commit(payload)
-    },
+    }
   },
   mutations: {
     loadHouses(state, { res }) {
