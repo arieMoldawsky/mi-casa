@@ -2,7 +2,7 @@
   <main class="homepage-container">
 
     <section class="hero-container full-grid main-layout">
-      <div class="hero-title f-as-jf column center-grid">
+      <div class="hero-title f-ae-jf column center-grid">
         <span>Mi Casa</span>
         <span class="title-second-row">Su Casa<span class="title-dot">.</span></span>
       </div>
