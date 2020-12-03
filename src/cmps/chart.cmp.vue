@@ -11,7 +11,7 @@ export default {
         {
           label: 'Total Bookings',
           backgroundColor: 'rgb(255, 56, 92)',
-          data: [5, 20, 12, 19, 1, 4, 5, 30, 10, 20, 12, 11]
+          data: [5, 16, 12, 17, 1, 4, 5, 18, 10, 15, 12, 11]
         }
       ]
     })

@@ -34,11 +34,11 @@
     <div class="user-main-container">
       <h1>Hello, {{ user.fullName }}!</h1>
       <div>Joined in June 2010</div>
-      <button v-if="!toggleHouseForm" @click="openHouseForm" class="add-house-btn">Add House</button>
+      <button v-if="!toggleHouseForm" @click="openHouseForm" class="add-house-btn">Add a House</button>
       <house-add v-if="toggleHouseForm" @closeHouseForm="closeHouseForm" @addHouse="addHouse"></house-add>
-      <chart />
-      <h2>Houses you offer: ({{ userHouses.length }})</h2>
-      <ul>
+      <chart v-if="!toggleHouseForm" />
+      <h2 v-if="!toggleHouseForm">Houses you offer: ({{ userHouses.length }})</h2>
+      <ul v-if="!toggleHouseForm">
          <li v-for="(house, idx) in userHouses" :key="house._id">
           <div class="user-houses-container flex">
             <div class="user-houses-txt-container flex">
