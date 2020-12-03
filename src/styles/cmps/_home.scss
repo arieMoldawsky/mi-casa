@@ -45,6 +45,7 @@
 
   .homepage-section {
     margin-bottom: 40px;
+    color: $clr5;
     &.info {
       display: flex;
       @include for-normal-layout {
@@ -59,19 +60,29 @@
         max-width: 100%;
         height: 100%;
         flex-direction: column;
-        @include for-normal-layout {
-          flex-direction: row;
+        .item:not(:last-child) {
+          padding-top: 16px;
         }
         h2 {
           color: $clr5;
-          margin-bottom: 2rem;
+        }
+        @include for-normal-layout {
+          flex-direction: row;
+          .item:not(:last-child) {
+            border-right: 1px solid;
+            padding-right: 9px;
+            margin-right: 9px;
+            h2 {
+              margin-bottom: 2rem;
+            }
+          }
         }
       }
     }
     &.house,
     &.cities {
       height: 370px;
-      
+
       .head {
         font-size: 2rem;
         margin-bottom: 1rem;
@@ -86,23 +97,25 @@
           display: none;
         }
         .item {
-          cursor: pointer;
+          &:not(:last-child) {
+            padding-right: 9px;
+            margin-right: 9px;
+          }
         }
       }
     }
     .item {
       flex: 1 1 0;
       min-width: 300px;
-      cursor: pointer;
       @include for-normal-layout {
         min-width: auto;
-      }
-      &:not(:last-child) {
-        margin-right: 18px;
       }
       img {
         flex: 1 1 0;
         border-radius: 10px;
+      }
+      > * {
+        cursor: pointer;
       }
     }
   }

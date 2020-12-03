@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <section>
+  <main class="house-details">
+    <section class="center-grid">
       <div class="sk-chase" v-if="isLoading">
         <div class="sk-chase-dot"></div>
         <div class="sk-chase-dot"></div>

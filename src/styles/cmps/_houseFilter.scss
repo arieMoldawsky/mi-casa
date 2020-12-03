@@ -13,9 +13,12 @@
       top: $headerHeight * 0.15;
       height: $headerHeight * 0.7;
       position: absolute;
-      max-width: 315px;
       box-shadow: none;
       transition: 150ms ease-in-out;
+      max-width: 300px;
+      @include for-normal-layout {
+        max-width: 350px;
+      }
       .filter-screen {
         display: flex;
       }
@@ -49,17 +52,6 @@
   max-width: 90vw;
   top: $headerHeight;
   height: $headerHeight * 0.8;
-  .filter-screen {
-    display: flex;
-  }
-  @include for-normal-layout {
-    max-width: 800px;
-    top: 150px;
-    height: $headerHeight;
-    .filter-screen {
-      display: none;
-    }
-  }
   border: 1px solid rgba($color: #dadada, $alpha: 1);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
   transition: 150ms ease-in-out;
@@ -76,9 +68,18 @@
     border: none;
     background-color: rgba($color: #000000, $alpha: 0);
   }
+  @include for-normal-layout {
+    max-width: 800px;
+    top: 150px;
+    height: $headerHeight;
+    .filter-screen {
+      display: none;
+    }
+  }
   .filter-screen {
+    display: flex;
     text-align: left;
-    padding: 0 0 0 3rem;
+    padding: 0 0 0 2rem;
     color: $clr5;
     font-size: 0.9rem;
     font-weight: bold;

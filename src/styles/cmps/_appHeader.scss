@@ -1,6 +1,10 @@
 .main-header {
   .inner-container {
     height: 100%;
+    margin: 0 $mobilePadding;
+    @include for-normal-layout {
+      margin: 0;
+    }
   }
   &.anchor-in {
     background-color: rgba($color: $clr1, $alpha: 1);
@@ -28,8 +32,8 @@
   height: $headerHeight;
 
   .head-logo-svg {
-    height: 30px;
-    width: 30px;
+    height: $headerHeight * 0.6;
+    width: $headerHeight * 0.6;
     fill: $clr1;
   }
 

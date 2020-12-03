@@ -3,8 +3,8 @@
 
     <section class="hero-container flex-centered full-grid">
       <div class="hero-title f-as-jsb">
-        <!-- <span>Mi Casa</span>
-        <span class="title-second-row">Su Casa</span> -->
+        <span>Mi Casa</span>
+        <span class="title-second-row">Su Casa</span>
       </div>
     </section>
 
@@ -30,11 +30,11 @@
       </div>
     </section>
 
-    <section class="homepage-section info">
-      <div class="content f-as-jsb">
+    <section class="homepage-section info main-layout">
+      <div class="content f-as-jsb center-grid">
         <div class="item f-as-jsb column">
           <h2 class="f-as-jsb">
-            Filter down to your perfect fit
+              Filter down to your perfect fit
             <svg
               viewBox="0 0 32 32"
               xmlns="http://www.w3.org/2000/svg"

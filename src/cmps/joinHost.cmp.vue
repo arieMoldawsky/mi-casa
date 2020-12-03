@@ -1,6 +1,6 @@
 <template>
-  <section class="join-host grid">
-    <div class="inner-container fill-parent flex a-start j-space-b ">
+  <section class="join-host main-layout">
+    <div class="inner-container fill-parent flex a-start j-space-b center-grid">
       <div
         class="first-panel text-wrapper full-height flex column a-start j-space-b"
       >
