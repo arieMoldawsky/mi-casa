@@ -5,7 +5,7 @@
     ref="mainHeader"
   >
     <div class="inner-container f-ac-jsb center-grid">
-      <router-link to="/" exact class="logo flex">
+      <router-link to="/" exact class="logo f-ac-jsb">
         <svg
           class="head-logo-svg"
           xmlns="http://www.w3.org/2000/svg"
