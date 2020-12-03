@@ -51,7 +51,7 @@
     .second-panel {
       display: flex;
       flex-wrap: nowrap;
-      gap: 20px;
+      // gap: 20px;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       height: 350px;
@@ -60,6 +60,9 @@
       }
       > * {
         flex: 0 0 auto;
+        &:not(:last-child) {
+          margin-inline-end: 20px;
+        }
       }
       @include for-normal-layout {
         display: grid;

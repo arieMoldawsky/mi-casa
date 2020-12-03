@@ -1,10 +1,10 @@
 <template>
   <main class="homepage-container">
 
-    <section class="hero-container flex-centered full-grid">
+    <section class="hero-container main-layout flex-centered full-grid">
       <div class="hero-title f-as-jsb">
         <span>Mi Casa</span>
-        <span class="title-second-row">Su Casa</span>
+        <span class="title-second-row">Su Casa<span class="title-dot">.</span></span>
       </div>
     </section>
 
