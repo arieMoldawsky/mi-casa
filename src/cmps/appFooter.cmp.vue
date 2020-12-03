@@ -1,5 +1,5 @@
 <template>
-  <div class="main-footer flex-centered full-grid">
+  <div class="main-footer main-layout flex-centered full-grid">
     <div class="footer-container f-as-jsb">
       <div class="footer-lang flex">
         English (US) <span class="footer-money flex">USD $</span>
