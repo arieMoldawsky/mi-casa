@@ -83,12 +83,22 @@
       <button v-else native-type="submit" @click.prevent="addBooking">
         Reserve
       </button>
+      <ShareNetwork v-if="openTotal" class="facebook-share"
+        network="facebook"
+        url="https://news.vuejs.org/issues/180"
+        title="I've just booked an apartment with MiCasa!"
+        description="I'm going to sleep in Tel Aviv next week."
+        quote="I've just booked an apartment with MiCasa!"
+        hashtags="MiCasa"
+      >
+        Share on Facebook
+      </ShareNetwork>
       <div class="dates-taken-msg" v-if="!isAvailable" style="color: red">
         Dates are unavailable for check-in.
       </div>
     </el-form>
     <div class="total-section" v-if="openTotal">
-      You won't be charged yet
+      <div class="total-msg">You won't be charged yet</div>
       <ul class="flex">
         <li>
           <div class="total-first-col">

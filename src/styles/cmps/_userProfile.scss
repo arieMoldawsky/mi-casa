@@ -4,12 +4,13 @@
   justify-content: center;
   gap: 70px;
   flex-direction: column;
+  align-items: unset;
   @include for-normal-layout {
     flex-direction: row;
     // padding: unset;
 }
   h2 {
-    margin-top: 70px;
+    margin-top: 30px;
   }
 
   .user-card {
@@ -18,6 +19,8 @@
     width: 308px;
     height: 410px;
     padding: 20px 20px 40px;
+    position: sticky;
+    top: 80px;
 
     img {
       height: 128px;
@@ -60,8 +63,8 @@
 
   #bar-chart {
     margin-top: 20px;
-    width: 600px !important;
-    height: 400px !important;
+    // width: 600px !important;
+    // height: 400px !important;
   }
     .add-house-btn {
       margin-top: 20px;

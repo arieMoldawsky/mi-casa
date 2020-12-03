@@ -41,6 +41,9 @@
 
   .booking-modal-container {
     flex-direction: column;
+    border-bottom: unset;
+    margin-bottom: 0;
+    padding-bottom: 0;
 
     .guests-input-container {
       display: flex;
@@ -61,6 +64,7 @@
       padding: 15px 45px;
       margin-right: auto;
       margin-left: auto;
+      margin-bottom: 10px;
       color: $clr1;
       background-color: $clr2;
       border-radius: 8px;
@@ -76,6 +80,17 @@
         border-radius: 8px;
         border-color: $clr2;
       }
+    }
+
+    .facebook-share {
+      border: 1px solid gray;
+      padding: 12px 20px;
+      margin-right: auto;
+      margin-left: auto;
+      color: $clr1;
+      background-color: #135FC2;
+      border-radius: 8px;
+      // transition: 0.3s;
     }
 
     div:last-of-type {
@@ -114,6 +129,11 @@
   }
 
   .total-section {
+    .total-msg {
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
     .total-last-row {
       padding-top: 10px;
       justify-content: space-between;
