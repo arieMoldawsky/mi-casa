@@ -1,6 +1,6 @@
 <template>
   <el-form ref="form" :model="house" label-width="120px">
-    <button @click.prevent="closeForm">X</button>
+    <button @click.prevent="closeForm" style="border-radius: 15%; margin-top:20px">X</button>
     <el-form-item label="House name">
       <el-input v-model="house.name"></el-input>
     </el-form-item>
