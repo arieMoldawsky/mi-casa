@@ -93,20 +93,20 @@ export default {
     async unreadBooking(context, { user }) {
       try {
         const resUser = await userService.unreadBooking(user);
-        resUser.unreadBookings++;
+        // resUser.unreadBookings++;
         context.commit({ type: 'setUser', user: resUser })
       } catch (err) {
         console.error('Could not update unreads: ', err)
       }
     },
-    // async resetUnreadBookings(context, { user }) {
-    //   try {
-    //     const resUser = await userService.update(user)
-    //     context.commit({ type: 'setUser', user: resUser })
-    //   } catch (err) {
-    //     console.error('Could not update user: ', err)
-    //   }
-    // },
+    async resetUnreadBookings(context, { user }) {
+      try {
+        const resUser = await userService.resetUnreadBookings(user)
+        context.commit({ type: 'setUser', user: resUser })
+      } catch (err) {
+        console.error('Could not update user: ', err)
+      }
+    },
     async loadUserData(context, { hostId }) {
       try {
         const { houses } = await houseService.query({ hostId })

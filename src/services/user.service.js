@@ -8,7 +8,8 @@ export default {
     getById,
     remove,
     update,
-    unreadBooking
+    unreadBooking,
+    resetUnreadBookings
 }
 function getUsers() {
     return httpService.get('user')
@@ -38,10 +39,15 @@ async function logout() {
 }
 
 async function unreadBooking(user) {
-    user.unreadBookings++;
-    _handleLogin(user);
-    return httpService.put(`user/${user._id}`, user)
+    const updatedUser = await httpService.put(`user/${user._id}`, user)
+    return _handleLogin(updatedUser);
 }
+
+async function resetUnreadBookings(user) {
+    const updatedUser = await httpService.put(`user/reset/${user._id}`, user)
+    return _handleLogin(updatedUser);
+}
+
 
 function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))
