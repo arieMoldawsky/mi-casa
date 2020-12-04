@@ -1,11 +1,15 @@
 <template>
   <el-form
+    v-if="filterBy"
     @submit.native.prevent="updateFilterAndRoute"
     class="house-filter-container f-as-jsb pointer"
     size="medium"
     :model="filterBy"
   >
-    <section class="filter-screen f-as-jc column fill-parent" @click.stop="focusFilter">
+    <section
+      class="filter-screen f-as-jc column fill-parent"
+      @click.stop="focusFilter"
+    >
       <span>
         Start Your Search
       </span>
@@ -62,17 +66,17 @@
             {{ guestCount }}
           </span>
         </div>
-        <label class="flex a-center j-space-b">
+        <label class="f-ac-jsb">
           Adults
           <el-input-number v-model="filterBy.adults" :min="1" :max="16" />
         </label>
         <br />
-        <label class="flex a-center j-space-b">
+        <label class="f-ac-jsb">
           Kids
           <el-input-number v-model="filterBy.kids" :min="0" :max="16" />
         </label>
         <br />
-        <label class="flex a-center j-space-b">
+        <label class="f-ac-jsb">
           Infants
           <el-input-number v-model="filterBy.infants" :min="0" :max="16" />
         </label>
@@ -208,16 +212,25 @@ export default {
     loadHouses() {
       this.$store.dispatch({ type: 'loadHouses' })
     },
-  },
-  created() {
-    this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
-    if (this.$route.query.txt) {
-      this.filterBy.txt = utilService.capitalize(this.$route.query.txt)
+    onUpdate() {
+      this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
+      this.$parent.$el.classList.remove('filter-out')
+      this.$route.path === '/'
+        ? this.$parent.$el.classList.remove('anchor-in')
+        : this.$parent.$el.classList.add('anchor-in')
+        console.log(this.$route.query.txt);
+      this.filterBy.txt = utilService.capitalize(
+        this.$route.query.txt ? this.$route.query.txt : this.filterBy.txt
+      )
       this.updateFilter()
-    } else {
-      utilService.capitalize(this.filterBy.txt)
-    }
-    this.loadHouses()
+    },
+  },
+  watch: {
+    $route: {
+      handler() {
+        this.onUpdate()
+      },
+    },
   },
   mounted() {
     if (document.querySelector('.header-scroll-pixel')) {
@@ -227,12 +240,11 @@ export default {
           : this.$parent.$el.classList.add('anchor-in')
       })
       observer.observe(document.querySelector('.header-scroll-pixel'))
-    } else {
-      this.$parent.$el.classList.add('anchor-in')
     }
     document.addEventListener('scroll', ev => {
       this.$parent.$el.classList.remove('filter-out')
     })
+    this.onUpdate()
   },
 }
 </script>

@@ -42,15 +42,32 @@
   }
   &.filter-out {
     .house-filter-container {
-      height: $headerHeight;
-      top: $headerHeight;
-      max-width: 800px;
-      .filter-screen {
-        display: none;
+      height: 100vh;
+      max-width: 100vw;
+      border-radius: 0;
+      top: 0;
+      flex-direction: column;
+      margin: 0;
+      @include for-normal-layout {
+        margin-right: auto;
+        margin-left: auto;
+        flex-direction: row;
+        border-radius: 200px;
+        top: $headerHeight;
+        max-width: 800px;
+        height: $headerHeight;
       }
       .form-item.field {
-        width: 33%;
+        flex-direction: row;
+        width: 100%;
         opacity: 1;
+        @include for-normal-layout {
+          flex-direction: column;
+          width: 33%;
+        }
+      }
+      .filter-screen {
+        display: none;
       }
       .submit button {
         width: $headerHeight * 0.75;
@@ -61,9 +78,6 @@
 }
 
 .house-filter-container {
-  max-width: 90vw;
-  top: $headerHeight;
-  height: $headerHeight * 0.8;
   border: 1px solid rgba($color: #dadada, $alpha: 1);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
   transition: 150ms ease-in-out;
@@ -73,17 +87,20 @@
   right: 0;
   background-color: $clr1;
   border-radius: 200px;
+  max-width: 90vw;
+  top: $headerHeight;
+  height: $headerHeight * 0.8;
   margin-right: auto;
   margin-left: auto;
-  * {
-    outline: none;
-    border: none;
-    // background-color: rgba($color: #000000, $alpha: 0);
-  }
   @include for-normal-layout {
     max-width: 800px;
     top: 150px;
     height: $headerHeight;
+  }
+  * {
+    outline: none;
+    border: none;
+    // background-color: rgba($color: #000000, $alpha: 0);
   }
   .filter-screen {
     display: flex;
@@ -145,7 +162,7 @@
       }
     }
     &.submit {
-      padding:  0 8px;
+      padding: 0 8px;
       z-index: 102;
       button {
         height: 100%;
