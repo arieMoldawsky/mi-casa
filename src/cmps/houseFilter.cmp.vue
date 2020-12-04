@@ -146,17 +146,20 @@ export default {
         this.$router.push({ path: `/house`, query: { txt: '' } })
     },
     updateFilter() {
-      this.$route.query.txt = this.filterBy.txt = utilService.capitalize(this.filterBy.txt)
+      this.$route.query.txt = this.filterBy.txt = utilService.capitalize(
+        this.filterBy.txt
+      )
       this.$store.dispatch({
         type: 'updateFilter',
         filterBy: this.filterBy,
       })
-      this.$store.dispatch({ type: 'loadHouses' })
       this.$parent.$el.classList.remove('filter-out')
     },
     onUpdate() {
       this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
       this.filterBy.txt = this.$route.query.txt
+        ? this.$route.query.txt
+        : this.filterBy.txt
       this.$parent.$el.classList.remove('filter-out')
       this.$route.path === '/'
         ? this.$parent.$el.classList.remove('anchor-in')
@@ -165,6 +168,11 @@ export default {
     },
   },
   watch: {
+    getFilterBy: {
+      handler() {
+        this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
+      },
+    },
     $route: {
       handler() {
         this.onUpdate()
