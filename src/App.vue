@@ -22,9 +22,18 @@ export default {
     appFooter,
     modal,
   },
+  computed: {
+    user() {
+      return this.$store.getters.loggedinUser;
+    }
+  },
   created() {
     socketService.setup()
     socketService.on('userMsg', msg => {
+      this.$store.dispatch({
+        type: "unreadBooking",
+        user: this.user
+      })
       this.$notify({
         showClose: true,
         title: msg.title,

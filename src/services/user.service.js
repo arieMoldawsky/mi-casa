@@ -7,7 +7,9 @@ export default {
     getUsers,
     getById,
     remove,
-    update
+    update,
+    unreadBooking,
+    resetUnreadBookings
 }
 function getUsers() {
     return httpService.get('user')
@@ -34,6 +36,16 @@ async function signup(userCred) {
 async function logout() {
     await httpService.post('auth/logout');
     sessionStorage.clear();
+}
+
+async function unreadBooking(user) {
+    const updatedUser = await httpService.put(`user/${user._id}`, user)
+    return _handleLogin(updatedUser);
+}
+
+async function resetUnreadBookings(user) {
+    const updatedUser = await httpService.put(`user/reset/${user._id}`, user)
+    return _handleLogin(updatedUser);
 }
 
 

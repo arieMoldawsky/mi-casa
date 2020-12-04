@@ -37,22 +37,24 @@
       <button v-if="!toggleHouseForm" @click="openHouseForm" class="add-house-btn">Add a House</button>
       <house-add v-if="toggleHouseForm" @closeHouseForm="closeHouseForm" @addHouse="addHouse"></house-add>
       <chart v-if="!toggleHouseForm" />
-      <h2 v-if="!toggleHouseForm">Houses you offer: ({{ userHouses.length }})</h2>
+      <h2 v-if="!toggleHouseForm">Houses you offer: {{ userHouses.length }}</h2>
       <ul v-if="!toggleHouseForm">
          <li v-for="(house, idx) in userHouses" :key="house._id">
           <div class="user-houses-container flex">
             <div class="user-houses-txt-container flex">
+              <div class="user-houses-txt flex">
               <h3 class="user-houses-txt flex"><span class="house-txt-first">
                 Name:</span> <span class="house-txt">{{ house.name }} </span>
               <span class="house-txt-second">
                 Type:</span><span class="house-txt"> {{ house.type }}</span>
               </h3>
+              </div>
               <img :src="house.imgs[0]" alt="" />
               <button class="delete-house-btn"><i class="far fa-trash-alt"></i></button>
           </div>
           <div class="user-houses-booking">
             <h3>House Bookings: {{userBookings[idx].length}}</h3>
-            <li v-for="userBooking in userBookings[idx]" :key="userBooking._id">
+              <div class="booking-table">
              <table class="booking-info" style="width:100%">
                   <tr>
                     <th>Guest Name:</th>
@@ -61,15 +63,15 @@
                     <th>Check Out:</th>
                     <th>Contact:</th>
                   </tr>
-                  <tr>
+                  <tr v-for="userBooking in userBookings[idx]" :key="userBooking._id">
                     <td>{{userBooking.guestUser.fullName}}</td>
-                    <td>{{userBooking.guestsNum}}</td>
+                    <td>{{userBooking.adults}}</td>
                     <td>{{convertTimeStamp (userBooking.checkIn) }}</td>
                     <td>{{convertTimeStamp (userBooking.checkOut)}}</td>
                     <td class="contact flex"><i class="far fa-envelope flex"></i><i class="fas fa-phone flex"></i></td>
                   </tr>
               </table>
-             </li>
+              </div>
              </div> 
              </div>
         </li>
@@ -138,3 +140,24 @@ export default {
   },
 };
 </script>
+<style scoped>
+ /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:rgb(255, 56, 92); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+</style>

@@ -33,9 +33,9 @@
           <router-link :to="{ path: `/house`, query: { txt: '' } }" exact class="houses-navbar"
             >Places to stay
           </router-link>
-          <router-link to="/profile" exact class="host-navbar"
+          <a @click="toProfile" class="host-navbar" style="cursor: pointer"
             >Become a host
-          </router-link>
+          </a>
           <section>
             <el-row class="block-col-2">
               <el-col :span="12">
@@ -46,6 +46,7 @@
                 >
                   <div class="el-dropdown-link-container flex">
                     <div class="el-dropdown-link flex">
+                      <div class="notifications" v-if="unreadBookings">{{unreadBookings}}</div>
                       <div :class="rotateBurger" class="hamburger flex">
                         <svg
                           viewBox="0 0 32 32"
@@ -144,7 +145,11 @@ export default {
       this.$store.dispatch({ type: 'logout' })
     },
     toProfile() {
-      this.$router.push('profile')
+      this.$store.dispatch({
+        type: 'resetUnreadBookings',
+        user: this.isLogedIn
+      })
+      this.$router.push('/profile')
     },
     onDropdown() {
       this.isDropdown = !this.isDropdown
@@ -160,6 +165,10 @@ export default {
     rotateBurger() {
       return { 'hamburger-logo-trans': this.isDropdown }
     },
+    unreadBookings() {
+      if (this.isLogedIn) return this.isLogedIn.unreadBookings;
+      else return 0;
+    }
   },
 }
 </script>
