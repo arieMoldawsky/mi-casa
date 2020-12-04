@@ -122,7 +122,7 @@
 
     .el-dropdown-link {
       color: $clr5;
-      height: 42px !important;
+      height: $headerHeight * 0.7;
       padding: 9px;
       cursor: pointer;
       background-color: $clr1;
@@ -130,9 +130,8 @@
       font-family: Avenir, Helvetica, Arial, sans-serif;
       font-size: 1.2rem !important;
       width: max-content;
-      margin-top: 2px;
-      border: 1px solid rgba(190, 190, 190, 0.836);
-      border-radius: 21px;
+      border: 1px solid rgba($color: #dadada, $alpha: 1);
+      border-radius: 100px;
       align-items: center;
 
       svg {

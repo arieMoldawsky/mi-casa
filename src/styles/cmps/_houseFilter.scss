@@ -15,12 +15,16 @@
       position: absolute;
       box-shadow: none;
       transition: 150ms ease-in-out;
-      max-width: 280px;
+      max-width: 200px;
       @include for-normal-layout {
         max-width: 350px;
       }
       .filter-screen {
         display: flex;
+      }
+      .form-item.field {
+        width: 0;
+        opacity: 0;
       }
       .submit button {
         transition: 150ms ease-in-out;
@@ -43,6 +47,10 @@
       max-width: 800px;
       .filter-screen {
         display: none;
+      }
+      .form-item.field {
+        width: 33%;
+        opacity: 1;
       }
       .submit button {
         width: $headerHeight * 0.75;
@@ -70,15 +78,12 @@
   * {
     outline: none;
     border: none;
-    background-color: rgba($color: #000000, $alpha: 0);
+    // background-color: rgba($color: #000000, $alpha: 0);
   }
   @include for-normal-layout {
     max-width: 800px;
     top: 150px;
     height: $headerHeight;
-    .filter-screen {
-      display: none;
-    }
   }
   .filter-screen {
     display: flex;
@@ -140,13 +145,12 @@
       }
     }
     &.submit {
-      padding: 10px 10px;
-      width: fit-content;
+      padding:  0 8px;
       z-index: 102;
       button {
+        height: 100%;
         color: white;
         background-color: $clr2;
-        padding: 5px;
         border-radius: 100rem;
         width: $headerHeight * 0.6;
         height: $headerHeight * 0.6;

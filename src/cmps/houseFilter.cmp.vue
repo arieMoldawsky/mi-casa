@@ -1,7 +1,7 @@
 <template>
   <el-form
     @submit.native.prevent="updateFilterAndRoute"
-    class="house-filter-container flex-centered pointer"
+    class="house-filter-container f-as-jsb pointer"
     size="medium"
     :model="filterBy"
   >
@@ -78,7 +78,7 @@
         </label>
       </el-popover>
     </div>
-    <div class="form-item submit flex a-start">
+    <div class="form-item submit flex-centered">
       <button native-type="submit" class="flex-centered">
         <svg
           viewBox="0 0 32 32"
