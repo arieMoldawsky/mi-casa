@@ -5,6 +5,7 @@
       :model="review"
       size="medium"
     >
+      <h2>Add a review</h2>
       <el-input
         type="textarea"
         :autosize="{ minRows: 8, maxRows: 10 }"
@@ -13,11 +14,11 @@
         v-model="review.txt"
       />
       <el-rate v-model="review.rating"></el-rate>
-      <div>
+      <div class="add-review-btns">
+        <slot />
         <el-button native-type="submit" @click="addReview">
           Add Review
         </el-button>
-        <slot />
       </div>
     </el-form>
   <!-- </section> -->

@@ -144,7 +144,7 @@ export default {
       this.$store.dispatch({ type: 'logout' })
     },
     toProfile() {
-      this.$router.push('profile')
+      this.$router.push('/profile')
     },
     onDropdown() {
       this.isDropdown = !this.isDropdown
