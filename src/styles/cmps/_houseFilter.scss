@@ -15,7 +15,7 @@
       position: absolute;
       box-shadow: none;
       transition: 150ms ease-in-out;
-      max-width: 200px;
+      max-width: 180px;
       @include for-normal-layout {
         max-width: 350px;
       }
@@ -104,11 +104,11 @@
   }
   .filter-screen {
     display: flex;
+    padding: 0 0 0 1rem;
     @include for-normal-layout {
       display: none;
+      padding: 0 0 0 2rem;
     }
-    text-align: left;
-    padding: 0 0 0 2rem;
     color: $clr5;
     font-size: 0.9rem;
     font-weight: bold;

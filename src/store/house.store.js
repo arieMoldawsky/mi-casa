@@ -14,6 +14,11 @@ export default {
       adults: null,
       kids: null,
       infants: null,
+      minPrice: null,
+      maxPrice: 0,
+      maxPrice: 750,
+      type: [],
+      amenities: [],
     },
     houses: [],
     house: null,
@@ -85,11 +90,12 @@ export default {
 
     addReview(context, payload) {
       context.commit(payload)
-      console.log(payload.review);
+      console.log(payload.review)
       context.dispatch({ type: 'updateHouse', house: context.state.house })
     },
-    updateFilter({ commit }, payload) {
-      commit(payload)
+    updateFilter(context, payload) {
+      context.commit(payload)
+      context.dispatch({ type: 'loadHouses' })
     },
     setIsLoading({ commit }, payload) {
       commit(payload)
@@ -114,6 +120,6 @@ export default {
     },
     addHouse(state, { house }) {
       state.houses.push(house)
-    }
+    },
   },
 }

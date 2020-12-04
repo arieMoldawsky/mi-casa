@@ -63,7 +63,7 @@
       >
         <div class="fill-parent flex a-start column" slot="reference">
           <span class="flex a-center fill-parent">
-            {{ guestCount }}
+            {{ filterBy.adults + filterBy.kids + filterBy.infants }} Guests
           </span>
         </div>
         <label class="f-ac-jsb">
@@ -100,53 +100,6 @@
         </svg>
       </button>
     </div>
-
-    <!-- <pre>{{ filterBy }}</pre> -->
-    <!-- <label>
-      Houses Per Page
-      <el-select
-        size="small"
-        :value="filterBy.limit"
-        @input="updateLimit"
-      >
-        <el-option
-          v-for="item in filterOptions.page"
-          :key="item"
-          :value="item"
-        />
-      </el-select>
-    </label> -->
-
-    <!-- <el-button @click="updatePage(filterBy.page - 1)">previous Page</el-button>
-    <el-button @click="updatePage(filterBy.page + 1)">Next Page</el-button> -->
-
-    <!-- <el-select size="small" v-model="filterBy.category">
-      <el-option
-        v-for="item in filterOptions.category"
-        :key="item"
-        :value="item"
-      />
-    </el-select> -->
-
-    <!-- <label>
-      Sort By
-      <el-select size="small" v-model="filterBy.sortBy">
-        <el-option
-          v-for="item in filterOptions.sortBy"
-          :key="item"
-          :value="item"
-        />
-      </el-select>
-    </label> -->
-
-    <!-- <el-checkbox
-      size="small"
-      :value="filterBy.inStock"
-      @change="filterBy.inStock = !filterBy.inStock"
-      label="In Stock"
-      border
-    /> -->
-    <!-- <span>ssss</span> -->
   </el-form>
 </template>
 
@@ -169,17 +122,6 @@ export default {
     housesLength() {
       return this.$store.getters.getHousesLength
     },
-    guestCount() {
-      var str = `${this.filterBy.adults} Adult`
-      str += this.filterBy.adults > 1 ? 's' : ''
-      str += this.filterBy.kids || this.filterBy.infants ? ', ' : ''
-      str += this.filterBy.kids ? `${this.filterBy.kids} Kid` : ''
-      str += this.filterBy.kids > 1 ? 's' : ''
-      str += this.filterBy.infants ? ', ' : ''
-      str += this.filterBy.infants ? `${this.filterBy.infants} Infant` : ''
-      str += this.filterBy.infants > 1 ? 's' : ''
-      return str
-    },
     datesToPicker() {
       return this.filterBy.checkIn || this.filterBy.checkOut
         ? [this.filterBy.checkIn, this.filterBy.checkOut]
@@ -200,32 +142,37 @@ export default {
     },
     updateFilterAndRoute() {
       this.updateFilter()
-      if (this.$route.path !== '/house') this.$router.push({ path: `/house` })
+      if (this.$route.path !== '/house')
+        this.$router.push({ path: `/house`, query: { txt: '' } })
     },
     updateFilter() {
+      this.$route.query.txt = this.filterBy.txt = utilService.capitalize(
+        this.filterBy.txt
+      )
       this.$store.dispatch({
         type: 'updateFilter',
         filterBy: this.filterBy,
       })
-      this.loadHouses()
-    },
-    loadHouses() {
-      this.$store.dispatch({ type: 'loadHouses' })
+      this.$parent.$el.classList.remove('filter-out')
     },
     onUpdate() {
       this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
+      this.filterBy.txt = this.$route.query.txt
+        ? this.$route.query.txt
+        : this.filterBy.txt
       this.$parent.$el.classList.remove('filter-out')
       this.$route.path === '/'
         ? this.$parent.$el.classList.remove('anchor-in')
         : this.$parent.$el.classList.add('anchor-in')
-        console.log(this.$route.query.txt);
-      this.filterBy.txt = utilService.capitalize(
-        this.$route.query.txt ? this.$route.query.txt : this.filterBy.txt
-      )
       this.updateFilter()
     },
   },
   watch: {
+    getFilterBy: {
+      handler() {
+        this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
+      },
+    },
     $route: {
       handler() {
         this.onUpdate()

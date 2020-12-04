@@ -161,8 +161,8 @@ export default {
   },
   methods: {
     houseList(val) {
-      const filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
-      filterBy.txt = val
+      // const filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
+      // filterBy.txt = val
       // this.$store.dispatch({ type: 'updateFilter', filterBy })
       this.$router.push({ path: `/house`, query: { txt: val } })
     },

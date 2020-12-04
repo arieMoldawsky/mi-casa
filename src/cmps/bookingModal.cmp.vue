@@ -38,6 +38,7 @@
         <div class="form-item field flex a-start fill-parent pointer">
           <el-popover
             class="fill-parent"
+            popper-class="booking-popper"
             placement="bottom"
             width="300"
             v-model="isPopVisible"

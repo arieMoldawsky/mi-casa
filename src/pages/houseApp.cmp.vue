@@ -4,6 +4,7 @@
       <div class="head-title flex">
         <small class="head-title-visits">300+ stays</small>
         <h1 class="head-title-txt">Entire homes</h1>
+        <sub-filter-inline />
       </div>
       <div class="sk-chase" v-if="isLoading">
         <div class="sk-chase-dot"></div>
@@ -32,6 +33,7 @@
 import houseList from '@/cmps/houseList.cmp.vue'
 import appHeader from '@/cmps/appHeader.cmp.vue'
 import houseFilter from '@/cmps/houseFilter.cmp.vue'
+import subFilterInline from '@/cmps/subFilterInline.cmp.vue'
 
 export default {
   name: 'houseApp',
@@ -55,6 +57,7 @@ export default {
     houseList,
     houseFilter,
     appHeader,
+    subFilterInline,
   },
 }
 </script>
