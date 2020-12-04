@@ -65,7 +65,7 @@
                   </tr>
                   <tr v-for="userBooking in userBookings[idx]" :key="userBooking._id">
                     <td>{{userBooking.guestUser.fullName}}</td>
-                    <td>{{userBooking.guestsNum}}</td>
+                    <td>{{userBooking.adults}}</td>
                     <td>{{convertTimeStamp (userBooking.checkIn) }}</td>
                     <td>{{convertTimeStamp (userBooking.checkOut)}}</td>
                     <td class="contact flex"><i class="far fa-envelope flex"></i><i class="fas fa-phone flex"></i></td>
