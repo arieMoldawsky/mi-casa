@@ -7,7 +7,8 @@ export default {
     getUsers,
     getById,
     remove,
-    update
+    update,
+    unreadBooking
 }
 function getUsers() {
     return httpService.get('user')
@@ -36,6 +37,11 @@ async function logout() {
     sessionStorage.clear();
 }
 
+async function unreadBooking(user) {
+    user.unreadBookings++;
+    _handleLogin(user);
+    return httpService.put(`user/${user._id}`, user)
+}
 
 function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))

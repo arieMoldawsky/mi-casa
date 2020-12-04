@@ -33,6 +33,9 @@ export default {
     login(state, { user }) {
       state.users.push(user)
     },
+    // unreadBooking(state) {
+    //   state.unreadBookings++
+    // }
   },
   actions: {
     async login(context, { userCred }) {
@@ -87,6 +90,23 @@ export default {
         console.error('Could not update user: ', err)
       }
     },
+    async unreadBooking(context, { user }) {
+      try {
+        const resUser = await userService.unreadBooking(user);
+        resUser.unreadBookings++;
+        context.commit({ type: 'setUser', user: resUser })
+      } catch (err) {
+        console.error('Could not update unreads: ', err)
+      }
+    },
+    // async resetUnreadBookings(context, { user }) {
+    //   try {
+    //     const resUser = await userService.update(user)
+    //     context.commit({ type: 'setUser', user: resUser })
+    //   } catch (err) {
+    //     console.error('Could not update user: ', err)
+    //   }
+    // },
     async loadUserData(context, { hostId }) {
       try {
         const { houses } = await houseService.query({ hostId })

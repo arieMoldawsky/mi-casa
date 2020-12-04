@@ -52,6 +52,23 @@
     margin-left: 16px;
   }
 
+  .notifications {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: red;
+    padding: 3px;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: snow;
+    border: 1px solid black;
+    font-size: 0.7rem;
+  }
+
   .hamburger {
     display: block;
     fill: none;

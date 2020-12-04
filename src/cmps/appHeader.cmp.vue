@@ -46,6 +46,7 @@
                 >
                   <div class="el-dropdown-link-container flex">
                     <div class="el-dropdown-link flex">
+                      <div class="notifications" v-if="isLogedIn.unreadBookings">{{isLogedIn.unreadBookings}}</div>
                       <div :class="rotateBurger" class="hamburger flex">
                         <svg
                           viewBox="0 0 32 32"
