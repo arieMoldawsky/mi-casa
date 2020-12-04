@@ -30,7 +30,7 @@
 
       <nav class="navbar-container flex">
         <div class="nav-routes flex">
-          <router-link to="/house" exact class="houses-navbar"
+          <router-link :to="{ path: `/house`, query: { txt: null } }" exact class="houses-navbar"
             >Places to stay
           </router-link>
           <router-link to="/profile" exact class="host-navbar"
