@@ -1,26 +1,36 @@
 .sub-filter {
-  height: 2rem;
-  margin-top: 20px;
-  color: $clr5;
-  > * {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px;
-    margin-right: 10px;
-    border-radius: 100px;
-    border: 1px solid rgba($color: #dadada, $alpha: 1);
-    transition: 100ms;
-    &.filter-active {
-      box-shadow: 0 0 0 1px $clr5;
+  .sub-filter-container {
+    height: 2rem;
+    margin-top: 20px;
+    color: $clr3;
+    > * {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      margin-right: 10px;
+      border-radius: 100px;
+      border: 1px solid rgba($color: #dadada, $alpha: 1);
+      transition: 100ms;
+      &:focus {
+        outline: 0px;
+      }
+      &.filter-active {
+        box-shadow: 0 0 0 1px $clr5;
+      }
     }
   }
 }
 
 .filter-popper {
   cursor: pointer;
-  width: 100vw;
+  @include for-normal-layout {
+    max-width: 310px;
+  }
+  * {
+    font-family: inherit;
+  }
   .el-slider__bar {
     background-color: $clr3;
   }
@@ -29,20 +39,46 @@
   }
   .filter-input {
     width: 50%;
+    span::before {
+      content: "$";
+    }
   }
-  @include for-normal-layout {
+  .el-checkbox__input.is-checked .el-checkbox__inner,
+  .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: $clr3 !important;
+    border-color: $clr3 !important;
+  }
+
+  .el-checkbox__input.is-checked + .el-checkbox__label {
+    color: $clr3 !important;
+  }
+  .el-checkbox__inner {
+    border-color: $clr3 !important;
+  }
+  .sub-filter-btns {
+    align-self: flex-end;
   }
 }
 
-.el-checkbox__input.is-checked .el-checkbox__inner,
-.el-checkbox__input.is-indeterminate .el-checkbox__inner {
-  background-color: $clr3 !important;
-  border-color: $clr3 !important;
-}
-
-.el-checkbox__input.is-checked + .el-checkbox__label {
-  color: $clr3 !important;
-}
-.el-checkbox__inner {
-  border-color: $clr3 !important;
+.sub-filter-btns {
+  padding: 0 20px 0 0;
+  margin-top: 1rem;
+  .clear {
+    color: $clr3;
+    background-color: $clr1;
+    &:hover {
+      color: $clr3;
+      background-color: $clr1;
+      border-color: $clr3;
+    }
+  }
+  .update {
+    color: $clr1;
+    background-color: $clr3;
+    &:hover {
+      color: $clr3;
+      background-color: $clr1;
+      border-color: $clr3;
+    }
+  }
 }

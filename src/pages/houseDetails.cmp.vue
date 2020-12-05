@@ -145,8 +145,14 @@ export default {
       })
     },
     async addBooking(booking) {
-      const host = this.house.host
-      booking.house = { _id: this.house._id, name: this.house.name }
+      const user = this.$store.getters.loggedinUser;
+      booking.guestUser = {
+        _id: user._id,
+        fullName: user.fullName,
+        imgUrl: user.imgUrl
+      };
+      booking.house = { _id: this.house._id, name: this.house.name };
+      const host = this.house.host;
       const addedBooking = await this.$store.dispatch({
         type: 'addBooking',
         booking,
