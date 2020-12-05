@@ -144,13 +144,15 @@ export default {
       })
     },
     async addBooking(booking) {
+      const host = this.house.host;
       booking.house = { _id: this.house._id, name: this.house.name }
       const addedBooking = await this.$store.dispatch({
         type: 'addBooking',
         booking,
+        host
       })
       socketService.emit('onBookingAdded', {
-        hostId: this.house.host._id,
+        hostId: host._id,
         booking: addedBooking,
       })
       this.$notify({

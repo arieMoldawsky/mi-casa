@@ -92,9 +92,8 @@ export default {
     },
     async unreadBooking(context, { user }) {
       try {
-        const resUser = await userService.unreadBooking(user);
-        // resUser.unreadBookings++;
-        context.commit({ type: 'setUser', user: resUser })
+        const updatedUser = await userService.getById(user._id);
+        context.commit({ type: 'setUser', user: updatedUser })
       } catch (err) {
         console.error('Could not update unreads: ', err)
       }

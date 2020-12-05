@@ -1,4 +1,5 @@
 import { bookingService } from '@/services/booking.service.js'
+import userService from '@/services/user.service.js'
 
 // import { imgUploadService } from '@/services/img.upload.service.js'
 // import { eventBus, SHOW_MSG } from '@/services/eventBus.service.js'
@@ -29,14 +30,11 @@ export default {
         console.log('ERROR: could not load booking: ', bookingId)
       }
     },
-    async addBooking(context, { booking }) {
+    async addBooking(context, { booking, host }) {
       try {
         const bookingRes = await bookingService.add(booking)
+        userService.unreadBooking(host);
         return bookingRes
-        // eventBus.$emit(SHOW_MSG, {
-        //   txt: `${bookingRes._id} Added Succefully`,
-        //   type: 'success',
-        // })
       } catch (error) {
         console.log(error)
       }
@@ -45,10 +43,6 @@ export default {
       try {
         const bookingRes = await bookingService.check(booking)
         return bookingRes
-        // eventBus.$emit(SHOW_MSG, {
-        //   txt: `${bookingRes._id} Added Succefully`,
-        //   type: 'success',
-        // })
       } catch (error) {
         console.log(error)
       }
@@ -58,8 +52,5 @@ export default {
     loadBookings(state, { res }) {
       state.bookings = res
     },
-    // loadBooking(state, { booking }) {
-    //   state.booking = booking
-    // },
   },
 }
