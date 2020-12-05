@@ -1,5 +1,6 @@
 .house-app {
   padding: 0 $mobilePadding;
+  margin-bottom: 30px;
   @include for-normal-layout {
     padding: initial;
   }
