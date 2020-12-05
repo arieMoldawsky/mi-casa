@@ -30,7 +30,7 @@
         <p>
           Show others you’re really you with the identity verification badge.
         </p>
-        <button>Get the badage</button>
+        <button>Get the badge</button>
       </div>
     </div>
     <div class="user-main-container">
