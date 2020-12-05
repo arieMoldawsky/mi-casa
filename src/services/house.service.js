@@ -16,8 +16,8 @@ export const houseService = {
 
 function query(query) {
   var queryURL = `?`
-  for (const key in query) {
-    if (query[key])  queryURL += `${key}=${query[key]}&`
+  for (const [key, value] of Object.entries(query)) {
+    if (value) queryURL += `${key}=${value}&`
   }
   return httpService.get(`house/${queryURL}`)
 }

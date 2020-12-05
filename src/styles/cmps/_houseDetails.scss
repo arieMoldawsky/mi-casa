@@ -1,12 +1,10 @@
 .house-details-section {
-    margin-top: 80px;
     margin-right: auto;
     margin-left: auto;
     text-align: left;
     padding: 0 $mobilePadding;
 
     @include for-normal-layout {
-        margin-top: 90px;
         padding: unset;
     }
 

@@ -1,16 +1,8 @@
 .house-app {
-  margin-top: 70px;
   padding: 0 $mobilePadding;
-
-  @include for-narrow-layout {
-    margin-top: 90px;
+  @include for-normal-layout {
     padding: initial;
   }
-}
-
-.house-list {
-  gap: 10px;
-  margin-bottom: 20px;
 }
 
 .house-card-container {

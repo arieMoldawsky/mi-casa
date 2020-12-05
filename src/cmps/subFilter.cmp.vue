@@ -1,7 +1,7 @@
 <template>
   <el-form
     @submit.native.prevent="updateFilter"
-    class="sub-filter-inline f-as-jfs"
+    class="sub-filter f-as-jfs"
     :model="filterBy"
     size="medium"
   >
@@ -17,6 +17,7 @@
       <el-slider
         :value="pricesToPicker"
         @input="pricesFromPicker"
+        :show-tooltip="false"
         :step="5"
         range
         :min="0"
@@ -41,6 +42,8 @@
     <el-dropdown
       :class="{ 'filter-active': filterBy.type.length }"
       :hide-on-click="false"
+      popper-class="filter-popper"
+      placement="top-start"
     >
       <span class="item">
         Type
@@ -58,17 +61,18 @@
         <el-button @click="updateFilter" native-type="submit">Update</el-button>
       </el-dropdown-menu>
     </el-dropdown>
-    <el-popover placement="bottom" width="300" popper-class="filter-popper">
+    <!-- <el-popover placement="bottom" width="300" popper-class="filter-popper">
       <span
         class="item"
         :class="{ 'filter-active': filterBy.bedrooms }"
         slot="reference"
         >Bedrooms</span
       >
-    </el-popover>
+    </el-popover> -->
     <el-dropdown
       :class="{ 'filter-active': filterBy.amenities.length }"
       :hide-on-click="false"
+      placement="bottom-start"
     >
       <span class="item">
         Amenities

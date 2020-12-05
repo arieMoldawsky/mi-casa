@@ -1,6 +1,7 @@
 <template>
   <main class="house-details">
     <section class="center-grid">
+        <div style="height: 70px" />
       <div class="sk-chase" v-if="isLoading">
         <div class="sk-chase-dot"></div>
         <div class="sk-chase-dot"></div>
@@ -144,12 +145,12 @@ export default {
       })
     },
     async addBooking(booking) {
-      const host = this.house.host;
+      const host = this.house.host
       booking.house = { _id: this.house._id, name: this.house.name }
       const addedBooking = await this.$store.dispatch({
         type: 'addBooking',
         booking,
-        host
+        host,
       })
       socketService.emit('onBookingAdded', {
         hostId: host._id,

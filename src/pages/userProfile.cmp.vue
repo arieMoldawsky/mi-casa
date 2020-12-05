@@ -1,5 +1,7 @@
 <template>
   <div v-if="isLoading" class="sk-chase">
+    <div style="height: 70px" />
+
     <div class="sk-chase-dot"></div>
     <div class="sk-chase-dot"></div>
     <div class="sk-chase-dot"></div>
@@ -34,29 +36,42 @@
     <div class="user-main-container">
       <h1>Hello, {{ user.fullName }}!</h1>
       <div>Joined in June 2010</div>
-      <button v-if="!toggleHouseForm" @click="openHouseForm" class="add-house-btn">Add a House</button>
-      <house-add v-if="toggleHouseForm" @closeHouseForm="closeHouseForm" @addHouse="addHouse"></house-add>
-      <h2>Houses statistics: </h2>
+      <button
+        v-if="!toggleHouseForm"
+        @click="openHouseForm"
+        class="add-house-btn"
+      >
+        Add a House
+      </button>
+      <house-add
+        v-if="toggleHouseForm"
+        @closeHouseForm="closeHouseForm"
+        @addHouse="addHouse"
+      ></house-add>
+      <h2>Houses statistics:</h2>
       <chart v-if="!toggleHouseForm" />
       <h2 v-if="!toggleHouseForm">Houses you offer: {{ userHouses.length }}</h2>
       <ul v-if="!toggleHouseForm">
-         <li v-for="(house, idx) in userHouses" :key="house._id">
+        <li v-for="(house, idx) in userHouses" :key="house._id">
           <div class="user-houses-container flex">
             <div class="user-houses-txt-container flex">
               <div class="user-houses-txt flex">
-              <h3 class="user-houses-txt flex"><span class="house-txt-first">
-                Name:</span> <span class="house-txt">{{ house.name }} </span>
-              <span class="house-txt-second">
-                Type:</span><span class="house-txt"> {{ house.type }}</span>
-              </h3>
+                <h3 class="user-houses-txt flex">
+                  <span class="house-txt-first"> Name:</span>
+                  <span class="house-txt">{{ house.name }} </span>
+                  <span class="house-txt-second"> Type:</span
+                  ><span class="house-txt"> {{ house.type }}</span>
+                </h3>
               </div>
               <img :src="house.imgs[0]" alt="" />
-              <button class="delete-house-btn"><i class="far fa-trash-alt"></i></button>
-          </div>
-          <div class="user-houses-booking">
-            <h3>House Bookings: {{userBookings[idx].length}}</h3>
+              <button class="delete-house-btn">
+                <i class="far fa-trash-alt"></i>
+              </button>
+            </div>
+            <div class="user-houses-booking">
+              <h3>House Bookings: {{ userBookings[idx].length }}</h3>
               <div class="booking-table">
-             <table class="booking-info" style="width:100%">
+                <table class="booking-info" style="width:100%">
                   <tr>
                     <th>Guest Name:</th>
                     <th>Amount:</th>
@@ -64,101 +79,109 @@
                     <th>Check Out:</th>
                     <th>Contact:</th>
                   </tr>
-                  <tr v-for="userBooking in userBookings[idx]" :key="userBooking._id">
-                    <td>{{userBooking.guestUser.fullName}}</td>
-                    <td>{{userBooking.adults}}</td>
-                    <td>{{convertTimeStamp (userBooking.checkIn) }}</td>
-                    <td>{{convertTimeStamp (userBooking.checkOut)}}</td>
-                    <td class="contact flex"><i class="far fa-envelope flex"></i><i class="fas fa-phone flex"></i></td>
+                  <tr
+                    v-for="userBooking in userBookings[idx]"
+                    :key="userBooking._id"
+                  >
+                    <td>{{ userBooking.guestUser.fullName }}</td>
+                    <td>{{ userBooking.adults }}</td>
+                    <td>{{ convertTimeStamp(userBooking.checkIn) }}</td>
+                    <td>{{ convertTimeStamp(userBooking.checkOut) }}</td>
+                    <td class="contact flex">
+                      <i class="far fa-envelope flex"></i
+                      ><i class="fas fa-phone flex"></i>
+                    </td>
                   </tr>
-              </table>
+                </table>
               </div>
-             </div> 
-             </div>
+            </div>
+          </div>
         </li>
-      </ul> 
+      </ul>
     </div>
   </main>
 </template>
 
 <script>
-import houseAdd from "../cmps/houseAdd.cmp.vue";
-import houseFilter from "../cmps/houseFilter.cmp.vue";
-import moment from 'moment';
+import houseAdd from '../cmps/houseAdd.cmp.vue'
+import houseFilter from '../cmps/houseFilter.cmp.vue'
+import moment from 'moment'
 import chart from '../cmps/chart.cmp.vue'
 
 export default {
-  name: "userProfile",
+  name: 'userProfile',
   data() {
     return {
       isLoading: true,
       userHouses: null,
       userBookings: null,
-      toggleHouseForm: false
-    };
+      toggleHouseForm: false,
+    }
   },
   computed: {
     user() {
-      return this.$store.getters.loggedinUser;
-    }
+      return this.$store.getters.loggedinUser
+    },
   },
   methods: {
     async loadUserData() {
-      this.isLoading = true;
+      this.isLoading = true
       try {
         const res = await this.$store.dispatch({
-          type: "loadUserData",
+          type: 'loadUserData',
           hostId: this.user._id,
-        });
-        this.userHouses = res.userHouses;
-        this.userBookings = res.userBookings;
+        })
+        this.userHouses = res.userHouses
+        this.userBookings = res.userBookings
       } catch (err) {
-        console.log(err);
+        console.log(err)
       }
-      this.isLoading = false;
+      this.isLoading = false
     },
-      convertTimeStamp(string) {
-            return moment(string).format().slice(0, -15)
-        },
-        openHouseForm() {
-          this.toggleHouseForm = true;
-        },
-        closeHouseForm() {
-          this.toggleHouseForm = false;
-        },
-        addHouse() {
-          this.toggleHouseForm = false;
-           this.loadUserData();
-        }
+    convertTimeStamp(string) {
+      return moment(string)
+        .format()
+        .slice(0, -15)
+    },
+    openHouseForm() {
+      this.toggleHouseForm = true
+    },
+    closeHouseForm() {
+      this.toggleHouseForm = false
+    },
+    addHouse() {
+      this.toggleHouseForm = false
+      this.loadUserData()
+    },
   },
   created() {
-    this.loadUserData();
+    this.loadUserData()
   },
   components: {
     houseAdd,
     houseFilter,
-    chart
+    chart,
   },
-};
+}
 </script>
 <style scoped>
- /* width */
+/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background:rgb(255, 56, 92); 
+  background: rgb(255, 56, 92);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 </style>

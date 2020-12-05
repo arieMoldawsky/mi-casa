@@ -1,10 +1,11 @@
 <template>
   <main class="house-app">
-    <section class="center-grid f-as-jsb column">
+    <div style="height: 70px" />
+    <section class="inner-container center-grid f-as-jsb column">
       <div class="head-title flex">
         <small class="head-title-visits">300+ stays</small>
         <h1 class="head-title-txt">Entire homes</h1>
-        <sub-filter-inline />
+        <sub-filter />
       </div>
       <div class="sk-chase" v-if="isLoading">
         <div class="sk-chase-dot"></div>
@@ -33,7 +34,7 @@
 import houseList from '@/cmps/houseList.cmp.vue'
 import appHeader from '@/cmps/appHeader.cmp.vue'
 import houseFilter from '@/cmps/houseFilter.cmp.vue'
-import subFilterInline from '@/cmps/subFilterInline.cmp.vue'
+import subFilter from '../cmps/subFilter.cmp.vue'
 
 export default {
   name: 'houseApp',
@@ -57,7 +58,7 @@ export default {
     houseList,
     houseFilter,
     appHeader,
-    subFilterInline,
+    subFilter,
   },
 }
 </script>

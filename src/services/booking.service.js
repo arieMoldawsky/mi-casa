@@ -15,9 +15,9 @@ export const bookingService = {
 }
 
 function query(query) {
-  var queryURL = `?`;
-  for (const key in query) {
-    if (query[key])  queryURL += `${key}=${query[key]}&`
+  var queryURL = `?`
+  for (const [key, value] of Object.entries(query)) {
+    if (value) queryURL += `${key}=${value}&`
   }
   return httpService.get(`booking/${queryURL}`)
 }

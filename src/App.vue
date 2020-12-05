@@ -24,15 +24,15 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.getters.loggedinUser;
-    }
+      return this.$store.getters.loggedinUser
+    },
   },
   created() {
     socketService.setup()
     socketService.on('userMsg', msg => {
       this.$store.dispatch({
-        type: "unreadBooking",
-        user: this.user
+        type: 'unreadBooking',
+        user: this.user,
       })
       this.$notify({
         showClose: true,

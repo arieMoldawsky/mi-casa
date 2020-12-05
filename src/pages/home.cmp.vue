@@ -1,6 +1,5 @@
 <template>
   <main class="homepage-container">
-
     <section class="hero-container full-grid main-layout">
       <div class="hero-title f-ae-jf column center-grid">
         <span>Mi Casa</span>

@@ -42,13 +42,13 @@
   }
   &.filter-out {
     .house-filter-container {
-      height: 100vh;
-      max-width: 100vw;
-      border-radius: 0;
-      top: 0;
-      flex-direction: column;
-      margin: 0;
-      @include for-normal-layout {
+      // height: 100vh;
+      // max-width: 100vw;
+      // border-radius: 0;
+      // top: 0;
+      // flex-direction: column;
+      // margin: 0;
+      // @include for-normal-layout {
         margin-right: auto;
         margin-left: auto;
         flex-direction: row;
@@ -56,10 +56,10 @@
         top: $headerHeight;
         max-width: 800px;
         height: $headerHeight;
-      }
+      // }
       .form-item.field {
-        flex-direction: row;
-        width: 100%;
+        // flex-direction: row;
+        // width: 100%;
         opacity: 1;
         @include for-normal-layout {
           flex-direction: column;
