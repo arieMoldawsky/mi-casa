@@ -1,6 +1,5 @@
-import axios from 'axios'
+import axios from 'axios';
 
-// AXIOS
 export const uploadImg = async (ev) => {
   const UPLOAD_PRESET = 'iuzstnbj';
   const CLOUD_NAME = 'ariecloud';

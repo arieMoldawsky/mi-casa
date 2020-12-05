@@ -1,9 +1,6 @@
 import { bookingService } from '@/services/booking.service.js'
 import userService from '@/services/user.service.js'
 
-// import { imgUploadService } from '@/services/img.upload.service.js'
-// import { eventBus, SHOW_MSG } from '@/services/eventBus.service.js'
-
 export default {
   state: {
     bookings: [],

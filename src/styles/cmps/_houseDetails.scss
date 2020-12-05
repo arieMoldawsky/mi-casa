@@ -76,7 +76,6 @@
         }
     }
 
-
     .booking-modal-container {
         display: flex;
         flex-direction: column;
@@ -131,7 +130,6 @@
             border-bottom: unset;
             padding-bottom: unset;
         }
-
 
         h3 {
             margin-bottom: 25px;
@@ -199,11 +197,7 @@
             margin-bottom: 20px;
             column-gap: 10px;
 
-
-
             .el-progress-bar__inner {
-                // max-width: 300px;
-                // display: inline;
                 background-color: $clr2;
             }
 
@@ -231,7 +225,6 @@
             .reviewer-container {
                 display: flex;
                 align-items: center;
-                // gap: 12px;
 
                 img {
                     margin-inline-end: 12px;

@@ -26,7 +26,6 @@
   }
 }
 
-
 .fa-star {
   color: $clr2;
 }
@@ -37,7 +36,6 @@
   @include for-narrow-layout {
     height: 165px;
 }
-
 
   img {
     object-fit: cover;

@@ -26,9 +26,6 @@
       color: $clr5;
     }
     
-    // .navbar-container .host-navbar {
-    //   cursor: pointer;
-    // }
   }
   .head-logo-svg {
     height: $headerHeight * 0.5;
@@ -165,12 +162,6 @@
         border-radius: 21px;
       }
     }
-
-    // .el-dropdown-menu__item:focus,
-    // .el-dropdown-menu__item:not(.is-disabled):hover {
-    //   background-color: rgba(27, 27, 27, 0.3);
-    //   color: $clr5;
-    // }
 
     .el-icon-arrow-down {
       display: none;

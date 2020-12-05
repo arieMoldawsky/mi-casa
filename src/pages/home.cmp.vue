@@ -144,7 +144,6 @@
     </section>
              
     <join-host class="full-grid"/>
-
   </main>
 </template>
 

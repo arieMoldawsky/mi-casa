@@ -10,7 +10,6 @@ export default {
   state: {
     loggedinUser: localLoggedinUser,
     // userHouses: null
-    // users: [],
   },
   getters: {
     users(state) {
@@ -33,9 +32,6 @@ export default {
     login(state, { user }) {
       state.users.push(user)
     },
-    // unreadBooking(state) {
-    //   state.unreadBookings++
-    // }
   },
   actions: {
     async login(context, { userCred }) {
@@ -60,7 +56,6 @@ export default {
     async logout(context) {
       try {
         await userService.logout()
-        // context.commit({ type: 'setUsers', users: [] })
         context.commit({ type: 'setUser', user: null })
       } catch (err) {
         console.error('Could not log Out: ', err)
