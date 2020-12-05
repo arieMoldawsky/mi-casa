@@ -1,6 +1,6 @@
 <template>
     <section class="house-list">
-            <housePreview v-for="house in houses" :key="house.id" :house="house" @click.native="showDetails(house._id)"/>
+            <housePreview v-for="house in houses" :key="house.id" :house="house"/>
     </section>
 </template>
 
@@ -15,9 +15,9 @@ export default {
         housePreview
     },
     methods:{
-        showDetails(houseId){
-            this.$router.push(`/house/${houseId}`)
-        }
+        // showDetails(houseId){
+        //     this.$router.push(`/house/${houseId}`)
+        // }
     }
 };
 </script>

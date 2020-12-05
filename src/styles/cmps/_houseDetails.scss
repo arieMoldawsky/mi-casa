@@ -71,6 +71,9 @@
         .el-carousel__arrow--left {
             left: 8px;
         }
+        img {
+            height: 100%;
+        }
     }
 
 
@@ -228,7 +231,11 @@
             .reviewer-container {
                 display: flex;
                 align-items: center;
-                gap: 12px;
+                // gap: 12px;
+
+                img {
+                    margin-inline-end: 12px;
+                }
 
                 .reviewer-name {
                     font-weight: bold;
