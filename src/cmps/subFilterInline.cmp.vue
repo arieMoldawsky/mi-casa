@@ -11,7 +11,7 @@
       popper-class="filter-popper"
       class="pointer"
       trigger="click"
-      :class="{'filter-active': filterBy.minPrice || filterBy.maxPrice}"
+      :class="{ 'filter-active': filterBy.minPrice || filterBy.maxPrice }"
     >
       <span class="item" slot="reference">Price</span>
       <el-slider
@@ -38,7 +38,10 @@
       />
       <el-button @click="updateFilter" native-type="submit">Update</el-button>
     </el-popover>
-    <el-dropdown :hide-on-click="false">
+    <el-dropdown
+      :class="{ 'filter-active': filterBy.type.length }"
+      :hide-on-click="false"
+    >
       <span class="item">
         Type
       </span>
@@ -56,9 +59,17 @@
       </el-dropdown-menu>
     </el-dropdown>
     <el-popover placement="bottom" width="300" popper-class="filter-popper">
-      <span class="item" slot="reference">Bedrooms</span>
+      <span
+        class="item"
+        :class="{ 'filter-active': filterBy.bedrooms }"
+        slot="reference"
+        >Bedrooms</span
+      >
     </el-popover>
-    <el-dropdown :hide-on-click="false">
+    <el-dropdown
+      :class="{ 'filter-active': filterBy.amenities.length }"
+      :hide-on-click="false"
+    >
       <span class="item">
         Amenities
       </span>

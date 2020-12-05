@@ -11,8 +11,9 @@
       margin-right: 10px;
       border-radius: 100px;
       border: 1px solid rgba($color: #dadada, $alpha: 1);
-    .item {
-        
+      transition: 100ms;
+    &.filter-active {
+        box-shadow: 0 0 0 1px $clr5;
     }
   }
 }
