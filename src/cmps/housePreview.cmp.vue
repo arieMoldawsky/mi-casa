@@ -1,32 +1,48 @@
 <template>
   <section class="house-card flex f-col pointer">
     <div class="house-card-container">
-        <el-carousel :autoplay="false" trigger="click">
-          <el-carousel-item v-for="(img, idx) in slideImgs" :key="img" autoplay="false">
-                <img :src="slideImgs[idx]"
-                :class="`slide-imgs${idx}`"
-                style="width: 100%; height: 100%" />
-              
-          </el-carousel-item>
-        </el-carousel>
-      <div class="card-preview-container">
-          <div class="list-rating"><i class="fas fa-star"></i>{{ houseRating }} <span>({{ ratingCount }})</span></div>
-          <div>{{ house.location.city }} - {{ house.type }}</div>
-          <div>{{ houseDescription }}</div>
-          <div><span class="house-price">${{ house.price }}</span> / night</div>
+      <el-carousel
+        :autoplay="false"
+        trigger="click"
+        @click.native="showDetails(false)"
+      >
+        <el-carousel-item
+          v-for="(img, idx) in slideImgs"
+          :key="img"
+          autoplay="false"
+        >
+          <img
+            :src="slideImgs[idx]"
+            :class="`slide-imgs${idx}`"
+            style="width: 100%; height: 100%"
+          />
+        </el-carousel-item>
+      </el-carousel>
+      <div class="card-preview-container" @click="showDetails(true)">
+        <div class="list-rating">
+          <i class="fas fa-star"></i>{{ houseRating }}
+          <span>({{ ratingCount }})</span>
+        </div>
+        <div>{{ house.location.city }} - {{ house.type }}</div>
+        <div>{{ houseDescription }}</div>
+        <div>
+          <span class="house-price">${{ house.price }}</span> / night
+        </div>
       </div>
-  </div>
+    </div>
   </section>
 </template>
 
 <script>
-  
-
 export default {
   props: {
-    house: Object
+    house: Object,
   },
- 
+  data() {
+    return {
+      isWideWindow: true,
+    };
+  },
   computed: {
     houseRating() {
       const format = (num, decimals) =>
@@ -58,8 +74,24 @@ export default {
         return imgs;
       }
     },
-   
+  },
+  methods: {
+    showDetails(isDetails) {
+      if (isDetails) this.$router.push(`/house/${this.house._id}`);
+      else {
+        if (this.isWideWindow) this.$router.push(`/house/${this.house._id}`);
+        else return;
+      }
+    },
+    windowSize() {
+      this.isWideWindow = window.innerWidth > 700 ? true : false;
+    },
+  },
+  created() {
+    this.windowSize();
+    window.addEventListener("resize", () => {
+      this.windowSize();
+    });
   },
 };
-
 </script>
