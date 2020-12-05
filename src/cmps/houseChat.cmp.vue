@@ -66,7 +66,7 @@ export default {
       this.newMsg = null
       ev.target[0].focus()
     },
-    meIsTyping() {
+    meIsTyping() {  
       if (this.meDeBounce) return
       else {
         socketService.emit('onIsTyping', this.userName)
