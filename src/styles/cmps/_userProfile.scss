@@ -125,20 +125,21 @@
       }
       .house-txt-second {
         align-self: flex-start;
+        margin-top: 10px;
       }
       img {
         height: 98px;
-        width: 177px;
+        width: 240px;
         border-radius: 10px;
         margin-left: 10px;
       }
 
       .delete-house-btn {
-        margin-left: 7px;
         border: none;
         background-color: $clr1;
         height:20px;
         width:15px;
+        align-self: flex-start;
         &:hover {
           background-color: $clr4;
         }
@@ -148,6 +149,7 @@
   }
 
 .user-houses-booking{
+  border-bottom: 1px dashed lightgray;
   h3 {
     margin-top: 30px;
     padding-bottom: 10px;
@@ -158,6 +160,7 @@
     width: 100%;
     box-shadow: rgba(117, 117, 117, 0.12) 0px 6px 16px;
     border-radius: 10px;
+    margin-bottom: 20px;
   
 
 .booking-info {
