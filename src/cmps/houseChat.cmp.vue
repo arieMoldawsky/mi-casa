@@ -1,23 +1,26 @@
 <template>
   <section class="house-chat flex column">
-    <div class="chat-header pointer full-width flex a-center j-space-b" @click="hideChat">
-      <h3>{{house.name}} - Chat</h3>
+    <div
+      class="chat-header pointer full-width flex a-center j-space-b"
+      @click="hideChat"
+    >
+      <h3>{{ house.name }} - Chat</h3>
       <el-button>X</el-button>
     </div>
     <div class="chat-window fill-parent">
       <div v-for="(msg, idx) in msgs" :key="idx">
-        <h3 v-if="groupMsgsByName({ msgs, msg, idx })" v-text="userName" />
+        <h3
+          v-if="groupMsgsByName({ msgs, msg, idx })"
+          v-text="`${msg.name}:`"
+        />
         <span v-text="msg.txt" />
       </div>
       <span v-if="remoteTyper">{{ remoteTyper }} is Typing...</span>
     </div>
-    <el-form
-      class="full-width flex a-end"
-      @submit.native.prevent="sendMsg"
-    >
+    <el-form class="full-width flex a-end" @submit.native.prevent="sendMsg">
       <el-input
         class="full-width"
-        v-model="newMsg.txt"
+        v-model="newMsg"
         placeholder="Aa"
         @input="meIsTyping"
       />
@@ -35,10 +38,7 @@ export default {
   },
   data() {
     return {
-      newMsg: {
-        name: `User ${Math.random()}:`,
-        txt: null,
-      },
+      newMsg: null,
       meDeBounce: null,
       heDeBounce: null,
       remoteTyper: null,
@@ -58,22 +58,25 @@ export default {
       this.msgs = msgs
     },
     sendMsg(ev) {
-      if (!this.newMsg.txt) return
-      socketService.emit('onChatMsg', this.newMsg)
-      this.newMsg.txt = null
+      if (!this.newMsg) return
+      socketService.emit('onChatMsg', {
+        name: this.userName,
+        txt: this.newMsg,
+      })
+      this.newMsg = null
       ev.target[0].focus()
     },
     meIsTyping() {
       if (this.meDeBounce) return
       else {
-        socketService.emit('onIsTyping', this.newMsg.name)
+        socketService.emit('onIsTyping', this.userName)
         this.meDeBounce = setTimeout(() => {
           this.meDeBounce = null
         }, 500)
       }
     },
     heIsTyping(name) {
-      if (name === this.newMsg.name) return
+      if (name === this.userName) return
       if (this.heDeBounce) clearTimeout(this.heDeBounce)
       this.remoteTyper = name
       this.heDeBounce = setTimeout(() => {
@@ -86,9 +89,9 @@ export default {
   },
   computed: {
     userName() {
-      const user = this.$store.getters.loggedinUser
-      return `${user.fullName}:`;
-    }
+      const { fullName } = this.$store.getters.loggedinUser
+      return fullName
+    },
   },
   created() {
     socketService.emit('onJoinHouseChat', this.house.id)
