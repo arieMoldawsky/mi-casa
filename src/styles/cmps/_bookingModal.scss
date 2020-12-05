@@ -84,15 +84,19 @@
 
     .facebook-share {
       border: 1px solid gray;
-      padding: 12px 20px;
+      padding: 10px 15px;
       margin-right: auto;
       margin-left: auto;
       color: $clr1;
       background-color: #135FC2;
       border-radius: 8px;
       font-weight: bold;
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       // transition: 0.3s;
+      &:hover {
+        background-color: white;
+        color: $clr3;
+      }
     }
 
     div:last-of-type {

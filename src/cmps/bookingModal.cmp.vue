@@ -86,7 +86,7 @@
       </button>
       <ShareNetwork v-if="openTotal" class="facebook-share"
         network="facebook"
-        url="https://news.vuejs.org/issues/180"
+        url="https://mi-casa-app.herokuapp.com"
         title="I've just booked an apartment with MiCasa!"
         description="I'm going to sleep in Tel Aviv next week."
         quote="I've just booked an apartment with MiCasa!"
