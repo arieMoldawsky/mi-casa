@@ -1,10 +1,10 @@
-import { utilService } from './util.service.js'
-import httpService from './http.service'
+import { utilService } from './util.service.js';
+import httpService from './http.service';
 
 const baseUrl =
   process.env.NODE_ENV !== 'development'
     ? '/api/house'
-    : '//localhost:3000/api/house'
+    : '//localhost:3000/api/house';
 
 export const houseService = {
   query,

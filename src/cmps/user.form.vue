@@ -27,14 +27,6 @@
                 </label>
             </form>
         </el-form-item>
-        <!-- <el-form-item v-if="isSignup">
-      <el-checkbox
-        size="small"
-        v-model="userCred.isAdmin"
-        label="Admin?"
-        border
-      />
-    </el-form-item> -->
         <el-form-item class="btns-container">
             <slot />
             <el-button v-if="isSignup" native-type="submit" @click.prevent="onSignup">Sign Up</el-button>

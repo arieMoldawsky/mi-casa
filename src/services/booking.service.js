@@ -1,10 +1,9 @@
-// import { utilService } from './util.service.js'
-import httpService from './http.service'
+import httpService from './http.service';
 
 const baseUrl =
   process.env.NODE_ENV !== 'development'
     ? '/api/booking'
-    : '//localhost:3000/api/booking'
+    : '//localhost:3000/api/booking';
 
 export const bookingService = {
   query,

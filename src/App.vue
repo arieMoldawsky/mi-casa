@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import appHeader from '../src/cmps/appHeader.cmp'
-import appFooter from '../src/cmps/appFooter.cmp'
-import modal from '@/cmps/modal.cmp'
-import socketService from '@/services/socket.service.js'
+import appHeader from "../src/cmps/appHeader.cmp";
+import appFooter from "../src/cmps/appFooter.cmp";
+import modal from "@/cmps/modal.cmp";
+import socketService from "@/services/socket.service.js";
 
 export default {
   components: {
@@ -28,12 +28,12 @@ export default {
     },
   },
   created() {
-    socketService.setup()
-    socketService.on('userMsg', msg => {
+    socketService.setup();
+    socketService.on("userMsg", (msg) => {
       this.$store.dispatch({
-        type: 'unreadBooking',
+        type: "unreadBooking",
         user: this.user,
-      })
+      });
       this.$notify({
         showClose: true,
         title: msg.title,
@@ -41,15 +41,15 @@ export default {
         type: msg.type,
         duration: 5000,
         dangerouslyUseHTMLString: true,
-        position: 'bottom-right',
+        position: "bottom-right",
         onClick: this.$notify.closeAll,
-      })
-    })
+      });
+    });
     window.onbeforeunload = () => {
-      this.$store.dispatch({ type: 'onAppDestroyed' })
-    }
+      this.$store.dispatch({ type: "onAppDestroyed" });
+    };
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -59,7 +59,6 @@ html {
 }
 
 #app {
-  // text-align: center;
   position: relative;
   min-height: 100vh;
 }

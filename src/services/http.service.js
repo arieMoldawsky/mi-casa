@@ -1,9 +1,8 @@
-import router from '@/router'
-// import store from '@/store'
+import router from '@/router';
 
 const BASE_URL = (process.env.NODE_ENV !== 'development')
     ? '/api/'
-    : '//localhost:3030/api/'
+    : '//localhost:3030/api/';
 
 
 import Axios from 'axios';
@@ -26,7 +25,6 @@ export default {
     }
 }
 
-
 async function ajax(endpoint, method='get', data=null) {
     try {
         const res = await axios({
@@ -43,4 +41,3 @@ async function ajax(endpoint, method='get', data=null) {
         throw err;
     }
 }
-

@@ -90,16 +90,7 @@ export default {
         badRooms: 0,
         tags: [],
         amenities: [
-          "Wifi",
-          "Self check-in",
-          "Kitchen",
-          "Air conditioning",
-          "Elevator",
-          "TV",
-          "Hair dryer",
-          "Hangers",
-          "Iron",
-          "Essentials",
+          "Wifi", "Self check-in", "Kitchen", "Air conditioning", "Elevator", "TV", "Hair dryer", "Hangers", "Iron", "Essentials",
         ],
         location: {
           lat: 48.8665169951605,

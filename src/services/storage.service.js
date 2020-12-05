@@ -7,7 +7,6 @@ function store(key, val) {
     localStorage[key] = JSON.stringify(val);
 }
 
-
 export const storageService = {
     load,
     store

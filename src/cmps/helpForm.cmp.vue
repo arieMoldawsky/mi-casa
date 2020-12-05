@@ -18,6 +18,5 @@ export default {
       this.$emit('closeModal')
     }
   }
-  
 }
 </script>

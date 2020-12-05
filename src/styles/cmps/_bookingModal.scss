@@ -22,7 +22,6 @@
     width: 300px;
   }
 
-
   span.fill-parent {
     border-radius: 4px;
     background-color: #fff;
@@ -59,7 +58,6 @@
       }
     }
 
-
     button {
       padding: 15px 45px;
       margin-right: auto;
@@ -69,10 +67,6 @@
       background-color: $clr2;
       border-radius: 8px;
       transition: 0.3s;
-
-      // @include for-normal-layout {
-      //   padding: 15px;
-      // }
 
       &:hover {
         background-color: white;
@@ -84,15 +78,20 @@
 
     .facebook-share {
       border: 1px solid gray;
-      padding: 12px 20px;
+      padding: 10px 15px;
       margin-right: auto;
       margin-left: auto;
       color: $clr1;
       background-color: #135FC2;
       border-radius: 8px;
       font-weight: bold;
-      font-size: 0.9rem;
-      // transition: 0.3s;
+      font-size: 0.75rem;
+      transition: 0.3s;
+      &:hover {
+        background-color: white;
+        border-color: #135FC2;
+        color: $clr3;
+      }
     }
 
     div:last-of-type {
@@ -151,7 +150,7 @@
   }
 
   .booking-modal-container div:last-of-type {
-    width: 255px;
+    width: 245px;
     margin-top: 5px;
 
     @include for-normal-layout {

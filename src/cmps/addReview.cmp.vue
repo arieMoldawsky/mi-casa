@@ -1,5 +1,4 @@
 <template>
-  <!-- <section class="modal-content"> -->
     <el-form class="modal-content"
       @submit.native.prevent="updateFilter"
       :model="review"
@@ -21,7 +20,6 @@
         </el-button>
       </div>
     </el-form>
-  <!-- </section> -->
 </template>
 
 <script>
