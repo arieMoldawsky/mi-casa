@@ -28,6 +28,8 @@
     @include for-normal-layout {
       display: block;
       align-self: start;
+      position: sticky;
+      top: 80px;
   }
 
     img {
