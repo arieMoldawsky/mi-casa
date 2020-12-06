@@ -1,22 +1,53 @@
 <template>
-  <header
-    class="main-header main-layout"
-    :class="homeHeader"
-    ref="mainHeader"
-  >
+  <header class="main-header main-layout" :class="homeHeader" ref="mainHeader">
     <div class="inner-container f-ac-jsb center-grid">
       <router-link to="/" exact class="logo f-ac-jsb">
-      <svg class="head-logo-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
-        <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M45.706,14.444L28.415,49.326  c-0.17,0.345-0.521,0.556-0.896,0.556c-0.056,0-0.112-0.005-0.169-0.015c-0.436-0.074-0.771-0.427-0.824-0.865l-1.809-14.95  L8.885,31.398c-0.434-0.072-0.769-0.419-0.826-0.854s0.175-0.857,0.574-1.041l35.761-16.412c0.383-0.177,0.84-0.091,1.135,0.213  S45.895,14.064,45.706,14.444z"/>
-        <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
-      </svg>
-      <span class="head-logo-txt">MiCasa</span>
+        <svg
+          class="head-logo-svg"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="1.1"
+          id="Capa_1"
+          x="0px"
+          y="0px"
+          viewBox="0 0 60 60"
+          style="enable-background:new 0 0 60 60;"
+          xml:space="preserve"
+        >
+          <path
+            d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M45.706,14.444L28.415,49.326  c-0.17,0.345-0.521,0.556-0.896,0.556c-0.056,0-0.112-0.005-0.169-0.015c-0.436-0.074-0.771-0.427-0.824-0.865l-1.809-14.95  L8.885,31.398c-0.434-0.072-0.769-0.419-0.826-0.854s0.175-0.857,0.574-1.041l35.761-16.412c0.383-0.177,0.84-0.091,1.135,0.213  S45.895,14.064,45.706,14.444z"
+          />
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+        </svg>
+        <span class="head-logo-txt">MiCasa</span>
       </router-link>
-      <house-filter />
+      <house-filter
+        @addAnchor="addAnchor"
+        @removeAnchor="removeAnchor"
+        @expandFilter="expandFilter"
+        @collapseFilter="collapseFilter"
+      />
 
       <nav class="navbar-container flex">
         <div class="nav-routes flex">
-          <router-link :to="{ path: `/house`, query: { txt: '' } }" exact class="houses-navbar"
+          <router-link
+            :to="{ path: `/house`, query: { txt: '' } }"
+            exact
+            class="houses-navbar"
             >Places to stay
           </router-link>
           <a @click="toProfile" class="host-navbar" style="cursor: pointer"
@@ -32,7 +63,9 @@
                 >
                   <div class="el-dropdown-link-container flex">
                     <div class="el-dropdown-link flex">
-                      <div class="notifications" v-if="unreadBookings">{{unreadBookings}}</div>
+                      <div class="notifications" v-if="unreadBookings">
+                        {{ unreadBookings }}
+                      </div>
                       <div :class="rotateBurger" class="hamburger flex">
                         <svg
                           viewBox="0 0 32 32"
@@ -134,12 +167,24 @@ export default {
     toProfile() {
       this.$store.dispatch({
         type: 'resetUnreadBookings',
-        user: this.isLogedIn
+        user: this.isLogedIn,
       })
       this.$router.push('/profile')
     },
     onDropdown() {
       this.isDropdown = !this.isDropdown
+    },
+    addAnchor() {
+      this.$el.classList.add('anchor-in')
+    },
+    removeAnchor() {
+      this.$el.classList.remove('anchor-in')
+    },
+    expandFilter() {
+      this.$el.classList.add('filter-out')
+    },
+    collapseFilter() {
+      this.$el.classList.remove('filter-out')
     },
   },
   computed: {
@@ -153,9 +198,9 @@ export default {
       return { 'hamburger-logo-trans': this.isDropdown }
     },
     unreadBookings() {
-      if (this.isLogedIn) return this.isLogedIn.unreadBookings;
-      else return 0;
-    }
+      if (this.isLogedIn) return this.isLogedIn.unreadBookings
+      else return 0
+    },
   },
 }
 </script>

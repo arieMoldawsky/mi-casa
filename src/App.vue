@@ -1,7 +1,7 @@
 <template>
   <div id="app">
+    <headerScrollPixel />
     <div class="content-wrap">
-      <div class="header-scroll-pixel" />
       <appHeader />
       <router-view class="main-layout" />
       <modal />
@@ -11,13 +11,16 @@
 </template>
 
 <script>
-import appHeader from "../src/cmps/appHeader.cmp";
-import appFooter from "../src/cmps/appFooter.cmp";
-import modal from "@/cmps/modal.cmp";
-import socketService from "@/services/socket.service.js";
+
+import headerScrollPixel from '../src/cmps/headerScrollPixel.cmp'
+import appHeader from '../src/cmps/appHeader.cmp'
+import appFooter from '../src/cmps/appFooter.cmp'
+import modal from '@/cmps/modal.cmp'
+import socketService from '@/services/socket.service.js'
 
 export default {
   components: {
+    headerScrollPixel,
     appHeader,
     appFooter,
     modal,
@@ -28,12 +31,12 @@ export default {
     },
   },
   created() {
-    socketService.setup();
-    socketService.on("userMsg", (msg) => {
+    socketService.setup()
+    socketService.on('userMsg', msg => {
       this.$store.dispatch({
-        type: "unreadBooking",
+        type: 'unreadBooking',
         user: this.user,
-      });
+      })
       this.$notify({
         showClose: true,
         title: msg.title,
@@ -41,15 +44,15 @@ export default {
         type: msg.type,
         duration: 5000,
         dangerouslyUseHTMLString: true,
-        position: "bottom-right",
+        position: 'bottom-right',
         onClick: this.$notify.closeAll,
-      });
-    });
+      })
+    })
     window.onbeforeunload = () => {
-      this.$store.dispatch({ type: "onAppDestroyed" });
-    };
+      socketService.terminate()
+    }
   },
-};
+}
 </script>
 
 <style lang="scss">

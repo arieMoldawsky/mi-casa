@@ -25,9 +25,6 @@ export default new Vuex.Store({
     modalMode({ commit }, payload) {
       commit(payload)
     },
-    onAppDestroyed(context, payload) {
-      socketService.terminate()
-    },
   },
   modules: {
     houseStore,

@@ -15,7 +15,7 @@
         <div class="sk-chase-dot"></div>
         <div class="sk-chase-dot"></div>
       </div>
-      <houseList v-if="!isLoading" :houses="houses" />
+      <houseList v-else :houses="houses" />
       <!-- <div class="block f-ac-jsb column" v-if="!isLoading">
         <el-pagination layout="prev, pager, next" :total="150"> </el-pagination>
         <div class="under-paging-txt-head">
