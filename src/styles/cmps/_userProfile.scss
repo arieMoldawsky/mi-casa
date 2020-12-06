@@ -38,13 +38,6 @@
       padding: 20px 20px 40px;
     }
 
-    // @include for-normal-wide-layout {
-    //   display: block;
-    //   align-self: start;
-    //   position: relative;
-    //   // top: 80px;
-    // }
-
     img {
       height: 128px;
       width: 128px;
@@ -183,11 +176,15 @@
       
         .booking-table {
           overflow-y: auto;
-          height: 200px;
+          height: 248px;
           width: 100%;
           box-shadow: rgba(117, 117, 117, 0.12) 0px 6px 16px;
           border-radius: 10px;
           margin-bottom: 20px;
+
+          @include for-normal-layout {
+            height: 200px;
+          }
       
           .booking-info {
             position: relative;
@@ -212,7 +209,6 @@
               height: 48px;
               text-align: center;
              
-
               .guest-user {
                 display: flex;
                 align-items: center;
@@ -246,10 +242,6 @@
 
       .user-houses-txt {
         display: block;
-        // justify-content: flex-start;
-        // align-items: center;
-        // flex-grow: 1;
-        // flex-direction: column;
 
         .house-txt {
           font-weight: lighter;
@@ -290,4 +282,3 @@
     }
   }
 }
-
