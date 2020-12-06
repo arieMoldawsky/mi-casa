@@ -41,50 +41,48 @@
       <chart v-if="!toggleHouseForm" />
       <h2 v-if="!toggleHouseForm">Houses you offer: {{ userHouses.length }}</h2>
       <ul v-if="!toggleHouseForm">
-        <li v-for="(house, idx) in userHouses" :key="house._id">
-          <div class="user-houses-container flex">
-            <div class="user-houses-txt-container flex">
-              <div class="user-houses-txt flex">
+        <li v-for="(house, idx) in userHouses" :key="house._id" class="user-houses-container flex">
+              <div class="user-houses-txt-container flex">
                 <h3 class="user-houses-txt flex">
-                  <span class="house-txt-first"> Name:</span>
+                  <span class="house-txt-first"> Name: </span>
                   <span class="house-txt">{{ house.name }} </span>
-                  <span class="house-txt-second"> Type:</span
+                  <span class="house-txt-second"> Type: </span
                   ><span class="house-txt"> {{ house.type }}</span>
                 </h3>
+                <button class="delete-house-btn">
+                  <i class="far fa-trash-alt"></i>
+                </button>
               </div>
-              <img :src="house.imgs[0]" alt="" />
-              <button class="delete-house-btn">
-                <i class="far fa-trash-alt"></i>
-              </button>
-            </div>
-            <div class="user-houses-booking">
-              <h3>House Bookings: {{ userBookings[idx].length }}</h3>
-              <div class="booking-table">
-                <table class="booking-info" style="width:100%">
-                  <tr>
-                    <th>Guest Name:</th>
-                    <th>Amount:</th>
-                    <th>Check In:</th>
-                    <th>Check Out:</th>
-                    <th>Contact:</th>
-                  </tr>
-                  <tr
-                    v-for="userBooking in userBookings[idx]"
-                    :key="userBooking._id"
-                  >
-                    <td>{{ userBooking.guestUser.fullName }}</td>
-                    <td>{{ userBooking.adults }}</td>
-                    <td>{{ convertTimeStamp(userBooking.checkIn) }}</td>
-                    <td>{{ convertTimeStamp(userBooking.checkOut) }}</td>
-                    <td class="contact flex">
-                      <i class="far fa-envelope flex"></i
-                      ><i class="fas fa-phone flex"></i>
-                    </td>
-                  </tr>
-                </table>
+              <div class="house-main-content">
+                <img class="house-main-img" :src="house.imgs[0]" alt="" />
+                <div class="user-houses-booking">
+                  <h3>House Bookings: {{ userBookings[idx].length }}</h3>
+                  <div class="booking-table">
+                    <table class="booking-info" style="width:100%">
+                      <tr>
+                        <th>Guest Name:</th>
+                        <th>Guests:</th>
+                        <th>Check In:</th>
+                        <th>Check Out:</th>
+                        <th>Contact:</th>
+                      </tr>
+                      <tr
+                        v-for="userBooking in userBookings[idx]"
+                        :key="userBooking._id"
+                      >
+                        <td><div class="guest-user"><img :src="userBooking.guestUser.imgUrl" alt="">{{ userBooking.guestUser.fullName }}</div></td>
+                        <td>{{ userBooking.adults }}</td>
+                        <td>{{ convertTimeStamp(userBooking.checkIn) }}</td>
+                        <td>{{ convertTimeStamp(userBooking.checkOut) }}</td>
+                        <td class="contact flex">
+                          <i class="far fa-envelope flex"></i
+                          ><i class="fas fa-phone flex"></i>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
         </li>
       </ul>
       <button
