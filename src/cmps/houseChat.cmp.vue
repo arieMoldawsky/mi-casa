@@ -84,7 +84,7 @@ export default {
       }, 1500)
     },
     groupMsgsByName({ msgs, msg, idx }) {
-      return !idx || msgs[idx - 1].name !== msg.name ? msg.name : null
+      return !idx || msgs[idx - 1].name !== msg.name ? true : false
     },
   },
   computed: {
