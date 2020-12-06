@@ -22,19 +22,20 @@
     border-radius: 10px;
     width: 308px;
     height: 410px;
-    padding: 20px 20px 40px;
+    padding: 20px 20px 20px;
     top: 80px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-self: center;
-
+    text-align: center;
 
     @include for-normal-wide-layout {
       display: block;
       align-self: start;
       position: sticky;
       top: 80px;
+      padding: 20px 20px 40px;
     }
 
     // @include for-normal-wide-layout {
@@ -49,6 +50,8 @@
       width: 128px;
       border-radius: 50%;
       object-fit: cover;
+      margin-right: auto;
+      margin-left: auto;
     }
 
     .update-img {
@@ -187,12 +190,20 @@
           margin-bottom: 20px;
       
           .booking-info {
+            position: relative;
             border-collapse: collapse;
       
             th {
-              background-color: rgb(238 238 238 / 36%);
+              background-color: rgb(238 238 238);
               padding: 5px;
               height: 40px;
+              font-size: 0.9rem;
+              position: sticky;
+              top: 0;
+
+              @include for-normal-layout {
+                font-size: 1rem;
+              }
             }
       
             td {
