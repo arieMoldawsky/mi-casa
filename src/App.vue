@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <headerScrollPixel />
-    <div class="content-wrap">
-      <appHeader />
+    <div
+      class="content-wrap"
+      @click="collapseFilter"
+      @keyup.esc="collapseFilter"
+      tabindex="0"
+    >
+      <appHeader ref="header" />
       <router-view class="main-layout" />
       <modal />
     </div>
@@ -11,7 +16,6 @@
 </template>
 
 <script>
-
 import headerScrollPixel from '../src/cmps/headerScrollPixel.cmp'
 import appHeader from '../src/cmps/appHeader.cmp'
 import appFooter from '../src/cmps/appFooter.cmp'
@@ -28,6 +32,11 @@ export default {
   computed: {
     user() {
       return this.$store.getters.loggedinUser
+    },
+  },
+  methods: {
+    collapseFilter() {
+      this.$refs.header.$el.classList.remove('filter-out')
     },
   },
   created() {

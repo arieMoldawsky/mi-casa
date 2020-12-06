@@ -1,5 +1,5 @@
 <template>
-  <header class="main-header main-layout" :class="homeHeader" ref="mainHeader">
+  <header class="main-header main-layout" :class="homeHeader" ref="mainHeader" @click.stop>
     <div class="inner-container f-ac-jsb center-grid">
       <router-link to="/" exact class="logo f-ac-jsb">
         <svg
