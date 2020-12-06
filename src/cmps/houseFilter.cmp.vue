@@ -138,7 +138,7 @@ export default {
         : (this.filterBy.checkIn = this.filterBy.checkOut = null)
     },
     focusFilter() {
-      this.$parent.$el.classList.add('filter-out')
+      this.$emit('expandFilter')
     },
     updateFilterAndRoute() {
       this.updateFilter()
@@ -153,17 +153,17 @@ export default {
         type: 'updateFilter',
         filterBy: this.filterBy,
       })
-      this.$parent.$el.classList.remove('filter-out')
+      this.$emit('collapsefilter')
     },
     onUpdate() {
       this.filterBy = JSON.parse(JSON.stringify(this.getFilterBy))
       this.filterBy.txt = this.$route.query.txt
         ? this.$route.query.txt
         : this.filterBy.txt
-      this.$parent.$el.classList.remove('filter-out')
+      this.$emit('collapsefilter')
       this.$route.path === '/'
-        ? this.$parent.$el.classList.remove('anchor-in')
-        : this.$parent.$el.classList.add('anchor-in')
+        ? this.$emit('removeAnchor')
+        : this.$emit('addAnchor')
       this.updateFilter()
     },
   },
@@ -180,16 +180,14 @@ export default {
     },
   },
   mounted() {
-    if (document.querySelector('.header-scroll-pixel')) {
-      let observer = new IntersectionObserver(entries => {
-        entries[0].intersectionRatio && this.$route.path === '/'
-          ? this.$parent.$el.classList.remove('anchor-in')
-          : this.$parent.$el.classList.add('anchor-in')
-      })
-      observer.observe(document.querySelector('.header-scroll-pixel'))
-    }
+    const observer = new IntersectionObserver(entries => {
+      entries[0].intersectionRatio && this.$route.path === '/'
+        ? this.$emit('removeAnchor')
+        : this.$emit('addAnchor')
+    })
+    observer.observe(document.querySelector('.header-scroll-pixel'))
     document.addEventListener('scroll', ev => {
-      this.$parent.$el.classList.remove('filter-out')
+      this.$emit('collapseFilter')
     })
     this.onUpdate()
   },
