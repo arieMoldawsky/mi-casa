@@ -2,7 +2,7 @@
   padding: 0 $mobilePadding;
   margin-bottom: 30px;
   @include for-normal-layout {
-    padding: initial;
+    padding: 0;
   }
 }
 
@@ -35,6 +35,10 @@
 .head-title {
   flex-direction: column;
   padding: 20px 0;
+
+  @include for-normal-layout {
+    margin-top: 75px;
+  }
 }
 
 .head-title-visits {
