@@ -77,5 +77,8 @@ html {
 
 .content-wrap {
   padding-bottom: 2.5rem;
+  &:focus{
+    outline: 0;
+  }
 }
 </style>
