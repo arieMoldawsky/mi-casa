@@ -38,4 +38,9 @@
         border: 0px solid $clr1;
         border-width: 1px 0;
     }
+    .el-form {
+        .el-input__inner:focus {
+            border-color: $clr3;
+        }
+    }
 }
