@@ -15,7 +15,8 @@ Vue.use(VueSocialSharing);
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyB0b3on9pGxutkQG8-bRNmspW4imoC7_OI',
+    key: 'AIzaSyC1IyV2W9PZTl0fv2-1SUzT6Kz6X9LC1do',
+    // key: 'AIzaSyB0b3on9pGxutkQG8-bRNmspW4imoC7_OI',
     libraries: 'places',
     
   },
