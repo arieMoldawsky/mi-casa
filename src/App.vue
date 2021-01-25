@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import headerScrollPixel from '../src/cmps/headerScrollPixel.cmp'
-import appHeader from '../src/cmps/appHeader.cmp'
-import appFooter from '../src/cmps/appFooter.cmp'
-import modal from '@/cmps/modal.cmp'
-import socketService from '@/services/socket.service.js'
+import headerScrollPixel from "../src/cmps/headerScrollPixel.cmp";
+import appHeader from "../src/cmps/appHeader.cmp";
+import appFooter from "../src/cmps/appFooter.cmp";
+import modal from "@/cmps/modal.cmp";
+import socketService from "@/services/socket.service.js";
 
 export default {
   components: {
@@ -31,21 +31,21 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.getters.loggedinUser
+      return this.$store.getters.loggedinUser;
     },
   },
   methods: {
     collapseFilter() {
-      this.$refs.header.$el.classList.remove('filter-out')
+      this.$refs.header.$el.classList.remove("filter-out");
     },
   },
   created() {
-    socketService.setup()
-    socketService.on('userMsg', msg => {
+    socketService.setup();
+    socketService.on("userMsg", (msg) => {
       this.$store.dispatch({
-        type: 'unreadBooking',
+        type: "unreadBooking",
         user: this.user,
-      })
+      });
       this.$notify({
         showClose: true,
         title: msg.title,
@@ -53,15 +53,19 @@ export default {
         type: msg.type,
         duration: 5000,
         dangerouslyUseHTMLString: true,
-        position: 'bottom-right',
+        position: "bottom-right",
         onClick: this.$notify.closeAll,
-      })
-    })
+      });
+    });
     window.onbeforeunload = () => {
-      socketService.terminate()
-    }
+      socketService.terminate();
+    };
+    this.$store.dispatch({
+      type: "login",
+      userCred: { email: "orly@amdadi.com", password: "123" },
+    });
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -77,7 +81,7 @@ html {
 
 .content-wrap {
   padding-bottom: 2.5rem;
-  &:focus{
+  &:focus {
     outline: 0;
   }
 }
